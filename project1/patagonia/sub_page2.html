@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<!-- 아래 jquery사이트에서 ui 링크 복사, rotate-scale플러그인 추가함 -->
+	 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="script/jquery-animate-css-rotate-scale.js"></script>
+	<!-- text애니메이션 플러그인 -->
+	<script src="script/jquery.fittext.js"></script>
+	<script src="script/jquery.lettering.js"></script>
+	<script src="script/jquery.textillate.js"></script>
+	<link rel="stylesheet" href="style/animate.css">
+	<!-- text애니메이션 끝 -->
+	<!-- swiper 플러그인 -->
+	<link rel="stylesheet" href="style/swiper_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#back_main_page').click(function(){
+			window.location.href="index.html"
+		});
+			$('#sub_page_wrap4_center li').click(function(){
+				$(this).children('.center_num',).fadeIn(300)
+				$(this).siblings().children('.center_num',).fadeOut(300)
+				$(this).siblings().children('.sub_page_wrap4_center_bg',).fadeIn(300)
+				$(this).children('.sub_page_wrap4_center_bg').fadeOut(300)
+				$(this).children('h3').fadeIn(300)
+				$(this).siblings().children('h3').fadeOut(300)
+			});
+			$('#popup_banner').mouseenter(function(){
+			$('#popup_banner').stop().animate({'top':'0px'},300)
+			});
+			$('#popup_banner').mouseleave(function(){
+			$('#popup_banner').stop().animate({'top':'-80px'},300)
+			});
+		$('#scroll_down2').animate({'rotate':'90deg'},10000,function scroll_down_dotted(){
+			$('#scroll_down2').animate({'rotate':'0deg'},10000,function(){
+				$('#scroll_down2').animate({'rotate':'90deg'},10000,scroll_down_dotted)
+			});
+		});
+		$('#scroll_down').animate({'rotate':'-180deg'},10000,function scroll_down_dotted_2(){
+			$('#scroll_down').animate({'rotate':'0deg'},10000,function(){
+				$('#scroll_down').animate({'rotate':'-180deg'},10000,scroll_down_dotted_2)
+			});
+		});
+		$('#scroll_down2').animate({'width':'200px','height':'200px'},5000,function size(){
+			$('#scroll_down2').animate({'width':'150px','height':'150px'},5000,function(){
+				$('#scroll_down2').animate({'width':'200px','height':'200px'},5000,size)
+			});
+		});
+		$('#scroll_down').animate({'width':'350px','height':'350px'},5000,function size(){
+			$('#scroll_down').animate({'width':'300px','height':'300px'},5000,function(){
+				$('#scroll_down').animate({'width':'350px','height':'350px'},5000,size)
+			});
+		});
+		//main1 scroll 시작
+		$(window).scroll(function(){
+			sc = $(window).scrollTop();
+			//확인용
+			$('#sctext').text(sc)
+			//확인용 끝
+		}); //window scroll끝
+		});
+  </script>
+   <style>
+	* {margin: 0; padding: 0; list-style: none;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%; font-family: 'Noto Sans KR', sans-serif; background-color: #2a363c;}
+	#wrap {height: 100%;}
+	#sctext {position: fixed; left: 0; top: 0; border: 1px solid #fff; font-size: 100px; color: #fff; z-index: 9999999;}
+	/*intro*/
+	/*	#intro {width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 999; background: #fff url(logo/320x320_logo.jpg) center no-repeat; display: none;}*/
+	#sub_page_wrap1 {width: 100%; height: 100%; position: relative; overflow: hidden; background-color: #eee;}
+	/* main1bg */
+	#sub_page_bg_video {width: 100%; height: 100%;}
+	#sub_page_bg{width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: #000; opacity: 0.3;}
+	#popup_banner{width: 100%; height: 115px; position: fixed; top: -80px; z-index: 100; background: url(icons/menu_bar2.png) center no-repeat; z-index: 999999;}
+	#popup_banner_logo {width: 150px; float: left; margin-left: 50px; line-height: 80px;}
+	#popup_banner_logo img {width: 150px;}
+	#popup_banner_menu {width: 600px; height: 80px; line-height: 80px; margin: auto; text-align: center;}
+	#popup_banner_menu li {width: 150px; height: 80px; float: left; font-weight: 400; text-transform: uppercase; color: #000; font-size: 14px;}
+	/* header */
+	header {width: 100%; height: 80px; position: fixed; top: 0; z-index: 99;}
+	#logo {width: 150px; float: left; margin-left: 50px; line-height: 80px;}
+	#logo img {width: 150px;}
+	#menu {float: right; margin-right: 50px; line-height: 80px;}
+	#menu li {float: left; color: #fff; font-weight: 500; margin-right: 20px; text-transform: uppercase; font-weight: 400; font-size: 14px;}
+	#back_main_page {width: 90px; height: 90px; border-radius: 100px; border: 1px solid #fff; position: absolute; left: 50px; top: 100px;}
+	#back_main_page:hover {transform:scale(1.1); cursor: pointer;}
+	#back_main_page img {width: 14px; height: 7px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
+	#back_main_page h3 {width: 250px; height: 20px; font-size: 12px; color: #fff; font-weight: 100; position: absolute; left: 0;  right: -300px; top: 0; bottom: 0; margin: auto;}
+	#sub2_center {width: 1440px; height: 200px; position: absolute; left: 50%; top: 0; bottom: 0; margin: auto; margin-left: -720px; text-align: center;}
+	#sub2_center h2 {font-size: 60px; color: #fff;}
+	#name {position: absolute; left: 50px; bottom: 50px; right: 0; color: #fff; font-size: 16px;}
+	#scroll_down {border: 2px dotted #fff; width: 300px; height: 300px; position: absolute; bottom: -150px; right: 0; left: 0; margin: auto; border-radius: 400px;}
+	#scroll_down2 {width: 150px; height: 150px; border-radius: 200px; border: 2px dotted #fff; position: absolute; left: 0; right: 0; bottom: -75px; margin: auto; }
+	#scroll_down_text {width: 100px; height: 50px; color: #fff; font-size: 14px; font-weight: 400; position: absolute; right: 0; left: 0; bottom: 0px; margin: auto; text-align: center;}
+	#sns_box {width: 20px; height: 110px; position: absolute; top: 0; bottom: 0; right: 50px; margin: auto;}
+	#sns_box li{width: 20px; height: 20px; margin-bottom: 10px;}
+	#sns_box li:hover {transform:scale(1.2);}
+	#sns_box li img {width: 20px;}
+	/* sub_page_wrap2시작	*/
+	#sub_page_wrap2 {width: 100%; height: 2380px; position: relative; z-index: 999;}
+	#sub_page2_menu {width: 600px; height: 50px; position: absolute; left: 50%; top: 100px; margin: auto; margin-left: -300px; text-align: center;}
+	#sub_page2_menu li {width: 150px; height: 50px; line-height: 50px; color: #fff; float: left;}
+	#img_box {width: 1440px; height: 2180px; position: absolute; left: 50%; top: 200px; margin: auto; margin-left: -720px; text-align: center;}
+	#img_box>li {width: 470px; margin-right: 15px; float: left;}
+	#img_box>li:nth-child(3) {margin-right: 0px;}
+	#img_box>li img{width: 470px; vertical-align: top;}
+	#img_box>li>ul>li {margin-top: 15px;}
+	#img_box1 li:nth-child(6) {height: 275px; overflow: hidden;}
+	#img_box2 li:nth-child(4) {height: 500px; overflow: hidden;}
+	#img_box3 li:nth-child(6) {height: 236px; overflow: hidden;}
+	/* sub_page_wrap3시작	*/
+	#sub_page_wrap3 {width: 100%; height: 100%; position: relative; margin-top: 100px; background: url(images/sub_page_wrap3_bg.jpg) center no-repeat fixed; box-sizing: border-box;}
+	#sub_page_wrap3_bg {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: #000; opacity: 0.3;}
+	#sub_page_wrap3_center {width: 800px; height: 720px; position: absolute; left: 50%; top: 0; bottom: 0; margin: auto; margin-left: -400px;} 
+	#sub_page_wrap3_text1 {width: 400px; height: 100px; position: absolute; left: -1000px; right: 0; top: 0px; bottom: -500px; margin: auto;}
+	#sub_page_wrap3_text1 h2 {color: #fff; font-weight: 400; font-size: 30px; opacity: 0.5;}
+	#sub_page_wrap3_text2 {width: 500px; height: 100px; position: absolute; left: 0px; right: -800px; top: -500px; bottom:0px; margin: auto;}
+	#sub_page_wrap3_text2 h2 {color: #fff; font-weight: 400; font-size: 30px; opacity: 0.5; text-align: right;}
+	#sub_page_wrap3_text2 h3 {color: #fff; font-weight: 400; font-size: 16px; opacity: 0.5; text-align: right;}
+
+	/* sub_page_wrap4	시작*/
+	#sub_page_wrap4 {width: 100%; height: 100%; position: relative;}
+	#sub_page_wrap4_center {width: 1440px; height: 650px; position: absolute; left: 50%; top: -50px; bottom: 0; margin: auto; margin-left: -720px;}
+	#sub_page_wrap4_center li {width: 330px; height: 650px; float: left; margin-right: 40px; overflow: hidden; position: relative;} 
+	#sub_page_wrap4_center li:nth-child(1) {background: url(images/sub_page_wrap4_center_img1.jpg) center no-repeat;}
+	#sub_page_wrap4_center li:nth-child(2) {background: url(images/sub_page_wrap4_center_img2.jpg) center no-repeat;}
+	#sub_page_wrap4_center li:nth-child(3) {background: url(images/sub_page_wrap4_center_img3.jpg) center no-repeat;}
+	#sub_page_wrap4_center li:nth-child(4) {margin-right: 0px; background: url(images/sub_page_wrap4_center_img4.jpg) center no-repeat;}
+	.sub_page_wrap4_center_bg {width: 330px; height: 650px; background-color: rgba(0,0,0,0.5); position: absolute;}
+	.center_num {width: 200px; height: 200px; background-color: #0080ff; position: absolute; left: -100px; top: -100px; transform:rotate(45deg); opacity: 0.5; display: none;} 
+	#sub_page_wrap4_center li:nth-child(1) .sub_page_wrap4_center_bg {display: none;}
+	#sub_page_wrap4_center li:nth-child(1) .center_num {display: block;}
+	#sub_page_wrap4_center li:hover {cursor: pointer;}
+	
+	#sub_page_wrap4_center li h3 {position: absolute; left: 30px; top: 30px; font-size: 30px; color: #fff; font-weight: 500; display: none;}
+	#sub_page_wrap4_center li:nth-child(1) h3 {display: block;}
+	#sub_page_wrap4_center li h4 {position: absolute; bottom: 25px; left: 25px; color: #fff; font-weight: 300; font-size: 36px;}
+
+	/* sub_page_wrap5	시작*/
+	#sub_page_wrap5 {width: 100%; height: 100%; position: relative;}
+	#sub_page_wrap5_center {width: 1440px; height: 650px; position: absolute; left: 50%; top: -50px; bottom: 0; margin: auto; margin-left: -720px;}
+	#sub_page_wrap4_center_left_box {position: absolute; left: 0; top: 0;}
+	#sub_page_wrap4_center_right_box {position: absolute; right: 0; bottom: 0;}
+	#sub_page_wrap5 h2 {color: #fff; line-height: 50px; margin-left: 50px; margin-top: 50px; font-size: 36px;}
+	#sub_page_wrap5 p {color: #fff; line-height: 30px; margin-top: 330px; margin-left: 50px;}
+	#sub_page_wrap5_center_sport_img1 {width: 300px; position: absolute; right: 150px; top: 0; z-index: 99;} 
+	#sub_page_wrap5_center_sport_img2 {width: 300px; position: absolute; right: 50px; top: 200px; transform:rotate(0deg);}
+
+	/* popup_box 시작 */
+ </style><style> 
+  	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+
+	}
+	@media all and (min-width:768px) { /*768~1023 태블릿*/
+	
+	}
+	@media all and (min-width:1024px) { /*1024 태블릿*/
+	
+	}
+  </style></head><body>
+ 	<div id="wrap"> <!-- wrap시작 -->
+	<div id="sub_page_wrap1"> <!-- sub_page_wrap1시작	-->
+	<!-- main1_wrap header시작	-->
+	<div id="sub_page_bg_video"><video src="video/video3.mp4" autoplay loop muted></video></div>	
+	<div id="sub_page_bg"></div>
+	<div id="popup_banner">
+			<h2 id="popup_banner_logo"><img src="logo/black_logo.png" alt="black_logo_img"></h2>
+				<ul id="popup_banner_menu">
+					<li><a href="#">shop</a></li>
+					<li><a href="#">inside patagonia</a></li>
+					<li><a href="#">film</a></li>
+					<li><a href="#">gallery</a></li>
+				</ul>
+	</div>
+		<header>
+			<h1 id="logo"><img src="images/white_logo.png" alt="white_logo_img"></h1>
+			<ul id="menu">
+				<li><a href="#">SURFING</a></li>
+				<li><a href="#">CLIMBING</a></li>
+				<li><a href="#">SNOW</a></li>
+				<li><a href="#">MOUNTAIN BIKING</a></li>
+				<li><a href="#">TRAIL RUNNIG</a></li>
+			</ul>
+		</header>
+		<div id="sub2_center">
+			<h2>THERE IS NO SUCH THING AS</h2>
+			<h2>BEING TOO MUCH STRENGTH.</h2>
+		</div>
+		<h3 id="name">-Wolfgang Gullich-</h3>	
+		<h4 id="scroll_down_text">Scroll <br> Down</h4>
+			<div id="scroll_down"></div>
+			<div id="scroll_down2"></div>
+			<a href="index.html"><div id="back_main_page">
+					<img src="icons/arrow.png" alt="arrow_icon_img">
+					<h3>BACK TO THE SPORT GALLERY</h3>
+			</div></a>
+			<ul id="sns_box">
+				<li><img src="icons/instargram_icon.png" alt="instar_img"></li>
+				<li><img src="icons/facebook_icon.png" alt="facebook_img"></li>
+				<li><img src="icons/twitter_icon.png" alt="twitter_img"></li>
+				<li><img src="icons/youtube_icon.png" alt="youtubu_img"></li>
+			</ul>	
+			</div><!-- sub_page_wrap1끝 -->
+			<div id="sub_page_wrap2"> <!-- sub_page_wrap2 시작 -->
+				<ul id="sub_page2_menu">
+					<li><a href="#">ADVENTURE</a></li>
+					<li><a href="#">ALL</a></li>
+					<li><a href="#">PEOPLE</a></li>
+					<li><a href="#">ACCOMMODATION</a></li>
+				</ul>	
+				<ul id="img_box">
+				<li>
+				<ul id="img_box1">
+					<li><img src="images/sub_page_img/climbing/climbing1.jpg" alt="films_img1"></li>
+					<li><img src="images/sub_page_img/climbing/climbing2.jpg" alt="films_img2"></li>
+					<li><img src="images/sub_page_img/climbing/climbing3.jpg" alt="films_img3"></li>
+					<li><img src="images/sub_page_img/climbing/climbing4.jpg" alt="films_img4"></li>
+					<li><img src="images/sub_page_img/climbing/climbing13.jpg" alt="films_img5"></li>
+					<li><img src="images/sub_page_img/climbing/climbing14.jpg" alt="films_img6"></li>	
+				</ul>
+				</li>
+
+				<li>
+				<ul id="img_box2">
+					<li><img src="images/sub_page_img/climbing/climbing5.jpg" alt="films_img7"></li>
+					<li><img src="images/sub_page_img/climbing/climbing6.jpg" alt="films_img8"></li>
+					<li><img src="images/sub_page_img/climbing/climbing7.jpg" alt="films_img9"></li>
+					<li><img src="images/sub_page_img/climbing/climbing8.jpg" alt="films_img10"></li>
+				</ul>	
+				</li>
+
+				<li>
+				<ul id="img_box3">
+					<li><img src="images/sub_page_img/climbing/climbing9.jpg" alt="films_img11"></li>
+					<li><img src="images/sub_page_img/climbing/climbing10.jpg" alt="films_img12"></li>
+					<li><img src="images/sub_page_img/climbing/climbing11.jpg" alt="films_img13"></li>
+					<li><img src="images/sub_page_img/climbing/climbing12.jpg" alt="films_img14"></li>
+					<li><img src="images/sub_page_img/climbing/climbing15.jpg" alt="films_img15"></li>
+					<li><img src="images/sub_page_img/climbing/climbing16.jpg" alt="films_img16"></li>
+				</ul>
+				</li>
+				</ul>
+			</div> <!-- sub_page_wrap2 끝 -->
+			<div id="sub_page_wrap3"> <!-- sub_page_wrap3 시작 -->
+			<div id="sub_page_wrap3_bg"></div>
+				<div id="sub_page_wrap3_center">
+					<img src="images/player_line.png" alt="player_line_img">
+				</div>
+				<div id="sub_page_wrap3_text1">
+					<h2>PATAGONIA CLIMBING</h2>
+					<h2>POINT OF CONTECT</h2>
+				</div>
+				<div id="sub_page_wrap3_text2">
+					<h2>THERE IS NO SUCH THING AS</h2>
+					<h2>BEING TOO MUCH STRENGTH</h2>
+					<h3>-Wolfgang Gullich-</h3>
+				</div>
+			</div><!-- sub_page_wrap3 끝 -->
+			<div id="sub_page_wrap4"> <!-- sub_page_wrap 시작 -->
+				<ul id="sub_page_wrap4_center">
+					<li><div class="center_num"></div><div class="sub_page_wrap4_center_bg"></div><h3>1</h3><h4>Ston <br> Locals</h4></li>
+					<li><div class="center_num"></div><div class="sub_page_wrap4_center_bg"></div><h3>2</h3><h4>MINIMAL<br> STOPPING</h4></li>
+					<li><div class="center_num"></div><div class="sub_page_wrap4_center_bg"></div><h3>3</h3><h4>Rotpunkt <br> Redpoint</h4></li>
+					<li><div class="center_num"></div><div class="sub_page_wrap4_center_bg"></div><h3>4</h3><h4>Patagonia <br> DAS</h4></li>
+				</ul>
+				<div id="popup_box"></div>
+			</div> <!-- sub_page_wrap4 끝 --> 
+			<div id="sub_page_wrap5">
+				<div id="sub_page_wrap5_center">
+					<img src="images/box_left.png" alt="left_box_img" id="sub_page_wrap4_center_left_box">
+					<img src="images/box_right.png" alt="right_box_img" id="sub_page_wrap4_center_right_box">
+				<h2>A man doesn't go to drink coffee after climbing, <br> coffee is integral part of the climbing."</h2>
+				<p>Wolfgang Güllich (24 October 1960 - 31 August 1992) <br> was a German rockclimber, known for being one of the greatest <br> sport climbers of his generation and pushing the boundaries of climbing grades. <br> In 1990 he met his future wife Anette, whom he married one year later. <br> He was a climbing double for Sylvester Stallone in the 1993 movie Cliffhanger, along with Ron Kauk.[12][2] <br> On August 29, 1992 Wolfgang fell asleep at the wheel of his car and veered off the Autobahn between Munich and Nuremberg <br> as he made his way home from an interview. Two days later he died in a hospital in Ingolstadt, never having regained consciousness.</p>
+				<img src="images/sub_page_wrap5_center_img1.jpg" alt="sport_img1" id="sub_page_wrap5_center_sport_img1">
+				<img src="images/sub_page_wrap5_center_img2.jpg" alt="sport_img2" id="sub_page_wrap5_center_sport_img2">
+				</div>	
+			</div>
+	</div> <!-- wrap끝 -->
+	<!-- scroll확인 -->
+	<div id="sctext">0</div>
+ </body>
+</html>

@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>patagonia</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<!-- 아래 jquery사이트에서 ui 링크 복사, rotate-scale플러그인 추가함 -->
+	 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="script/jquery-animate-css-rotate-scale.js"></script>
+	<!-- text애니메이션 플러그인 -->
+	<script src="script/jquery.fittext.js"></script>
+	<script src="script/jquery.lettering.js"></script>
+	<script src="script/jquery.textillate.js"></script>
+	<link rel="stylesheet" href="style/animate.css">
+	<!-- text애니메이션 끝 -->
+	<!-- swiper 플러그인 -->
+	<link rel="stylesheet" href="style/swiper_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<!-- favicon등록 -->
+	<script>
+	$(document).ready(function(){
+		$('#main3_sport li:nth-child(1)').click(function(){
+			window.location.href="sub_page1.html"
+		});
+		$('#main3_sport li:nth-child(2)').click(function(){
+			window.location.href="sub_page2.html"
+		});
+		$('#main3_sport li:nth-child(3)').click(function(){
+			window.location.href="sub_page3.html"
+		});
+		$('#main3_sport li:nth-child(4)').click(function(){
+			window.location.href="sub_page4.html"
+		});
+		$('#main3_sport li:nth-child(5)').click(function(){
+			window.location.href="sub_page5.html"
+		});
+			$('#popup_banner').mouseenter(function(){
+			$('#popup_banner').stop().animate({'top':'0px'},300)
+			});
+			$('#popup_banner').mouseleave(function(){
+			$('#popup_banner').stop().animate({'top':'-80px'},300)
+			});
+			//hit 클릭시 이동
+			$('#main_hit_icon1').click(function(){
+				$('body,html').animate({'scrollTop':$('#main1_wrap').offset().top},300);
+			});
+			$('#main_hit_icon2').click(function(){
+				$('body,html').animate({'scrollTop':$('#main2_wrap').offset().top},300);
+			});
+			$('#main_hit_icon3').click(function(){
+				$('body,html').animate({'scrollTop':$('#main3_wrap').offset().top},300);
+			});
+			$('#main_hit_icon4').click(function(){
+				$('body,html').animate({'scrollTop':$('#main4_wrap').offset().top},300);
+			});
+			$('#main_hit_icon5').click(function(){
+				$('body,html').animate({'scrollTop':$('#main5_wrap').offset().top},300);
+			});		
+			$('#main_hit_icon6').click(function(){
+				$('body,html').animate({'scrollTop':$('#main6_wrap').offset().top},300);
+			});		
+			//hit 클릭시 끝
+		//main2 ship setinterval 시작		
+		main2_ship=0;
+		setInterval(function(){
+			main2_ship=main2_ship+20
+			//cloud1이  1920보다 크면
+			if(main2_ship>=2000){
+				main2_ship=-600;
+				$('#main2_bg img:nth-child(4)').stop().css({'right':'-600px'}) 
+				}
+			$('#main2_bg img:nth-child(4)').stop().animate({'right':main2_ship},500,"linear")
+		},100);
+		$('#ship1').animate({'left':'30px'},2000,function ship1(){
+			$('#ship1').animate({'left':'10px'},2000)
+			$('#ship1').animate({'left':'30px'},2000,ship1)
+		});
+		$('#ship2').animate({'left':'165px'},2000,function ship2(){
+			$('#ship2').animate({'left':'190px'},3000,)
+			$('#ship2').animate({'left':'165px'},2000,ship2)
+		});
+//		$('#main2_bg img:nth-child(4)').animate({'right':'2000px','bottom':'100px'},5000)
+		//main1 center_logo1시작
+//		$('#intro').fadeIn(2000,function(){
+//			$('#intro').fadeOut(function(){
+			$('#main1_wrap,#main2_wrap').fadeIn(function(){
+			$('#center_logo1').fadeIn(500)
+			$('#center_logo1').animate({'letterSpacing':'20px'},300,function(){
+			$('#center_logo2').fadeIn(500)
+			$('#center_mountain_icon').animate({width:250},500)
+			$('#right_page_icon').animate({'right':'50px'})
+			$('#logo').fadeIn(500)
+			$('#sns').fadeIn(500)
+			$('#round_km').fadeIn(500)
+			});
+		});
+		//main1 scroll 시작
+		$(window).scroll(function(){
+			sc = $(window).scrollTop();
+			if( sc>=$('#main1_wrap').offset().top   && sc<$('#main2_wrap').offset().top  ){  
+			$('#wich').stop().animate({'top':'-10px'},300)
+			}
+			else if(  sc>=$('#main2_wrap').offset().top   && sc<$('#main3_wrap').offset().top  ) {
+			$('#wich').stop().animate({'top':'60px'},300)
+			}
+			else if(  sc>=$('#main3_wrap').offset().top   && sc<$('#main4_wrap').offset().top  ) {
+			$('#wich').stop().animate({'top':'140px'},300)
+			}
+			else if(  sc>=$('#main4_wrap').offset().top   && sc<$('#main5_wrap').offset().top  ) {
+			$('#wich').stop().animate({'top':'220px'},300)
+			}
+			else if(  sc>=$('#main5_wrap').offset().top   && sc<$('#main6_wrap').offset().top  ) {
+			$('#wich').stop().animate({'top':'300px'},300)
+			}
+			else if(  sc<=$('#main6_wrap').offset().top) {
+			$('#wich').stop().animate({'top':'380px'},300)
+			}
+			//확인용 끝
+			$('#round_km').text(sc+'.0'+'m')
+			// main2 top도착할 때 애니메이션
+			if(sc>=$('#main2_wrap').offset().top){
+				//두번째
+				$('#mission_sraterment1_left_bg').delay(0).animate({'opacity':'1','width':'576px','height':'285px'},500)
+				$('#mission_stratement1_right').delay(300).animate({'opacity':'1','width':'864px','height':'425px'},500)
+				$('#mission_stratement2_left').delay(600).animate({'opacity':'1','width':'864px','height':'205px'},500)
+				$('#mission_stratement2_right').delay(900).animate({'opacity':'1','width':'556px','height':'205px'},500,function(){
+					$('#mission_sraterment1_left_bg img').animate({'width':'556px','height':'265px'},500)
+					$('#mission_stratement1_right_contents li div').animate({'width':'251px','height':'325px'},500)
+					$('#book_right li img').animate({'width':'122px'},500)
+					$('#book_left li').animate({'width':'150px'},500,function(){
+					$('#mission_stratement1_left h3,#mission_stratement1_left p,#mission_stratement1_left button,#mission_stratement1_right_contents li h4,#mission_stratement1_right_contents li h5,#mission_stratement2_left h4,#mission_stratement2_right_logo img,#mission_stratement2_right h4').animate({'opacity':'1'},500)
+				}); });
+				}
+				//세번째
+//				$('#mission_sraterment1_left_bg').animate({'width':'576px'},300,function(){
+//					$('#mission_sraterment1_left_bg').animate({'height':'310px'},600)
+//				});
+//				$('#mission_stratement1_right').animate({'width':'864px'},300,function(){
+//					$('#mission_stratement1_right').animate({'height':'450px'},600)
+//				});
+//				$('#mission_stratement2_left').animate({'width':'864px'},300,function(){
+//					$('#mission_stratement2_left').animate({'height':'230px'},600)
+//				});
+//				$('#mission_stratement2_right').animate({'width':'556px'},300,function(){
+//					$('#mission_stratement2_right').animate({'height':'230px'},600,function(){
+//				$('#mission_stratement1_left h3,#mission_stratement1_left p,#mission_stratement1_left button,#mission_stratement1_right_contents li h4,#mission_stratement1_right_contents li h5,#mission_stratement2_left h4,#mission_stratement2_right_logo img,#mission_stratement2_right h4').animate({'opacity':'1'},500)
+//				});
+//				});
+
+				//처음했던거				
+//				$('#mission_stratement1_left').animate({'top':'0','opacity':'1'},1000,function(){
+//				$('#mission_sraterment1_left_bg img').animate({'width':'556px'},500,function(){
+//				$('#mission_stratement1_left h3,#mission_stratement1_left p,#mission_stratement1_left button').fadeIn(500)
+//				}); });
+//				$('#mission_stratement1_right').animate({'top':'0','opacity':'1'},1000,function(){
+//					$('#mission_stratement1_right_contents li div').animate({'width':'251px'},500,function(){
+//					$('#mission_stratement1_right_contents li h4,#mission_stratement1_right_contents li h5').fadeIn(500)
+//					}); });
+//				$('#mission_stratement2_left').animate({'left':'0','opacity':'1'},1000,function(){
+//					$('#book_right img').animate({'width':'153px'},500)
+//					$('#book_left li').animate({'width':'154px'},500,function(){
+//						$('#mission_stratement2_left h4').animate({'opacity':'1'})
+//					}); });
+//				$('#mission_stratement2_right').animate({'right':'0','opacity':'1'},1000,function(){
+//					$('#mission_stratement2_right_bg').animate({'width':'556px'},500,function(){
+//						$('#mission_stratement2_right_logo img,#mission_stratement2_right h4').fadeIn()
+//					}); });
+			// main3 top도착할 때 애니메이션
+			if(sc>=$('#main3_wrap').offset().top){
+			$('#main3_sport li:nth-child(1)').fadeIn(200,function(){
+			$('#main3_sport li:nth-child(2)').fadeIn(200,function(){
+				$('#main3_sport li:nth-child(3)').fadeIn(200,function(){
+					$('#main3_sport li:nth-child(4)').fadeIn(200,function(){
+						$('#main3_sport li:nth-child(5)').fadeIn(200,function(){
+							$('#main3_sport li:nth-child(1)').animate({'left':'-1200px'})
+							$('#main3_sport li:nth-child(2)').animate({'left':'-600px'})
+							$('#main3_sport li:nth-child(4)').animate({'right':'-600px'})
+							$('#main3_sport li:nth-child(5)').animate({'right':'-1200px'},function(){
+								$('.main3_sport_li_bt').animate({'opacity':'1','top':'-25px'},800)
+								$('#main3_center h2,#main3_center h3').delay(300).animate({'opacity':'1'},300)
+								$('#main3_click_img').fadeIn()
+		//main3페이지 애니메이션 //21/06/15 다시해야함
+		$('#main3_click_img_box div').animate({'bottom':'40px'},500,function main3_click_img(){
+		$('#main3_click_img_box div').animate({'bottom':'50px'},500)
+		$('#main3_click_img_box div').animate({'bottom':'40px'},500,main3_click_img)
+		});
+		$('#main3_sport li:nth-child(1)').mouseover(function(){
+			$('#main3_click_img1').show()
+		});
+		$('#main3_sport li:nth-child(1)').mouseout(function(){
+			$('#main3_click_img1').hide()
+		});
+		$('#main3_sport li:nth-child(2)').mouseover(function(){
+			$('#main3_click_img2').show()
+		});
+		$('#main3_sport li:nth-child(2)').mouseout(function(){
+			$('#main3_click_img2').hide()
+		});
+		$('#main3_sport li:nth-child(3)').mouseover(function(){
+			$('#main3_click_img3').show()
+		});
+		$('#main3_sport li:nth-child(3)').mouseout(function(){
+			$('#main3_click_img3').hide()
+		});
+		$('#main3_sport li:nth-child(4)').mouseover(function(){
+			$('#main3_click_img4').show()
+		});
+		$('#main3_sport li:nth-child(4)').mouseout(function(){
+			$('#main3_click_img4').hide()
+		});
+		$('#main3_sport li:nth-child(5)').mouseover(function(){
+			$('#main3_click_img5').show()
+		});
+		$('#main3_sport li:nth-child(5)').mouseout(function(){
+			$('#main3_click_img5').hide()
+		}); }); }); }); }); }); });	
+		}
+		if(sc>=$('#main4_wrap').offset().top){
+			$('#ambassador').animate({'marginRight':'-720px','opacity':'1'},500,function(){
+				$('#ambassador_left_box h2').animate({'marginTop':'30px','opacity':'1'},500)
+				$('#ambassador_profile_box>h2').animate({'marginTop':'30px','opacity':'1'},500,function(){
+				$('.ambassador_left_text_box h4, .ambassador_left_text_box p').animate({'marginLeft':'50px','opacity':'1'},500)
+				$('#profile_slide_wrap').animate({'width':'1080px','opacity':'1'},500)
+				$('#ambassador_sport_box li img').fadeIn(500)
+				$('#ambassador_sport_box li h4').fadeIn(500)
+				});
+			});
+		}
+		if(sc>=$('#main5_wrap').offset().top){
+			$('#main5_wrap_product_box').animate({'marginLeft':'-720px','opacity':'1'},500,function(){
+				$('#video_box h2').animate({'marginLeft':'10px','opacity':'1'},500)
+				$('#video_box h3').animate({'marginLeft':'10px','opacity':'1'},500)
+				$('#video_inbox').animate({'width':'499px','opacity':'1'},500)
+				$('#video_box h4').animate({'marginLeft':'10px','opacity':'1'},500)
+				$('#video_box p').animate({'marginLeft':'10px','opacity':'1'},500)
+					$('#main5_sport_icon').animate({'marginLeft':'0','opacity':'1'})
+				});
+		}
+		}); //window scroll끝
+		//main4 시작
+		//main4 click 시
+		$('.profile_slide li').click(function(){
+			$('#ambassador_profile_popup_box').show()
+			});
+		$('#ambassador_close_bt').click(function(){
+			$('#ambassador_profile_popup_box').hide()
+		});
+		profile_slide_li= 0;
+		// 프로필 한명 한명 클릭시 정보들
+		// surfing profile list	
+		$('.profile_slide:nth-child(1) li:nth-child(1)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1441805613.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Gerry Lopez')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Honolulu, HI')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Bend, OR')
+			$('#ambassador_profile_popup_text_box_top p').text('2.4 미터의 파이프라인에서 완벽하고 고요한 자세로 파도를 타는 모습은 게리의 대표적인 사진입니다. 오하우의 노스 쇼어에서 튜브 라이딩의 예술을 새롭게 만든 후 게리는 인도네시아에 가서 울루와투와 G-랜드와 같은 전설적인 서핑 스팟을 개척했습니다. 지금은 오레곤에 살면서 파도를 타고, 글을 쓰고, 보드를 만들고, 스노우보드를 즐깁니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Fooling Toni into marriage after 5 years as a boyfriend, 1987')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Father of Alex in May, 1989')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Discovering windsurfing on Maui,1980')
+		});
+
+		$('.profile_slide:nth-child(1) li:nth-child(2)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1445557501.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Chris Malloy')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ojai, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Lompoc, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('크리스는 캘리포니아에서 일하고, 아내와 아이들과 함께 살아갑니다. 말로이 삼형제 중 마형으로서 180° South 영상을 감독했고 전설적인 서핑 영상을 만들었습니다. 말로이의 인생은 전통, 보존, 창조가 조화를 이루고 있습니다. “가장 훌륭한 삶은 가장 소박한 삶이다”라고 말로이는 말합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Invited to and surfed in the Eddie Aikau Big Wave Invitational, 2006')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Dozens of "first descents" throughout Polynesia, Indonesia')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Made more than twenty surf films')
+		});
+
+		$('.profile_slide:nth-child(1) li:nth-child(3)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1445557692.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Keith Malloy')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ojai, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Gaviota, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('형인 크리스처럼 케이스도 서핑의 고수입니다. 인생의 대부분을 바다에서 보내며 바다의 이야기를 담습니다. 몇 년 동안 서핑 영상에 나왔던 케이스는 최근에는 렌즈 뒤에서 컴 헬이나 하이 워터와 같은 영상을 만들었습니다. 케이스는 캘리포니아에서 가족과 함께 살아갑니다')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('His Dad pushed him into his first wave at age 4')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Surfed his hometown until moving to Hawaii in late teens')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Surfed on the US National team as an amateur')
+		});
+		$('.profile_slide:nth-child(1) li:nth-child(4)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1445559346.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Keith Malloy')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ojai, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Gaviota, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('형인 크리스처럼 케이스도 서핑의 고수입니다. 인생의 대부분을 바다에서 보내며 바다의 이야기를 담습니다. 몇 년 동안 서핑 영상에 나왔던 케이스는 최근에는 렌즈 뒤에서 컴 헬이나 하이 워터와 같은 영상을 만들었습니다. 케이스는 캘리포니아에서 가족과 함께 살아갑니다')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('His Dad pushed him into his first wave at age 4')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Surfed his hometown until moving to Hawaii in late teens')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Surfed on the US National team as an amateur')
+		});
+
+		$('.profile_slide:nth-child(1) li:nth-child(5)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1445932689.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Otto Flores')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> San Juan, Puerto Rico')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Carolina, Puerto Rico')
+			$('#ambassador_profile_popup_text_box_top p').text('“어렸을 때부터 저는 많은 운동을 해봤지만, 결국 바다에 빠져 들었어요.” 오토는 말합니다. 푸에트리코에서 자란 오토는 다양한 국내 경기에서 우승했고 나라를 대표해서 WQS 대회에 출전했습니다. 배럴에 도전하는 일은 오토의 가슴을 뜨겁게 합니다. 더욱 멋진 파도를 찾아 전 세계를 누빕니다. 헌신적인 노력 덕분에 오토는 잡지에도 여러 번 소개 되었지만, 그는 여전히 가장 많은 시간을 바다에서 보냅니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Cover of multiple surf publications worldwide')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Photo of the Year Surfer Poll Awards 2001')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Co-founded Granito de Arena')
+		});
+
+		$('.profile_slide:nth-child(1) li:nth-child(6)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1445933515.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Kimi Werner')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Maui, HI')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Haleiwa, HI')
+			$('#ambassador_profile_popup_text_box_top p').text('키미는 하와이의 마우이에서 자랐습니다. 아버지는 프리다이버였습니다. 소박한 삶을 추구하는 키미는 아버지의 발자국을 쫓아 2008년 미국 내셔널 스피어피싱 대회에서 우승했습니다. 키미는 예술가이자 요리사이기도 합니다. “프리 다이빙과 작살로 물고기를 잡는 순간은 저를 어린 시절의 행복함으로 이끌어 줍니다.” 키미는 말합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First place, 2012 International Pacific Cup')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').hide()
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').hide()
+		});
+
+		$('.profile_slide:nth-child(1) li:nth-child(7)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1524721021.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Liz Clark')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> San Diego, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> French Polynesia')
+			$('#ambassador_profile_popup_text_box_top p').text('리즈는 아홉 살 때 가족과 함께 멕시코 바다를 항해했습니다. “어린 시절 여행은 전 세계를 항해하고 싶다는 꿈을 갖게 해줬어요” 리즈는 말합니다. 대학을 졸업한 후 리즈의 꿈은 현실이 되었습니다. 12미터 길이의 범선인 스웰호를 타고 남부 캘리포니아를 떠났습니다. 지금은 남태평양에서 서핑을 하고, 글을 쓰고 사진을 찍으면서 환경 보호를 위해 일합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('National Scholastic Surfing Association (NSSA)')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Departed from Southern California aboard Swell, 2006')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Featured in film Dear and Yonder, 2009')
+		});
+		
+		$('.profile_slide:nth-child(1) li:nth-child(8)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/surf/profileimage_1524723552.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Dan Malloy')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ojai, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Ojai, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('최근 댄은 파도를 쫓아 떠돌아다니던 삶을 잠시 멈췄지만, 서핑과 제품 테스트는 여전히 삶의 중요한 부분입니다. 롬포크 근처에서 아내와 함께 살면서 농사를 짓고 가축을 키우면서 충만하고 여유롭게 살아갑니다. 물 속에서 파도와 함께 할 때도 늘 행복합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Alternate for the Eddie Aikau big wave event')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Alternate for the Mavericks Surf Contest')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Sponsored by Haleiwa Café')
+		});
+		// climbing profile list		
+		$('.profile_slide:nth-child(2) li:nth-child(1)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1445490993.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Colin Haley')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Seattle, WA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Seattle, WA/El Chalten, AR')
+			$('#ambassador_profile_popup_text_box_top p').text('콜린은 1984년 시애틀에서 태어났고, 지금도 시애틀을 집이라고 부릅니다. 바위 투성이인 캐스캐이드 산에서 등반하고, 스키를 타고, 걸어 다니면서 모험을 사랑하는 마음을 키웠고 날씨가 나빠도 그다지 신경쓰지 않는데 익숙해졌습니다. 콜린은 알라스카와 파타고니아에 있는 산의 가장 가파른 벽을 알파인 등반합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('The Entropy Wall, first ascent, with Jed Brown, July 2006.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Tiempos Perdido, first complete ascent, with Kelly Cordes')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('The Torres Traverse, first ascent, with Rolando Garibotti')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(2)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1445491775.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Josh Wharton')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Nottingham, NH')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Estes Park, CO')
+			$('#ambassador_profile_popup_text_box_top p').text('조쉬는 모든 스포츠를 좋아하지만, 특히 알파인 클라이밍을 사랑합니다. 자신과 파트너가 큰 위험을 무릅쓰고, 열심히 훈련하고, 삶의 대부분을 희생해야 하는 클라이밍에 특별한 자부심을 갖고 있습니다. 조쉬는 3미터 높이의 바위에서부터 3,000미터 높이의 알파인 루트까지 자신의 마음을 이끄는 등반을 계속하기를 바랍니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First ascent of The Flame, Pakistan')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First ascent of the Azeem Ridge on Great Trango Tower')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Three-time winner of the Ouray Ice Festival Mixed Climbing')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(3)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1445492475.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Kate Rutherford')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Vashon, WA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Vashon, WA')
+			$('#ambassador_profile_popup_text_box_top p').text('케이트는 어린 시절 알라스카 시골 오두막에서 타고 놀았던 그네 덕분에 클라이밍을 사랑하게 되었습니다. 케이트는 전기나 수돗물이 없는 곳에서 살면서 바위를 오르거나 바위에 매달리면서 놀았습니다. 케이트는 콜로라도 대학을 대니면서 등반을 정식으로 배웠고, 요세미티에서 인생이 통째로 뒤바뀌었습니다. 긴 크랙을 자유 등반하는 것은 케이트가 열정을 쏟는 활동입니다. 케이트는 보석을 만들거나 플라이 낚시 가이드를 하면서 지냅니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First ascent of The Washington Route (VI 5.10, A1), Fitz Roy')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Free ascent of Freerider (VI 5.12+), El Capitan, Yosemite')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First ascent of 10 Pounds of Tequila (VI 5.12+), Acopan Tepui')
+		});
+		
+		$('.profile_slide:nth-child(2) li:nth-child(4)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1445492668.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Brittany Griffith')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Iowa City, IA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top p').text('브리트니는 맥도날드에서 일하면서 12,308개의 해피밀을 팔았습니다. 브리트니는 등반을 15년 이상 해왔습니다. 난이도 5.13의 스포츠 클라이밍과 멀티 피치 클라이밍을 선등했고, 언젠가는 암장에서 5.11c 선등을 꼭 해내겠다고 마음 먹었습니다. 브리트니는 정원을 가꾸고 청소하는 일을 사랑합니다. 태권도는 검정띠입니다. 오만, 모로코, 러시아에서 등반했습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Ascent of Cracker Pterodactyl, Jebel Mischt, Oman')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Free ascent of Moonlight Buttress, Zion National Park, Utah')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of Venturi Effect (IV 5.12), High Sierras, California')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(5)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1445502180.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Barry Blanchard')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Calgary, Canada')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Canmore, Canada')
+			$('#ambassador_profile_popup_text_box_top p').text('베리는 파타고니아 초창기 첫번째 홍보 대사이자 R&D 팀원이었습니다. 베리는 알파인 등반으로 오르는 벽을 찾아 전세계를 여행합니다. 롭슨 산 동벽, 노스 트윈의 북쪽 면, 레스 드로이트의 북벽을 초등했습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First ascent of Infinite Patience on the Emperor Face of Mt. Robson')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First ascent of the North Pillar of North Twin')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of the Southeast Ridge of Mt. Asperity, Waddington Range')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(6)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1525055516.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Alexander Megos')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Erlangen, Germany')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Erlangen, Germany')
+			$('#ambassador_profile_popup_text_box_top p').text('알렉산더는 5살 때부터 등반을 시작했습니다. 2006년에는 바바리안 스포츠 클라이밍 대회에 처음 출전했습니다. 3년 후에는 두 개의 유럽 청소년 대회에서 우승했습니다. 알렉산더는 클라이밍이 최고의 스포츠라고 믿지만 직업으로 삼을 계획은 없습니다. 사진 찍기와 세계 여행을 좋아합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Winner European Youth Cup, 2009 and 2010')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Ascent of The Fly (5.14d), Rumney, New Hampshire')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of La Rambla (9a+), Siurana, Catalonia, Spain')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(7)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1525059552.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Dylan Johnson')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Roslyn, WA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Ventura, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('딜런은 세상 곳곳 거대한 산을 등반하고, 건축가로 일하고, 가족과 함께 하는 일의 균형을 찾아 살아갑니다. 거대한 알파인 벽은 딜런의 마음을 끓어 오르게 합니다. 자신을 한계까지 밀어부치는 등반을 통해 일상 생활의 스트레스를 다뤄 나갑니다. 딜런은 등반이 자신의 삶을 더욱 낫게 만들기 때문에 등반합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First ascent of Seerdengpu, Changping Valley, Sichuan')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First ascent of the Southwest Ridge of Siguniang')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Second ascent of Yangmantai')
+		});
+
+		$('.profile_slide:nth-child(2) li:nth-child(8)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/climbing/profileimage_1525059674.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Jasmin Caton')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Hills, British Columbia')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Nelson, British Columbia')
+			$('#ambassador_profile_popup_text_box_top p').text('자스민은 우크렐레를 연주하고 수학 경시 대회에 참여하며 어린 시절을 보낸 뒤, 19살에 클라이밍에 빠져들어 스콰미쉬로 이사했습니다. 지금은 스콰미쉬 화강암에서 등반 가이드를 하거나 남편 에반, 개 베니와 함께 발할라 산에서 스키 가이드로 일합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('ACMG Certified Rock Guide and Assistant Ski Guide')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Ascents of Nalumasortoq and Ulamatorsuaq, Tasermiut Fjord')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of Fallen Arches (5.13a), Little Cottonwood Canyon')
+		});
+			// snow profile list		
+		$('.profile_slide:nth-child(3) li:nth-child(1)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1441805396.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Josh Dirksen')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Creswell, OR')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Zürich, Switzerland')
+			$('#ambassador_profile_popup_text_box_top p').text('오레곤의 작은 마을에서 고등학교를 졸업한 뒤, 조쉬는 바클러 산으로 가기 위해 큰 마을로 떠났습니다. 초기에는 접시를 닦으며 돈을 벌었습니다. 스포츠에 대한 사랑이 점점 커져서, 태평양 북서부부터 전 세계 30개국 이상의 나라를 돌아다니며 스노우보드를 즐깁니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Snowboard descents captured on film by Kingpin productions')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First place at the Vans Triple Crown Big Air Competition')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Received a bronze medal at the X Games Big Air Competition')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(2)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445493871.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Ryland Bell')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Fairbanks, AK')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Lake Tahoe, CA')
+			$('#ambassador_profile_popup_text_box_top p').text('알래스카에서 자란 라이랜드 벨은 거대하고 가파른 산이 낯설지 않습니다. 라이랜드는 세상에서 가장 가파르고 어려운 산악 지역에서 스노우보드를 탑니다. 하이네와 스콰우 벨리에서 스노우보드를 타고, 여름에는 가족 전통에 따라 연어 보트에서 시간을 보냅니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Featured in the film Solitaire, by Sweetgrass')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('A cameo in Draw the Line, by Standard Films')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Riding pow with his bros')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(3)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445505838.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Carston Oliver')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top p').text('솔트 레이크 시티에서 나고 자란 가스톤은 버니 힐에서 처음 스키를 탔습니다. 그 후 스키에 흠뻑 빠져들었습니다. 카스톤은 “사람의 동작과 중력의 물리학을 알려주는 곳”인 와사치 절벽에서 많은 것을 배웠습니다. 모든 스키를 즐기며, 스윗그래스 프로덕션에서 새로운 영상을 함께 만드는 일을 합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Featured in the film Solitaire')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Ski descents captured in Powder')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Featured in multiple first and second place photos')
+		});
+		
+		$('.profile_slide:nth-child(3) li:nth-child(4)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445505922.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Braden “Pep” Fujas')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ashland, OR')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top p').text('브라덴 “펩” 푸자스의 스키는 모험을 즐기는 삶의 다양한 면을 보여줍니다. 알파인, 백컨트리, 사이드 컨트리, 파크, 파이프, 모굴, 그루머, 모든 게임은 공평합니다. 브라덴은 다양한 스키 기술로 X 게임 대회에 출전했고, 20개 이상의 필름에 출연했으며 전 세계를 여행했습니다. 펩은 산악 스키를 통해 자신의 특별한 스타일을 가장 잘 만들어 간다고 말합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Ascent of Cracker Pterodactyl, Jebel Mischt, Oman')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Free ascent of Moonlight Buttress, Zion National Park, Utah')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of Venturi Effect (IV 5.12), High Sierras, California')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(5)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445506186.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Kye Petersen')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Whistler, BC')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Whistler, BC')
+			$('#ambassador_profile_popup_text_box_top p').text('카이는 산악 스키를 사랑합니다. 카이는 눈 쌓인 거대한 능선과 가파른 절벽을 찾아 온 세상을 여행합니다. 카이는 2009년 레드불 콜드러쉬(Redbull Coldrush), 2012년 FWT 레벨스토크(FWT Revelstoke)에서 1위를 했고, 15개 이상의 스키 영상에 출연했습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First ascent of Infinite Patience on the Emperor Face of Mt. Robson')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First ascent of the North Pillar of North Twin')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ascent of the Southeast Ridge of Mt. Asperity, Waddington Range')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(6)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445506400.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Caroline Gleich')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Rochester, MN')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top p').text('캐롤라인은 열정적인 스키 선수이자 아웃도어 업계에서 일하는 사람입니다. 최근 몇 년 동안 캐롤라인이 찍은 사진은 잡지, 광고, 빌보드지에 실렸습니다. 미네소타에서 자란 캐롤라인은 지그은 솔트레이크에서 살며 비영리 환경 보호 단체에서 일하고, 눈사태에 관한 주의 사항을 가르치고, 장비를 디자인하고, 모델을 하고 스키를 탑니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Featured skier in Warren Miller’s film, Like There’s No Tomorrow')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Appeared in three cover images for SKI Magazine')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Athlete instructor for the Utah Avalanche Center')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(7)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445506477.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Leah Evans')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Rossland, British Columbia, Ca')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Revelstoke, British Columbia')
+			$('#ambassador_profile_popup_text_box_top p').text('레아는 아름다운 캐나다 산맥으로 둘러싸인 레드 마운틴 스키 리조트 슬로프에서 자랐습니다. 프로 스키 선수로서, 스키 캠프를 통해 여성들이 스키를 즐길 수 있도록 돕습니다. 지금은 브리티쉬 콜롬비아의 레벨 스토크에서 지내면서 자신의 특별한 산악 스키 경험을 다른 사람들과 나누며 지냅니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Founder of Girls Do Ski, Canada’s')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Founder of 20 under 20, a nonprofit freeski')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Ski descents captured in Powder')
+		});
+
+		$('.profile_slide:nth-child(3) li:nth-child(8)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/snow/profileimage_1445507582.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Forrest Shearer')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Dana Point, CA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Salt Lake City, UT')
+			$('#ambassador_profile_popup_text_box_top p').text('포레스트는 일의 과감한 전환이 더 큰 보상을 가져오고, 보드 여행은 태도를 드러낸다고 믿습니다. 남부 캘리포니아에서 서핑을 즐겼던 포레스트는 유타에 살면서 백컨트리 스노우보딩을 즐깁니다. 산에 오르지 않을 때는 영상을 만들고 스노우보드 업계의 변화를 만들어내기 위해 일합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Working with Protect Our Winters on the Hot Climate')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Promoting 1% for the Planet environmental grants program')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Featured in the Academy of Sciences Museum, San Francisco')
+		});
+		// mountain biking profile list		
+		$('.profile_slide:nth-child(4) li:nth-child(1)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1524716897.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Ian Walsh')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Haiku, Hawai’i')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Haiku, Hawai’i')
+			$('#ambassador_profile_popup_text_box_top p').text('Keep Smiling :)')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Partnering with Patagonia May 1, 2017')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Partnering with Patagonia May 1, 2017')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Releasing Distance Between Dreams, December 2016')
+		});
+
+		$('.profile_slide:nth-child(4) li:nth-child(2)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1524717215.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Greg Long')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> San Clemente, California')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> San Clemente, California')
+			$('#ambassador_profile_popup_text_box_top p').text('그렉은 해양 구조 대원의 아들로서 바다를 깊이 존중하며, 바다의 지속적인 변화를 이해하고 조사하기 위해 체계적으로 활동해 왔습니다. 바다에 대한 경험과 이해에 기반한 단체를 만들었으며 20년 동안 빅 웨이브 서핑에 열정을 쏟았습니다. 가장 특별한 성과는 자신이 바다에서 겪은 경험과 교훈을 통해 다른 사람들에게 자연과 조화를 이루며 사는 방법을 알려주고, 삶 속에서 부딪치는 문제들을 해결하는데 도움을 주는 일에서 생긴다고 믿습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('2016 Big Wave World Tour Champion')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('2016 Save the Waves Athlete-Environmentalist of the Year')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('2014 Billabong XXL Ride of the Year')
+		});
+		
+		$('.profile_slide:nth-child(4) li:nth-child(3)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1524717332.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Dave Rastovich')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Broken Head, Australia')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Broken Head, Australia')
+			$('#ambassador_profile_popup_text_box_top p').text('데이브는 아름다운 해안과 수많은 스팟이 있는 서핑 메카인 뉴 사우스 웨일즈의 북쪽 해안에 삽니다. “아름다운 바다를 지키고 문화를 보존하고자 하는 지역 주민들과 함께 하는 일은 제 삶에서 아주 중요합니다. 과일과 채소를 직접 기르고 벌을 치면서 소박하게 삽니다. 또한 서핑은 하루를 채워주는 특별한 활동입니다.”라고 말합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('World Junior Champion, 1995')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Featured in numerous films including The Cove')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Minds in the Water, Blue Horizon, The Present')
+		});
+
+		$('.profile_slide:nth-child(4) li:nth-child(4)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1524721280.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Belinda Baggs')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Newcastle, Australia')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Victoria, Australia')
+			$('#ambassador_profile_popup_text_box_top p').text('아름다운 자연과 따뜻하고 푸른 바다를 찾아다니는 벨린다의 마음은 언제나 바다와 함게 합니다. 열정적인 서퍼, 바디 서퍼, 패들보더인 벨린다는 기술이 뛰어나고 우아한 롱보드 스타일로 유명합니다. 빈디의 마음은 세상을 떠돌지만, 뿌리는 호주의 선샤인 코스트에 단단히 자리잡고 있습니다. “바다에 들어가면, 고향에 돌아온 것 같아요” 벨린다는 말합니다. 최근에는 뉴케슬에서 살면서, 아이를 기르면서 지냅니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Australian Professional Longboard Circuit Champion, 2000')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Third in the Women’s World Longboard Championship, 2000')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First female surfer featured on the cover of Surfers Journal')
+		});
+		
+		$('.profile_slide:nth-child(4) li:nth-child(5)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1525068362.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Clare Gallagher')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Englewood, Colorado')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Boulder, Colorado')
+			$('#ambassador_profile_popup_text_box_top p').text('“땅과의 사투” 그녀의 삶이자 신조입니다. 그녀는 땅과의 사투를 사랑하며, 동시에 그 땅을 보호하기 위해 힘씁니다. 레이스때 마다 그녀는 빠른 속도로 경쟁하지만, 이 작은 기적의 땅, 지구를 보호하는데도 누구보다 빠르게 달립니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First-place finish in the 2016 Leadville 100, Leadville')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Second-place finish in the 2017 Black Canyon 100K, Mayer, AZ')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First-place finish in the inaugural 2014 Thailand Ultramarathon (80K)')
+		});
+
+		$('.profile_slide:nth-child(4) li:nth-child(6)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1531286470.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Tommy Caldwell')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Estes Park, CO')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Estes Park, CO')
+			$('#ambassador_profile_popup_text_box_top p').text('토미는 힘겨울 때마다 아버지를 떠올립니다. 아버지는 토미에게 두려움을 받아들이고 두려움에 대해 되묻고 두려움을 영감으로 바꾸는 것을 가르쳐 주었습니다. 아버지에게 배운 마음가짐으로, 토미는 미국에서 가장 어려운 스포츠 클라이밍 루트를 등반했고, 요세미티 엘 캐피탄의 11개 루트를 자유 등반했습니다. 토미는 성공 가능성이 거의 없는 길고 어려운 등반에서 가장 많은 것을 배울 수 있다고 믿습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First free ascent of the Dawn Wall on El Capitan')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First ascent of the Fitz Traverse, Chaltén massif, Patagonia')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First free ascent of El Capitan’s Muir Wall, Yosemite, California')
+		});
+
+		$('.profile_slide:nth-child(4) li:nth-child(7)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1535441003.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Dan Ross')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Angourie, Australia')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Angourie, Australia')
+			$('#ambassador_profile_popup_text_box_top p').text('사우스 웨일즈 북쪽에서 자란 댄은 프로 서퍼가 되기를 꿈꿨습니다. 월드 투어에 나감으로서 꿈을 이뤘고 힘이 넘치는 서핑 스타일로 평판을 얻었습니다. 지금은 빅 웨이브를 찾아 서핑을 하고, 어린 서퍼를 가르치고, 자연 보호를 위해 목소리를 높입니다. 댄 로스는 말합니다. “소박하게 살고, 유기농 음식을 먹고, 함께 나누고, 즐겁게 살아요.”')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Won the Margaret River Masters Prime Event in 2009')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('World Qualifying Series Champion, 2009')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Watching one of the athletes he coaches')
+		});
+
+		$('.profile_slide:nth-child(4) li:nth-child(8)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/global_sport/profileimage_1538375797.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Ramón Navarro')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Pichilemu, Chile')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Pichilemu, Chile')
+			$('#ambassador_profile_popup_text_box_top p').text('칠레의 빅 웨이브 서퍼인 라몬 나바로는 바다에서 어부였던 아버지 일을 도우면서 자랐고, 어린 시절부터 다이빙을 익혔습니다. 라몬은 빅 웨이브를 타는 유명한 서퍼이고, 전 세계 여러 대회에서 기량을 뽑냈습니다. 환경 보호 활동가로서 칠레의 바다를 지키기 위해 수많은 일을 합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Ride of the Year Award Nominee, Billabong XXL Awards, 2012')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Second place finish at the 2011 Big Wave World Tour')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Fifth place finish at the 2009 Eddie Aikau')
+		});
+		// trail running profile list		
+		$('.profile_slide:nth-child(5) li:nth-child(1)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_0566973104.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Drew Chicone')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Watkins Glen, New Yor')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Fort Myers, Florida')
+			$('#ambassador_profile_popup_text_box_top p').text('사람들은 다양한 이유로 플라이 타잉(fly tying: 플라이 피싱에 사용되는 인조 미끼를 제작하는 과정)에 매료되어 있습니다. 드류에게 타잉은 매우 중요한 하루 일과이며 다른 이에게 타잉 교육을 하는 것은 그가 가장 좋아하는 일 중 하나입니다. 그는 작가임과 동시에 인조 미끼 디자이너이며, 포토그래퍼, 연사이기도 합니다. 그의 플라이 타잉에 관한 지식은 다양한 플라이 타잉 가이드 서적에 영향을 미쳤습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Owner of Salty Fly Tying')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Fly designer for Umpqua Feather Merchants')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Contributed articles to over 70 publications')
+		});
+
+		$('.profile_slide:nth-child(5) li:nth-child(2)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1441805811.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Krissy Moehl')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Bow, WA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Boulder, CO')
+			$('#ambassador_profile_popup_text_box_top p').text('트레일 러닝에 열정을 쏟는 크리스는 전 세계를 여행하면서 달리기를 합니다. 에콰도르에서 공부를 마친 후 1999년부터 달리기 시작했습니다. 가족들과 트레일 러닝 동호인들의 믿음과 지원을 얻었고, 고산 지역을 달리는 일은 크리시의 마음을 뜨겁게 합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('2015 Team USA World 50 mile Championship team member')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('2014 Patagonia National Park, Mile for Mile Film project')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Winner of the 2013 Ultra-Trail Mt. Fuji, Japan')
+		});
+		
+		$('.profile_slide:nth-child(5) li:nth-child(3)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1445560991.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Hiroki Ishikawa')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Ayase-shi, Japan')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Isehara-shi, Japan')
+			$('#ambassador_profile_popup_text_box_top p').text('히로키는 트레일 러닝을 위한 길을 찾아 전 세계를 여행합니다. 히로키는 일본의 첫번째 프로 트레일 러닝 선수입니다. 수많은 국내, 국제 대회에 참여했고, 여러 대회에서 우승했습니다. 히로키는 일본 전역을 돌면서 트레일 러닝 대회를 기획하는 일을 합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Winner of Hasegawa Tsuneo Cup Mountain Endurance Race')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First in total standings in the Rocky Mountain Slam')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Author of Trail Running for the Fun')
+		});
+
+		$('.profile_slide:nth-child(5) li:nth-child(4)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1445561585.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Rod Bien')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Kailua, Hawaii')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Bend, Oregon')
+			$('#ambassador_profile_popup_text_box_top p').text('로드는 알파인 등반가가 되고 싶었지만 높은 고도가 두려워 트레일 러닝을 시작했습니다. 미 해군 특수 부대원이었던 아버지의 영향을 받은 로드는, 장거리 러너가 되었습니다. 로드는 때로는 아내, 세 아이와 함께 높고 깊은 산을 찾아 전 세계를 여행합니다. 로드는 언제나 진지하게 경기에 참여합니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Course record holder PCT 50')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Finished more than 80 ultramarathons')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Winner 2011 Cascade Crest 100 Mile Endurance Run')
+		});
+		
+		$('.profile_slide:nth-child(5) li:nth-child(5)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1453699552.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Jenn Shelton')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Virginia Beach, VA')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Ashland, OR')
+			$('#ambassador_profile_popup_text_box_top p').text('울트라 트레일 러너인 젠은 달리기라는 모험을 쫓아 높은 산과 길로 나섭니다. 젠은 몸을 극한까지 몰아붙여 한계의 아름다움을 찾는 일을 사랑합니다. 젠은 낡은 달리기용 신발들이 쌓여 있는 작은 집에서 살고 있습니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First-place finish in the 2016 Leadville 100, Leadville')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Second-place finish in the 2017 Black Canyon 100K, Mayer, AZ')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First-place finish in the inaugural 2014 Thailand Ultramarathon (80K)')
+		});
+
+		$('.profile_slide:nth-child(5) li:nth-child(6)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1525067665.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Luke Nelson')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Blackfoot, ID')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Pocatello, ID')
+			$('#ambassador_profile_popup_text_box_top p').text('루크는 어린 시절 산 속을 뛰어다니며 살았습니다. 마라톤에 빠져들면서 달리기를 발견했습니다. 루크는 장거리 트레일 러닝을 하면서 자연과 교감을 나눕니다. 루크는 의료 보조원, 레이스 기획, 남편과 아버지로 살아갑니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Held the fastest time known for the Zion Traverse until May, 2013')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Second place finish: 2014 Bear 100 Mile Endurance Run, Utah')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Race Director, Scout Mountain Ultra Trail')
+		});
+
+		$('.profile_slide:nth-child(5) li:nth-child(7)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1525067787.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Chloë Lanthier')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Montreal, Canada')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Chamonix, France')
+			$('#ambassador_profile_popup_text_box_top p').text('콜은 초등학교 1학년 때 스노우슈잉 대회에서 우승했습니다. 고등학교 때까지 크로스컨트리와 각종 대회에 나갔습니다. 이십 대 초반에는 캐나다 록키 산맥 지역으로 이사를 가서 산악 스키를 탔고 전 세계를 여행했습니다. 지금 콜은 달리기와 산악 자전거를 즐기고 X-트레이닝 학교를 운여합니다. 시간이 날 때는 스키를 탑니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('Former World 24hrs Solo Mountain Bike Champion (1999)')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('Completed the Eco-Challenge in Whistler')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('Owner/Director of The Sports & Outdoor X-Training School')
+		});
+
+		$('.profile_slide:nth-child(5) li:nth-child(8)').click(function(){
+			$('#ambassador_profile_popup_box img').attr({'src':'images/trailrunning/profileimage_1525067860.jpg'})
+			$('#ambassador_profile_popup_text_box_top h3').text('Jeff Browning')
+			$('#ambassador_profile_popup_text_box_top h4').html('고향 <br> Carrollton, Missouri')
+			$('#ambassador_profile_popup_text_box_top h5').html('현 거주지 <br> Bend, Oregon')
+			$('#ambassador_profile_popup_text_box_top p').text('“장비 중독자”인 제프는 장비를 테스트하고 새로운 생각을 얻기 위해 반바지를 뜯고 신발을 자릅니다. 제프는 오레곤주 벤드에 살면서 산길을 달리고, 세 아이를 키우고, 닭 두 마리와 개 두마리를 기르고, 유기농 밭을 가꿉니다. 리틀 풋 러닝 클럽의 코치로서, 아이들에게 달리기의 재미를 가르칩니다.')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(1)').text('First-place finish in the 2017 Hagg Lake Mud Run 50K')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(2)').text('First-place finish and course record in the 2016')
+		$('#ambassador_profile_popup_text_box_bottom ul li:nth-child(3)').text('First-place finish in the 2014 Grindstone 100, Swoope, Virginia')
+		});
+
+		// 프로필 한명 한명 클릭시 정보들 끝
+		$('#ambassador_sport_box li').click(function(){
+			$(this).stop().animate({'background-color':'#ff5a00'},300).siblings().stop().animate({'background-color':'rgba(255,255,255,0.5)'},300)
+		})
+		//box 클릭시
+		$('#ambassador_sport_box li:nth-child(1)').click(function(){
+			$(this).children('#ambassador_sport_box li h4').stop().animate({'color':'#fff'})
+			$('#ambassador_profile_box h2').html('SURFING')
+			$('#ambassador_sport_box li:nth-child(2),#ambassador_sport_box li:nth-child(3),#ambassador_sport_box li:nth-child(4),#ambassador_sport_box li:nth-child(5)').children('#ambassador_sport_box li h4').stop().animate({'color':'#000'})
+			$('#ambassador_sport_box li:nth-child(1) img').attr({'src':'icons/main4_white_icon1.png'})
+			$('#ambassador_sport_box li:nth-child(2) img').attr({'src':'icons/main4_black_icon2.png'})
+			$('#ambassador_sport_box li:nth-child(3) img').attr({'src':'icons/main4_black_icon3.png'})
+			$('#ambassador_sport_box li:nth-child(4) img').attr({'src':'icons/main4_black_icon4.png'})
+			$('#ambassador_sport_box li:nth-child(5) img').attr({'src':'icons/main4_black_icon5.png'})
+			$('.profile_slide:nth-child(1)').fadeIn(300)
+			$('.profile_slide:nth-child(2)').fadeOut(300)
+			$('.profile_slide:nth-child(3)').fadeOut(300)
+			$('.profile_slide:nth-child(4)').fadeOut(300)
+			$('.profile_slide:nth-child(5)').fadeOut(300)
+		});
+		$('#ambassador_sport_box li:nth-child(2)').click(function(){
+			$('#ambassador_profile_box h2').html('CLIMBING')
+			$(this).children('#ambassador_sport_box li h4').stop().animate({'color':'#fff'})
+			$('#ambassador_sport_box li:nth-child(1),#ambassador_sport_box li:nth-child(3),#ambassador_sport_box li:nth-child(4),#ambassador_sport_box li:nth-child(5)').children('#ambassador_sport_box li h4').stop().animate({'color':'#000'})
+			$('#ambassador_sport_box li:nth-child(1) img').attr({'src':'icons/main4_black_icon1.png'})
+			$('#ambassador_sport_box li:nth-child(2) img').attr({'src':'icons/main4_white_icon2.png'})
+			$('#ambassador_sport_box li:nth-child(3) img').attr({'src':'icons/main4_black_icon3.png'})
+			$('#ambassador_sport_box li:nth-child(4) img').attr({'src':'icons/main4_black_icon4.png'})
+			$('#ambassador_sport_box li:nth-child(5) img').attr({'src':'icons/main4_black_icon5.png'})
+			$('.profile_slide:nth-child(1)').fadeOut(300)
+			$('.profile_slide:nth-child(2)').fadeIn(300)
+			$('.profile_slide:nth-child(3)').fadeOut(300)
+			$('.profile_slide:nth-child(4)').fadeOut(300)
+			$('.profile_slide:nth-child(5)').fadeOut(300)
+		});
+		$('#ambassador_sport_box li:nth-child(3)').click(function(){
+			$('#ambassador_profile_box h2').html('SNOW')
+			$(this).children('#ambassador_sport_box li h4').stop().animate({'color':'#fff'})
+			$('#ambassador_sport_box li:nth-child(1),#ambassador_sport_box li:nth-child(2),#ambassador_sport_box li:nth-child(4),#ambassador_sport_box li:nth-child(5)').children('#ambassador_sport_box li h4').stop().animate({'color':'#000'})
+			$('#ambassador_sport_box li:nth-child(1) img').attr({'src':'icons/main4_black_icon1.png'})
+			$('#ambassador_sport_box li:nth-child(2) img').attr({'src':'icons/main4_black_icon2.png'})
+			$('#ambassador_sport_box li:nth-child(3) img').attr({'src':'icons/main4_white_icon3.png'})
+			$('#ambassador_sport_box li:nth-child(4) img').attr({'src':'icons/main4_black_icon4.png'})
+			$('#ambassador_sport_box li:nth-child(5) img').attr({'src':'icons/main4_black_icon5.png'})
+			$('.profile_slide:nth-child(1)').fadeOut(300)
+			$('.profile_slide:nth-child(2)').fadeOut(300)
+			$('.profile_slide:nth-child(3)').fadeIn(300)
+			$('.profile_slide:nth-child(4)').fadeOut(300)
+			$('.profile_slide:nth-child(5)').fadeOut(300)
+		});
+		$('#ambassador_sport_box li:nth-child(4)').click(function(){
+			$('#ambassador_profile_box h2').html('MOUNTAIN BIKING')
+			$(this).children('#ambassador_sport_box li h4').stop().animate({'color':'#fff'})
+			$('#ambassador_sport_box li:nth-child(1),#ambassador_sport_box li:nth-child(2),#ambassador_sport_box li:nth-child(3),#ambassador_sport_box li:nth-child(5)').children('#ambassador_sport_box li h4').stop().animate({'color':'#000'})
+			$('#ambassador_sport_box li:nth-child(1) img').attr({'src':'icons/main4_black_icon1.png'})
+			$('#ambassador_sport_box li:nth-child(2) img').attr({'src':'icons/main4_black_icon2.png'})
+			$('#ambassador_sport_box li:nth-child(3) img').attr({'src':'icons/main4_black_icon3.png'})
+			$('#ambassador_sport_box li:nth-child(4) img').attr({'src':'icons/main4_white_icon4.png'})
+			$('#ambassador_sport_box li:nth-child(5) img').attr({'src':'icons/main4_black_icon5.png'})
+			$('.profile_slide:nth-child(1)').fadeOut(300)
+			$('.profile_slide:nth-child(2)').fadeOut(300)
+			$('.profile_slide:nth-child(3)').fadeOut(300)
+			$('.profile_slide:nth-child(4)').fadeIn(300)
+			$('.profile_slide:nth-child(5)').fadeOut(300)
+		});
+		$('#ambassador_sport_box li:nth-child(5)').click(function(){
+			$('#ambassador_profile_box h2').html('TRAIL RUNNING')
+			$(this).children('#ambassador_sport_box li h4').stop().animate({'color':'#fff'})
+			$('#ambassador_sport_box li:nth-child(1),#ambassador_sport_box li:nth-child(2),#ambassador_sport_box li:nth-child(3),#ambassador_sport_box li:nth-child(4)').children('#ambassador_sport_box li h4').stop().animate({'color':'#000'})
+			$('#ambassador_sport_box li:nth-child(1) img').attr({'src':'icons/main4_black_icon1.png'})
+			$('#ambassador_sport_box li:nth-child(2) img').attr({'src':'icons/main4_black_icon2.png'})
+			$('#ambassador_sport_box li:nth-child(3) img').attr({'src':'icons/main4_black_icon3.png'})
+			$('#ambassador_sport_box li:nth-child(4) img').attr({'src':'icons/main4_black_icon4.png'})
+			$('#ambassador_sport_box li:nth-child(5) img').attr({'src':'icons/main4_white_icon5.png'})
+			$('.profile_slide:nth-child(1)').fadeOut(300)
+			$('.profile_slide:nth-child(2)').fadeOut(300)
+			$('.profile_slide:nth-child(3)').fadeOut(300)
+			$('.profile_slide:nth-child(4)').fadeOut(300)
+			$('.profile_slide:nth-child(5)').fadeIn(300)
+		});
+		//main5 시작		
+		$('#main5_sport_icon li').click(function(){
+			$(this).css({'background-color':'#fff','color':'#000'}).siblings().css({'background-color':'#000','color':'#fff'})
+		});
+		$('#main5_sport_icon li:nth-child(1)').click(function(){
+			$('#product_img1').fadeIn(200)
+			$('#product_img2,#product_img3,#product_img4,#product_img5').fadeOut(200)
+			$('#main5_product_slide li:nth-child(1)').fadeIn(200)
+			$('#main5_product_slide li:nth-child(2),#main5_product_slide li:nth-child(3),#main5_product_slide li:nth-child(4),#main5_product_slide li:nth-child(5)').fadeOut(200)
+			$('#product_color_1').show()
+			$('#product_color_2,#product_color_3,#product_color_4,#product_color_5').hide()
+			$('#left_inbox_leftbt1,#left_inbox_rightbt1').show()
+			$('#left_inbox_leftbt2,#left_inbox_rightbt2,#left_inbox_leftbt3,#left_inbox_rightbt3,#left_inbox_leftbt4,#left_inbox_rightbt4,#left_inbox_leftbt5,#left_inbox_rightbt5').hide()
+			$('#main5_product_content_right_inbox h2').text('SURF')
+			$('#main5_product_content_right_inbox h3').html('Men&acute;s R3&reg; Yulex&reg; Front-Zip Full Suit')
+			$('#main5_product_content_right_inbox p').html('Our Yulex&reg; wetsuits have exclusive linings for increased stretch. The only Fair Trade Certified&trade; suits, they’re made with 85% Yulex&reg; natural rubber/15% synthetic rubber by polymer content; natural rubber is FSC&reg; certified by the Rainforest Alliance. Best for water 48°–55° F/9°–13° C.')
+			$('#main5_icon li:nth-child(1)').html('<li><img src="icons/like_black_icon.png" #product_img1>Like 5221</li>')
+		});
+		$('#main5_sport_icon li:nth-child(2)').click(function(){
+			$('#product_img2').fadeIn(200)
+			$('#product_img1,#product_img3,#product_img4,#product_img5').fadeOut(200)
+			$('#main5_product_slide li:nth-child(2)').fadeIn(200)
+			$('#main5_product_slide li:nth-child(1),#main5_product_slide li:nth-child(3),#main5_product_slide li:nth-child(4),#main5_product_slide li:nth-child(5)').fadeOut(200)
+			$('#product_color_2').show()
+			$('#product_color_1,#product_color_3,#product_color_4,#product_color_5').hide()
+			$('#left_inbox_leftbt2,#left_inbox_rightbt2').show()
+			$('#left_inbox_leftbt1,#left_inbox_rightbt1,#left_inbox_leftbt3,#left_inbox_rightbt3,#left_inbox_leftbt4,#left_inbox_rightbt4,#left_inbox_leftbt5,#left_inbox_rightbt5').hide()
+			$('#main5_product_content_right_inbox h2').text('CLIMBING')
+			$('#main5_product_content_right_inbox h3').html('Men&acute;s Storm10 Jacket')
+			$('#main5_product_content_right_inbox p').html('For moving fast and light through the mountains, the Storm10 is an ultralight, 3-layer waterproof piece to keep in your pack and deploy when the weather turns. Fair Trade Certified&trade; sewn.')
+			$('#main5_icon li:nth-child(1)').html('<li><img src="icons/like_black_icon.png">Like 2748</li>')
+		});
+		$('#main5_sport_icon li:nth-child(3)').click(function(){
+			$('#product_img3').fadeIn(200)
+			$('#product_img1,#product_img2,#product_img4,#product_img5').fadeOut(200)
+			$('#main5_product_slide li:nth-child(3)').fadeIn(200)
+			$('#main5_product_slide li:nth-child(1),#main5_product_slide li:nth-child(2),#main5_product_slide li:nth-child(4),#main5_product_slide li:nth-child(5)').fadeOut(200)
+			$('#product_color_3').show()
+			$('#product_color_1,#product_color_2,#product_color_4,#product_color_5').hide()
+			$('#left_inbox_leftbt3,#left_inbox_rightbt3').show()
+			$('#left_inbox_leftbt1,#left_inbox_rightbt1,#left_inbox_leftbt2,#left_inbox_rightbt2,#left_inbox_leftbt4,#left_inbox_rightbt4,#left_inbox_leftbt5,#left_inbox_rightbt5').hide()
+			$('#main5_product_content_right_inbox h2').text('SNOW')
+			$('#main5_product_content_right_inbox h3').html('Men&acute;s PowSlayer Jacket')
+			$('#main5_product_content_right_inbox p').html('The PowSlayer Jacket is lightweight, packable, optimized for backcountry touring and features a minimalist design. The GORE-TEX Pro fabric package includes the first 100% recycled nylon face fabric to deliver the highest level of durable waterproof/breathable and windproof protection available. Fair Trade Certified™ sewn.')
+			$('#main5_icon li:nth-child(1)').html('<li><img src="icons/like_black_icon.png">Like 7251</li>')
+		});
+		$('#main5_sport_icon li:nth-child(4)').click(function(){
+			$('#product_img4').fadeIn(200)
+			$('#product_img1,#product_img2,#product_img3,#product_img5').fadeOut(200)
+			$('#main5_product_slide li:nth-child(4)').fadeIn(200)
+			$('#main5_product_slide li:nth-child(1),#main5_product_slide li:nth-child(2),#main5_product_slide li:nth-child(3),#main5_product_slide li:nth-child(5)').fadeOut(200)
+			$('#product_color_4').show()
+			$('#product_color_1,#product_color_2,#product_color_3,#product_color_5').hide()
+			$('#left_inbox_leftbt4,#left_inbox_rightbt4').show()
+			$('#left_inbox_leftbt1,#left_inbox_rightbt1,#left_inbox_leftbt3,#left_inbox_rightbt3,#left_inbox_leftbt2,#left_inbox_rightbt2,#left_inbox_leftbt5,#left_inbox_rightbt5').hide()
+			$('#main5_product_content_right_inbox h2').text('MOUNTAIN')
+			$('#main5_product_content_right_inbox h3').html('Men&acute;s Dirt Roamer Jacket')
+			$('#main5_product_content_right_inbox p').html('Put it on, leave it on. The breathable Dirt Roamer Jacket is designed for the changing climates and altitudes unique to mountain biking, allowing you to dump heat on climbs, shed wind and light precipitation on descents and ridgelines, while also stretching to accommodate on-bike movements. Fair Trade Certified&trade; sewn.')
+			$('#main5_icon li:nth-child(1)').html('<li><img src="icons/like_black_icon.png">Like 3156</li>')
+		});
+		$('#main5_sport_icon li:nth-child(5)').click(function(){
+			$('#product_img5').fadeIn(200)
+			$('#product_img1,#product_img2,#product_img3,#product_img4').fadeOut(200)
+			$('#main5_product_slide li:nth-child(5)').fadeIn(200)
+			$('#main5_product_slide li:nth-child(1),#main5_product_slide li:nth-child(2),#main5_product_slide li:nth-child(3),#main5_product_slide li:nth-child(4)').fadeOut(200)
+			$('#product_color_5').show()
+			$('#product_color_1,#product_color_2,#product_color_3,#product_color_4').hide()
+			$('#left_inbox_leftbt5,#left_inbox_rightbt5').show()
+			$('#left_inbox_leftbt1,#left_inbox_rightbt1,#left_inbox_leftbt3,#left_inbox_rightbt3,#left_inbox_leftbt2,#left_inbox_rightbt2,#left_inbox_leftbt4,#left_inbox_rightbt4').hide()
+			$('#main5_product_content_right_inbox h2').text('TRAIL')
+			$('#main5_product_content_right_inbox h3').html('Slope Runner Endurance Vest')
+			$('#main5_product_content_right_inbox p').html('Designed like a garment, this trail running vest lies flat and securely against the body when empty, but can carry all the gear for longer runs, thanks to an adjustable internal harness, stretch panels and extra-wide chest pockets—all accessible on the go.')
+			$('#main5_icon li:nth-child(1)').html('<li><img src="icons/like_black_icon.png">Like 2411</li>')
+		});
+
+		//color 변경
+		$('#product_color_1 li:nth-child(1)').click(function(){
+			$('#product_img1 li:nth-child(1) img').attr({'src':'product_images/surf_product_img1.jpg'})
+			$('#product_img1 li:nth-child(2) img').attr({'src':'product_images/surf_product_img2.jpg'})
+		});
+		$('#product_color_1 li:nth-child(2)').click(function(){
+			$('#product_img1 li:nth-child(1) img').attr({'src':'product_images/surf_product_img1_blue.jpg'})
+			$('#product_img1 li:nth-child(2) img').attr({'src':'product_images/surf_product_img2_blue.jpg'})
+		});
+		$('#product_color_2 li:nth-child(1)').click(function(){
+			$('#product_img2 li:nth-child(1) img').attr({'src':'product_images/clibming_product_img1_blue0.jpg'})
+			$('#product_img2 li:nth-child(2) img').attr({'src':'product_images/clibming_product_img1_blue1.jpg'})
+			$('#product_img2 li:nth-child(3) img').attr({'src':'product_images/clibming_product_img1_blue2.jpg'})
+			$('#product_img2 li:nth-child(4) img').attr({'src':'product_images/clibming_product_img1_blue3.jpg'})
+			$('#product_img2 li:nth-child(5) img').attr({'src':'product_images/clibming_product_img1_blue4.jpg'})
+		});
+		$('#product_color_2 li:nth-child(2)').click(function(){
+			$('#product_img2 li:nth-child(1) img').attr({'src':'product_images/clibming_product_img1_black0.jpg'})
+			$('#product_img2 li:nth-child(2) img').attr({'src':'product_images/clibming_product_img1_black1.jpg'})
+			$('#product_img2 li:nth-child(3) img').attr({'src':'product_images/clibming_product_img1_black2.jpg'})
+			$('#product_img2 li:nth-child(4) img').attr({'src':'product_images/clibming_product_img1_black3.jpg'})
+			$('#product_img2 li:nth-child(5) img').attr({'src':'product_images/clibming_product_img1_black4.jpg'})
+		});
+		$('#product_color_2 li:nth-child(3)').click(function(){
+			$('#product_img2 li:nth-child(1) img').attr({'src':'product_images/clibming_product_img1_lemon0.jpg'})
+			$('#product_img2 li:nth-child(2) img').attr({'src':'product_images/clibming_product_img1_lemon1.jpg'})
+			$('#product_img2 li:nth-child(3) img').attr({'src':'product_images/clibming_product_img1_lemon2.jpg'})
+			$('#product_img2 li:nth-child(4) img').attr({'src':'product_images/clibming_product_img1_lemon3.jpg'})
+			$('#product_img2 li:nth-child(5) img').attr({'src':'product_images/clibming_product_img1_lemon4.jpg'})
+		});
+		
+		$('#product_color_3 li:nth-child(1)').click(function(){
+			$('#product_img3 li:nth-child(1) img').attr({'src':'product_images/snow_product_img1_lemon0.jpg'})
+			$('#product_img3 li:nth-child(2) img').attr({'src':'product_images/snow_product_img1_lemon1.jpg'})
+			$('#product_img3 li:nth-child(3) img').attr({'src':'product_images/snow_product_img1_lemon2.jpg'})
+			$('#product_img3 li:nth-child(4) img').attr({'src':'product_images/snow_product_img1_lemon3.jpg'})
+			$('#product_img3 li:nth-child(5) img').attr({'src':'product_images/snow_product_img1_lemon4.jpg'})
+		});
+		$('#product_color_3 li:nth-child(2)').click(function(){
+			$('#product_img3 li:nth-child(1) img').attr({'src':'product_images/snow_product_img1_black0.jpg'})
+			$('#product_img3 li:nth-child(2) img').attr({'src':'product_images/snow_product_img1_black1.jpg'})
+			$('#product_img3 li:nth-child(3) img').attr({'src':'product_images/snow_product_img1_black2.jpg'})
+			$('#product_img3 li:nth-child(4) img').attr({'src':'product_images/snow_product_img1_black3.jpg'})
+			$('#product_img3 li:nth-child(5) img').attr({'src':'product_images/snow_product_img1_black4.jpg'})
+		});
+		$('#product_color_3 li:nth-child(3)').click(function(){
+			$('#product_img3 li:nth-child(1) img').attr({'src':'product_images/snow_product_img1_blue0.jpg'})
+			$('#product_img3 li:nth-child(2) img').attr({'src':'product_images/snow_product_img1_blue1.jpg'})
+			$('#product_img3 li:nth-child(3) img').attr({'src':'product_images/snow_product_img1_blue2.jpg'})
+			$('#product_img3 li:nth-child(4) img').attr({'src':'product_images/snow_product_img1_blue3.jpg'})
+			$('#product_img3 li:nth-child(5) img').attr({'src':'product_images/snow_product_img1_blue4.jpg'})
+		});
+		$('#product_color_3 li:nth-child(4)').click(function(){
+			$('#product_img3 li:nth-child(1) img').attr({'src':'product_images/snow_product_img1_brown0.jpg'})
+			$('#product_img3 li:nth-child(2) img').attr({'src':'product_images/snow_product_img1_brown1.jpg'})
+			$('#product_img3 li:nth-child(3) img').attr({'src':'product_images/snow_product_img1_brown2.jpg'})
+			$('#product_img3 li:nth-child(4) img').attr({'src':'product_images/snow_product_img1_brown3.jpg'})
+			$('#product_img3 li:nth-child(5) img').attr({'src':'product_images/snow_product_img1_brown4.jpg'})
+		});
+		main5_slide_num1=0; main5_slide_num2=0; main5_slide_num3=0; main5_slide_num4=0;
+		$('#left_inbox_rightbt1').click(function(){
+			main5_slide_num1= main5_slide_num1-300;
+			if(main5_slide_num1<=-300){main5_slide_num1=-300}
+			$('#product_img1').stop().animate({'left':main5_slide_num1},500)
+		});
+		$('#left_inbox_leftbt1').click(function(){
+			main5_slide_num1 = main5_slide_num1+300;
+			if(main5_slide_num1>=0){main5_slide_num1=0}
+			$('#product_img1').stop().animate({'left':main5_slide_num1},500)
+		});
+		$('#left_inbox_rightbt2').click(function(){
+			main5_slide_num2 = main5_slide_num2-300;
+			if(main5_slide_num2<=-1200){main5_slide_num2=-1200;}
+			$('#product_img2').stop().animate({'left':main5_slide_num2},500)
+		});
+		$('#left_inbox_leftbt2').click(function(){
+			main5_slide_num2 = main5_slide_num2+300;
+			if(main5_slide_num2>=0){main5_slide_num2=0;}
+			$('#product_img2').stop().animate({'left':main5_slide_num2},500)
+		});
+		$('#left_inbox_rightbt3').click(function(){
+			main5_slide_num3 = main5_slide_num3-300;
+			if(main5_slide_num3<=-1200){main5_slide_num3=-1200;}
+			$('#product_img3').stop().animate({'left':main5_slide_num3},500)
+		});
+		$('#left_inbox_leftbt3').click(function(){
+			main5_slide_num3 = main5_slide_num3+300;
+			if(main5_slide_num3>=0){main5_slide_num3=0;}
+			$('#product_img3').stop().animate({'left':main5_slide_num3},500)
+		});
+		$('#left_inbox_rightbt4').click(function(){
+			main5_slide_num4 = main5_slide_num4-300;
+			if(main5_slide_num4<=-900){main5_slide_num4=-900;}
+			$('#product_img4').stop().animate({'left':main5_slide_num4},500)
+		});
+		$('#left_inbox_leftbt4').click(function(){
+			main5_slide_num4 = main5_slide_num4+300;
+			if(main5_slide_num4>=0){main5_slide_num4=0;}
+			$('#product_img4').stop().animate({'left':main5_slide_num4},500)
+		});
+		//main6 시작	
+
+		//main1 mouse_scroll
+		$('#mouse_inscroll').animate({marginTop:'15px'},600,function mouse_inscroll(){
+				$('#mouse_inscroll').animate({marginTop:'5px'},600)
+				$('#mouse_inscroll').animate({marginTop:'15px'},600,mouse_inscroll)
+			});
+		//page 단위 이동
+		window.onload = function () {			
+            $("#main1_wrap,#main2_wrap,#main3_wrap,#main4_wrap,#main5_wrap,#main6_wrap").each(function () { // 대상에 #wrap>div로 바꿨음 
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } else if (event.detail) delta = -event.detail / 3;
+                    var moveTop = null;
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(this).next() != undefined) {
+                            moveTop = $(this).next().offset().top;		
+							count = $(this).index()+1; // 1 2 3							
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(this).prev() != undefined) {
+                            moveTop = $(this).prev().offset().top;
+							count = $(this).prev().index(); // 1 2 3		
+                        }
+                    }
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({scrollTop:moveTop},300); // 속도 1000분의 1초, 1000=1초
+                });
+            });
+        }
+		//scroll 단위 이동 끝
+				//swiper 플러그인		
+				new Swiper('.swiper-container', {
+				slidesPerView : 1, // 한 화면에 보이는 슬라이드 칸 수
+				spaceBetween : 20, // 슬라이드간 margin
+				slidesPerGroup : 1, // 움직이는 슬라이드 칸 수
+				// 그룹수가 맞지 않을 경우 빈칸으로 메우기
+				// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+//				loopFillGroupWithBlank : true,
+				speed:800, // 1000 = 1초, 애니메이션 시간
+				loop :false, // 무한 반복 true, false 가 있음.
+				//autoplay: {    delay: 2000, },
+				/*pagination : { // 페이징
+					el : '.swiper-pagination',
+					clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+				},*/
+				/*navigation : { // 네비게이션
+					nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+					prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+				},*/
+				controller: {
+					inverse: true,
+				},			
+				//	effect: "fade",
+				//	effect: 'coverflow'
+				//	effect: "flip",
+
+					/*effect: "cube",
+					grabCursor: true,
+					cubeEffect: {
+					  shadow: true,
+					  slideShadows: true,
+					  shadowOffset: 20,
+					  shadowScale: 0.94,
+					},*/
+
+				//mousewheel:true,
+			}); ////swiper 플러그인 끝
+		});
+  </script>
+   <style>
+	* {margin: 0; padding: 0; list-style: none;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%; font-family: 'Noto Sans KR', sans-serif;}
+	#wrap {height: 100%;}
+	/*intro*/
+	/*	#intro {width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 999; background: #fff url(logo/320x320_logo.jpg) center no-repeat; display: none;}*/
+	#main1_wrap {width: 100%; height: 100%; background: #fff url(images/main1_bg.jpg) center no-repeat; background-size: cover; position: relative; overflow: hidden; display: none;}
+	/* main1bg */
+	#main1_bg {width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); position: absolute; left: 0; top: 0; z-index: 11;}
+	#popup_banner{width: 100%; height: 115px; position: fixed; top: -80px; z-index: 100; background: url(icons/menu_bar2.png) center no-repeat;}
+	#popup_banner_logo {width: 150px; float: left; margin-left: 50px; line-height: 80px;}
+	#popup_banner_logo img {width: 150px;}
+	#popup_banner_menu {width: 600px; height: 80px; line-height: 80px; margin: auto; text-align: center;}
+	#popup_banner_menu li {width: 150px; height: 80px; float: left; font-weight: 400; text-transform: uppercase; color: #000; font-size: 14px;}
+	/* header */
+	header {width: 100%; height: 80px; position: fixed; top: 0; z-index: 99;}
+	#logo {width: 150px; float: left; margin-left: 50px; display: none; line-height: 80px;}
+	#logo img {width: 150px;}
+
+	/* main_center */
+	#center_logo1 {font-size: 180px; color: #fff; text-transform: uppercase; letter-spacing: -30px; width: 1500px; line-height: 200px; position: absolute; left: 50%; top: 50%; text-align: center; margin-left: -750px;  margin-top: -200px; display: none; z-index: 12;}
+	#center_logo2 {position: absolute; left: 50%; top: 50%; width: 1160px; text-align: center; margin-left: -580px; line-height: 200px; display: none; z-index: 13;}
+	#center_mountain_icon {width: 0; height: 100px; position: absolute; left: 0; right: -850px; top: -400px; bottom: 0; margin: auto; background: url(icons/center_mountain_icon.png) 0 0 no-repeat; z-index: 14;}
+	#right_page_icon {width: 30px; height: 420px; position: fixed; right: -100px; top: 0; bottom: 0; margin: auto; text-align: center; z-index: 15;}
+	#right_page_icon div {width: 10px; height: 10px; background-color: #fff; border-radius: 10px;}
+	#main_hit_icon1 {position: absolute; left: 0; right: 0; top: 15px; margin: auto;}
+	#main_hit_icon2 {position: absolute; left: -2px; right: 0; top: 80px; margin: auto;}
+	#main_hit_icon3 {position: absolute; left: 0; right: -2px; top: 160px; margin: auto;}
+	#main_hit_icon4 {position: absolute; left: -2px; right: 0; top: 240px; margin: auto;}
+	#main_hit_icon5 {position: absolute; left: 0; right: -2px; top: 320px; margin: auto;}
+	#main_hit_icon6 {position: absolute; left: 0px; right: 0; top: 405px; margin: auto;}
+	#wich {position: absolute; top: -10px; left: 0; right: 0; margin: auto; z-index: 891;}
+
+	
+	/*main1_ship*/
+	#ship1 {height: 300px; position: absolute; left: 10px; right: 0; bottom: 0; margin: auto; z-index: 10;}
+	#ship2 {position: absolute; left: 190px; right: 0; bottom: 200px; margin: auto;}
+	/*	main bottom시작 */
+	#round_km {width: 100px; height: 100px; border-radius: 100px; border: 1px solid #fff; position: fixed; left: 50px; bottom: 50px; text-align: center; color: #fff; line-height: 100px; color: #fff; display: none; z-index: 99;}
+	#mouse_scroll {width: 25px; height: 50px; border: 2px solid #fff; position: fixed; left: 0; right: 0; bottom: 50px; margin: auto; z-index: 99; border-radius: 25px;}
+	#mouse_inscroll {width: 5px; height: 5px; border-radius: 5px; background-color: #fff; margin: auto; margin-top: 5px;}
+
+	/* main1 sns box*/
+	#sns {position: fixed; right: 50px; bottom: 50px; display: none; z-index: 99;}
+	#sns li {width: 30px; height: 30px; float: left; vertical-align: middle; margin-left: 10px;}
+
+	/*main2_wrap*/
+	#main2_wrap {width: 100%; height: 100%; background-color: red; position: relative; overflow: hidden; display: none;}
+	#main2_bg_black {width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.2); left: 0; top: 0;}
+	#main2_bg img:nth-child(1) {position: absolute; top: -100px; left: 0;}
+	#main2_bg img:nth-child(2) {position: absolute; left: 0; top: 105px;}
+	#main2_bg img:nth-child(3) {position: absolute; left: 0; bottom: -50px; }
+	#main2_bg img:nth-child(4) {position: absolute; right: 0px; bottom: 200px;}
+	/* #main2_bg video{width: 100%; position: absolute; left: 0; top: 0;z-index: 999;} */
+
+	/*mission_straterment 시작*/
+	#mission_stratement {width: 1440px; height: 650px; position: absolute; left: 50%; top: -50px; bottom: 0; margin: auto; margin-left: -720px; }
+	#mission_stratement1 {width: 1440px; height: 425px; position: relative;}
+	#mission_stratement1_left {width: 576px; height: 425px; float: left; position: absolute; left: 0px; top: 0px;}
+	#mission_stratement1_left h3{font-size: 30px; color: #fff; opacity: 0;}
+	#mission_stratement1_left p {font-size: 14px; color: #fff; line-height: 20px; opacity: 0;}
+	#mission_stratement1_left button {width: 150px; height: 30px; background-color: #ff5a00; font-size: 14px; color: #fff; border: none; margin-top: 10px; opacity: 0;}
+	#mission_sraterment1_left_bg {width: 0px; height: 0px; background-color: rgba(0,0,0,0.5); position: absolute; right: 0; bottom: 0; opacity: 0;}
+	#mission_sraterment1_left_bg img {width: 0px; height: 0px; margin: auto; position: absolute; right: 10px; bottom: 10px;}
+	#mission_stratement1_right {width: 0px; height: 0px; float: right; position: absolute; left: 0; bottom: 0; margin-left: 576px; opacity: 0;}
+	#mission_stratement1_right_contents {width: 844px; height: 425px; background-color: rgba(0,0,0,0.5); margin-left: 20px;}
+	#mission_stratement1_right_contents li {width: 251px; height: 430px; float: left; margin: 10px 20px; position: relative;}
+	#mission_stratement1_right_contents li:nth-child(1) {margin-right: 5px; margin-left: 20px;}
+	#mission_stratement1_right_contents li:nth-child(2) {margin-right: 5px;}
+	#mission_stratement1_right_contents li:nth-child(3) {margin-right: 0;}
+	#mission_stratement1_right_contents li div {width: 0px; height: 0px; background-color: #000; position: absolute; left: 0; bottom: 105px;} 
+	#mission_stratement1_right_contents li:nth-child(1) div {background: #fff url(images/mission_stratement1_right_img1.jpg) center no-repeat; background-size: cover; position: absolute;}
+	#mission_stratement1_right_contents li:nth-child(2) div {background: #fff url(images/mission_stratement1_right_img2.jpg) center no-repeat; background-size: cover;}
+	#mission_stratement1_right_contents li:nth-child(3) div {background: #fff url(images/mission_stratement1_right_img3.jpg) center no-repeat; background-size: cover;}
+	#mission_stratement1_right_contents li h4 {color: #fff; font-size: 16px; line-height: 25px; font-weight: 500; margin-top: 5px; opacity: 0; margin-top: 335px;}
+	#mission_stratement1_right_contents li h5 {font-size: 12px; color: #ff5a00; margin-top: 5px; opacity: 0;}
+
+	#mission_stratement2 {width: 1440px; height: 230px; margin-top: 20px; position: relative;}
+	#mission_stratement2_left { width: 0px; height: 0px; float: left; background-color: rgba(0,0,0,0.5); position: absolute; right: 0; top: 0; margin-right: 576px; opacity: 0;} 
+	#mission_stratement2_left h4 {color: #fff; font-size: 16px; font-weight: 500; line-height: 30px; margin-left: 10px; opacity: 0;}
+	#book_left {width: 504px; height: 175px; float: left; position: relative;}
+	#book_left li {width: 0px; height: 155px; float: left; overflow: hidden; position: absolute; margin-top: 10px;}
+	#book_left li:nth-child(1) {background: #fff url(images/book1.png) center no-repeat; background-size: cover; right: 340px;}
+	#book_left li:nth-child(2) {margin-left: 0px; margin-right: 0px; background: #fff url(images/book2.png) center no-repeat; background-size: cover; right: 174px; }
+	#book_left li:nth-child(3) {background: #fff url(images/book3.png) center no-repeat; 
+	background-size: cover; right: 10px;}
+	
+	#book_right {width: 360px; height: 175px; float: right; position: relative;}
+	#book_right img {width: 0px;}
+	#book_right li:nth-child(1) img{z-index: 99; transform:rotate(-25deg); position: absolute; left: 60px; top: 0; bottom: 0; margin: auto;}
+	#book_right li:nth-child(2) img{z-index: 98; position: absolute; right: 60px; top: 0; bottom: 0;  margin: auto; }
+
+
+	
+	#mission_stratement2_right {width: 0px; height: 0px; float: right; text-align: center; position: absolute; left: 0; top: 0; background-color: rgba(0,0,0,0.5); margin-left: 884px; opacity: 0;}
+	#mission_stratement2_right_bg {width: 556px; height: 205px; background: #fff url(images/mountains-440520_1920.jpg) center no-repeat; background-size: cover; overflow: hidden;}
+	#mission_stratement2_right_logo {margin-top: 82px;}
+	#mission_stratement2_right_logo img {width: 150px; opacity: 0;}
+	#mission_stratement2_right h4 {color: #fff; line-height: 10px; opacity: 0;}
+	
+	/*main3시작*/
+	#main3_wrap {width: 100%; height: 100%; background-color: red; background: #fff url(images/main3_bg.jpg) center no-repeat; background-size: cover; position: relative;}
+	#main3_bg {width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.2); left: 0; top: 0;}
+	#main3_center {width: 1440px; height: 700px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -720px; text-align: center;}
+	#main3_center h2 {font-size: 50px; font-weight: 900; text-transform: uppercase; color: #fff; letter-spacing:5px; opacity: 0; }
+	#main3_center h3 {font-size: 30px; font-weight: 300; color: #ff5a00; text-transform: uppercase; letter-spacing: 5px; opacity: 0;}
+	#main3_sport {width: 1440px; height: 400px; margin-top: 60px; perspective:500px;}
+	#main3_sport li {width: 230px; height: 380px; float: left; border-radius: 5px; position: absolute; border: 3px solid #fff;} 
+	#main3_sport li:hover {cursor: pointer;}
+	/*	#main3_sport li:nth-child(1) {background: #fff url(images/main3_center_bg1.jpg) center no-repeat; background-size: cover; transform:rotateY(45deg); transform-origin:0 100%; left: 10px; top: 0; bottom: 0; margin: auto;}*/
+	#main3_sport li:nth-child(1) {background: #fff url(images/main3_center_bg1.jpg) center no-repeat; background-size: cover; left: 0; right: 0; top: 0; bottom: 0; margin: auto; display: none; z-index: 1;}
+
+	/*	#main3_sport li:nth-child(2) {background: #fff url(images/main3_center_bg2.jpg) center no-repeat; background-size: cover; transform:rotateY(45deg); transform-origin:0 100%; left: 330px; top: 0; bottom: 0; margin: auto; z-index: 4;}*/
+	#main3_sport li:nth-child(2) {background: #fff url(images/main3_center_bg2.jpg) center no-repeat; background-size: cover; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 2; display: none;}
+	/*	#main3_sport li:nth-child(3) {background: #fff url(images/main3_center_bg3.jpg) center no-repeat; background-size: cover; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 5;}*/
+	#main3_sport li:nth-child(3) {background: #fff url(images/main3_center_bg3.jpg) center no-repeat; background-size: cover; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 3; display: none;}
+	/*	#main3_sport li:nth-child(4) {background: #fff url(images/main3_center_bg4.jpg) center no-repeat; background-size: cover; transform:rotateY(-45deg); transform-origin:100% 100%; right: 330px; top: 0; bottom: 0; margin: auto; z-index: 3;}*/
+	#main3_sport li:nth-child(4) {background: #fff url(images/main3_center_bg4.jpg) center no-repeat; background-size: cover; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 4; display: none;}
+
+	/*	#main3_sport li:nth-child(5) {background: #fff url(images/main3_center_bg5.jpg) center no-repeat; background-size: cover; transform:rotateY(-45deg); transform-origin:100% 100%;  right: 10px; top: 0; bottom: 0; margin: auto;}*/
+	#main3_sport li:nth-child(5) {background: #fff url(images/main3_center_bg5.jpg) center no-repeat; background-size: cover;  left: 0; right: 0; top: 0; bottom: 0; margin: auto; display: none; z-index: 5;}
+	#main3_sport li:nth-child(1):hover {transform:scale(1.1);}
+	#main3_sport li:nth-child(2):hover {transform:scale(1.1);}
+	#main3_sport li:nth-child(3):hover {transform:scale(1.1);}
+	#main3_sport li:nth-child(4):hover {transform:scale(1.1);}
+	#main3_sport li:nth-child(5):hover {transform:scale(1.1);}
+
+	.main3_sport_bg {width: 100%; height: 100px; background-color: rgba(0,0,0,0.3); position: absolute; bottom: 0;}
+	.main3_sport_bg h4 {color: #ff5a00; line-height: 50px; border-bottom: 1px solid #fff; font-weight: 300;}
+	.main3_sport_bg h5 {color: #fff; line-height: 50px; font-weight: 300;}
+	.main3_sport_li_bt {width: 150px; height: 40px; background-color: #000; color: #fff; font-weight: 500; border: 3px solid #fff; 
+	border-radius: 5px; position: absolute; left: 0; right: 0; top: 0px; margin: auto; font-size: 15px; font-weight: 700; opacity: 0;}
+	#main3_click_img_box h4{color: #ff5a00; text-transform: uppercase; font-weight: 300; font-size: 14px;}
+	#main3_click_img1 {width: 50px; height: 50px; position: absolute; left: -1200px; right: 0; bottom: 50px; margin: auto; text-align: center; display: none;}
+	#main3_click_img2 {width: 50px; height: 50px; position: absolute; left: -600px; right: 0; bottom: 50px; margin: auto; text-align: center; display: none;}
+	#main3_click_img3 {width: 50px; height: 50px; position: absolute; left: -0px; right: 0; bottom: 50px; margin: auto; text-align: center; display: none;}
+	#main3_click_img4 {width: 50px; height: 50px; position: absolute; left: 0px; right: -600px; bottom: 50px; margin: auto; text-align: center; display: none;}
+	#main3_click_img5 {width: 50px; height: 50px; position: absolute; left: 0; right: -1200px; bottom: 50px; margin: auto; text-align: center; display: none;}
+	/* main3끝 */
+
+	/* main4 시작 */
+	#main4_wrap {width: 100%; height: 100%; background-color: red; background: #fff url(images/main4_bg.jpg) center no-repeat; background-size: cover; position: relative; overflow: hidden;}
+	#main4_bg {width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.2); left: 0; top: 0;}
+	#ambassador {width: 1440px; height: 650px; background-color: rgba(0,0,0,0.5); position: absolute; right: 50%; top: -50px; bottom: 0; margin: auto; margin-right: -1440px; opacity: 0; overflow: hidden;}
+	#ambassador_left_box {width: 359px; height: 650px; overflow: hidden; float: left;}
+	#ambassador_left_box h2{color: #fff; line-height: 50px; font-size: 35px; margin-left: 50px; margin-top: 0px; opacity: 0;}
+	.ambassador_left_text_box h4 {color: #ff5a00; font-size: 14px; margin-left: -100px; line-height: 30px; margin-top: 30px; opacity: 0; }
+	.ambassador_left_text_box p {color: #fff; font-size: 12px; margin-left: -100px; line-height: 25px; font-weight: 100; opacity: 0;}
+	#ambassador_profile_box {width: 1080px; height: 450px; float: left; overflow: hidden; position: relative;}
+	#ambassador_profile_box>h2 {font-size: 35px; color: #ff5a00; text-align: center; margin-top: 0px; opacity: 0;}
+	#profile_slide_wrap {width: 0px; height: 200px; background-color: #fff; position: absolute; left: 0; right: 0; top: 50px; bottom: 0; margin: auto; opacity: 0;}
+	.profile_slide {width: 1530px; height: 200px; position: absolute; left: -130px;}
+	.profile_slide li {width: 180px; height: 180px; background-color: green; float: left; margin-top: 10px; margin-left: 10px; overflow: hidden;}
+	.profile_slide li:hover img {transform:scale(1.1); cursor: pointer;}
+	.profile_slide li img {width: 180px;}
+	.profile_slide:nth-child(2) {display: none;}
+	.profile_slide:nth-child(3) {display: none;}
+	.profile_slide:nth-child(4) {display: none;}
+	.profile_slide:nth-child(5) {display: none;}
+
+	#ambassador_profile_popup_box {width: 1080px; height: 450px; background-color: rgba(0,0,0,0.5); position: absolute; left: 0; top: 0; display: none;}
+	#ambassador_profile_popup_box img {height: 350px; position: absolute; left: 100px; bottom: 20px;}
+	#ambassador_close_bt {width: 25px; height: 25px; border: 1px solid #fff; color: #fff; background-color: transparent; position: absolute; right: 50px; top: 25px; font-size: 18px;}
+	#ambassador_profile_popup_text_box {width: 400px; height: 350px; background-color: rgba(0,0,0,0.5); position: absolute; right: 100px; bottom: 20px; border: 1px solid #fff;}
+	#ambassador_profile_popup_text_box_top {width: 400px; height: 249px; border-bottom: 1px solid #fff; font-weight: 500;}
+	#ambassador_profile_popup_text_box_top h3 {font-size: 16px; text-align: center; line-height: 50px; color: #fff;}
+	#ambassador_profile_popup_text_box_top h4 {color: #fff; float: left; text-align: center; font-size: 12px; margin-left: 10px; line-height: 20px; font-weight: 500;}
+	#ambassador_profile_popup_text_box_top h5 {color: #fff; float: right; text-align: center; font-size: 12px; margin-right: 10px; line-height: 20px; font-weight: 500;}
+	#ambassador_profile_popup_text_box_top p {width: 380px; clear: both; font-size: 12px; color: #fff; font-weight: 300; line-height: 20px; padding-top: 25px; margin-left: 10px;}
+	#ambassador_profile_popup_text_box_bottom {width: 400px; height: 100px;}
+	#ambassador_profile_popup_text_box_bottom h3 {font-size: 12px; color: #fff; margin-left: 10px; line-height: 25px;}
+	#ambassador_profile_popup_text_box_bottom li {width: 380px; font-size: 12px; color: #fff; font-weight: 300; line-height: 25px; margin-left: 10px;}
+
+	#ambassador_sport_box {width: 1080px; height: 200px; float: left;}
+	#ambassador_sport_box li {width: 214px; height: 200px; float: left; background-color: rgba(255,255,255,0.5); border: 1px solid #fff; text-align: center; position: relative;}
+	#ambassador_sport_box li img {display: none;}
+	#ambassador_sport_box li:nth-child(1) {background-color: #ff5a00; opacity: 1;}
+	#ambassador_sport_box li:nth-child(1) img {margin-top: 67px;}
+	#ambassador_sport_box li:nth-child(1) h4 {color: #fff;}
+	#ambassador_sport_box li:nth-child(2) img {margin-top: 42px;}
+	#ambassador_sport_box li:nth-child(3) img {margin-top: 43px;}
+	#ambassador_sport_box li:nth-child(4) img {margin-top: 44px;}
+	#ambassador_sport_box li:nth-child(5) img {margin-top: 44px;}
+	#ambassador_sport_box li h4 {position: absolute; left: 0; right: 0; bottom: 10px; margin: auto; display: none; font-weight: 400;}
+	/* main4 끝 */
+	/* main5 시작*/
+	#main5_wrap {width: 100%; height: 100%; background: #fff url(images/mountain-ranges-1209497_1920.jpg) center no-repeat; position: relative; background-size: cover;}
+	#main5_bg {width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.2); left: 0; top: 0;}
+	#main5_wrap_product_box {width: 1440px; height: 650px; position: absolute; left: 50%; top: -50px; bottom: 0; margin: auto; margin-left: -1440px; opacity: 0; overflow: hidden;}
+	#video_box {width: 499px; height: 650px; background-color: rgba(0,0,0,0.3); float: left; overflow: hidden; border-right: 1px solid #fff;}   
+	#video_box_text1 {height: 100px;}
+	#video_box h2 {font-size: 50px; color: #fff; line-height: 50px; margin-left: -100px; opacity: 0; margin-top: 10px;}
+	#video_box h3 {font-size: 16px; color: #fff; font-weight: 100; line-height: 30px; margin-left: -100px; opacity: 0;}
+	#video_box_text2 {height: 250px;}
+	#video_box h4 {font-size: 14px; color: #fff; font-weight: 500; line-height: 50px; margin-left: -100px; opacity: 0;}
+	#video_box p {font-size: 14px; color: #fff; font-weight: 100; line-height: 25px; margin-left: -100px; opacity: 0;}
+	#video_inbox {width: 0px; height: 300px; opacity: 0;}
+	#video1{height: 300px; vertical-align: top;}
+	#main5_sport_icon{width: 499px; height: 150px; position: absolute; bottom: 0; margin-left: -100px; opacity: 0;}
+	#main5_sport_icon li { padding: 0px 12px; height: 30px; float: left; margin-right:5px; margin-top: 60px; border-radius: 30px; text-align: center; line-height: 30px; background-color: #000; color: #fff; font-size: 12px;}
+	#main5_sport_icon li:nth-child(1) {margin-left: 20px; background-color: #fff; color: #000;}
+	#main5_sport_icon li:nth-child(5) {margin-right: 0px;}
+
+	
+	#main5_product_wrap {width: 940px; height: 650px; float: right; background-color: rgba(0,0,0,0.3); position: relative;}
+
+	#left_inbox_leftbt1 {width: 25px; height: 25px; position: absolute; left: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/left_bt.png) center no-repeat;}
+	#left_inbox_rightbt1 {width: 25px; height: 25px; position: absolute; right: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/right_bt.png) center no-repeat;}
+
+	#left_inbox_leftbt2 {width: 25px; height: 25px; position: absolute; left: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/left_bt.png) center no-repeat; display: none;}
+	#left_inbox_rightbt2 {width: 25px; height: 25px; position: absolute; right: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/right_bt.png) center no-repeat; display: none;}
+
+	#left_inbox_leftbt3 {width: 25px; height: 25px; position: absolute; left: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/left_bt.png) center no-repeat; display: none;}
+	#left_inbox_rightbt3 {width: 25px; height: 25px; position: absolute; right: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/right_bt.png) center no-repeat; display: none;}
+
+	#left_inbox_leftbt4 {width: 25px; height: 25px; position: absolute; left: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/left_bt.png) center no-repeat; display: none;}
+	#left_inbox_rightbt4 {width: 25px; height: 25px; position: absolute; right: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/right_bt.png) center no-repeat; display: none;}
+
+	#left_inbox_leftbt5 {width: 25px; height: 25px; position: absolute; left: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/left_bt.png) center no-repeat; display: none;}
+	#left_inbox_rightbt5 {width: 25px; height: 25px; position: absolute; right: 50px; top: 0; bottom: 0; margin: auto; border: none; border-radius: 25px; background: #fff url(icons/right_bt.png) center no-repeat; display: none;}
+
+	#main5_product_content_left_inbox {width: 470px; height: 400px; float: left; text-align: center; position: relative;}
+	#product_img_slide_wrap {width: 300px; height: 300px; background-color: #eee; position: absolute; left: 0; right: 0; top: 50px; margin: auto; overflow: hidden;}
+	#product_img_slide_wrap li img {width: 300px; vertical-align: top;}
+
+	#product_img_slide_wrap ul{display: none;}
+	#product_img_slide_wrap #product_img1 {width: 600px; height: 300px; background-color: red; position: absolute; left: 0; top: 0; display: block;}
+	#product_img_slide_wrap #product_img1 li {width: 300px; height: 300px; float: left;}
+
+	#product_img_slide_wrap #product_img2 {width: 1500px; height: 300px; background-color: red; position: absolute; left: 0; top: 0;}
+	#product_img_slide_wrap #product_img2 li {width: 300px; height: 300px; float: left;}
+
+	#product_img_slide_wrap #product_img3 {width: 1500px; height: 300px; background-color: red; position: absolute; left: 0; top: 0;}
+	#product_img_slide_wrap #product_img3 li {width: 300px; height: 300px; float: left;}
+
+	#product_img_slide_wrap #product_img4 {width: 1200px; height: 300px; background-color: red; position: absolute; left: 0; top: 0;}
+	#product_img_slide_wrap #product_img4 li {width: 300px; height: 300px; float: left;}
+
+	#product_img_slide_wrap #product_img5 {width: 300px; height: 300px; background-color: red; position: absolute; left: 0; top: 0;}
+	#product_img_slide_wrap #product_img5 li {width: 300px; height: 300px; float: left;}
+	
+	#main5_product_content_right {width: 470px; height: 400px; float: left;}
+	#main5_product_content_right_inbox {width: 400px; height: 300px; margin: auto; margin-top: 50px; background-color: rgba(255,255,255,0.5); overflow: hidden; text-align: left; position: relative;}
+	#main5_product_content_right_inbox h2 { padding-left: 10px; padding-top: 10px;font-size: 16px; line-height: 30px;}
+	#main5_product_content_right_inbox h3 { padding-left: 10px; padding-top: 10px; font-size: 14px; line-height: 30px;}
+	#main5_product_content_right_inbox p { padding-left: 10px; padding-top: 10px; font-size: 12px;}
+	#main5_product_content_right_inbox h5 {font-size: 14px; line-height: 30px; position: absolute; bottom: 30px; width: 100%; text-align: left; padding-left: 10px;}
+	#main5_icon {width: 400px; height: 30px; position: absolute; bottom: 60px; }
+	#main5_icon li {width: 120px; height: 30px; float: left; font-size: 12px; text-align: left; margin-top: 5px; margin-left: 10px;}
+	#main5_icon img {vertical-align: middle;}
+	#product_color_1 {width: 400px; height: 30px; text-align: center; position: absolute; bottom: 0;}
+	#product_color_1 li{width: 12px; height: 12px; float: left; margin-top: 9px; margin-left: 10px;}
+	#product_color_1 li:nth-child(1) {background-color: #ff8000}
+	#product_color_1 li:nth-child(2) {background-color: #0080ff;}
+	#product_color_2 {width: 400px; height: 30px; text-align: center; position: absolute; bottom: 0; display: none;}
+	#product_color_2 li{width: 12px; height: 12px; float: left; margin-top: 9px; margin-left: 10px;}
+	#product_color_2 li:nth-child(1) {background-color: #0080ff;}
+	#product_color_2 li:nth-child(2) {background-color: #000;}
+	#product_color_2 li:nth-child(3) {background-color: #ffff33;}
+	#product_color_3 {width: 400px; height: 30px; text-align: center; position: absolute; bottom: 0; display: none;}
+	#product_color_3 li{width: 12px; height: 12px; float: left; margin-top: 9px; margin-left: 10px;}
+	#product_color_3 li:nth-child(1) {background-color: #ffff33;}
+	#product_color_3 li:nth-child(2) {background-color: #000;}
+	#product_color_3 li:nth-child(3) {background-color: #0080ff;}
+	#product_color_3 li:nth-child(4) {background-color: #660000;}
+	#product_color_4 {width: 400px; height: 30px; text-align: center; position: absolute; bottom: 0; display: none;}
+	#product_color_4 li{width: 12px; height: 12px; float: left; margin-top: 9px; margin-left: 10px;}
+	#product_color_4 li:nth-child(1) {background-color: navy;}
+	#product_color_4 li:nth-child(2) {background-color: #660000;}
+	#product_color_4 li:nth-child(3) {background-color: #000;}
+	#product_color_4 li:nth-child(4) {background-color: #408080;}
+	#product_color_5 {width: 400px; height: 30px; text-align: center; position: absolute; bottom: 0; display: none;}
+	#product_color_5 li{width: 12px; height: 12px; float: left; margin-top: 9px; margin-left: 10px;}
+	#product_color_5 li:nth-child(1) {background-color: navy;}
+		
+	
+	#main5_product_slide_wrap_bottom {width: 940px; height: 240px; position: absolute; bottom: 0;}
+	#main5_product_slide{width: 940px; height: 240px;}
+	#main5_product_slide li {width: 940px; height: 240px; position: absolute; left: 0; top: 0; display: none;}
+	#main5_product_slide li:nth-child(1) {background: #fff url(images/surf_product_bg.jpg) center no-repeat; background-size: cover; display: block;}
+	#main5_product_slide li:nth-child(2) {background: #fff url(images/climbing_product_bg.jpg) center no-repeat; background-size: cover;}
+	#main5_product_slide li:nth-child(3) {background: #fff url(images/snow_product_bg.jpg) center no-repeat; background-size: cover;}
+	#main5_product_slide li:nth-child(4) {background: #fff url(images/mountin_product_bg.jpg) center no-repeat; background-size: cover;}
+	#main5_product_slide li:nth-child(5) {background: #fff url(images/trail_product_bg.jpg) center no-repeat; background-size: cover;}
+
+	/*	main6 시작*/
+	#main6_wrap {width: 100%; height: 100%; background: #fff url(images/main5_bg2.jpg) center no-repeat; position: relative; overflow: hidden; }
+	#main6_bg {width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.2); left: 0; top: 0;}
+	#main6_center_box {width: 1440px; height: 650px; position: absolute; left: 50%; top: -50px; bottom: 0; margin: auto; margin-left: -720px;}
+	#logo_text{width: 200px; height: 50px; font-size: 50px; position: absolute; left: 0px; top: 100px; color: #fff;} 
+	#h3_text{width: 200px; height: 50px; font-size: 20px; position: absolute; left: -50px; top: 60px; color: #fff; font-weight: 300; transform:rotate(-20deg);}
+	#h3_text img {width: 150px;}
+	#num_text {width: 200px; height: 50px; font-size: 16px; position: absolute; left: 0px; bottom: 0; color: #fff; font-weight: 100;}
+	
+	#round_click {width: 100px; height: 100px; border: 1px solid #fff; border-radius: 80px; position: absolute; bottom: 0px; right: 0px; z-index: 2;}
+	#round_click:hover {cursor: pointer;}
+	#round_click h3 {color: #fff; font-size: 14px; position: absolute; right: 0; top: 30px;margin: auto;}
+	#round_click img{position: absolute; right: -30px; bottom: 30px; margin: auto;}
+
+	#main6_slide {width: 1580px; height: 280px; position: absolute; left: 0; top: 0px;}
+	#main6_slide li {width: 500px; height: 280px; background-color: red; float: left;}
+	#main6_slide li:nth-child(1) {background: #fff url(images/007006_3.jpg) center no-repeat; background-size: cover; margin-left: 0;}
+	#main6_slide li:nth-child(2) {background: #fff url(images/surfing-2212948_1920.jpg) center no-repeat; background-size: cover; opacity: 0.5;}
+	#main6_slide li:nth-child(3) {background: #fff url(images/snow-4948923_1920.jpg) center no-repeat; background-size: cover; opacity: 0.5;}
+	#main6_slide_wrap_box{width: 1580px; height: 280px; position: absolute; right: -820px; top: 0; overflow: hidden;}
+	#main6_slide_wrap {width: 500px; height: 280px; margin: auto; position: absolute;}
+	 .swiper-container {	width: 100%; margin: 0; #ccc inset;}
+	 .swiper-slide {}
+	 .swiper-slide img {box-shadow:0 0 5px #555; max-width:100%;} /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보
+	 여질때 필요 *//* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+	#main6_taxt_box {width: 500px; position: absolute; right: 260px; top: 280px;}
+	#main6_taxt_box h3 {border-bottom: 1px solid #fff; color: #fff; line-height: 50px;}
+	#main6_taxt_box p {color: #fff; line-height: 25px; margin-top: 10px;}
+	#main6_icon {width: 300px; height: 20px; float: right; margin-top: 30px;}
+	#main6_icon li {width: 90px; height: 20px; float: left; margin-left: 10px; text-align: center; font-size: 10px; vertical-align: top; color: #fff;}
+	#main6_icon li img {vertical-align: middle; margin-right: 10px;}
+	#main6_icon li img {width: 20px;}
+	#main6_cloud_bg {position: absolute; left: 0; right: 0; bottom: -600px; margin: auto; z-index: 1;}
+
+ </style><style>
+  	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+
+	}
+	@media all and (min-width:768px) { /*768~1023 태블릿*/
+	
+	}
+	@media all and (min-width:1024px) { /*1024 태블릿*/
+	
+	}
+  </style></head><body>
+ 	<div id="wrap"> <!-- wrap시작 -->
+	<div id="main1_wrap"> <!-- main1_wrap시작	-->
+	<!-- main1_wrap header시작	-->
+	<div id="popup_banner">
+			<h2 id="popup_banner_logo"><img src="logo/black_logo.png" alt="logo_img1"></h2>
+				<ul id="popup_banner_menu">
+					<li><a href="#">shop</a></li>
+					<li><a href="#">inside patagonia</a></li>
+					<li><a href="#">film</a></li>
+					<li><a href="#">gallery</a></li>
+				</ul>
+	</div>
+	<div id="main1_bg"></div>
+		<header>
+			<h1 id="logo"><img src="images/white_logo.png" alt="logo_img2"></h1>
+		</header>
+		<!-- main_center시작 -->
+			<h2 id="center_logo1">patagonia</h2>
+			<img src="images/page1_center_logo_bottom.png" alt="center_logo_img" id="center_logo2">
+			<div id="center_mountain_icon"></div>
+			<div id="right_page_icon">
+				<img src="icons/page_line2.png" alt="page_line_img" id="page_line">
+				<img src="icons/wich.png" alt="wich_img" id="wich">
+				<div id="main_hit_icon1"></div>
+				<div id="main_hit_icon2"></div>
+				<div id="main_hit_icon3"></div>
+				<div id="main_hit_icon4"></div>
+				<div id="main_hit_icon5"></div>		
+				<div id="main_hit_icon6"></div>
+			</div>
+			
+		<!-- main1_bottom시작 -->
+			<div id="round_km">0</div>
+				<div id="mouse_scroll">
+					<div id="mouse_inscroll"></div>
+				</div>
+				<ul id="sns">
+					<li><img src="images/instargram_icon.png" alt="instar_img"></li>
+					<li><img src="images/facebook_icon.png" alt="facebook_img"></li>
+					<li><img src="images/twitter_icon.png" alt="twitter_img"></li>
+					<li><img src="images/youtube_icon.png" alt="youtube_img"></li>
+				</ul>
+		<!-- main1_ship시작 -->
+			<img src="images/main1_ship1.png" alt="ship_img1" id="ship1">
+			<img src="images/main1_ship2.png" alt="ship_img2" id="ship2">
+	</div> <!-- main1_wrap끝 -->
+	<!-- main2 시작 -->
+	<div id="main2_wrap">
+	<div id="main2_bg">
+<!-- 	비디오<video src="1920x1080-surflanding.mp4" autopaly controls loop muted></video> -->
+		<img src="images/main2_sky.png" alt="sky_img">
+		<img src="images/main2_mountain.png" alt="mountain_img">
+		<img src="images/main2_sea.png" alt="sea_img">
+		<img src="images/main2_ship595.png" alt="ship_img">
+		<!-- main2 -->
+	</div> <!-- main2_bg끝 -->
+	<div id="main2_bg_black"></div>
+	<!-- mission_stratement 시작 -->
+	<div id="mission_stratement">
+		<div id="mission_stratement1">
+			<div id="mission_stratement1_left">
+				<h3>파타고니아의 사명<span>(Mission Statement)</span></h3>
+				<p>We’re in Business to save our home planet <br>
+				우리는 우리의 터전, 지구를 되살리기 위해 사업을 합니다.</p>
+				<button>Our Reason For Being</button>
+				<div id="mission_sraterment1_left_bg">
+					<img src="images/mission_sraterment1_left_bg_img_556x290.jpg" alt="ment_img1">
+				</div>
+			</div>
+			<div id="mission_stratement1_right">
+			<ul id="mission_stratement1_right_contents">
+				<li><div></div>
+					<h4>Patagonia <br> Brand History</h4>
+					<h5>Content view</h5>
+				</li>
+				<li><div></div>
+					<h4>Core Values <br> Mission Vision</h4>
+					<h5>Content view</h5>
+				</li>
+				<li><div></div>
+					<h4>Product <br> Production Process</h4>
+					<h5>Content view</h5>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<div id="mission_stratement2">
+			<div id="mission_stratement2_left">
+			<h4>Book Store</h4>
+				<ul id="book_left">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul id="book_right">
+				<li><img src="images/book4_1.png" alt="book_img1"></li>
+				<li><img src="images/book4_2.png" alt="book_img2"></li>
+				</ul>
+			</div>
+			<div id="mission_stratement2_right">
+				<div id="mission_stratement2_right_bg">
+				<h3 id="mission_stratement2_right_logo"><img src="images/white_logo150x28.png" alt="ment_right_img"></h3>
+				<h4>FILMS</h4>
+				</div>
+			</div>
+		</div>
+	</div> <!-- mission_stratement 끝 -->
+	</div><!-- main2_wrap끝 -->
+	<!-- main3시작 -->
+	<div id="main3_wrap">
+	<div id="main3_bg"></div>
+	<div id="main3_center">
+		<h2>patagonia</h2>
+		<h3>sport</h3>
+			<ul id="main3_sport">
+				<li>
+				<button class="main3_sport_li_bt">SURFING</button>
+				<div class="main3_sport_bg">
+				<h4>SURFING</h4>
+				<h5>A New Surf Culture</h5>	
+				</div>
+				</li>
+				<li>
+				<button class="main3_sport_li_bt">CLIMBING</button>
+				<div class="main3_sport_bg">
+				<h4>CLIMBING</h4>
+				<h5>Moonwalking</h5>	
+				</div>
+				</li>
+				<li>
+				<button class="main3_sport_li_bt">SNOW</button>
+				<div class="main3_sport_bg">
+				<h4>SNOW</h4>
+				<h5>Stay Cool</h5>	
+				</div>
+				</li>
+				<li>
+				<button class="main3_sport_li_bt">MOUNTAIN BIKING</button>
+				<div class="main3_sport_bg">
+				<h4>MOUNTAIN BIKING</h4>
+				<h5>Lighter. Faster. Farther.</h5>	
+				</div>
+				</li>
+				<li>
+				<button class="main3_sport_li_bt">TRAIL RUNNING</button>
+				<div class="main3_sport_bg">
+				<h4>TRAIL RUNNING</h4>
+				<h5>Act Natural</h5>	
+				</div>
+				</li>
+			</ul>
+<div id="main3_click_img_box">
+		<div id="main3_click_img1">
+			<img src="icons/main3_click.png" alt="icon_img1">
+			<h4>click</h4>
+		</div>
+		<div id="main3_click_img2">
+			<img src="icons/main3_click.png" alt="icon_img2">
+			<h4>click</h4>
+		</div>
+		<div id="main3_click_img3">
+			<img src="icons/main3_click.png" alt="icon_img3">
+			<h4>click</h4>
+		</div>
+		<div id="main3_click_img4">
+			<img src="icons/main3_click.png" alt="icon_img4">
+			<h4>click</h4>
+		</div>
+		<div id="main3_click_img5">
+			<img src="icons/main3_click.png" alt="icon_img5">
+			<h4>click</h4>
+		</div>
+	</div>
+	</div>
+	</div> <!-- main3끝 -->
+<!-- main4_wrap -->
+	<div id="main4_wrap">
+	<div id="main4_bg"></div>	
+		<div id="ambassador">
+			<div id="ambassador_left_box">
+				<h2>AMBASSADOR</h2>
+				<div class="ambassador_left_text_box">
+					<h4>We guarantee everything we make.</h4>
+					<p>Because we know prioritizing durability <br> results in consuming less energy, <br> wasting less water and creating less trash.</p>
+				</div>	
+				<div class="ambassador_left_text_box">
+					<h4>Know how your clothes are made.</h4>
+					<p>Because we know prioritizing durability <br> results in consuming less energy, <br> wasting less water and creating less trash.</p>
+				</div>	
+				<div class="ambassador_left_text_box">
+					<h4>Keep your gear in play.</h4>
+					<p>Because we know prioritizing durability <br> results in consuming less energy, <br> wasting less water and creating less trash.</p>
+				</div>	
+				<div class="ambassador_left_text_box">
+					<h4>We give back for every sale.</h4>
+					<p>Because we know prioritizing durability <br> results in consuming less energy, <br> wasting less water and creating less trash.</p>
+				</div>	
+			</div>
+			<div id="ambassador_right_box">
+				<div id="ambassador_profile_box">
+				<h2>SURFING</h2>
+				<div id="profile_slide_wrap">
+				<ul class="profile_slide">
+							<li><img src="images/surf/profileimage_1441805613.jpg" alt="profile_img1"></li>
+							<li><img src="images/surf/profileimage_1445557501.jpg" alt="profile_img2"></li>
+							<li><img src="images/surf/profileimage_1445557692.jpg" alt="profile_img3"></li>
+							<li><img src="images/surf/profileimage_1445559346.jpg" alt="profile_img4"></li>
+							<li><img src="images/surf/profileimage_1445932689.jpg" alt="profile_img5"></li>
+							<li><img src="images/surf/profileimage_1445933515.jpg" alt="profile_img6"></li>
+							<li><img src="images/surf/profileimage_1524721021.jpg" alt="profile_img7"></li>
+							<li><img src="images/surf/profileimage_1524723552.jpg" alt="profile_img8"></li>
+						</ul>
+				<ul class="profile_slide">
+							<li><img src="images/climbing/profileimage_1445490993.jpg" alt="profile_img9"></li>
+							<li><img src="images/climbing/profileimage_1445491775.jpg" alt="profile_img10"></li>
+							<li><img src="images/climbing/profileimage_1445492475.jpg" alt="profile_img11"></li>
+							<li><img src="images/climbing/profileimage_1445492668.jpg" alt="profile_img12"></li>
+							<li><img src="images/climbing/profileimage_1445502180.jpg" alt="profile_img13"></li>
+							<li><img src="images/climbing/profileimage_1525055516.jpg" alt="profile_img14"></li>
+							<li><img src="images/climbing/profileimage_1525059552.jpg" alt="profile_img15"></li>
+							<li><img src="images/climbing/profileimage_1525059674.jpg" alt="profile_img16"></li>
+						</ul>
+				<ul class="profile_slide">
+							<li><img src="images/snow/profileimage_1441805396.jpg" alt="profile_img17"></li>
+							<li><img src="images/snow/profileimage_1445493871.jpg" alt="profile_img18"></li>
+							<li><img src="images/snow/profileimage_1445505838.jpg" alt="profile_img19"></li>
+							<li><img src="images/snow/profileimage_1445505922.jpg" alt="profile_img20"></li>
+							<li><img src="images/snow/profileimage_1445506186.jpg" alt="profile_img21"></li>
+							<li><img src="images/snow/profileimage_1445506400.jpg" alt="profile_img22"></li>
+							<li><img src="images/snow/profileimage_1445506477.jpg" alt="profile_img23"></li>
+							<li><img src="images/snow/profileimage_1445507582.jpg" alt="profile_img24"></li>
+						</ul>
+				<ul class="profile_slide">
+							<li><img src="images/global_sport/profileimage_1524716897.jpg" alt="profile_img25"></li>
+							<li><img src="images/global_sport/profileimage_1524717215.jpg" alt="profile_img26"></li>
+							<li><img src="images/global_sport/profileimage_1524717332.jpg" alt="profile_img27"></li>
+							<li><img src="images/global_sport/profileimage_1524721280.jpg" alt="profile_img28"></li>
+							<li><img src="images/global_sport/profileimage_1525068362.jpg" alt="profile_img29"></li>
+							<li><img src="images/global_sport/profileimage_1531286470.jpg" alt="profile_img30"></li>
+							<li><img src="images/global_sport/profileimage_1535441003.jpg" alt="profile_img31"></li>
+							<li><img src="images/global_sport/profileimage_1538375797.jpg" alt="profile_img32"></li>
+						</ul>
+				<ul class="profile_slide">
+							<li><img src="images/trailrunning/profileimage_0566973104.jpg" alt="profile_img33"></li>
+							<li><img src="images/trailrunning/profileimage_1441805811.jpg" alt="profile_img34"></li>
+							<li><img src="images/trailrunning/profileimage_1445560991.jpg" alt="profile_img35"></li>
+							<li><img src="images/trailrunning/profileimage_1445561585.jpg" alt="profile_img36"></li>
+							<li><img src="images/trailrunning/profileimage_1453699552.jpg" alt="profile_img37"></li>
+							<li><img src="images/trailrunning/profileimage_1525067665.jpg" alt="profile_img38"></li>
+							<li><img src="images/trailrunning/profileimage_1525067787.jpg" alt="profile_img39"></li>
+							<li><img src="images/trailrunning/profileimage_1525067860.jpg" alt="profile_img40"></li>
+						</ul>
+					</div>
+					<div id="ambassador_profile_popup_box">
+					<button id="ambassador_close_bt">X</button>
+							<img src="images/surf/profileimage_1441805613.jpg" alt="profile_popup_img">
+							<div id="ambassador_profile_popup_text_box">
+								<div id="ambassador_profile_popup_text_box_top">
+								<h3>Tommy Caldwell</h3>
+								<h4>고향 <br> Estes Park, CO</h4>
+								<h5>현 거주지 <br> Estes Park, CO</h5>
+								<p>토미는 힘겨울 때마다 아버지를 떠올립니다. 아버지는 토미에게 두려움을 받아들이고 두려움에 대해 되묻고 두려움을 영감으로 바꾸는 것을 가르쳐 주었습니다. 아버지에게 배운 마음가짐으로, 토미는 미국에서 가장 어려운 스포츠 클라이밍 루트를 등반했고, 요세미티 엘 캐피탄의 11개 루트를 자유 등반했습니다. 토미는 성공 가능성이 거의 없는 길고 어려운 등반에서 가장 많은 것을 배울 수 있다고 믿습니다.</p>
+							</div>
+							<div id="ambassador_profile_popup_text_box_bottom">
+							<h3>경력사항</h3>
+							<ul>
+								<li>First free ascent of the Dawn Wall on El Capitan, Yosemite, California</li>
+								<li>First ascent of the Fitz Traverse, Chaltén massif, Patagonia</li>
+								<li>First free ascent of El Capitan’s Muir Wall, Yosemite, California</li>
+								</ul>
+							</div>
+						</div>
+					</div>		
+				</div>
+				<ul id="ambassador_sport_box">
+					<li><img src="icons/main4_white_icon1.png" alt="surfing_icon_img">
+					<h4>SURFING</h4>
+					</li>
+					<li><img src="icons/main4_black_icon2.png" alt="climbing_icon_img">
+					<h4>CLIMBING</h4>
+					</li>
+					<li><img src="icons/main4_black_icon3.png" alt="snow_icon_img">
+					<h4>SNOW</h4>
+					</li>
+					<li><img src="icons/main4_black_icon4.png" alt="mountain_biking_img">
+					<h4>MOUNTAIN BIKING</h4>
+					</li>
+					<li><img src="icons/main4_black_icon5.png" alt="trail_running_img">
+					<h4>TRAIL RUNNING</h4>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- main4_wrap 끝-->
+	<!-- main5_wrap 시작 -->
+	<div id="main5_wrap">
+	<div id="main5_bg"></div>
+	<div id="main5_wrap_product_box">
+			<div id="video_box">
+			<div id="video_box_text1">
+				<h2>PATAGONIA</h2>
+				<h3>The Footprint Chronicles&reg;</h3>
+			</div>			
+			<div id="video_inbox">
+				<video src="video/video2.mp4" id="video1" autoplay loop muted></video>
+			</div>
+			<div id="video_box_text2">
+				<h4>The Better Sweater Just Got Better</h4>
+				<p>It's now completely recycled.<br>We made everything about the Better Sweater&reg; Better </p>
+				<ul id="main5_sport_icon">
+					<li>#SURFING</li>
+					<li>#CLIMBING</li>
+					<li>#SNOW</li>
+					<li>#MOUNTAIN</li>
+					<li>#TRAIL</li>
+				</ul>
+			</div>
+			</div>
+				<div id="main5_product_wrap">
+				<div id="main5_product_img_box">
+					<div id="main5_product_content_left_inbox">
+					<div id="product_img_slide_wrap">
+						<ul id="product_img1">
+							<li><img src="product_images/surf_product_img1.jpg" alt="product_img1"></li>
+							<li><img src="product_images/surf_product_img2.jpg" alt="product_img2"></li>
+						</ul>
+						<ul id="product_img2">
+							<li><img src="product_images/clibming_product_img1_blue0.jpg" alt="product_img3"></li>
+							<li><img src="product_images/clibming_product_img1_blue1.jpg" alt="product_img4"></li>
+							<li><img src="product_images/clibming_product_img1_blue2.jpg" alt="product_img5"></li>
+							<li><img src="product_images/clibming_product_img1_blue3.jpg" alt="product_img6"></li>
+							<li><img src="product_images/clibming_product_img1_blue4.jpg" alt="product_img7"></li>
+						</ul>
+						<ul id="product_img3">
+							<li><img src="product_images/snow_product_img1_lemon0.jpg" alt="product_img8"></li>
+							<li><img src="product_images/snow_product_img1_lemon1.jpg" alt="product_img9"></li>
+							<li><img src="product_images/snow_product_img1_lemon2.jpg" alt="product_img10"></li>
+							<li><img src="product_images/snow_product_img1_lemon3.jpg" alt="product_img11"></li>
+							<li><img src="product_images/snow_product_img1_lemon4.jpg" alt="product_img12"></li>
+						</ul>
+						<ul id="product_img4">
+							<li><img src="product_images/mountain_product_img1.jpg" alt="product_img13"></li>
+							<li><img src="product_images/mountain_product_img2.jpg" alt="product_img14"></li>
+							<li><img src="product_images/mountain_product_img3.jpg" alt="product_img15"></li>
+							<li><img src="product_images/mountain_product_img4.jpg" alt="product_img16"></li>
+						</ul>
+						<ul id="product_img5">
+							<li><img src="product_images/trail_product_img1.jpg" alt="product_img17"></li>
+						</ul>
+					</div>
+					<button id="left_inbox_leftbt1"></button>	
+					<button id="left_inbox_rightbt1"></button>
+
+					<button id="left_inbox_leftbt2"></button>	
+					<button id="left_inbox_rightbt2"></button>
+
+					<button id="left_inbox_leftbt3"></button>	
+					<button id="left_inbox_rightbt3"></button>
+
+					<button id="left_inbox_leftbt4"></button>	
+					<button id="left_inbox_rightbt4"></button>
+
+					<button id="left_inbox_leftbt5"></button>	
+					<button id="left_inbox_rightbt5"></button>
+					</div>
+					<div id="main5_product_content_right">
+					<div id="main5_product_content_right_inbox">
+							<h2>SURF</h2>
+							<h3>Men&acute;s R3&reg; Yulex&reg; Front-Zip Full Suit</h3>
+							<p>Our Yulex&reg; wetsuits have exclusive linings for increased stretch. The only Fair Trade Certified&trade; suits, they’re made with 85% Yulex&reg; natural rubber/15% synthetic rubber by polymer content; natural rubber is FSC&reg; certified by the Rainforest Alliance. Best for water 48°–55° F/9°–13° C.</p>
+							<ul id="main5_icon">
+							<li><img src="icons/like_black_icon.png" alt="like_img">Like 5221</li>
+							<li><img src="icons/mouse_black_icon.png" alt="mouse_icon_img">Subscription</li>
+							<li><img src="icons/share_black_icon.png" alt="share_black_icon_img">Share</li>
+							</ul>
+							<h5>Color</h5>
+							<ul id="product_color_1">
+								<li></li>
+								<li></li>
+							</ul>
+							<ul id="product_color_2">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul id="product_color_3">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul id="product_color_4">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul id="product_color_5">
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					</div>
+				<div id="main5_product_slide_wrap_bottom">
+				<ul id="main5_product_slide">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div><!-- main5_wrap 끝 -->
+	
+	<div id="main6_wrap">
+	<div id="main6_bg"></div>		
+			<div id="main6_center_box">
+			<h2 id="logo_text">PATAGONIA</h2>
+				<h3 id="h3_text"><img src="icons/films_text_icon.png" alt="films_img"></h3>
+				<h4 id="num_text">01 - 03</h4>
+			<div id="main6_slide_wrap_box">
+				<div id="main6_slide_wrap" class="swiper-container">
+					<ul id="main6_slide" class="swiper-wrapper">
+						<li class="swiper-slide"></li>
+						<li class="swiper-slide"></li>
+						<li class="swiper-slide"></li>
+					</ul>
+				</div>
+			</div>
+			<div id="round_click">
+			<h3>Video Play</h3>
+			<img src="icons/arrow_icon.png" alt="arrow_icon_img">	
+			</div>
+			<div id="main6_taxt_box">
+				<h3>There Is Only Send or Fail. Just Ask Alex</h3>
+				<p>Alex Megos is driving his aging Volkswagen down the curvy roads that thread the valleys of the Frankenjura.
+				</p>
+				<ul id="main6_icon">
+					<li><img src="icons/like_white_icon.png" alt="like_icon_img">Like 9999</li>
+					<li><img src="icons/mouse_white_icon.png" alt="mouse_icon_img">Subscription</li>
+					<li><img src="icons/share_white_icon.png" alt="share_icon_img">Share</li>
+				</ul>
+			</div>
+		</div>
+		<div id="main6_cloud_bg"><img src="images/cloud.png" alt="cloud_img"></div>
+	</div> <!-- main6_wrap끝 -->
+	</div> <!-- wrap끝 -->
+
+	<!-- scroll확인 -->
+	<div id="intro">
+	</div>
+ </body>
+</html>

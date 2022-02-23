@@ -1,0 +1,5 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+
+in css
+font-family: 'NanumSquare', sans-serif;
+font-weight: 300; font-weight: 400; font-weight: 700; font-weight: 800;

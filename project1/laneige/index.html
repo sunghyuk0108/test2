@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		last_sc = 0;
+		$(window).scroll(function(){
+			sc=$(window).scrollTop();
+			if(sc<last_sc){
+				$('header').stop().animate({'top':'0'},200)
+			}
+			else if(sc>last_sc){
+				$('header').stop().animate({'top':'-60px'},200)
+			}
+			last_sc = sc
+		});
+		sns_slide_x = 0
+		$('#next_button').click(function(){
+			sns_slide_x = sns_slide_x - 100
+			if(sns_slide_x <=-400){sns_slide_x=-300}
+			$('#sns_img_box').stop().animate({left:sns_slide_x+'%'},500)
+		});
+		$('#left_button').click(function(){
+			sns_slide_x = sns_slide_x + 100
+			if(sns_slide_x >=0){sns_slide_x=0}
+			$('#sns_img_box').stop().animate({left:sns_slide_x+'%'},500)
+		});
+		best_seller_x = 0
+		$('#best_seller_rightbt').click(function(){
+			best_seller_x = best_seller_x - 416
+			if(best_seller_x<=-1664){best_seller_x=-1248}
+			$('#best_seller_box').stop().animate({left:best_seller_x})
+		});
+		$('#best_seller_leftbt').click(function(){
+			best_seller_x = best_seller_x + 416
+			if(best_seller_x>=0){best_seller_x=0}
+			$('#best_seller_box').stop().animate({left:best_seller_x})
+		});
+	});
+	</script>
+  <style>
+	*{margin: 0; padding: 0; list-style: none;}
+	header {width: 100%; height: 60px; text-align: center; position: fixed; left: 0; top: 0; z-index: 9999; background-color: #fff;}
+	#logo {float: left; width: 150px; height: 60px; line-height: 60px; margin-left: 50px;}
+	#logo:hover {cursor: pointer;}
+	#icons {float: right; width: 120px; height: 60px; margin-right: 50px;}
+	#icons li{float: left; background-color: #fff; margin-top: 15px; margin-right: 10px;}
+	#icons li:hover {cursor: pointer;}
+	#icons li:last-child {margin-right: 0;}
+	#menu>li{display: inline-block; font-size: 18px; position: relative; padding: 0px 15px; line-height: 60px;}
+	#menu>li .sub_menu{color: #000;}
+	#menu>li .menu_line {width: 0%; height: 3px; background-color: #000; position: absolute; left: 0; right: 0; bottom: 0; margin: auto; transition:0.5s;}
+	#menu>li:hover {cursor: pointer;}
+	#menu>li:hover>.menu_line{width: 100%;}
+	#menu>li .sub_menu {position: fixed; background-color: #f7f7f7; left: 0; z-index: 999; display: none;}
+	#menu>li:hover .sub_menu{display: block;}
+	#menu>li:nth-child(1) .sub_menu {width: 100%; height: 50px;}
+	#menu>li:nth-child(2) .sub_menu {width: 100%; height: 50px;}
+	#menu>li:nth-child(3) .sub_menu {width: 100%; line-height: 30px; text-align: left; }
+	#menu>li:nth-child(4) .sub_menu {width: 100%; height: 420px;}
+	#menu>li:nth-child(5) .sub_menu {width: 100%; height: 420px;}
+	#menu>li:nth-child(1) .sub_menu .sub_menu_box {height: 50px; line-height: 50px;}
+	#menu>li:nth-child(1) .sub_menu .sub_menu_box>ul {margin: auto;}
+	#menu>li:nth-child(1) .sub_menu .sub_menu_box>ul>li {display: inline-block; margin-right: 20px; font-size: 14px;}
+	#menu>li:nth-child(2) .sub_menu .sub_menu_box {height: 50px; line-height: 50px;}
+	#menu>li:nth-child(2) .sub_menu .sub_menu_box>ul {margin-right: 300px;}
+	#menu>li:nth-child(2) .sub_menu .sub_menu_box>ul>li {display: inline-block; margin-right: 20px; font-size: 14px;}
+	#menu>li:nth-child(3) .sub_menu .sub_menu_box {width: 1200px; margin: auto; background-color: red;}
+	.sub_menu_box_1{width: 700px; background-color: #ddd; float: left;}
+	.sub_menu_box_1>h2 {font-size: 14px; text-align: left; margin-left: 15px;}
+	.sub_menu_left_box {width: 200px; margin-left: 15px; background-color: blue; float: left;}
+	.sub_menu_left_box>h3 {height: 50px; font-size: 14px; text-align: left; border-bottom: 1px solid #000;}
+	.sub_menu_left_box>ul {float: left; background-color: #fff; line-height: 30px;}
+	.sub_menu_left_box>ul>li {font-size: 12px; text-align: left;}
+	 #sub_menu_box_2 {width: 275px; height: 420px; background-color: red; float: right; margin-right: 100px;}
+	 #sub_menu_box_2 img {width: 275px;}
+	 #sub_menu_box_2 h4 {}
+	 #sub_menu_box_2 h5 {}
+
+	#slide {width: 100%; height: 820px; background-color: #000; margin: auto; position: relative; overflow: hidden; margin-top: 60px;}
+	#slide_text {position: absolute; width: 500px; height: 300px; left: 200px; top: 300px; margin: auto;}
+	#slide_text h2 {text-transform: uppercase; font-size: 40px; font-weight: 500;}
+	#slide_text p {margin-top: 40px; font-size: 18px;}
+	#slide_text h6{margin-top: 10px; font-size: 16px; font-weight: 100;}
+	#slide_bt {width: 200px; height: 20px; position: absolute; margin: auto; text-align: center; left: 0; right: 0; bottom: 30px;}
+	#slide_bt button {width: 20px; height: 20px; background-color: rgba(255, 255, 255, 0); border:  none;}
+	#slid_left_button { vertical-align: middle;}
+	#slid_left_button {cursor: pointer;}
+	#stop_bt { vertical-align: middle;}
+	#stop_bt {cursor: pointer;}
+	#slide_bt ul {display: inline-block;}
+	#slide_bt ul li {width: 10px; height: 10px; border-radius: 10px; border: 1px solid #000; display: inline-block; background-color: #ddd; vertical-align: middle;}
+	#slide_bt ul li:last-child {transform:scale(1.1); background: Transparent; }
+	#slide_bt ul li:last-child:hover {background-color: #000;}
+	#slide_bt ul li:hover{cursor: pointer;}
+	#slid_right_button {vertical-align: middle;}
+	#slid_right_button:hover {cursor: pointer;}
+
+	#best_seller {width: 100%; height: 1000px; text-align: center; position: relative; overflow: hidden;}
+	#best_seller video {width: 100%;}
+	#bgc_fff {width: 100%; height: 650px; background-color: #fff; position: absolute; left: 0; bottom: 0px;}
+	#best_seller_text {font-size: 40px; position: absolute; left: 0; right: 0; top: 50px; margin: auto; text-transform: uppercase;}
+	#best_seller_wrap {width: 1100px; height: 600px; position: absolute; left: 0; right: 0; top: -150px; bottom: 0; margin: auto; overflow: hidden;}
+	#best_seller_box {width: 2350px; height: 600px; position: absolute; left: 0; right: 0; top: 0px; bottom: 0; margin: auto;}/*z-index: 9999;*/
+	#best_seller_box li {width: 266px; height: 600px; margin-right: 150px; float: left;}
+	#best_seller_box li:hover {cursor: pointer;}
+	#best_seller_box li:last-child {margin-right: 0;}
+	#best_seller_box li img {width: 100%; transition:0.5s;}
+	#best_seller_box li:hover img {transform:rotate(-10deg);}
+	#best_seller_box h4{text-transform: uppercase; color: #487abf; font-size: 16px; }
+	#best_seller_box h3{text-transform: uppercase; margin-top: 5px; font-size: 18px; font-weight: 400;}
+	.mark {width: 20px; height: 20px; margin: auto; margin-top: 15px; background: #fff url(icons/mark.png) 0 0 no-repeat;	}
+	#best_seller_box p {color: #aaa; margin-top: 5px;}
+	#best_seller_box h5 {color: #aaa; font-size: 14px; margin-top: 10px;}
+
+	#best_seller_leftbt {width: 50px; height: 50px; position: absolute; left: 300px; top: -250px; bottom: 0; margin: auto; border: none; background: transparent;}
+	#best_seller_rightbt {width: 50px; height: 50px; position: absolute; right: 300px; top: -250px; bottom: 0; margin: auto; border: none; background: transparent;}
+	#best_seller_leftbt:hover{cursor: pointer;}
+	#best_seller_rightbt:hover{cursor: pointer;}
+	#main_middle {width: 1200px; height: 700px; margin: auto; }
+	#main_middle li {width: 346px; height: 700px; margin-right: 80px; float: left; position: relative;}
+	#main_middle li:last-child{margin-right: 0; width: 348px;}
+	#main_middle li img {width: 100%;}
+	.main_middle_left_box {width: 250px; height:50px; position: absolute; left: -150px; top: 100px; transform:rotate(-90deg); text-align: right; line-height: 50px; text-transform: uppercase; font-size: 16px; color: #487abf; }
+	#main_middle h3 {margin-top: 20px; font-size: 18px; font-weight: 400;}
+	#main_middle p { margin-top: 15px; font-size: 14px; font-weight: 100;}
+
+	#sns_slide_wrap {width: 1300px; height: 450px; margin: auto; position: relative;}
+	#sns_img {width: 1110px; height: 400px; margin: auto; text-align: center; margin-top: 25px; position: relative; overflow: hidden;}
+	#sns_img h2 {font-size: 30px; text-transform: uppercase;}
+	#sns_img h5 {font-size: 16px; color: #aaa; margin-top: 10px; text-transform: uppercase;}
+	#sns_img_box {width: 400%; height: 210px; margin-top: 10px; position: absolute;}
+	#sns_img_box li {float: left; width: 212px; height: 200px; background-color: #fff; margin: 5px; position: relative; overflow: hidden; transition:0.2s;}
+	#sns_img_box li:hover img {transform:translate(0px,-10px); transition:0.2s;}
+	#sns_img_box li:hover h5 {bottom: 0;}
+	#sns_img_box li:hover {cursor: pointer;}
+	#sns_img_box li:last-child{margin-right: 0;}
+	#sns_img_box h5 {width: 100%; height: 60px; line-height: 30px; position: absolute; left: 0; bottom: -60px; transition:0.5s; background-color: #fff;}
+	#sns_img_box img {width: 100%;}
+
+	#view_more_bt {width: 120px; height: 40px; margin-top: 250px; background-color: #fff; text-transform: capitalize; border: 1px solid #000;}
+	#view_more_bt:hover {cursor: pointer; background-color: rgba(83, 83, 243, 1); color: #fff; border-color: rgba(83, 83, 243, 1);}
+	#next_button {width: 50px; height: 50px; position: absolute; right: 50px; top: -50px; bottom: 0; margin: auto; border: none; background-color: transparent;}
+	#next_button:hover {cursor: pointer;}
+	#left_button {width: 50px; height: 50px; position: absolute; left: 50px; top: -50px; bottom: 0; margin: auto; border: none; background-color: transparent;}
+	#left_button:hover {cursor: pointer;}
+	#left_button img{transform:rotate(180deg);}
+
+	footer {width: 100%; height: 220px; overflow: hidden; margin-top: 100px;}
+	#footer1_box {width: 100%; height: 175px; border-top: 1px solid #aaa; }
+	#footer1_left_box {width: 1200px; height: 45px; margin: auto; line-height: 45px;}
+	#footer1_left_box li {float: left; margin-right: 40px; font-size: 14px; text-transform: uppercase;}
+	#footer1_left_box li:hover{cursor: pointer;}
+	#footer1_left_box li:nth-child(4) {font-weight: 900;}
+	#footer_icons {float: right;}
+	#footer_icons li {height: 25px; float: left; margin-right: 15px; margin-top: 5px;}
+	#footer_icons li:hover {cursor: pointer;}
+	#footer_icons li:last-child {margin-right: 0;}
+	#footer2_box {width: 100%; border-top: 1px solid #aaa; }
+	#footer_bottom {width: 1200px; height: 175px; margin: auto; overflow: hidden; position: relative;	}
+	#footer2_left_box {float: left;}
+	#footer_bottom h4 { width: 700px; margin-top: 20px; font-weight: 100; font-size: 14px;}
+	#footer_bottom h5 { width: 500px; margin-top: 10px; margin-top: 10px; font-weight: 100; font-size: 14px;}
+	#footer_bottom h5 span {font-weight: 900;}
+	#footer_bottom img {float: right; margin-top: 20px;}
+	#footer_bottom img:hover {cursor: pointer;}
+  </style>
+  </head>
+
+ <body>
+ <header>
+ <h2 id="logo"><img src="laneige-logo.png" alt=""></h2>
+ <ul id="icons">
+ 	<li><img src="icons/icons1.png" alt=""></li>
+ 	<li><img src="icons/icons2.png" alt=""></li>
+ 	<li><img src="icons/icons3.png" alt=""></li>
+ </ul>
+<!--  -->
+  <ul id="menu">
+ 	<li>브랜드<div class="menu_line"></div>
+		<div class="sub_menu"><div class="sub_menu_box">
+		<ul>
+			<li>브랜드 스토리</li>
+			<li>브랜드 캐릭터</li>
+			<li>레스큐 월터 캠페인</li>
+			<li>루미너스 라이브</li>
+			<li>플래그십 스토어</li>
+		</ul>
+	</div></div>
+	</li>
+ 	<li>베스트&신상품<div class="menu_line"></div>
+	<div class="sub_menu"><div class="sub_menu_box">
+		<ul>
+			<li>신상품</li>
+			<li>어워드 위너</li>
+			<li>베스트셀러</li>
+		</ul>
+		</div></div>
+	</li>
+ 	<li>스킨케어<div class="menu_line"></div>
+	<div class="sub_menu">
+	<div class="sub_menu_box">
+		<div class="sub_menu_box_1">
+			<h2 class="text">전체보기</h2>
+			<div class="sub_menu_left_box">
+			<h3>유형벌</h3>
+			<ul>
+				<li>전체보기</li>
+				<li>클렌징</li>
+				<li>스킨/미스트</li>
+				<li>로션/에멀젼</li>
+				<li>세럼/에센스</li>
+				<li>젤/크림</li>
+				<li>마스크/팩</li>
+				<li>아이케어</li>
+				<li>선케어</li>
+				<li>립케어</li>
+			</ul>
+			</div>
+			<div class="sub_menu_left_box">
+			<h3>고민별</h3>
+			<ul>
+				<li>전체보기</li>
+				<li>밸런싱</li>
+				<li>수분/보습</li>
+				<li>민감/진정</li>
+				<li>브라이트닝</li>
+				<li>안티에이징</li>
+				<li>피지/모공</li>
+				<li>자외선차단</li>
+			</ul>
+			</div>
+			<div class="sub_menu_left_box">
+			<h3>라인별</h3>
+			<ul>
+				<li>전체보기</li>
+				<li>피토알렉신</li>
+				<li>래디언-C</li>
+				<li>클리어-C</li>
+				<li>베이직케어</li>
+				<li>워터뱅크</li>
+				<li>포커스 액티브 앰플</li>
+				<li>퍼펙트리뉴</li>
+				<li>슬리핑케어</li>
+				<li>크림 스킨</li>
+				<li>화이트듀</li>
+				<li>기타</li>
+			</ul>
+			</div>
+			</div>
+			<div id="sub_menu_box_2">
+				<img src="images/20210312_final_radian-c-cream_gnb_banner.png" alt="">
+				<h4>BEST SELLER</h4>
+				<h5>래디언-C 크림</h5>	
+			<div>
+		</div>
+	</div>
+	</li>
+<!--  -->
+ 	<li>메이크업<div class="menu_line"></div>
+	<div class="sub_menu"></div>
+	</li>
+ 	<li>옴므<div class="menu_line"></div>
+	<div class="sub_menu"></div>
+	</li>
+ 	<li>이벤트<div class="menu_line"></div>
+	<div class="sub_menu"></div>
+	</li>
+ </ul>
+</header>
+
+<div id="slide">
+<img src="images/slide5.png" alt="">	
+<div id="slide_text"><h2>rescue walter <br> campaign</h2><p>월터 앤 프렌즈와 함께 지구의 물을 지킬 수 있습니다.</p><h6>#레스큐월터</h6></div>
+	<div id="slide_bt">
+	<button id="slid_left_button"><img src="icons/left_bt.png" alt=""></button>
+	<button id="stop_bt"><img src="icons/stop_start_bt.png" alt=""></button>
+	<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	</ul>
+	<button id="slid_right_button"><img src="icons/right_bt.png" alt=""></button>
+	</div>
+</div>
+<div id="best_seller">
+	<video src="images/bestseller-bg.mp4" autoplay loop muted></video>
+	<h2 id="best_seller_text">best seller</h2>
+	<div id="bgc_fff"></div>
+	<div id="best_seller_wrap">
+		<ul id="best_seller_box">
+			<li>
+				<img src="images/20200325_final_product_cream-skin_pc.png" alt="">
+				<h4>cream skin refiner</h4>
+				<h3>크림 스킨</h3>
+				<div class="mark"></div>
+				<p>스킨인데 뛰어난 보습지속력과, 산뜻한<br>사용감으로 이만한 스킨은 없는것 같아요</p>
+				<h5>@rabb********</h5>
+			</li>
+			<li>
+				<img src="images/20201118_final_neo-cushion-matte_best-seller_pc.png" alt="" class="best_seller_img">
+				<h4>neo cushion</h4>
+				<h3>네오 쿠션</h3>
+				<div class="mark"></div>
+				<p>마스크때문에 매트한 쿠션 샀는데 지금까지 썼던<br>쿠션 중에 제일 마무리감이 좋았어요.</p>
+				<h5>@euns********</h5>
+			</li>
+			<li>
+				<img src="images/20201118_final_radian-c-cream_best-seller_pc.png" alt="" class="best_seller_img">
+				<h4>radian-c cream</h4>
+				<h3>래디언-c크림</h3>
+				<div class="mark"></div>
+				<p>벌써 3통째에요! 기미가 고민인 요즘 사용하면<br>피부가 밝아지고 확실히 잡티가 옅어지네요~</p>
+				<h5>@enji********</h5>
+			</li>
+			<li>
+				<img src="images/20201207_final_Water-Sleeping-Mask-EX_Best-Step.png" alt="" class="best_seller_img">
+				<h4>water sleeping mask ex</h4>
+				<h3>워터 슬리핑 마스크 ex</h3>
+				<div class="mark"></div>
+				<p>수분감 충만한 슬리핑 팩! 밤에 듬뿍<br>바르고 자고 일어나면 아침에 화장이<br>매우 잘먹는다</p>
+				<h5>@heat********</h5>
+			</li>
+			<li>
+				<img src="images/20210127_final_lip-sleeping-mask_pdp_beststep-03_pc.png" alt="" class="best_seller_img">
+				<h4>lip sleeping mask ex</h4>
+				<h3>립 슬리핑 마스크 ex</h3>
+				<div class="mark"></div>
+				<p>자기전 딱 바르고 나면 다음 날 입술<br>컨디션이 넘넘 좋아져서 요즘 매일 사용<br>피부가 밝아지고 확실히 잡티가 옅어지네요~</p>
+				<h5>@cosm********</h5>
+			</li>
+			<li>
+				<img src="images/bestseller-3.png" alt="" class="best_seller_img">
+				<h4>water bank hydro essence</h4>
+				<h3>워터뱅크 하이드로 에센스</h3>
+				<div class="mark"></div>
+				<p>얼굴도 속당김없이 여전히 촉촉하구요<br>재구매의사 100%에요 다들 정말<br>추천합니다</p>
+				<h5>@blin****</h5>
+			</li>
+		</ul>
+	</div>
+	<button id="best_seller_leftbt"><img src="icons/left_bt.png" alt=""></button>
+	<button id="best_seller_rightbt"><img src="icons/right_bt.png" alt=""></button>
+</div>
+	<ul id="main_middle">
+		<li><img src="images/feature-a-0.jpg" alt=""><div class="main_middle_left_box">brand story</div>
+		<h3>루미너스 뷰티</h3>
+		<p>수분 가득 맑고 건강하게 빛나는 아름다움,<br>루미너스 뷰티</p></li>
+		<li><img src="images/20210315_final_ultimistic-whipping-tint_img-01_pc.png" alt=""><div class="main_middle_left_box">new arrivals</div>
+		<h3>얼티미스틱 휘핑 틴트</h3>
+		<p>천 번 저어 만든 부드러운 휘핑 벨벳 틴트</p></li>
+		<li><img src="images/20201130_final_laneige_main-thumbnail_award-winner01.png" alt=""><div class="main_middle_left_box">award winner</div>
+		<h3>래디언-c 크림</h3>
+		<p>2020 상반기 글로우픽 어워드 크림 부문 루키</p></li>
+		</ul>
+
+		<div id="sns_slide_wrap">
+				<div id="sns_img">
+				<h2>#luminous live</h2>
+				<h5>share your luminous moments with laneige!</h5>
+				<ul id="sns_img_box">
+					<li><img src="laneige_sns/1.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/2.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/3.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/4.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/5.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/6.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/7.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/8.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/9.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/10.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/11.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/12.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/13.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/14.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/15.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/16.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/17.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/18.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/19.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+					<li><img src="laneige_sns/20.jpg" alt=""><h5>instagram user <br> 내용</h5></li>
+				</ul>
+				<button id="view_more_bt">view more</button>
+				</div>
+				<button id="next_button"><img src="icons/big_next_bt.png" alt=""></button>
+				<button id="left_button"><img src="icons/big_next_bt.png" alt=""></button>
+			</div>
+		<footer>
+		<div id="footer1_box">
+			<div id="footer1_left_box">
+				<ul>
+					<li>회사소개</li>
+					<li>서비스이용약관</li>
+					<li>ugc 이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>영상정보처리방침</li>
+					<li>뷰티포인트</li>
+					<li>사이트맵</li>
+					<li>공지시항</li>
+					<ul id="footer_icons">
+						<li><img src="icons/sns_instagram_renew.png" alt=""></li>
+						<li><img src="icons/sns_facebook_renew.png" alt=""></li>
+						<li><img src="icons/sns_youtube_renew.png" alt=""></li>
+					</ul>
+				</ul>
+			</div>
+			<div id="footer2_box">
+			<div id="footer_bottom">
+			<div id="footer2_left_box">
+			<h4>고객상담실 (수신자요금부담) 080-023-5454 | 운영시간 : 월-금 09:00 ~ 18:00</h4>
+			<h5><span>&copy;AMOREPACIFIC</span> CORPORATION. ALL RIGHTS RESERVED.</h5>
+			</div>
+			<div id="footer2_right_box"><img src="icons/wa-mark.png" alt="" id="footer_right_box"></div>
+			</div>
+			</div>
+		</footer>
+ </body>
+</html>

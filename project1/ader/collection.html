@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <!-- 모바일은 화면크기를 자동으로 줄여서 표현하는 방식. 1:1 사이즈의 대응하기 위하여 viewport코드를 추가한다 -->
+  <title>ADER</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style/swiper_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script src="script/jquery-animate-css-rotate-scale.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.ico">
+  <script>
+	$(document).ready(function(){
+		window.addEventListener("wheel", function(e){
+			e.preventDefault();
+		},{passive: false});
+
+		var mHtml = $("html");
+		var page = 1;
+
+		mHtml.animate({scrollTop:0},10);
+		
+		$(window).on("wheel", function(e){
+			if(mHtml.is(":animated")) return;
+			if(e.originalEvent.deltaY>0){
+				if(page ==3) return; // deltaY 스크롤 값이 올라갔을 때 3 이상에서는 더 이상 올라가지 않게 휠 모션을 방지하는 용도로 쓰이는 듯 
+				page++; // 증가 연산자를 활용하여 page++ 변수에 후위 연산자를 적용하여 1++가 되도록 1다음 2, 2다음3, 3다음4...
+			}
+			else if(e.originalEvent.deltaY<0){
+				if(page ==1) return;
+				page--;
+			} 
+			var posTop = (page-1) * $(window).height(); //posTop부분은 각 섹션에 top을 의미 page =1; 이기 때문에 posTop 변수 선언 시 (page-1) * $(window).height(); 값을 줌으로써 0..1..2..3... 이런식으로 scrollTop이 적용될 수 있도록 선언
+			mHtml.animate({scrollTop:posTop});
+			//실질적으로 움직이는 코드 풀이하면 $("html").animate({scrollTop:posTop}); 임
+		});
+		// 스크롤 이벤트 연습 javascript 
+
+		$('#menu_right_box li:nth-child(1)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(1)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().hide()
+		});
+				toggle = 0; // - 상태
+		$('#menu').click(function(){
+			if(toggle==0){ //- 상태에서 x로 변환
+				toggle=1
+				$('#menu li:nth-child(1)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(1)').animate({'rotate':'45deg'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'-45deg'},100)
+				$('#menu_popup').css({'display':'block'})
+				$('#menu_popup').stop().animate({'right':'0'},500)
+				$('#logo img').attr({'src':'images/ader_logo_w.png'})
+				$('header').css({'border-color':'#fff'})
+				$('#menu li').css({'background-color':'#fff'})
+				$('#shop_menu li').css({'color':'#fff'})
+				$('#shop_line').css({'background-color':'#fff'})
+				$('#sns_icons li:nth-child(1) img').attr({'src':'images/icons/instargram_icon.png'})
+				$('#sns_icons li:nth-child(2) img').attr({'src':'images/icons/facebook_icon.png'})
+				$('#sns_icons li:nth-child(3) img').attr({'src':'images/icons/twitter_icon.	png'})
+				$('#sns_icons li:nth-child(4) img').attr({'src':'images/icons/youtube_icon.png'})
+				}
+			else if(toggle==1){ //x 상태에서 -로 변환
+				toggle=0
+				$('#menu li:nth-child(1)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(1)').animate({'top':'3px'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'1'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'15px'},100)
+				$('#logo img').attr({'src':'images/ader_logo_b.png'})
+				$('header').css({'border-color':'#000'})
+				$('#menu li').css({'background-color':'#000'})
+				$('#shop_menu li').css({'color':'#000'})
+				$('#shop_line').css({'background-color':'#000'})
+				$('#sns_icons li:nth-child(1) img').attr({'src':'images/icons/instargram_icon_b.png'})
+				$('#sns_icons li:nth-child(2) img').attr({'src':'images/icons/facebook_icon_b.png'})
+				$('#sns_icons li:nth-child(3) img').attr({'src':'images/icons/twitter_icon_b.png'})
+				$('#sns_icons li:nth-child(4) img').attr({'src':'images/icons/youtube_icon_b.png'})
+				$('#menu_popup').stop().animate({'right':'-2000px'},500,function(){
+				$('#menu_popup').css({'display':'none'})
+				})
+				}
+		});
+		$('.floor:nth-child(1)').click(function(){
+			$('.floor:nth-child(1) img').animate({'width':'600px'},300)
+		});
+		$('.floor:nth-child(2)').click(function(){
+			$('.floor:nth-child(2) img').animate({'width':'600px'},300)
+		});
+		$('.floor:nth-child(3)').click(function(){
+			$('.floor:nth-child(3) img').animate({'width':'600px'},300)
+		});
+		$('.floor:nth-child(4)').click(function(){
+			$('.floor:nth-child(4) img').animate({'width':'600px'},300)
+		});
+		$('#shop_menu li').mouseenter(function(){
+			$('#shop_line').stop().animate({'width':'100%'},200)
+		});
+		$('#shop_menu li').mouseleave(function(){
+			$('#shop_line').stop().animate({'width':'0px'},200)
+		});
+
+		collection_slide1 = 0;
+		$('#collection_slide_bt_wrap li:nth-child(2)').click(function(){
+			collection_slide1 = collection_slide1-100;
+			if(collection_slide1 ==-500){collection_slide1 =-400}
+			$('#collection_slide1').animate({'left':collection_slide1+'%'},300)
+		});
+		$('#collection_slide_bt_wrap li:nth-child(1)').click(function(){
+			collection_slide1 = collection_slide1+100;
+			if(collection_slide1 >=0){collection_slide1 =0}
+			$('#collection_slide1').animate({'left':collection_slide1+'%'},300)
+		});
+
+		collection_slide2 = 0;
+		$('#collection_slide_bt_wrap li:nth-child(2)').click(function(){
+			collection_slide2 = collection_slide2-100;
+			if(collection_slide2 ==-500){collection_slide2 =-400}
+			$('#collection_slide2').animate({'left':collection_slide2+'%'},300)
+		});
+		$('#collection_slide_bt_wrap li:nth-child(1)').click(function(){
+			collection_slide2 = collection_slide2+100;
+			if(collection_slide2 >=0){collection_slide2 =0}
+			$('#collection_slide2').animate({'left':collection_slide2+'%'},300)
+		});
+
+		collection_slide3 = 0;
+		$('#collection_slide_bt_wrap li:nth-child(2)').click(function(){
+			collection_slide3 = collection_slide3-100;
+			if(collection_slide3 ==-500){collection_slide3 =-400}
+			$('#collection_slide3').animate({'left':collection_slide3+'%'},300)
+		});
+		$('#collection_slide_bt_wrap li:nth-child(1)').click(function(){
+			collection_slide3 = collection_slide3+100;
+			if(collection_slide3 >=0){collection_slide3 =0}
+			$('#collection_slide3').animate({'left':collection_slide3+'%'},300)
+		});
+
+		collection_slide4 = 0;
+		$('#collection_slide_bt_wrap li:nth-child(2)').click(function(){
+			collection_slide4 = collection_slide4-100;
+			if(collection_slide4 ==-500){collection_slide4 =-400}
+			$('#collection_slide4').animate({'left':collection_slide4+'%'},300)
+		});
+		$('#collection_slide_bt_wrap li:nth-child(1)').click(function(){
+			collection_slide4 = collection_slide4+100;
+			if(collection_slide4 >=0){collection_slide4 =0}
+			$('#collection_slide4').animate({'left':collection_slide4+'%'},300)
+		});
+
+		$('#collection_slide_bt>li:nth-child(1)').click(function(){
+			collection_slide1 = 0;
+			$('#collection_slide1').animate({'left':collection_slide1},0.5)
+			$('#collection_slide1').fadeIn()
+			$('#collection_slide2').fadeOut()
+			$('#collection_slide3').fadeOut()
+			$('#collection_slide4').fadeOut()
+			$('#main_wrap3_bottom_text_box h3').html('project &num;11')
+		});
+		$('#collection_slide_bt>li:nth-child(2)').click(function(){
+			collection_slide2 = 0;
+			$('#collection_slide2').animate({'left':collection_slide2},0.5)
+			$('#collection_slide2').fadeIn()
+			$('#collection_slide1').fadeOut()
+			$('#collection_slide3').fadeOut()
+			$('#collection_slide4').fadeOut()
+			$('#main_wrap3_bottom_text_box h3').html('project &num;12')
+		});
+		$('#collection_slide_bt>li:nth-child(3)').click(function(){
+			collection_slide3 = 0;
+			$('#collection_slide3').animate({'left':collection_slide3},0.5)
+			$('#collection_slide3').fadeIn()
+			$('#collection_slide1').fadeOut()
+			$('#collection_slide2').fadeOut()
+			$('#collection_slide4').fadeOut()
+			$('#main_wrap3_bottom_text_box h3').html('project &num;13')
+		});
+		$('#collection_slide_bt>li:nth-child(4)').click(function(){
+			collection_slide4 = 0;
+			$('#collection_slide4').animate({'left':collection_slide4},0.5)
+			$('#collection_slide4').fadeIn()
+			$('#collection_slide1').fadeOut()
+			$('#collection_slide2').fadeOut()
+			$('#collection_slide3').fadeOut()
+			$('#main_wrap3_bottom_text_box h3').html('project &num;14')
+		});
+		$('#brand_ader').animate({'left':'-1px'},500)
+		$('#brand_ader').click(function(){
+			$('#brand_ader_popup_wrap').fadeIn()
+		});
+		$('#brand_ader_popup>button').click(function(){
+			$('#brand_ader_popup_wrap').fadeOut()
+		});
+		//정품 코드 인증 창 시작
+		code1 = "a";
+        num =0;
+        code_num = code1+num;
+        $('#check button').click(function(){
+            if(document.querySelector('#genuine_code').value===code_num){
+                alert("정품입니다.");
+            }
+            if(document.querySelector('#genuine_code').value!=code_num){
+                alert("가품입니다.");
+            }
+        });
+        //정품 코드 인증 창 끝
+	});
+  </script>
+   <style> 
+	* {margin: 0; padding: 0; list-style: none;}
+	a {color: inherit; text-decoration: none;}
+	html,body {width: 100%; height: 100%; background-color: #eee; font-family: 'Noto Sans KR', sans-serif;}
+	header {width: 100%; height: 80px; border-bottom: 1px dotted #000; position: fixed; left: 0; top: 0; z-index: 999; background-color: #eee;}
+	#main_page {height: 100%;}
+	#logo {width: 100px; height: 23px; float: left; margin-left: 50px; margin-top: 32px; position: relative; z-index: 3;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {width: 20px; height: 20px; float: right; margin-right: 50px; margin-top: 30px; position: relative;}
+	#menu:hover {cursor: pointer;}
+	#menu li {width: 100%; height: 2px; background-color: #000; position: absolute; left: 0;}
+	#menu li:nth-child(1) {top: 3px; }
+	#menu li:nth-child(2) {top: 9px;}
+	#menu li:nth-child(3) {top: 15px;}
+
+	#menu_popup_box {width: 100%; height: 100%; margin: auto; margin-top: 80px; overflow: hidden; position: relative;}
+	#menu_left_box {width: 50%; height: 100%; float: left; overflow: hidden; position: relative;}
+
+	#menu_popup {width: 100%; height: 100vh; background-color: #666; position: absolute; right: -2000px; top: 0; display: none;}
+	#menu_popup_box_line {width: 100%; height: 1px; background-color: #fff;}
+
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; text-transform: uppercase; color: #fff; font-family: 'Lexend Peta', sans-serif; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; float: right; padding-top: 150px; box-sizing: border-box; position: relative; z-index: 20;}
+	#menu_right_box li {width: 100%; margin-bottom: 25px; font-size: 38px; font-weight: 400; text-transform: uppercase; color: #fff; padding-left: 0; font-family: 'Lexend Peta', sans-serif; margin-bottom: 50px; margin-left: 100px;}
+	#menu_right_box li:hover {color: #000; transition:0.3s;}
+	#menu_li_img_box {width: 50%; height: 100%; position: absolute; right: 0; top: 0;}
+	#menu_li_img_box li {width: 500px; height: auto; margin-left: 50px; position: absolute; display: none; opacity: 0.5; left: 100px;}
+	#menu_li_img_box li:nth-child(1) {top: 100px;}
+	#menu_li_img_box li:nth-child(2) {top: 200px;}
+	#menu_li_img_box li:nth-child(3) {top: 300px;}
+	#menu_li_img_box li:nth-child(4) {top: 400px;}
+	#menu_li_img_box li img {width: 100%;}
+	
+	#shop_menu {height: 40px; float: right; text-transform: uppercase; margin-right: 25px; line-height: 40px; margin-top: 20px; overflow: hidden;}
+	#shop_menu li { font-size: 14px; font-weight: 500; color: #000; position: relative;}
+	#shop_line {width: 0%; height: 2px; background-color: #000; position: absolute; bottom: 8px;}
+
+	#brand_ader {width: 200px; height: 100px; border: 1px solid #000; position: fixed; 	left: -201px; bottom: 50px; z-index: 22; color: #fff; background-color: #fff; border: 1px solid blue; text-align: center;}
+	#brand_ader h2 {color: #000; font-weight: 500; font-size: 20px; margin-top: 30px; line-height: 20px;}
+	#brand_ader h2 span {color: blue; font-weight: 400; font-size: 12px; line-height: 12px;}
+	#brand_ader:hover {background-color: blue; border: 1px solid #000; cursor: pointer;}
+	#brand_ader:hover h2{color: #fff;}
+	#brand_ader:hover h2 span{color: #fff;}
+
+	#sns_icons {width: 115px; height: 25px; position: fixed; right: 50px; bottom: 50px; z-index: 23;}
+	#sns_icons li {width: 25px; height: 25px; float: left; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+	#sns_icons li:hover {transform:scale(1.2);}
+	#sns_icons li:nth-child(4) {margin-right: 0px;}
+
+	#main_wrap1 {width: 100%; height: 100%; position: relative; background-color: #eee;}
+	#main_wrap_top {width: 1620px; height: 540px; background-color: red; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px; overflow: hidden;}
+	#main_wrap_top_bg {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: url('images/visual.png') center no-repeat; background-size: cover; z-index: 20;}
+	#main_wrap_top_main {width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 24;}
+	.main_wrap_top_main_text {width: 100%; height: 125px; text-transform: uppercase; margin-bottom: 10px;}
+	.main_wrap_top_main_text h2 {height: 100%; line-height: 125px; text-align: center; background-color: #eee; font-size: 90px;}
+	.main_wrap_top_main_text p {height: 100%; line-height: 26px; background-color: #eee;}
+	.main_wrap_top_main_text:nth-child(1) h2:nth-child(1) {width: 600px; float: left;}
+	.main_wrap_top_main_text:nth-child(1) h2:nth-child(2) {width: 200px; float: right;}
+	.main_wrap_top_main_text:nth-child(2) h2 {width: 600px; float: right;}
+	.main_wrap_top_main_text:nth-child(3) h2 {width: 600px; float: left;}
+	.main_wrap_top_main_text:nth-child(4) {height: 135px; font-size: 60px;}
+	#main_wrap_top_main_text_inbox {height: 100%; float: right;}
+	.main_wrap_top_main_text:nth-child(4) h2 {width: 560px; line-height: 135px; float: left;}
+	.main_wrap_top_main_text:nth-child(4) p {width: 320px; float: left; font-size: 16px; padding: 0px 20px;}
+	#bg_video{width: 100%; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
+
+	#main_wrap2 {width: 100%; height: 100%; position: relative;}
+	#main_wrap2_middle {width: 1620px; height: 540px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px;}
+	
+	.floor {width: 100%; height: 100px; margin-bottom: 20px; border-bottom: 1px dotted #000; overflow: hidden; padding-bottom: 25px;}
+	.floor:nth-child(4) {border: none; padding-bottom: 0px;}
+	.floor button {width: 150px; height: 100px; text-align: left; font-size: 30px; background-color: #fff; color: blue; border: 1px dotted blue; transition: 0.3s; font-weight: 300;}
+	.floor:nth-child(1):hover {cursor: pointer;}
+	.floor:nth-child(1):hover button {background-color: blue; color: #fff; border: 1px solid #000; cursor: pointer;} 
+	.floor:nth-child(2):hover {cursor: pointer;}
+	.floor:nth-child(2):hover button {background-color: blue; color: #fff; border: 1px solid #000; cursor: pointer;} 
+	.floor:nth-child(3):hover {cursor: pointer;}
+	.floor:nth-child(3):hover button {background-color: blue; color: #fff; border: 1px solid #000; cursor: pointer;} 
+	.floor:nth-child(4):hover {cursor: pointer;}
+	.floor:nth-child(4):hover button {background-color: blue; color: #fff; border: 1px solid #000; cursor: pointer;} 
+	.floor h2 {width: 650px; line-height: 100px; font-size: 70px; font-weight: 500;}
+	.floor img {width: 0px; height: 87px; margin-top: 8px;}
+	.floor h3 {width: 100px; line-height: 100px; font-size: 60px; font-weight: 300; text-align: center;}
+	.floor:nth-child(1) button{float: left; margin-right: 30px; text-align: left; padding-left: 30px;}
+	.floor:nth-child(1) h2{float: left; margin-right: 30px; text-align: left;}
+	.floor:nth-child(1) img{float: left; margin-right: 30px;}
+	.floor:nth-child(1) h3{float: right;}
+
+	.floor:nth-child(2) button{float: right; margin-left: 30px; text-align: right; padding-right: 30px;}
+	.floor:nth-child(2) h2 {float: right; margin-left: 30px; text-align: right;}
+	.floor:nth-child(2) img {float: right;}
+	.floor:nth-child(2) h3 {float: left;}
+
+	.floor:nth-child(3) button{float: left; margin-right: 30px; text-align: left; padding-left: 30px;}
+	.floor:nth-child(3) h2{float: left; margin-right: 30px; text-align: left;}
+	.floor:nth-child(3) img{float: left; margin-right: 30px;}
+	.floor:nth-child(3) h3{float: right;}
+
+	.floor:nth-child(4) button{float: right; margin-left: 30px; text-align: right; padding-right: 30px;}
+	.floor:nth-child(4) h2 {float: right; margin-left: 30px; text-align: right;} 
+	.floor:nth-child(4) img {float: right;}
+	.floor:nth-child(4) h3 {float: left;}
+	
+	#main_wrap3 {width: 100%; height: 100%; position: relative;}
+	#main_wrap3_bottom {width: 1620px; height: 540px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px;}
+
+	#main_wrap3_bottom_text_box {width: 500px; height: 61px; float: left;}
+	#main_wrap3_bottom h2 {font-size: 30px; text-transform: uppercase; line-height: 30px;}
+	#main_wrap3_bottom h3 {font-size: 16px; font-weight: 300; line-height: 16px;float: left; margin-top: 15px;}
+
+	#collection_slide_bt_wrap {width: 110px; height: 30px; background-color: #eee; float: right; text-align: center; font-size: 20px; margin-top: 28px;}
+	#collection_slide_bt_wrap li {width: 48px; height: 28px; line-height: 28px; border: 1px solid #000; box-sizing: border-box; color: #000; background-color: #fff; transition:0.3s;}
+	#collection_slide_bt_wrap li {cursor: pointer;}
+	#collection_slide_bt_wrap li:hover {background-color: blue; color: #fff;}
+	#collection_slide_bt_wrap li:nth-child(1) {float: left;}
+	#collection_slide_bt_wrap li:nth-child(2) {float: right;}
+
+	#collection_slide_wrap {width: 100%; height: 380px; outline: 1px dotted #000; box-sizing: border-box; overflow: hidden; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
+	#collection_slide1 {width: 500%; height: 380px; position: absolute; left: 0; top: 0; background-color: #eee;}
+	#collection_slide1>li {width: 20%; height: 380px; float: left;}
+
+	#collection_slide1>li>ul {width: 100%; height: 380px; }
+	#collection_slide1>li>ul>li{width: 250px; height: 380px; margin-right: 92px; float: left; background-size: cover;} 
+	#collection_slide1>li>ul>li:hover{transform: scale(1.05);}
+	#collection_slide1>li:nth-child(1)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project10/1.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(1)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project10/2.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(1)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project10/3.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(1)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project10/4.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(1)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project10/5.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide1>li:nth-child(2)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project10/6.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(2)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project10/7.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(2)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project10/8.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(2)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project10/9.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(2)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project10/10.jpg) center no-repeat; margin-right: 0; float: right;}
+
+	#collection_slide1>li:nth-child(3)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project10/11.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(3)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project10/12.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(3)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project10/13.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(3)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project10/14.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(3)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project10/15.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide1>li:nth-child(4)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project10/16.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(4)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project10/17.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(4)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project10/18.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(4)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project10/19.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(4)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project10/20.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide1>li:nth-child(5)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project10/21.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(5)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project10/22.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(5)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project10/23.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(5)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project10/24.jpg) center no-repeat;}
+	#collection_slide1>li:nth-child(5)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project10/25.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide2 {width: 500%; height: 380px; position: absolute; left: 0; top: 0; display: none; background-color: #eee;}
+	#collection_slide2>li {width: 20%; height: 380px; float: left;}
+	#collection_slide2>li>ul {width: 100%; height: 380px; overflow: hidden;}
+	#collection_slide2>li>ul>li{width: 250px; height: 380px; margin-right: 92px; float: left; background-size: cover;}
+	#collection_slide2>li>ul>li:hover{transform: scale(1.05);}
+	#collection_slide2>li:nth-child(1)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project11/1.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(1)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project11/2.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(1)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project11/3.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(1)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project11/4.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(1)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project11/5.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide2>li:nth-child(2)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project11/6.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(2)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project11/7.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(2)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project11/8.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(2)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project11/9.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(2)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project11/10.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide2>li:nth-child(3)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project11/11.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(3)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project11/12.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(3)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project11/13.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(3)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project11/14.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(3)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project11/15.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide2>li:nth-child(4)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project11/16.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(4)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project11/17.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(4)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project11/18.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(4)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project11/19.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(4)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project11/20.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide2>li:nth-child(5)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project11/21.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(5)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project11/22.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(5)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project11/23.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(5)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project11/24.jpg) center no-repeat;}
+	#collection_slide2>li:nth-child(5)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project11/25.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide3 {width: 500%; height: 380px; position: absolute; left: 0; top: 0; display: none; background-color: #eee;}
+	#collection_slide3>li {width: 20%; height: 380px; float: left;}
+	#collection_slide3>li>ul {width: 100%; height: 380px; overflow: hidden;}
+	#collection_slide3>li>ul>li{width: 250px; height: 380px; margin-right: 92px; float: left; background-size: cover;}
+	#collection_slide3>li>ul>li:hover{transform: scale(1.05);}
+	#collection_slide3>li:nth-child(1)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project12/1.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(1)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project12/2.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(1)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project12/3.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(1)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project12/4.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(1)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project12/5.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide3>li:nth-child(2)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project12/6.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(2)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project12/7.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(2)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project12/8.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(2)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project12/9.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(2)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project12/10.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide3>li:nth-child(3)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project12/11.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(3)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project12/12.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(3)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project12/13.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(3)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project12/14.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(3)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project12/15.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide3>li:nth-child(4)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project12/16.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(4)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project12/17.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(4)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project12/18.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(4)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project12/19.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(4)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project12/20.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide3>li:nth-child(5)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project12/21.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(5)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project12/22.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(5)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project12/23.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(5)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project12/24.jpg) center no-repeat;}
+	#collection_slide3>li:nth-child(5)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project12/25.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide4 {width: 500%; height: 380px; position: absolute; left: 0; top: 0; display: none; background-color: #eee;}
+	#collection_slide4>li {width: 20%; height: 380px; float: left;}
+	#collection_slide4>li>ul {width: 100%; height: 380px; overflow: hidden;}
+	#collection_slide4>li>ul>li{width: 250px; height: 380px; margin-right: 92px; float: left; background-size: cover;}
+	#collection_slide4>li>ul>li:hover{transform: scale(1.05);}
+	#collection_slide4>li:nth-child(1)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project13/1.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(1)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project13/2.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(1)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project13/3.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(1)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project13/4.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(1)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project13/5.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide4>li:nth-child(2)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project13/6.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(2)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project13/7.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(2)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project13/8.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(2)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project13/9.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(2)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project13/10.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide4>li:nth-child(3)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project13/11.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(3)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project13/12.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(3)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project13/13.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(3)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project13/14.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(3)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project13/15.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide4>li:nth-child(4)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project13/16.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(4)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project13/17.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(4)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project13/18.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(4)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project13/19.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(4)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project13/20.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide4>li:nth-child(5)>ul:nth-child(1)>li:nth-child(1) {background: url(images/collections/project13/21.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(5)>ul:nth-child(1)>li:nth-child(2) {background: url(images/collections/project13/22.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(5)>ul:nth-child(1)>li:nth-child(3) {background: url(images/collections/project13/23.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(5)>ul:nth-child(1)>li:nth-child(4) {background: url(images/collections/project13/24.jpg) center no-repeat;}
+	#collection_slide4>li:nth-child(5)>ul:nth-child(1)>li:nth-child(5) {background: url(images/collections/project13/25.jpg) center no-repeat; margin-right: 0px; float: right;}
+
+	#collection_slide_bt {width: 100%; height: 30px; background-color: #eee; margin-top: 510px; text-align: center;}
+	#collection_slide_bt>li {width: 50px; height: 30px; background-color: #fff; display: inline-block; margin: 0px 10px; vertical-align: top; text-align: center; color: #000; border: 1px solid #000; line-height: 30px; transition:0.3s;}
+
+	#collection_slide_bt>li:hover {cursor: pointer; background-color: blue; color: #fff;}
+
+	#brand_ader_popup_wrap {width: 100%; height: 100vh; position: fixed; left: 0; top: 0; background-color: #000; z-index: 999; background-color: rgba(0,0,0,0.3); display: none;} 
+	#brand_ader_popup {width: 500px; height: 350px; background-color: #fff; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; text-align: center; border: 1px solid blue; overflow: hidden;}
+	#brand_ader_popup h2 {width: 100%; height: 30px; color: #000; font-weight: 500; font-size: 30px; line-height: 30px; margin-top: 50px; text-transform: uppercase;}
+	#brand_ader_popup p {width: 100%; line-height: 20px; margin-top: 30px; font-size: 14px; padding: 10px 50px; box-sizing: border-box;}
+	#brand_ader_popup>button {width: 30px; height: 30px; background-color: blue; color: #fff; position: absolute; right: 10px; top: 10px; text-align: center; text-transform: uppercase;line-height: 30px; border: none; border-radius: 30px;}
+	#brand_ader_popup>button:hover {cursor: pointer;}
+    #check {width: 100%; height: 30px; margin-top: 30px;}
+    #genuine_code{width: 50%; height: 20px; background-color: #fff; border: 1px solid blue;padding: 5px 10px;}
+    #check button{width: 50px; height: 32px; border: 1px solid blue; background-color: #fff; color: #000; vertical-align: bottom;}
+	#check button:hover {cursor: pointer;}
+ </style> 
+	<!-- 반응형 시작 -->
+   <style>
+  	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+	header{position: fixed;}
+	#logo {width: auto; height: 12px; margin-left: 25px; margin-top: 34px;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {margin-right: 25px;}
+
+	#sns_icons {width: 95px; height: 20px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 20px; height: 20px; margin-right: 5px;}
+	#sns_icons img {width: 20px; height: 20px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 20px; font-size: 30px; margin-left: 20px; margin-top: 50px; line-height: 20px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 16px; margin-bottom: 30px; margin-left: 20px;}
+	#menu_li_img_box {display: none;}
+
+	}
+
+	@media all and (min-width:768px) { /*768~1023 태블릿*/
+	header{position: fixed;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 40px; font-size: 60px; margin-left: 50px; margin-top: 100px; line-height: 40px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 28px; margin-bottom: 50px; margin-left: 50px;}
+	#menu_li_img_box {display: none;}
+
+	}
+
+	@media all and (min-width:1024px) { /*1024 태블릿*/
+	header{position: fixed;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 50px; bottom: 50px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 50%; height: 100%; float: left;}
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; padding-top: 150px; float: right;}
+	#menu_right_box li {width: 100%; font-size: 38px; margin-bottom: 50px; margin-left: 100px;}
+	#menu_li_img_box {display: block;}
+
+	}
+  </style></head><body>
+	<!-- 	main_page 시작 -->
+	<div id="main_page">
+	<!--   header 시작	 -->
+  	<header>
+		<div id="menu_popup">
+		<div id="menu_popup_box">
+		<div id="menu_popup_box_line"></div>
+		<div id="menu_left_box">
+					<h2 id="menu_popup_title_text">menu</h2>
+		</div>
+				<ul id="menu_right_box">
+					<li><a href="collection.html">01 collection</a></li>
+					<li><a href="collaboration.html">02 collaboration</a></li>
+					<li><a href="editorial.html">03 editorial</a></li>
+					<li><a href="contents.html">04 contents</a></li>
+				</ul>
+				<ul id="menu_li_img_box">
+					<li><img src="images/menu_img/menu_img1.jpg" alt="menu_collection_img"></li>
+					<li><img src="images/menu_img/menu_img2.jpg" alt="menu_collaboration_img"></li>
+					<li><img src="images/menu_img/menu_img3.jpg" alt="menu_editorial_img"></li>
+					<li><img src="images/menu_img/menu_img4.jpg" alt="menu_contents_img"></li>
+				</ul>
+		</div>
+	</div>
+	<a href="index.html"><h1 id="logo"><img src="images/ader_logo_b.png" alt="logo"></h1></a>
+	<ul id="menu">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul id="shop_menu">
+		<li><div id="shop_line"></div><a href="shop.html">shop</a></li>
+	</ul>
+	</header>
+	<!--   header 끝	 -->
+	<div id="brand_ader">
+		<h2>ADER<br><span>Blue Mark</span></h2>
+	</div>
+	<ul id="sns_icons">
+		<li><a href="https://www.instagram.com/ader_error"><img src="images/icons/instargram_icon_b.png" alt="instargram_icon"></a></li>
+		<li><a href=""><img src="images/icons/facebook_icon_b.png" alt="facebook_icon"></a></li>
+		<li><a href=""><img src="images/icons/twitter_icon_b.png" alt="twitter_icon"></a></li>
+		<li><a href=""><img src="images/icons/youtube_icon_b.png" alt="youtube_icon"></a></li>
+	</ul>
+	<div class="section" id="main_wrap1">
+		<div id="main_wrap_top">
+			<div id="main_wrap_top_bg"></div>
+			<video src="video/youtube_video1.mp4" autoplay loop muted id="bg_video"></video>
+			<div id="main_wrap_top_main">
+				<div class="main_wrap_top_main_text">
+					<h2>ader error</h2>
+					<h2>the</h2>
+				</div>
+				<div class="main_wrap_top_main_text">
+					<h2>az original</h2>
+				</div>
+				<div class="main_wrap_top_main_text">
+					<h2>collection</h2>
+				</div>
+				<div class="main_wrap_top_main_text">
+					<div id="main_wrap_top_main_text_inbox">
+						<h2>the world</h2>
+						<p>ader(아더)는 2014년 설립되었으며 패션을 기반으로 한 커뮤니케이션 브랜드입니다. ader는 'but near missed things' 이라는 브랜드 슬러건, 철학을 바탕으로 새롭게 느낄 수 있는 collection을 선보입니다.</p>
+					</div>
+				</div>	
+			</div>
+		</div> <!-- main_wrap_top 끝 -->
+	</div> <!-- main_wrap1끝 -->
+	<div class="section" id="main_wrap2">
+		<div id="main_wrap2_middle">
+			<div class="floor">
+			<button>#14 <br> project</button>
+			<h2>Aesthetic Drawing</h2>
+			<img src="images/collections/13.png" alt="collections_img1">
+			<h3>F4</h3>
+			</div>
+			
+			<div class="floor">
+			<button>#13 <br> project</button>
+			<h2>Fun work</h2>
+			<img src="images/collections/12.png" alt="collections_img2">
+			<h3>F3</h3>
+			</div>
+
+			<div class="floor">
+			<button>#12 <br> project</button>
+			<h2>Unique feeling</h2>
+			<img src="images/collections/11.png" alt="collections_img3">
+			<h3>F2</h3>
+			</div>
+
+			<div class="floor">
+			<button>#11 <br> project</button>
+			<h2>Error</h2>
+			<img src="images/collections/10.png" alt="collections_img4">
+			<h3>F1</h3>
+			</div>
+		</div>
+	</div> <!-- main_wrap2끝 -->
+	<div class="section" id="main_wrap3">
+		<div id="main_wrap3_bottom">
+			<div id="main_wrap3_bottom_text_box">
+			<h2>ader collection</h2>
+			<h3>project #11</h3>
+			</div>
+			<ul id="collection_slide_bt_wrap">
+				<li>-</li>
+				<li>+</li>
+			</ul>
+			<div id="collection_slide_wrap">
+				<ul id="collection_slide1">
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+					</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul> <!-- collection_slide1 끝 -->
+				<ul id="collection_slide2">
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+					</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul>
+				<ul id="collection_slide3">
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+					</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul>
+				<ul id="collection_slide4">
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+					</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</li>
+				</ul>
+				</div> <!-- collection_slide_wrap 끝 -->
+			<ul id="collection_slide_bt">
+				<li>1F</li>
+				<li>2F</li>
+				<li>3F</li>
+				<li>4F</li>
+			</ul>
+		</div> <!-- main_wrap3_bottom 끝-->
+	</div>
+    <div id="brand_ader_popup_wrap">
+		<div id="brand_ader_popup">
+			<h2>ader</h2>
+			<p>블루 마크는 아더 브랜드의 가품 근절을 통해	
+				가품으로부터 소비자를 보호하고 정품인증과 소비자
+				보호를 넘어 청렴한 문화 의식을 알리기 위한 문화 캠페인이다.
+				이를 위해 만들어진 ‘블루 마크 택’은 아더가
+				제조한 정식 제품임을 보증하는 역할을 한다.
+				이 캠페인은 블루 컬러에서부터 시작되는데,
+				여기서 블루라는 컬러는 ‘청렴함, 순수함, 오리지널리티’의
+				의미를 함축하고 있다.</p>
+				<button>x</button>
+                <div id="check">
+                    <input type="text" placeholder ="ader정품 코드를 입력하세요" id="genuine_code">
+                    <button>확인</button>
+                </div>
+		</div>
+	</div>
+	</div><!-- 	main_page 끝 -->
+ </body>
+</html>

@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <!-- 모바일은 화면크기를 자동으로 줄여서 표현하는 방식. 1:1 사이즈의 대응하기 위하여 viewport코드를 추가한다 -->
+  <title>ADER</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="swiper_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script src="jquery-animate-css-rotate-scale.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		$('#brand_ader').animate({'left':'-1px'},500)
+		$('#main_page_text h2').animate({'margin-top': '150px'},500,function(){
+		$('#main_page_text h2').animate({'letter-spacing':'0px',},300,function(){
+		$('#main_page_text button').fadeIn()
+		});
+		});
+		slide_num = 0;
+		//슬라이드 오른쪽 버튼 클릭시 이벤트 시작
+		$('#promotion_slide_right_bt').click(function(){
+		slide_num = slide_num-200
+		if(slide_num <=-1600){ slide_num=-1400}
+		$('#promotion_slide').stop().animate({'left':slide_num},500)
+		if(slide_num ==0){
+		slide_num =0
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,586')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(17,202) | all more')
+		}
+		if(slide_num ==-200){
+		slide_num =-200
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Merlin coat')
+		$('#promotion_text_box p').html('Product details. <br> Oversized long coat. <br> The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">5,849')
+
+		$('#product_information h2').html('Merlin coat')
+		$('#product_information p').html('Product details. <br> Oversized long coat. The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_review h4').html('(13,163) | all more')
+		}
+		if(slide_num ==-400){
+		slide_num =-400
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,211')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_review h4').html('(10,836) | all more')
+		}
+		if(slide_num ==-600){
+		slide_num =-600
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Sculpture logo track zip-up')
+		$('#promotion_text_box p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Sculpture logo track zip-up')
+		$('#product_information p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_review h4').html('(12,998) | all more')
+		}
+		if(slide_num ==-800){
+		slide_num =-800
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,335')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_review h4').html('(7,911) | all more')
+		}	
+		if(slide_num ==-1000){
+		slide_num =-1000
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(8,023) | all more')
+		}	
+		if(slide_num ==-1200){
+		slide_num =-1200
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Canyon knit')
+		$('#promotion_text_box p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,112')
+
+		$('#product_information h2').html('Canyon knit')
+		$('#product_information p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_review h4').html('(6,119) | all more')
+		}	
+		if(slide_num ==-1400){
+		slide_num =-1400
+		$('.promotion_img_item_box:nth-child(8)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Kaplan knit')
+		$('#promotion_text_box p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,916')
+
+		$('#product_information h2').html('Kaplan knit')
+		$('#product_information p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+		$('#promotion_review h4').html('(14,678) | all more')
+		}		
+		}); //슬라이드 오른쪽 버튼 클릭 시  이벤트 끝
+		//슬라이드 왼쪽 버튼 클릭 시 이벤트 시작
+		$('#promotion_slide_left_bt').click(function(){
+		slide_num = slide_num+200
+		if(slide_num >=0){ slide_num=-0}
+		$('#promotion_slide').stop().animate({'left':slide_num},500)
+		if(slide_num ==-1200){
+		slide_num =-1200
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Canyon knit')
+		$('#promotion_text_box p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,112')
+
+		$('#product_information h2').html('Canyon knit')
+		$('#product_information p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_review h4').html('(6,119) | all more')
+		}	
+		if(slide_num ==-1000){
+		slide_num =-1000
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(8,023) | all more')
+		}
+		if(slide_num ==-800){
+		slide_num =-800
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,335')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_review h4').html('(7,911) | all more')
+		}
+		if(slide_num ==-600){
+		slide_num =-600
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Sculpture logo track zip-up')
+		$('#promotion_text_box p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Sculpture logo track zip-up')
+		$('#product_information p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_review h4').html('(12,998) | all more')
+		}
+		if(slide_num ==-400){
+		slide_num =-400
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,211')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_review h4').html('(10,836) | all more')
+		}
+		if(slide_num ==-200){
+		slide_num =-200
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Merlin coat')
+		$('#promotion_text_box p').html('Product details. <br> Oversized long coat. <br> The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">5,849')
+
+		$('#product_information h2').html('Merlin coat')
+		$('#product_information p').html('Product details. <br> Oversized long coat. The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_review h4').html('(13,163) | all more')
+		}
+		if(slide_num ==0){
+		slide_num =0
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,586')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(17,202) | all more')
+		}
+		});
+		//inbox 드레그&드롭 #promotion_img 이동 시작
+		$('#inbox_top').droppable({
+		drop:function(){$('#inbox_bt').stop().animate({'top':'0'},300);
+		$('#promotion_img_inbox').animate({'margin-top':'35px'},300)
+		}	
+		});
+		$('#inbox_bottom').droppable({
+		drop:function(){$('#inbox_bt').stop().animate({'top':'20px'},300);
+		$('#promotion_img_inbox').animate({'margin-top':'-100px'},300)
+		}
+		});
+		$('#inbox_bt').draggable({
+			containment:'#inbox', axis:'y',
+		});
+		$('#menu_right_box li:nth-child(1)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(1)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().hide()
+		});
+		//inbox 드레그&드롭 #promotion_img 이동 끝
+		//$('#slide li:nth-child(1)').click(function(){
+			//window.location.href="sub_page1.html"
+		//});
+	//화면 전환 스크립트
+		main_page_toggle = 1; // 토글 1로 시작함으로 써 브랜드 아더에 1 표시 이후..2 ..3..4 증가하는 식으로 만들려고 했음
+		$('#main_page_text button').click(function(){
+			main_page_toggle + 1 //main_page_toggle 변수에 +1을 함으로 써 2번째 페이지가 보이고 브랜드 아더의 숫자도 2로 바꿔줌 
+			if(main_page_toggle==1){
+				main_page_toggle=2
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main_page_text').fadeOut()
+			$('#main').delay(100).animate({'z-index':'6'})
+			$('#main').fadeIn()
+		});
+		$('#brand_ader').click(function(){
+			main_page_toggle - 1
+			if(main_page_toggle==3){
+				main_page_toggle=2
+				$('#brand_ader h3 span').text(main_page_toggle)
+				$('#main').show(function(){
+				$('#main').stop().animate({'top':'0px'},500)
+			});
+				$('#bg_video').css({'display':'block'})
+				$('#promotion_img_box').fadeOut(500)
+			}
+			else if(main_page_toggle==2){
+				main_page_toggle=1
+			$('#brand_ader h3 span').text(main_page_toggle)
+			$('#main_page_text').fadeIn()
+			$('#main').animate({'z-index':'1'},50)
+			$('#main').hide()
+			}
+		})
+		//화면 전환 스크립트 끝
+		$('#shop_menu li').mouseenter(function(){
+			$('#shop_line').stop().animate({'width':'100%'},200)
+		});
+		$('#shop_menu li').mouseleave(function(){
+			$('#shop_line').stop().animate({'width':'0px'},200)
+		});
+		//////////slide_num2 =($('.swiper-slide').index()*200)//////////
+		//swiper_slide 첫번 째 클릭 시 이벤트 시작
+		//main_page_toggle을 이용하여 2번째 페이지에서 3번째 페이지로 전환 될 때 적용되는 이벤트들 
+		//main_page_toggle = 1; 이기때문에 if 만약 main_page_toggle ==2 경우 (메인 페이지가 2와 같다면) .swiper-slide 첫번째 또는 #main_text_box button 을 클릭 시 main_page_toggle=3이되라 그때 적용되는 이벤트들을 적용함.
+		$('.swiper-slide:nth-child(1),#main_text_box button').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+				$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+				$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Joyce knit vest')
+			$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,586')
+
+			$('#product_information h2').html('Joyce knit vest')
+			$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+			$('#promotion_review h4').html('(17,202) | all more')
+			slide_num=0; //slide_num 변수를 0으로 만들어서 다음 페이지로 이동 됬을 때 슬라이드 오른쪽 왼쪽 버튼을 눌렀을 때 순서대로 보이게 적용할 수 있음 *중요함*
+			$('#promotion_slide').animate({'left':slide_num},500)
+			
+		});
+		//swiper_slide 두번째 클릭 시 이벤트 시작
+		$('.swiper-slide:nth-child(2)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Merlin coat')
+			$('#promotion_text_box p').html('Product details. <br> Oversized long coat. <br> The details of the sleeves that look like theyre cut into two pieces.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">5,849')
+
+			$('#product_information h2').html('Merlin coat')
+			$('#product_information p').html('Product details. <br> Oversized long coat. The details of the sleeves that look like theyre cut into two pieces.')
+			$('#promotion_review h4').html('(13,163) | all more')
+			slide_num=-200;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		//swiper_slide 세번째 클릭 시 이벤트 시작
+		$('.swiper-slide:nth-child(3)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Oz knit jumper')
+			$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,211')
+
+			$('#product_information h2').html('Oz knit jumper')
+			$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+			$('#promotion_review h4').html('(10,836) | all more')
+			slide_num=-400;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		//swiper_slide 네번째 클릭 시 이벤트 시작
+		$('.swiper-slide:nth-child(4)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Sculpture logo track zip-up')
+			$('#promotion_text_box p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+			$('#product_information h2').html('Sculpture logo track zip-up')
+			$('#product_information p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+			$('#promotion_review h4').html('(12,998) | all more')
+			slide_num=-600;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		//swiper_slide 다섯번째 클릭 시 이벤트 시작
+		$('.swiper-slide:nth-child(5)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Womens')
+			$('#promotion_text_box h2').html('Oz knit jumper')
+			$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. <br> Mixing subsidiary materials.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,335')
+
+			$('#product_information h2').html('Oz knit jumper')
+			$('#product_information p').html('Product details. <br> Oversized knit cardigan. <br> Mixing subsidiary materials.')
+			$('#promotion_review h4').html('(7,911) | all more')
+			slide_num=-800;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		$('.swiper-slide:nth-child(6)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Joyce knit vest')
+			$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+			$('#product_information h2').html('Joyce knit vest')
+			$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+			$('#promotion_review h4').html('(8,023) | all more')
+			slide_num=-1000;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		$('.swiper-slide:nth-child(7)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Womens')
+			$('#promotion_text_box h2').html('Canyon knit')
+			$('#promotion_text_box p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,112')
+
+			$('#product_information h2').html('Canyon knit')
+			$('#product_information p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+			$('#promotion_review h4').html('(6,119) | all more')
+			slide_num=-1200;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+		$('.swiper-slide:nth-child(8)').click(function(){
+			if(main_page_toggle==2){
+				main_page_toggle=3
+				$('#brand_ader h3 span').text(main_page_toggle)
+			}
+			$('#main').stop().animate({'top':'1800px'},300,function(){
+				$('#main').hide()
+			});
+			$('#bg_video').css({'display':'none'})
+			$('#promotion_img_box').delay(500).fadeIn(500)
+			$('.promotion_img_item_box:nth-child(8)').css({'display':'block'})
+			$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+			$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+			$('#promotion_text_box h4').html('Mens')
+			$('#promotion_text_box h2').html('Kaplan knit')
+			$('#promotion_text_box p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+			$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,916')
+
+			$('#product_information h2').html('Kaplan knit')
+			$('#product_information p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+			$('#promotion_review h4').html('(14,678) | all more')
+			slide_num=-1400;
+			$('#promotion_slide').animate({'left':slide_num},500)
+		});
+
+				toggle = 0; // - 상태
+		$('#menu').click(function(){
+			if(toggle==0){ //- 상태에서 x로 변환
+				toggle=1
+				$('#menu li:nth-child(1)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(1)').animate({'rotate':'45deg'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'-45deg'},100)
+				$('#menu_popup').css({'display':'block'})
+				$('#menu_popup').stop().animate({'right':'0'},500)
+				$('#logo img').attr({'src':'images/ader_logo_w.png'})
+				$('header').css({'border-color':'#fff'})
+				$('#menu li').css({'background-color':'#fff'})
+				$('#shop_menu li').css({'color':'#fff'})
+				$('#shop_line').css({'background-color':'#fff'})
+				$('#sns_icons li:nth-child(1) img').attr({'src':'images/icons/instargram_icon.png'})
+				$('#sns_icons li:nth-child(2) img').attr({'src':'images/icons/facebook_icon.png'})
+				$('#sns_icons li:nth-child(3) img').attr({'src':'images/icons/twitter_icon.	png'})
+				$('#sns_icons li:nth-child(4) img').attr({'src':'images/icons/youtube_icon.png'})
+				}
+			else if(toggle==1){ //x 상태에서 -로 변환
+				toggle=0
+				$('#menu li:nth-child(1)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(1)').animate({'top':'3px'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'1'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'15px'},100)
+				$('#logo img').attr({'src':'images/ader_logo_b.png'})
+				$('header').css({'border-color':'#000'})
+				$('#menu li').css({'background-color':'#000'})
+				$('#shop_menu li').css({'color':'#000'})
+				$('#shop_line').css({'background-color':'#000'})
+				$('#sns_icons li:nth-child(1) img').attr({'src':'images/icons/instargram_icon_b.png'})
+				$('#sns_icons li:nth-child(2) img').attr({'src':'images/icons/facebook_icon_b.png'})
+				$('#sns_icons li:nth-child(3) img').attr({'src':'images/icons/twitter_icon_b.png'})
+				$('#sns_icons li:nth-child(4) img').attr({'src':'images/icons/youtube_icon_b.png'})
+				$('#menu_popup').stop().animate({'right':'-2000px'},500,function(){
+				$('#menu_popup').css({'display':'none'})
+				})
+				}
+		});
+		// .parents 부모의 .children 자식의 .siblings 형제의를 활용하여 코드 줄여봄.
+		$('.promotion_item_box_bt li:nth-child(1)').click(function(){
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').fadeIn()
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').children('.promotion_img_popup_box li:nth-child(1)').fadeIn()
+		});
+		$('.promotion_item_box_bt li:nth-child(2)').click(function(){
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').fadeIn()
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').children('.promotion_img_popup_box li:nth-child(2)').fadeIn()
+		});
+		$('.promotion_item_box_bt li:nth-child(3)').click(function(){
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').fadeIn()
+			$(this).parents('.promotion_item_box_bt').siblings('.promotion_img_popup_box').children('.promotion_img_popup_box li:nth-child(3)').fadeIn()
+		});
+		$('.promotion_img_popup_box li button').click(function(){
+			$('.promotion_img_popup_box').fadeOut()
+			$('.promotion_img_popup_box li').fadeOut()
+		});
+
+		new Swiper('.swiper-container', {
+				//slidesPerView : 6, // 한 화면에 보이는 슬라이드 칸 수
+				//spaceBetween : 20, // 슬라이드간 margin
+				//slidesPerGroup : 1, // 움직이는 슬라이드 칸 수
+				// 그룹수가 맞지 않을 경우 빈칸으로 메우기
+				// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+				loopFillGroupWithBlank : true,
+				speed:1000, // 1000 = 1초, 애니메이션 시간
+				loop :true, // 무한 반복 true, false 가 있음.
+				autoplay: {    delay: 3000, },
+				observer: true,
+				observeParents: true,
+				/*pagination : { // 페이징
+					el : '.swiper-pagination',
+					clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+				},*/
+				navigation : { // 네비게이션
+					nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+					prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+				},
+				controller: {
+					inverse: true,
+				},			
+				//	effect: "fade",
+				//	effect: 'coverflow'
+				//	effect: "flip",
+
+					effect: "cube",
+					grabCursor: true,
+					cubeEffect: {
+					  shadow: true,
+					  slideShadows: true,
+					  shadowOffset: 20,
+					  shadowScale: 0.94,
+					},
+
+				mousewheel:true,
+			});
+			//모바일 left right 버튼 script 시작 반응형 버튼 따로 만들어서 적용함.
+			//작업 끝날쯤 반응형 다시 할 때 .promotion_img_item_box:nth-child() 순서에 맞게 1~8까지 다 꺼야될 듯. *중요함*
+			//모바일 오른쪽 버튼 클릭 시 이벤트 시작
+			$('#img_slide_right_bt').click(function(){
+		slide_num = slide_num-200
+		if(slide_num <=-1600){ slide_num=-1400}
+		$('#promotion_slide').stop().animate({'left':slide_num},500)
+		if(slide_num ==0){
+		slide_num =0
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,586')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(17,202) | all more')
+		}
+		if(slide_num ==-200){
+		slide_num =-200
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Merlin coat')
+		$('#promotion_text_box p').html('Product details. <br> Oversized long coat. <br> The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">5,849')
+
+		$('#product_information h2').html('Merlin coat')
+		$('#product_information p').html('Product details. <br> Oversized long coat. The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_review h4').html('(13,163) | all more')
+		}
+		if(slide_num ==-400){
+		slide_num =-400
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,211')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_review h4').html('(10,836) | all more')
+		}
+		if(slide_num ==-600){
+		slide_num =-600
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Sculpture logo track zip-up')
+		$('#promotion_text_box p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Sculpture logo track zip-up')
+		$('#product_information p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_review h4').html('(12,998) | all more')
+		}
+		if(slide_num ==-800){
+		slide_num =-800
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,335')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_review h4').html('(7,911) | all more')
+		}	
+		if(slide_num ==-1000){
+		slide_num =-1000
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(8,023) | all more')
+		}	
+		if(slide_num ==-1200){
+		slide_num =-1200
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Canyon knit')
+		$('#promotion_text_box p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,112')
+
+		$('#product_information h2').html('Canyon knit')
+		$('#product_information p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_review h4').html('(6,119) | all more')
+		}	
+		if(slide_num ==-1400){
+		slide_num =-1400
+		$('.promotion_img_item_box:nth-child(8)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Kaplan knit')
+		$('#promotion_text_box p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,916')
+
+		$('#product_information h2').html('Kaplan knit')
+		$('#product_information p').html('Product details. <br> Multi-organization knit pullover. <br> The twisted label on the back. Detail.')
+		//모바일 왼쪽 버튼 클릭 시 이벤트 시작
+		$('#promotion_review h4').html('(14,678) | all more')
+		}		
+		});
+		//모바일 오른쪽 버튼 클릭 시 이벤트 끝
+		$('#img_slide_left_bt').click(function(){
+		slide_num = slide_num+200
+		if(slide_num >=0){ slide_num=-0}
+		$('#promotion_slide').stop().animate({'left':slide_num},500)
+		if(slide_num ==-1200){
+		slide_num =-1200
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(8)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Canyon knit')
+		$('#promotion_text_box p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,112')
+		
+		$('#product_information h2').html('Canyon knit')
+		$('#product_information p').html('Product details. <br> Oversized fit. <br> Gradient color knitwear.')
+		$('#promotion_review h4').html('(6,119) | all more')
+		}	
+		if(slide_num ==-1000){
+		slide_num =-1000
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(7)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(8,023) | all more')
+		}
+		if(slide_num ==-800){
+		slide_num =-800
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(6)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Womens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,335')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials.')
+		$('#promotion_review h4').html('(7,911) | all more')
+		}
+		if(slide_num ==-600){
+		slide_num =-600
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(5)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Sculpture logo track zip-up')
+		$('#promotion_text_box p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">4,667')
+
+		$('#product_information h2').html('Sculpture logo track zip-up')
+		$('#product_information p').html('Product details. <br> Very oversized fit. Detachable hat. <br> Leather strings and zippers.')
+		$('#promotion_review h4').html('(12,998) | all more')
+		}
+		if(slide_num ==-400){
+		slide_num =-400
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(4)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Oz knit jumper')
+		$('#promotion_text_box p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">3,211')
+
+		$('#product_information h2').html('Oz knit jumper')
+		$('#product_information p').html('Product details. <br> Oversized knit cardigan. Mixing <br> subsidiary materials. etail of the slanted pocket.')
+		$('#promotion_review h4').html('(10,836) | all more')
+		}
+		if(slide_num ==-200){
+		slide_num =-200
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(3)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Merlin coat')
+		$('#promotion_text_box p').html('Product details. <br> Oversized long coat. <br> The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">5,849')
+
+		$('#product_information h2').html('Merlin coat')
+		$('#product_information p').html('Product details. <br> Oversized long coat. The details of the sleeves that look like theyre cut into two pieces.')
+		$('#promotion_review h4').html('(13,163) | all more')
+		}
+		if(slide_num ==0){
+		slide_num =0
+		$('.promotion_img_item_box:nth-child(1)').css({'display':'block'})
+		$('.promotion_img_item_box:nth-child(2)').css({'display':'none'})
+		$('#promotion_text_box h4').html('Mens')
+		$('#promotion_text_box h2').html('Joyce knit vest')
+		$('#promotion_text_box p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_text_box h3').html('<img src="images/icons/share_black_icon.png" alt="">2,586')
+
+		$('#product_information h2').html('Joyce knit vest')
+		$('#product_information p').html('Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.')
+		$('#promotion_review h4').html('(17,202) | all more')
+		}
+		});
+		//모바일 왼쪽 버튼 클릭 시 이벤트 끝
+			//모바일 left right 버튼 script 끝
+	});
+  </script>
+   <style>
+	* {margin: 0; padding: 0; list-style: none;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%; background-color: #fff; font-family: 'Noto Sans KR', sans-serif;}
+	body {overflow: hidden;}
+	#main_page {width: 100%; height: 100%; background-color: #eee; overflow: hidden; position: relative;}
+	#bg_video {width: 1920px; height: 1080px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -960px; z-index: 3;}
+	header {width: 100%; height: 80px; border-bottom: 1px dotted #000; position: relative; top: 0; z-index: 999;}
+	#logo {width: 100px; height: 23px; float: left; margin-left: 50px; margin-top: 32px; position: relative; z-index: 998;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {width: 20px; height: 20px; float: right; margin-right: 50px; margin-top: 30px; position: relative;}
+	#menu li {width: 100%; height: 2px; background-color: #000; position: absolute; left: 0;}
+	#menu li:nth-child(1) {top: 3px; }
+	#menu li:nth-child(2) {top: 9px;}
+	#menu li:nth-child(3) {top: 15px;}
+
+	#menu_popup_box {width: 100%; height: 100%; margin: auto; margin-top: 80px; overflow: hidden; position: relative;}
+	#menu_left_box {width: 50%; height: 100%; float: left; overflow: hidden; position: relative;}
+	#menu_popup {width: 100%; height: 100vh; background-color: #666; position: absolute; right: -2000px; top: 0; display: none;}
+	#menu_popup_box_line {width: 100%; height: 1px; background-color: #fff;}
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; text-transform: uppercase; color: #fff; font-family: 'Lexend Peta', sans-serif; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; float: right; padding-top: 150px; box-sizing: border-box; position: relative; z-index: 20;}
+	#menu_right_box li {width: 100%; margin-bottom: 25px; font-size: 38px; font-weight: 400; text-transform: uppercase; color: #fff; padding-left: 0; font-family: 'Lexend Peta', sans-serif; margin-bottom: 50px; margin-left: 100px;}
+	#menu_right_box li:hover {color: #000; transition:0.3s;}
+	#menu_li_img_box {width: 50%; height: 100%; position: absolute; right: 0; top: 0;}
+	#menu_li_img_box li {width: 500px; height: auto; margin-left: 50px; position: absolute; display: none; opacity: 0.5; left: 100px;}
+	#menu_li_img_box li:nth-child(1) {top: 100px;}
+	#menu_li_img_box li:nth-child(2) {top: 200px;}
+	#menu_li_img_box li:nth-child(3) {top: 300px;}
+	#menu_li_img_box li:nth-child(4) {top: 400px;}
+	#menu_li_img_box li img {width: 100%;}
+	
+	#shop_menu {height: 40px; float: right; text-transform: uppercase; margin-right: 25px; line-height: 40px; margin-top: 20px; overflow: hidden;}
+	#shop_menu li { font-size: 14px; font-weight: 500; color: #000; position: relative;}
+	#shop_line {width: 0%; height: 2px; background-color: #000; position: absolute; bottom: 8px;}
+
+	#main_page_text {width: 1620px; height: 540px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px; z-index: 5; text-align: center;}
+	#main_page_text h2 {width: 100%; height: 100px; color: #000; font-size: 90px; text-transform: uppercase; letter-spacing: -12px; margin-top: 200px; line-height: 90px;}
+	#main_page_text button {width: 220px; height: 60px; border: 2px solid #000; background-color: #fff; color: #000; font-size: 14px; font-weight: 100; margin-top: 50px; text-transform: uppercase; display: none;}
+	#main_page_text button:hover {background-color: blue; color: #fff; border: 1px solid #000; transition:0.3s;}
+
+	#brand_ader {width: 200px; height: 100px; border: 1px solid #000; position: fixed; 	left: -202px; bottom: 50px; z-index: 22; color: #fff; background-color: #fff; border: 1px solid #000; text-align: center;}
+	#brand_ader h2 {color: #000; font-weight: 500; font-size: 20px; margin-top: 30px; line-height: 20px;}
+	#brand_ader h3{color: blue; font-weight: 400; font-size: 16px; line-height: 16px; margin-top: 10px;}
+	#brand_ader:hover {background-color: blue; border: 1px solid #000;}
+	#brand_ader:hover h2{color: #fff;}
+	#brand_ader:hover h3{color: #fff;}
+
+	#sns_icons {width: 115px; height: 25px; position: absolute; right: 50px; bottom: 50px; z-index: 23;}
+	#sns_icons li {width: 25px; height: 25px; float: left; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+	#sns_icons li:hover {transform:scale(1.2);}
+	#sns_icons li:nth-child(4) {margin-right: 0px;}
+
+	#main {width: 1620px; height: 540px; position: absolute; left: 50%; right: 0; top: 1800px; bottom: 0; margin: auto; margin-left: -810px; z-index: 1; display: none;}
+	#main_text_box {width: 590px; height: 540px; float: left;}
+	#main_text_box h4 {font-size: 16px; font-weight: 400;}
+	#main_text_box h3 {font-size: 20px; font-weight: 400; margin-top: 30px;}
+	#main_text_box h2 {font-size: 36px; font-weight: 500; margin-top: 30px;}
+	#main_text_box p {font-size: 14px; font-weight: 400; margin-top: 30px; line-height: 30px;}
+	#like_icon {width: 100%; height: 30px; margin-top: 30px;}
+	#like_icon li {width: 80px; float: left; font-size: 12px;}
+	#like_icon li img{vertical-align: middle;}
+	#main_text_box button {width: 150px; height: 60px; margin-top: 60px; background-color: #fff; border: 1px solid #000; font-size: 14px;}
+	#main_text_box button:hover {color: #fff; background-color: blue; transition:0.3s;}
+
+	#wrap_box{width: 850px; height: 540px; float: right;}
+	#wrap {width: 850px; height: 540px;}
+	 .swiper-container {width: 100%; margin: 0;}
+	 .swiper-slide img {box-shadow:0 0 10px #fff; max-width:100%;} /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보
+	 여질때 필요 *//* 이 제작 시 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+	 .swiper-slide {position: relative; opacity: 0.7;}
+	 .swiper-slide:hover {opacity: 1;}
+	 .swiper-slide>ul {width: 100%; height: 30px; position: absolute; left: 0; right: 0; top: 0; bottom: 50px; margin: auto; text-align: center;}
+	 .swiper-slide>ul>li {color: #fff; font-size: 20px; font-weight: 500; text-transform: uppercase; vertical-align: top;}
+
+	.swiper-button-prev,
+	.swiper-container-rtl .swiper-button-next {
+		background-size: 20px;
+	 }
+	.swiper-button-next,
+	.swiper-container-rtl .swiper-button-prev {
+		background-size: 20px;
+	}
+
+	#promotion_img_box {width: 1620px; height: 100%; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px; margin-top: 80px; display: none; z-index: 10; overflow: hidden;} 
+	#promotion_img_inbox {width: 300px; height: 920px; float: left; margin-top: 35px; margin-left: 190px;}
+	#promotion_img {width: 300px; height: 100%; position: relative; text-align: center; margin: auto;}
+	#img_slide_left_bt {width: 40px; height: 80px; background-color: #fff; position: absolute; left: -50px; top: -300px; bottom: 0; margin: auto; display: none; font-size: 26px; color: blue;}
+	#img_slide_right_bt {width: 40px; height: 80px; background-color: #fff; position: absolute; right: -50px; top: -300px; bottom: 0; margin: auto; display: none; font-size: 26px; color: blue;}
+	.promotion_img_item_box {width: 100%; height: 100%; display: none; position: relative;}
+	.promotion_img_item_box:nth-child(1) {display: block;}
+	.promotion_img_item_box img {width: auto; height: 100%;}
+	.promotion_item_box_bt {width: 300px; height: 100%; position: absolute; left: 0; top: 0;}
+	.promotion_item_box_bt li {width: 40px; height: 40px; position: absolute; background-color: #fff; border: 2px solid #aaa; font-size: 26px; border-radius: 40px; color: #aaa; box-shadow: #000 3px 3px 5px; text-align: center; line-height: 40px;}
+	.promotion_img_item_box:nth-child(1) .promotion_item_box_bt li:nth-child(1) {top: 0; left: 70px;}
+	.promotion_img_item_box:nth-child(1) .promotion_item_box_bt li:nth-child(2) {top: 250px; left: 150px;}
+	.promotion_img_item_box:nth-child(1) .promotion_item_box_bt li:nth-child(3) {bottom: 30px; left: 30px;}
+
+	.promotion_img_item_box:nth-child(2) .promotion_item_box_bt li:nth-child(1) {top: 250px; left: 180px;}	
+	.promotion_img_item_box:nth-child(2) .promotion_item_box_bt li:nth-child(2) {top: 650px; left: 250px;}
+	.promotion_img_item_box:nth-child(2) .promotion_item_box_bt li:nth-child(3) {top: 850px; left: 50px;}
+
+	.promotion_img_item_box:nth-child(3) .promotion_item_box_bt li:nth-child(1) {top: 0; left: 70px;}
+	.promotion_img_item_box:nth-child(3) .promotion_item_box_bt li:nth-child(2) {top: 250px; left: 150px;}
+	.promotion_img_item_box:nth-child(3) .promotion_item_box_bt li:nth-child(3) {top: 850px;left: 20px;}
+
+	.promotion_img_item_box:nth-child(4) .promotion_item_box_bt li:nth-child(1) {top: 250px; left: 150px;}
+	.promotion_img_item_box:nth-child(4) .promotion_item_box_bt li:nth-child(2) {top: 500px; left: 70px;}
+	.promotion_img_item_box:nth-child(4) .promotion_item_box_bt li:nth-child(3) {top: 650px;left: 250px;}
+
+	.promotion_img_item_box:nth-child(5) .promotion_item_box_bt li:nth-child(1) {top: 200px; left: 220px;}
+	.promotion_img_item_box:nth-child(5) .promotion_item_box_bt li:nth-child(2) {top: 330px; left: 60px;}
+	.promotion_img_item_box:nth-child(5) .promotion_item_box_bt li:nth-child(3) {top: 500px;left: 200px;}
+
+	.promotion_img_item_box:nth-child(6) .promotion_item_box_bt li:nth-child(1) {top: 0; left: 120px;}
+	.promotion_img_item_box:nth-child(6) .promotion_item_box_bt li:nth-child(2) {top: 280px; left: 180px;}
+	.promotion_img_item_box:nth-child(6) .promotion_item_box_bt li:nth-child(3) {top: 840px;left: 250px;}
+
+	.promotion_img_item_box:nth-child(7) .promotion_item_box_bt li:nth-child(1) {top: 230px; left: 140px;}
+	.promotion_img_item_box:nth-child(7) .promotion_item_box_bt li:nth-child(2) {top: 480px; left: 50px;}
+	.promotion_img_item_box:nth-child(7) .promotion_item_box_bt li:nth-child(3) {top: 550px;left: 230px;}
+
+	.promotion_img_item_box:nth-child(8) .promotion_item_box_bt li:nth-child(1) {top: 230px; left: 90px;}
+	.promotion_img_item_box:nth-child(8) .promotion_item_box_bt li:nth-child(2) {top: 380px; left: 200px;}
+	.promotion_img_item_box:nth-child(8) .promotion_item_box_bt li:nth-child(3) {top: 850px;left: 30px;}
+
+	.promotion_img_popup_box {position: absolute; left: 0; top: 0; width: 300px; height: 100%; display: none;}
+
+	.promotion_img_popup_box li{position: absolute; width: 100px; height: 150px; background-color: #fff; border: 1px solid #aaa; display: none;}
+
+	.popup_item_img {width: 100px; height: 100px;}
+	.popup_item_text {width: 100px; height: 50px; text-align: center; line-height: 50px; font-size: 18px; font-weight: 300; color: #000;}
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box1_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box1_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box1_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box2_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box2_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box2_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box3_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box3_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box3_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box4_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box4_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box4_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box5_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box5_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box5_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box6_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box6_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box6_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box7_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box7_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box7_img3.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(1) .popup_item_img {background: #fff url('images/items/item_box8_img1.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(2) .popup_item_img {background: #fff url('images/items/item_box8_img2.jpeg') center no-repeat; background-size: cover;}
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(3) .popup_item_img {background: #fff url('images/items/item_box8_img3.jpeg') center no-repeat; background-size: cover;}
+
+
+	.promotion_img_popup_box button{width: 40px; height: 40px; background-color: #000; border: 2px solid #000; font-size: 18px; color: #fff; position: absolute; right: -21px; top: -21px; border-radius: 40px; font-weight: 100;}
+
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(1) {top: 0; left: -50px;}
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(2) {top: 250px;left: 30px;}
+	.promotion_img_item_box:nth-child(1) .promotion_img_popup_box li:nth-child(3) {bottom: 30px; left: 90px;}
+
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(1) {top: 250px; left: 60px;}
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(2) {top: 650px; left: 130px;}
+	.promotion_img_item_box:nth-child(2) .promotion_img_popup_box li:nth-child(3) {top: 740px; left: -70px;}
+
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(1) {top: 0; left: -50px;}
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(2) {top: 250px; left: 30px;}
+	.promotion_img_item_box:nth-child(3) .promotion_img_popup_box li:nth-child(3) {top: 740px;left: -100px;}
+
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(1) {top: 250px; left: 30px;}
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(2) {top: 500px; left: -60px;}
+	.promotion_img_item_box:nth-child(4) .promotion_img_popup_box li:nth-child(3) {top: 650px;left: 130px;}
+
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(1) {top: 90px; left: 100px;}
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(2) {top: 330px; left: -60px;}
+	.promotion_img_item_box:nth-child(5) .promotion_img_popup_box li:nth-child(3) {top: 500px;left: 80px;}
+
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(1) {top: 0; left: 0;}
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(2) {top: 280px; left: 60px;}
+	.promotion_img_item_box:nth-child(6) .promotion_img_popup_box li:nth-child(3) {top: 730px;left: 130px;}
+
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(1) {top: 230px; left: 20px;}
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(2) {top: 480px; left: -70px;}
+	.promotion_img_item_box:nth-child(7) .promotion_img_popup_box li:nth-child(3) {top: 550px;left: 110px;}
+
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(1) {top: 230px; left: -10px;}
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(2) {top: 380px; left: 80px;}
+	.promotion_img_item_box:nth-child(8) .promotion_img_popup_box li:nth-child(3) {top: 740px;left: -90px;}
+
+	#promotion_text_box {width: 600px; height: 380px; float: left; overflow: hidden; margin-top: 150px;}
+	#promotion_text_box h4 {font-size: 16px; font-weight: 300;}
+	#promotion_text_box h2 {font-size: 40px; font-weight: 400; margin-top: 10px;}
+	#promotion_text_box p {font-size: 16px; font-weight: 300; margin-top: 20px;}
+	#promotion_text_box h3 {margin-top: 20px; font-size: 12px; font-weight: 400;}
+	#promotion_text_box h3 img {vertical-align: middle;}
+	#text_button {width: 300px; height: 80px; margin-top: 75px; float: left;}
+	#text_button li {width: 300px; height: 40px; font-size: 12px; line-height: 40px;}
+	#text_button li img {height: 40px; float: left;}
+
+	#promotion_slide_wrap {width: 200px; height: 80px; background-color: #fff; float: right; margin-top: 72px; border: 1px solid #aaa; position: relative; overflow: hidden;} 
+	#promotion_slide_left_bt {width: 20px; height: 80px; background-color: #fff; position: absolute; left: 0; top: 0; border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #aaa; font-size: 14px; font-weight: 500;}
+	#promotion_slide_right_bt {width: 20px; height: 80px; background-color: #fff; position: absolute; right: 0; top: 0; border-right: none; border-top: none; border-bottom: none; border-left: 1px solid #aaa; font-size: 14px; font-weight: 500;} 
+	#promotion_slide {width: 1600px; height: 80px; position: absolute;}
+	#promotion_slide li {width: 200px; height: 80px; float: left;}
+	#promotion_slide li img {width: 100%;}
+	
+	#promotion_review_box{width: 350px; height: 380px; background-color: #fff; float: right; border: 1px solid #aaa; margin-top: 150px; box-sizing: border-box; overflow: hidden;}
+	#promotion_review {width: 350px; height: 60px; border-bottom: 1px solid #aaa;}
+	
+	#star {width: 175px; height: 60px; text-align: center; float: left;}
+	#star li {width: 14px; height: 14px; margin: 0px 4px; display: inline-block; margin-top: 23px;}  
+	#star li img {height: 14px; vertical-align: top;}
+	#promotion_review h4 {float: left; font-size: 14px; text-align: center; line-height: 60px; font-weight: 400;}
+	#product_information {width: 350px; height: 330px; padding: 20px 25px; box-sizing: border-box; overflow: hidden;}
+	#product_information h2{ font-size: 16px; font-weight: 500; margin: 0px 0px;}
+	#product_information p{ font-size: 12px; font-weight: 400; margin: 20px 0px;}
+	#product_information h3{font-size: 12px; font-weight: 500; margin: 20px 0px;}
+	#size{width: 300px; height: 20px; text-align: center; margin-top: 15px; box-sizing: border-box;}
+	#size li{width: 35px; height: 25px; float: left; background-color: #eee; margin-right: 20px; line-height: 25px; box-shadow: 1px 1px 5px #000; font-size: 14px;} 
+	#product_information h5 {float: left; margin: 0px 0px; width: 25px; height: 25px; border-radius: 10px; background-color: #eee; text-align: center; line-height: 25px;}
+	#product_information h4 {float: left; margin: 20px 15px; height: 25px; line-height: 25px;}
+	#product_information h6 {height: 25px; float: left; font-size: 12px; font-weight: 400; margin: 20px 35px;}
+	#inbox {width: 20px; height: 40px; background-color: #666; border-radius: 40px; position: absolute; left: -300px; right: 0; top: -300px; bottom: 0; margin: auto;}
+	#inbox_top {width: 20px; height: 20px;}
+	#inbox_bottom {width: 20px; height: 20px;}
+	#inbox_bt {width: 20px; height: 20px; background-color: #fff; position: absolute;	 border-radius: 20px; top: 0;}
+ </style> 
+	<!-- 반응형 시작 -->
+   <style>
+  	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+	#main_page {overflow: hidden;}
+	#bg_video {height: auto; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -960px;}
+	header{position: relative;}
+	#logo {width: 100px; height: 23px; margin-left: 25px; margin-top: 32px;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {margin-right: 25px;}
+	#main_page_text h2 {font-size: 16px; font-weight: 400; margin-top: 100px; letter-spacing: -2px;}
+	#main_page_text button {width: 100px; height: 30px; margin-top: 20px;}
+	
+	#sns_icons {width: 95px; height: 20px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 20px; height: 20px; margin-right: 5px;}
+	#sns_icons img {width: 20px; height: 20px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 20px; font-size: 30px; margin-left: 20px; margin-top: 50px; line-height: 20px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 16px; margin-bottom: 30px; margin-left: 20px;}
+	#menu_li_img_box {display: none;}
+
+	#main {width: 90%; height: 100%; left: 0; right: 0; top: 0px; bottom: 0px; margin: auto; margin-top: 80px;}
+	#main_text_box {width: 100%; height: 40%; float: none; margin-top: 30px;}
+	#main_text_box h4 {font-size: 8px; font-weight: 400;}
+	#main_text_box h3 {font-size: 12px; font-weight: 400; margin-top: 5px;}
+	#main_text_box h2 {font-size: 14px; font-weight: 500; margin-top: 5px;}
+	#main_text_box p {font-size: 8px; font-weight: 400; margin-top: 5px; line-height: 30px;}
+	#like_icon {width: 300px; height: 25px; margin-top: 5px;}
+	#like_icon li {width: 80px; float: left; font-size: 8px;}
+	#like_icon li img{vertical-align: middle;}
+	#main_text_box button {width: 100px; height: 20px; margin-top: 10px; background-color: #fff; border: 1px solid #000; font-size: 14px;}
+
+	#wrap_box{width: 100%; height: 30%; float: none;}
+	#wrap {width: 100%; height: auto;}
+	.swiper-slide>ul {height: 20px;  bottom: 0;}
+	.swiper-slide>ul>li {color: #fff; font-size: 10px;}
+
+
+/*반응형 하던거 키고 하면됌 이어서 시작*/
+	#promotion_img_box {width: 100%; height: 100%; left: 0; right: 0; top: 0; bottom: 0; margin: auto; margin-top: 80px; overflow: scroll;}
+	#promotion_text_box {display: none;}
+	#promotion_img_inbox {width: 100%; height: 60%; float: none; margin-top: 20px; margin-bottom: 20px; margin-left: 0; margin-right: 0;}
+	#promotion_img {width: 40%; height: 100%;}
+	.promotion_img_item_box img {width: auto; height: 100%;}
+	#promotion_review_box{width: 100%; height: 70%; float: none; margin-top: 0px; border: none;} 
+	#promotion_slide_wrap {display: none;}
+	.promotion_item_box_bt {display: none;}
+	#inbox {display: none;}
+	#promotion_review{display: none;}
+	#product_information {width: 100%; padding: 0px 0px; overflow: hidden;}
+	#product_information h2{ margin: 10px 10px;}
+	#product_information p {margin: 10px 10px;}
+	#product_information h3 {margin: 20px 10px;}
+	#size {width: 100%; height: 20px; margin: 10px 10px;}
+	#size li {width: 16px; height: 16px; line-height: 16px; font-size: 10px;}
+	#product_information h5 {margin: 0px 10px;}
+	#product_information h4 {margin: 0px 10px;}
+	#product_information h6 {margin: 0px 10px;}
+	#img_slide_left_bt {background: transparent; left: -80px; top: 0; bottom: 0; margin: auto; display: block; border: none;}
+	#img_slide_right_bt {background: transparent; right: -80px; top: 0; bottom: 0; margin: auto; display: block; border: none;}
+	
+/*반응형 하던거 끝*/
+	}
+
+	@media all and (min-width:768px) { /*768~1023 태블릿*/
+	#main_page {overflow: hidden;}
+	#bg_video {height: auto; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -960px;}
+	header{position: relative;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+	#main_page_text h2 {font-size: 50px; font-weight: 500; margin-top: 0px; letter-spacing: -5px;}
+	#main_page_text button {width: 200px; height: 50px; margin-top: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 40px; font-size: 60px; margin-left: 50px; margin-top: 100px; line-height: 40px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 28px; margin-bottom: 50px; margin-left: 50px;}
+	#menu_li_img_box {display: none;}
+
+	#main {width: 90%; height: 100%; left: 0; right: 0; top: 0px; bottom: 0px; margin: auto; margin-top: 80px;}
+	#main_text_box {width: 100%; height: 30%; float: none; margin-top: 30px;}
+	#main_text_box h4 {font-size: 12px; font-weight: 400;}
+	#main_text_box h3 {font-size: 16px; font-weight: 400; margin-top: 10px;}
+	#main_text_box h2 {font-size: 20px; font-weight: 500; margin-top: 10px;}
+	#main_text_box p {font-size: 10px; font-weight: 400; margin-top: 10px; line-height: 30px;}
+	#like_icon {width: 300px; height: 25px; margin-top: 30px;}
+	#like_icon li {width: 80px; float: left; font-size: 12px;}
+	#like_icon li img{vertical-align: middle;}
+	#main_text_box button {width: 100px; height: 30px; margin-top: 20px; background-color: #fff; border: 1px solid #000; font-size: 14px;}
+	
+	#wrap_box{width: 100%; height: 40%; float: none;}
+	#wrap {width: 100%; height: auto;}
+	.swiper-slide>ul {height: 50px; bottom: 0;}
+	.swiper-slide>ul>li {color: #fff; font-size: 20px;}
+
+	/*반응형 하던거 키고 하면됌 이어서 시작*/
+	#promotion_img_box {width: 100%; height: 100%; left: 0; right: 0; top: 0; bottom: 0; margin: auto; margin-top: 80px; overflow: hidden;}
+	#promotion_text_box {display: none;}
+	#promotion_img_inbox {width: 100%; height: 50%; float: none; margin-top: 20px; margin-bottom: 20px; margin-left: 0; margin-right: 0;}
+	#promotion_img {width: 50%; height: 100%;}
+	.promotion_img_item_box img {width: auto; height: 100%;}
+
+	#promotion_review_box{width: 100%; height: 50%; float: none; margin-top: 0px; border: none;} 
+	#promotion_slide_wrap {display: none;}
+	.promotion_item_box_bt {display: none;}
+	#inbox {display: none;}
+	#promotion_review{display: none;}
+	#product_information {width: 100%; padding: 0px 0px; overflow: hidden;}
+	#product_information h2{ margin: 10px 10px;}
+	#product_information p {margin: 10px 10px;}
+	#product_information h3 {margin: 20px 10px;}
+	#size {width: 100%; height: 20px; margin: 10px 10px;}
+	#size li {width: 16px; height: 16px; line-height: 16px; font-size: 10px;}
+	#product_information h5 {margin: 0px 10px;}
+	#product_information h4 {margin: 0px 10px;}
+	#product_information h6 {margin: 0px 10px;}
+	#img_slide_left_bt {background: transparent; left: -70px; top: 0; bottom: 0; margin: auto; display: block; border: none;}
+	#img_slide_right_bt {background: transparent; right: -70px; top: 0; bottom: 0; margin: auto; display: block; border: none;}
+	
+/*반응형 하던거 끝*/
+	}
+	@media all and (min-width:1024px) { /*1024 태블릿*/
+	#main_page {overflow: hidden;}
+	#bg_video {height: auto; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -960px;}
+	header{position: fixed;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+	#main_page_text h2 {font-size: 100px; font-weight: 500; margin-top: 250px; letter-spacing: -12px;}
+	#main_page_text button {width: 200px; height: 50px; margin-top: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 50px; bottom: 50px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 50%; height: 100%; float: left;}
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; padding-top: 150px; float: right;}
+	#menu_right_box li {width: 100%; font-size: 38px; margin-bottom: 50px; margin-left: 100px;}
+	#menu_li_img_box {display: block;}
+
+	#main {width: 1620px; height: 540px; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -810px;}
+	#main_text_box{width: 770px; height: 540px; float: left; margin-top: 0px;}
+	#main_text_box h4 {font-size: 18px; font-weight: 400;}
+	#main_text_box h3 {font-size: 26px; font-weight: 400; margin-top: 10px;}
+	#main_text_box h2 {font-size: 50px; font-weight: 500; margin-top: 20px;}
+	#main_text_box p {font-size: 18px; font-weight: 400; margin-top: 20px; line-height: 30px;}
+	#like_icon {width: 100%; height: 30px; margin-top: 30px;}
+	#like_icon li {width: 100px; height: 30px; float: left; font-size: 16px;}
+	#like_icon li img{height: 100%; vertical-align: middle;}
+	#main_text_box button {width: 180px; height: 80px; background-color: #fff; border: 1px solid #000; font-size: 14px; margin-top: 60px;}
+
+	#wrap_box{width: 850px; height: 540px; float: right;}
+	#wrap {width: 850px; height: 540px;}
+	.swiper-slide>ul {height: 30px; bottom: 50px;}
+	.swiper-slide>ul>li {color: #fff; font-size: 20px;}
+
+	/*반응형 하던거 키고 하면됌 이어서 시작*/
+	#promotion_img_box {width: 1620px; height: 100%; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-top: 80px; margin-left: -810px; overflow: hidden;}
+	#promotion_text_box {display: block;}
+	#promotion_img_inbox {width: 300px; height: 920px; float: left; margin-top: 35px; margin-left: 190px; margin-right: 0; margin-bottom: 0;}
+	#promotion_img {width: 300px; height: 100%;}
+	.promotion_img_item_box img {width: auto; height: 100%;}
+
+	#promotion_review_box{width: 350px; height: 380px; float: right; margin-top: 150px; border: 1px solid #aaa;} 
+	#promotion_slide_wrap {display: block;}
+	.promotion_item_box_bt {display: block;}
+	#inbox {display: block;}
+	#promotion_review{display: block;}
+	#product_information {width: 350px; height: 330px; padding: 20px 25px; overflow: hidden;}
+	#product_information h2{margin: 0px 0px;}
+	#product_information p {margin: 20px 0px;}
+	#product_information h3 {margin: 20px 0px;}
+	#size {width: 300px; height: 20px; margin: 15px 0px;}
+	#size li {width: 35px; height: 25px; line-height: 25px; font-size: 14px;}
+	#product_information h5 {margin: 0px 0px;}
+	#product_information h4 {margin: 0px 15px;}
+	#product_information h6 {margin: 0px 35px;}
+	#img_slide_left_bt {background: transparent; left: -70px; top: 0; bottom: 0; margin: auto; display: none; border: none;}
+	#img_slide_right_bt {background: transparent; right: -70px; top: 0; bottom: 0; margin: auto; display: none; border: none;}
+	
+/*반응형 하던거 끝*/
+	}
+  </style></head><body>
+	<!-- 	main_page 시작 -->
+ 	<div id="main_page">
+	<!--   header 시작	 -->
+  	<header>
+		<div id="menu_popup">
+		<div id="menu_popup_box">
+		<div id="menu_popup_box_line"></div>
+		<div id="menu_left_box">
+					<h2 id="menu_popup_title_text">menu</h2>
+		</div>
+				<ul id="menu_right_box">
+					<li><a href="collection.html">01 collection</a></li>
+					<li><a href="collaboration.html">02 collaboration</a></li>
+					<li><a href="editorial.html">03 editorial</a></li>
+					<li><a href="contents.html">04 contents</a></li>
+				</ul>
+				<ul id="menu_li_img_box">
+					<li><img src="images/menu_img1.jpg" alt=""></li>
+					<li><img src="images/menu_img2.jpg" alt=""></li>
+					<li><img src="images/menu_img3.jpg" alt=""></li>
+					<li><img src="images/menu_img4.jpg" alt=""></li>
+				</ul>
+		</div>
+	</div>
+	<a href="index.html"><h1 id="logo"><img src="images/ader_logo_b.png" alt=""></h1></a>
+	<ul id="menu">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul id="shop_menu">
+		<li><div id="shop_line"></div>shop</li>
+	</ul>
+	</header>
+	<!--   header 끝	 -->
+	<video src="images/video1.mp4" autoplay loop muted id="bg_video"></video>
+	<div id="main_page_text">
+	<h2>ADER 3.0 AR flagship store</h2>
+	<button>view more</button>
+	</div>
+	<div id="brand_ader">
+		<h2>ADER</h2><h3>1.<span>1</span></h3>
+	</div>
+	<ul id="sns_icons">
+		<li><img src="images/icons/instargram_icon_b.png" alt=""></li>
+		<li><img src="images/icons/facebook_icon_b.png" alt=""></li>
+		<li><img src="images/icons/twitter_icon_b.png" alt=""></li>
+		<li><img src="images/icons/youtube_icon_b.png" alt=""></li>
+	</ul>
+	<!-- main 시작 -->
+	<div id="main">
+	<div id="main_text_box">
+		<h4>Online Space</h4>
+		<h3>NEW-MEDIA COMMUNICATION PLATFORM</h3>
+		<h2>ADER 3.0 AR FLAGSHIP STORE</h2>
+		<p>기존에 경험할 수 없었던 뉴 미디어 아트 기반 전시 <br> 경험형 온라인 3D 커뮤니케이션 공간</p>
+		<ul id="like_icon">
+			<li><img src="images/icons/share_black_icon.png" alt="">Share it.</li>
+			<li><img src="images/icons/like_black_icon.png" alt="">930,108</li>
+		</ul>
+		<button>REWATCH</button>
+	</div>
+	<!--전환된 메인페이지 끝-->
+<!-- 3D wrap 시작 -->
+<div id="wrap_box">
+<div id="wrap" class="swiper-container">
+			<ul id="slide" class="swiper-wrapper">
+				<li class="swiper-slide"><img src="images/slide_img0.png" alt="">
+				<ul>
+					<li>2021 fall-winter collection</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/slide_img1.png" alt="">
+				<ul>
+					<li>nth-child(2) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/slide_img2.png" alt="">
+				<ul>
+					<li>nth-child(3) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/slide_img3.png" alt="">
+				<ul>
+					<li>nth-child(4) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/slide_img4.png" alt="">
+				<ul>
+					<li>nth-child(5) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/slide_img5.png" alt="">
+				<ul>
+					<li>nth-child(6) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/swiper_slide6.png" alt="">
+				<ul>
+					<li>nth-child(7) 테스트</li>
+				</ul>
+				</li>
+				<li class="swiper-slide"><img src="images/swiper_slide7.png" alt="">
+				<ul>
+					<li>nth-child(8) 테스트</li>
+				</ul>
+				</li>
+			</ul>
+		
+		<!-- 네비게이션 -->
+		<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+		<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+		<!-- 페이징 -->
+		<div class="swiper-pagination"></div>
+		</div><!-- 3D wrap 끝 --></div>
+	</div> <!-- main 끝 -->
+	<div id="promotion_img_box">
+		<div id="promotion_text_box">
+			<h4>Mens</h4>
+			<h2>Joyce knit vest</h2>
+			<p>Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.</p>
+			<h3><img src="images/icons/share_black_icon.png" alt="">2,586</h3>
+			<ul id="text_button">
+				<li><img src="images/icons/shape.png" alt="">shape Message</li>
+				<li><img src="images/icons/save.png" alt="">click like missed things</li>
+			</ul>
+			<div id="promotion_slide_wrap">
+				<ul id="promotion_slide">
+					<li><img src="images/slide_img0.png" alt=""></li>
+					<li><img src="images/slide_img1.png" alt=""></li>
+					<li><img src="images/slide_img2.png" alt=""></li>
+					<li><img src="images/slide_img3.png" alt=""></li>
+					<li><img src="images/slide_img4.png" alt=""></li>
+					<li><img src="images/slide_img5.png" alt=""></li>
+					<li><img src="images/slide_img6.png" alt=""></li>
+					<li><img src="images/slide_img7.png" alt=""></li>
+				</ul>
+				<button id="promotion_slide_left_bt">&lt;</button>
+				<button id="promotion_slide_right_bt">&gt;</button>
+			</div>
+		</div>
+		<div id="inbox">
+			<div id="inbox_top"></div>
+			<div id="inbox_bottom"></div>
+			<div id="inbox_bt"></div>
+		</div>
+				<div id="promotion_img_inbox">
+		<div id="promotion_img">
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_01.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 189</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 298</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 490</h5></div><button>x</button></li>
+				</ul>
+			</div>
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_02.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 859</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 349</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 490</h5></div><button>x</button></li>
+				</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_03.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 129</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 419</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 490</h5></div><button>x</button></li>
+				</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+					<img src="images/promotion/promotion_img_04.png" alt="">
+					<ul class="promotion_item_box_bt">
+						<li>+</li>
+						<li>+</li>
+						<li>+</li>
+					</ul>
+					<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 398</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 239</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 570</h5></div><button>x</button></li>
+					</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_05.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 419</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 489</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 359</h5></div><button>x</button></li>
+				</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_06.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 179</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 289</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 490</h5></div><button>x</button></li>
+				</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_07.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 319</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 339</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 249</h5></div><button>x</button></li>
+				</ul>
+			</div>	
+			<div class="promotion_img_item_box">
+				<img src="images/promotion/promotion_img_08.png" alt="">
+				<ul class="promotion_item_box_bt">
+					<li>+</li>
+					<li>+</li>
+					<li>+</li>
+				</ul>
+				<ul class="promotion_img_popup_box">
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 298</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 489</h5></div><button>x</button></li>
+					<li><div class="popup_item_img"></div><div class="popup_item_text"><h5>$ 490</h5></div><button>x</button></li>
+				</ul>
+			</div>
+			<button id="img_slide_left_bt">&lt;</button>
+			<button id="img_slide_right_bt">&gt;</button>
+		</div>
+	</div>
+	<div id="promotion_review_box">
+			<div id="promotion_review">
+				<ul id="star">
+					<li><img src="images/icons/star.png" alt=""></li>
+					<li><img src="images/icons/star.png" alt=""></li>
+					<li><img src="images/icons/star.png" alt=""></li>
+					<li><img src="images/icons/star.png" alt=""></li>
+					<li><img src="images/icons/star.png" alt=""></li>
+				</ul>
+				<h4>(17,202) | all more</h4>
+			</div>
+			<div id="product_information">
+				<h2>Joyce knit vest</h2>
+				<p>Product details. <br> Deep U-neck knit vest. <br> Sochi label, ADER zigzag embroidery details.</p>
+				<h3>Size</h3>
+				<ul id="size">
+					<li>S</li>
+					<li>M</li>
+					<li>L</li>
+					<li>XL</li>
+				</ul>
+				<h3>Quantiyy</h3>
+				<h5>-</h5><h4>1</h4><h5>+</h5>
+				<h6>Sochi label, ADER zigzag <br> embroidery details.</h6>
+			</div>
+		</div>
+	</div> <!-- 	promotion_img_box 끝 -->
+	</div><!-- 	main_page 끝 -->
+ </body>
+</html>

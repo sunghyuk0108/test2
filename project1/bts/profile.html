@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		menu_toggle = 0;
+		$('#menu').click(function(){
+			if(menu_toggle==0){
+				menu_toggle=1
+				// 메뉴 li가 x로 바뀌고, #menu_popup이 show
+			$('#menu li:nth-child(1)').css({'transform':'rotate(45deg)','top':'8px'})
+			$('#menu li:nth-child(2)').hide()
+			$('#menu li:nth-child(3)').css({'transform':'rotate(-45deg)','top':'8px'})
+			$('#menu_popup').show()
+			}
+			else if(menu_toggle==1){
+				menu_toggle=0 
+				// 메뉴 li가 =로 바뀌고, #menu_popup이 hide
+			$('#menu li:nth-child(1)').css({'transform':'rotate(0deg)','top':'0px'})
+			$('#menu li:nth-child(2)').show()
+			$('#menu li:nth-child(3)').css({'transform':'rotate(0deg)','top':'16px'})
+			$('#menu_popup').hide()
+			}
+		});
+		//lang 시작
+		$('#lang').mouseenter(function(){
+			$('#lang_sub').stop().fadeIn()
+		});
+		$('#lang').mouseleave(function(){
+			$('#lang_sub').stop().fadeOut()
+		});
+		//footer menu시작
+		$('#footer_menu').mouseenter(function(){
+			$('#footer_sub').stop().fadeIn()
+		});
+		$('#footer_menu').mouseleave(function(){
+			$('#footer_sub').stop().fadeOut()
+		});
+		//profile 시작
+		$('#rm').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$(this).offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('RM')
+			$('#profile_popup_box_text p').text('생일: 1994년 9월 12일')
+		});
+		$('#jin').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$(this).offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('진')
+			$('#profile_popup_box_text p').text('생일: 1992년 12월 4일')
+		});
+		$('#suga').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$(this).offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('슈가')
+			$('#profile_popup_box_text p').text('생일: 1993년 3월 9일')
+		});
+		$('#jhope').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$(this).offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('제이홉')
+			$('#profile_popup_box_text p').text('생일: 1994년 2월 18일')
+		});
+		$('#jimin').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$(this).offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('지민')
+			$('#profile_popup_box_text p').text('생일: 1995년 10월 13일')
+		});
+		$('#v').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$('#jhope').offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('뷔')
+			$('#profile_popup_box_text p').text('생일: 1995년 12월 30일')
+		});
+		$('#jk').click(function(){
+			$('#profile_popup_bg').fadeIn()//배경이 켜져라
+			$('#profile_popup_box').fadeIn().css({'top':$('#jhope').offset().top}) //#profile_popup_box가 켜지고 top의 위치가 클릭한 이미지의 top위치와 동일하게 배치
+			$('#profile_popup_box_img').attr({'src':$(this).attr('src')}) //#profile_popup_img에 이미지변경은 attr. 클릭한 이미지의 src정보를 대입
+			$('#profile_popup_box_text h3').text('정국')
+			$('#profile_popup_box_text p').text('생일: 1997년 9월 1일')
+		});
+		$('#profile_popup_close').click(function(){
+			$('#profile_popup_bg').hide()
+			$('#profile_popup_box').hide()
+		});
+	});
+  </script>
+	<!-- 기본 css 영역. 화면 크기에 대응하거나 반응하는 부분이 아닌 속성을 입력 -->
+   <style>
+	* {margin: 0; padding: 0; list-style: none; font-family: 'Oswald', sans-serif;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%;}
+	/*header시작*/
+	header {width: 100%; height: 65px; background-color: rgba(0,0,0,0.2); text-align: center; position: fixed; left: 0; top: 0; z-index: 999;}
+	#menu_popup{width: 100%; height: 100vh; text-transform: uppercase; position: absolute;	 left: 0; right: 0; display: none;}  
+	/* #menu_popup가 겹쳐있도록 하기위하여 position:absolute 할당, 짝대기 모양의 #menu에 위로 올라오도록 z999할당. z가 적용되려면 최소한의 position은 필요하고 pos:r 할당 */
+	/* 높이값은 부모의 높이보다 화면의 높이값에 따라가도록 viewport height의 vh를 사용한다. */ 
+	#menu_popup_left {width: 50%; height: 100%; float: left; background-color: rgba(0,0,0,0.5);}
+	#menu_popup_left_box {width: 400px; line-height: 60vh; margin-top: 20vh; float: right;} /*화면 높이에 따라 반응하는 비율설정 vh */
+	#menu_popup_left_box li {width: 100%; line-height: 10vh; text-align: center; color: #fff; border-bottom: 1px solid #fff; font-size: 20px;}
+	#menu_popup_right {width: 50%; height: 100%; float: right; background-color: rgba(0,0,0,0.6);}
+	#menu_popup_right_box {height: 35vh; margin-top: 32.5vh; margin-left: 15%; text-align: left;} /*높이값에 반응하는 비율 
+	margin-top */
+	#menu_popup_right_box li {line-height: 7vh; color: #999; font-size: 20px;}
+	#menu {width: 22px; height: 18px; float: left; position: relative; margin-top: 22px; margin-left: 40px; overflow: hidden;}
+	#menu li {width: 100%; height: 2px; background-color: #fff; border-radius: 1px; position: absolute;}
+	#menu li:nth-child(1) {top: 0;}
+	#menu li:nth-child(2) {top: 8px;}
+	#menu li:nth-child(3) {top: 16px;}
+	#lang {width: 100px; float: right; line-height: 65px;}
+	#lang h4 {color: #fff; font-size: 14px;}
+	#logo {width: 59px; height: 30px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
+	/*profile 시작*/
+	#profile {width: 100%; padding: 100px 0; background-color: #ffdc00;}
+	#about {width: 1200px; margin: auto; overflow: hidden;}
+	/* 자식 요소가 float이면 높이 전달이 안됨 이럴경우, 부모에 ov:h	 */
+	#about img {float: left; width: 42%; margin: 0% 4%;}
+	#about_textbox{float: right; width: 42%; margin: 0% 4%;}
+	#about h2 {font-size: 60px; color: #fff; text-transform: uppercase;}
+	#about p {line-height: 25px; font-size: 14px; font-weight: 500;}
+	/* profile_img 시작	*/
+	#profile_img {width: 100%; background-color: rgba(0,0,0,0.2); margin-top: 200px;}
+	#profile_img ul {width: 1440px; overflow: hidden; margin: auto;}
+	#profile_img ul li {width: 360px; float: left;}
+	#profile_img ul li img {width: 100%; vertical-align: top;}
+
+	/* 쌤은 #logo{width: 59px; height: 30px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; 로 배열했음}*/
+	#logo img {width: 100%; vertical-align: top;}
+	#lang_sub {width: 100px; position: absolute; background-color: #eee; display: none;}
+	#lang_sub li{font-size: 14px; font-weight: 900;}
+	#lang_sub li:hover {background-color: #000; color: #fff;}
+	#lang_sub li:nth-child(1) {background-color: #000; color: #fff;}
+
+	/* footer시작	*/
+	footer {width: 100%; height: 65px; background-color: #272727; position: fixed; left: 0; bottom: 0; z-index: 999; text-align: center;}
+	#sns {width: 30%; height: 65px; float: left;}
+	#sns>li {width: 30px; height: 30px; border-radius: 30px; float: left; background-color:#1f1f1f; margin-top: 17px; margin-left: 10px; box-sizing: border-box;}
+	#sns>li:nth-child(1) {margin-left: 30px;}
+	#sns li img {width: 100%;}
+	#footer_menu {width: 300px; height: 65px; display: inline-block; position: relative;}
+	#footer_menu h5 {text-transform: uppercase; line-height: 60px; border-bottom: 1px solid #ccc; color: #ccc;}
+	#footer_sub{width: 100%; line-height: 50px; color: #ccc; position: absolute; bottom: 65px; z-index: 999; display: none; background-color: #272727;}
+	#footer_sub li {font-size: 12px; white-space: nowrap; text-overflow: ellipsis;}
+	#footer_sub li:hover {background-color: #000; color: #fff;}
+	#footer_menu_arrow {position: absolute; right: 0; top: 0; bottom: 0; margin: auto;}
+	#copyright {width: 30%; float: right; height: 65px; text-align: right; vertical-align: top;}
+	#copyright h5 {color: #ccc; line-height: 35px; font-size: 10px; font-weight: 100;}
+	#copyright h6 {color: #ccc; font-size: 10px; font-weight: 100;}
+	#text {position: fixed; left: 0; top: 200px; font-size: 100px; border: 1px solid #000;}
+
+	#profile_popup_bg {width: 100%; height: 100%; position: fixed; left: 0; top: 0px; background-color: rgba(0,0,0,0.3); display: none;}
+	#profile_popup_box {width: 100%; background-color: rgba(22,22,22,0.9); position: absolute; left: 0; top: 0; display: none;} 
+	#profile_popup_box_img {width: 50%; float: left;}
+	#profile_popup_box_text {width: 50%; float: right; color: #fff; text-align: center; position: relative;}
+	#profile_popup_box_text h3 {font-size: 34px; font-weight: 900; position: absolute; top: 30%; left: 5%;} 
+	#profile_popup_box_text p {font-size: 16px; font-weight: 900; position: absolute; top: 40%; left: 5%;}
+	#profile_popup_box_text img {width: 100%; vertical-align: top;}
+	#profile_popup_close {position: absolute; right: 0; top: 0;}
+	</style><style>
+	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+	header{height: 80px;}
+	#menu {width: 26px; margin-top: 25px; margin-left: 40px;}
+	#logo {width: 59px; height: 30px;}
+	#lang {line-height: 80px;}
+	#menu_popup_left_box {width: 100%;}
+	/* #slide_wrap 은 pos:r , footer은 pos:f 로 배열이 되어있다. 모바일에서는 스크롤이 발생하는 상태로 해당 영역을 기본 position인 pos:s를 할당한다.*/
+	#about {width: 90%;}
+	#about img {width: 100%; margin: 0;}
+	#about_textbox {width: 100%; margin: 0;}
+	/* 화면 너비의 변화에 따라 글자크기가 변화한다. vw로 단위 지정 */
+	#about_textbox h2 {font-size: 15vw;}
+	#about_textbox p {font-size: 3vw;}
+	#profile_img ul {width: 100%;}
+	#profile_img ul li {width: 50%;}
+	.hidden_li {display: none;}
+	.show_li {display: block;}
+	#profile_popup_box {width: 100%;}
+	#profile_popup_box_img {width: 100%;}
+	#profile_popup_box_text {width: 100%; text-align: center;}
+	#profile_popup_box_text img {width: 50%;}
+	#profile_popup_box_text h3 {top: 30%; left: 0; right: 0; margin: auto;}
+	#profile_popup_box_text p {top: 55%; left: 0; right: 0; margin: auto;}
+	#profile_popup_close {position: absolute; left: 0; right: 0; top: 0;}
+	footer{position: relative; height: 200px;}
+	#sns {width: 90%; margin-left: 5%; margin-right: 5%; float: none;}
+	#sns>li {width: 23px; height: 23px; display: inline-block; float: none;}
+	#footer_menu {width: 90%; margin-left: 5%; margin-right: 5%;}
+	#copyright {width: 90%; margin-left: 5%; margin-right: 5%; text-align: center;}
+	}
+	@media all and (min-width:768px) { /*768~태블릿, pc*/
+	header{height: 65px;}
+	#menu {width: 22px; margin-top: 22px; margin-left: 40px;}
+	#logo {width: 50px; height: 25px;}
+	#lang {line-height: 65px;}
+	#menu_popup_left_box {width: 400px;}
+	#about {width: 90%;}
+	#about img{width: 42%; margin: 0% 4%;}
+	#about_textbox{width: 42%; margin: 0% 4%;}
+	#about_textbox h2 {font-size: 40px;}
+	#about_textbox p {font-size: 14px;}
+	#profile_img ul {width: 100%;}
+	#profile_img ul li {width: 25%;}
+	.hidden_li {display: block;}
+	.show_li {display: none;}
+	#profile_popup_box {width: 100%;}
+	#profile_popup_box_img {width: 50%;}
+	#profile_popup_box_text {width: 50%; text-align: left;}
+	#profile_popup_box_text img {width: 100%;}
+	#profile_popup_box_text h3 {top: 30%; left: 5%;}
+	#profile_popup_box_text p {top: 40%; left: 5%;}
+	#profile_popup_close {position: absolute; right: 0; top: 0;}
+	footer{position: relative; height: 200px;}
+	#sns {width: 90%; margin-left: 5%; margin-right: 5%; float: none;}
+	#sns>li {width: 30px; height: 30px; display: inline-block; float: none;}
+	#footer_menu {width: 90%; margin-left: 5%; margin-right: 5%;}
+	#copyright {width: 90%; margin-left: 5%; margin-right: 5%; text-align: center;}
+	}
+	@media all and (min-width:1200px) { /*1200~태블릿, pc*/
+	#about {width: 1200px;}
+	#about img{width: 42%; margin: 0% 4%;}
+	#about_textbox{width: 42%; margin: 0% 4%;}
+	#about_textbox h2 {font-size: 60px;}
+	#about_textbox p {font-size: 14px;}
+	#profile_img ul {width: 100%;}
+	#profile_img ul li {width: 25%;}
+	.hidden_li {display: block;}
+	.show_li {display: none;}
+	#profile_popup_box {width: 100%;}
+	#profile_popup_box_img {width: 50%;}
+	#profile_popup_box_text {width: 50%; text-align: left;}
+	#profile_popup_box_text img {width: 100%;}
+	#profile_popup_box_text h3 {top: 30%; left: 5%;}
+	#profile_popup_box_text p {top: 40%; left: 5%;}
+	#profile_popup_close {position: absolute; right: 0; top: 0;}
+	footer{position: fixed; height: 65px;}
+	#sns {width: 30%; margin-left: 0%; margin-right: 0%; float: left;}
+	#sns>li {width: 30px; height: 30px; display: block; float: left;}
+	#footer_menu {width: 300px; margin-left: 0%; margin-right: 0%;}
+	#copyright {width: 30%; margin-left: 0%; margin-right: 0%; text-align: right;}
+	}
+	@media all and (min-width:1440px) { /*1440~태블릿, pc*/
+	#profile_img ul {width: 1440px;}
+	#profile_img ul li {width: 360px;}
+	.hidden_li {display: block;}
+	.show_li {display: none;}
+	#profile_popup_box {width: 1440px; left: 0; right: 0; margin: auto;}
+	#profile_popup_box_img {width: 50%;}
+	#profile_popup_box_text {width: 50%; text-align: left;}
+	#profile_popup_box_text img {width: 100%;}
+	#profile_popup_box_text h3 {top: 30%; left: 5%;}
+	#profile_popup_box_text p {top: 40%; left: 5%;}
+	#profile_popup_close {position: absolute; right: 0; top: 0;}
+	footer{position: fixed; height: 65px;}
+	#sns {width: 30%; margin-left: 0%; margin-right: 0%; float: left;}
+	#sns>li {width: 30px; height: 30px; display: block; float: left;}
+	#footer_menu {width: 300px; margin-left: 0%; margin-right: 0%;}
+	#copyright {width: 30%; margin-left: 0%; margin-right: 0%; text-align: right;}
+	}
+  </style>
+ </head><body>
+	<!-- header시작 -->
+	<header>
+	<div id="menu_popup">
+		<div id="menu_popup_left">
+		<ul id="menu_popup_left_box">
+			<li>home</li>
+			<li>about</li>
+			<li>bts</li>
+			<li>tomorrow x together</li>
+			<li>lee hyun</li>
+		</ul>
+		</div>
+		<div id="menu_popup_right">
+		<ul id="menu_popup_right_box">
+			<li><a href="index.html">home</a></li>
+			<li><a href="profile.html">profile</a></li>
+			<li><a href="discography.html">discography</a></li>
+			<li><a href="schedule.html">schedule</a></li>
+			<li>tour</li>
+		</ul>
+		</div>
+	</div>
+		<ul id="menu">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<h1 id="logo"><img src="logo-m.png" alt="logo_img"></h1>
+		<div id="lang">
+			<h4>KOR</h4>
+			<ul id="lang_sub">
+				<li>KOR</li>
+				<li>ENG</li>
+				<li>JPN</li>
+				<li>CHN</li>
+			</ul>
+		</div>
+	</header>
+	<!--  profile시작	 -->
+	<div id="profile">
+		<div id="about">
+			<img src="profile_new/profile-kv.png" alt="profile-kv_img">
+			<div id="about_textbox">
+				<h2>about bts</h2>
+				<p>2013년 데뷔해 국내외 신인상을 휩쓴 방탄소년단은 명실상부 한국을 대표하는 최정상 보이 그룹으로 성장했다. 전 세계적으로 방탄소년단 열풍을 일으키며 ‘21세기 팝 아이콘’으로 불린다. <br>	
+미국 빌보드, 영국 오피셜 차트, 일본 오리콘을 비롯해 아이튠즈, 스포티파이, 애플뮤직 등 세계 유수의 차트 정상에 올랐고, 음반 판매량과 뮤직비디오 조회수, SNS 지수 등에서도 독보적인 기록을 써 내려가고 있다. 특히, 방탄소년단은 한 주에 빌보드 ‘핫 100’ 차트와 ‘빌보드 200’ 차트 정상을 동시 정복한 최초의 그룹이며, 통산 ‘빌보드 200’ 5차례, ‘핫 100’ 3차례 1위를 차지했다. <br>
+또한, ‘제63회 그래미 어워드’에서 한국 가수 최초로 단독 무대를 펼쳐 ‘빌보드 뮤직 어워드’와 ‘아메리칸 뮤직 어워드’, ‘그래미 어워드’까지 미국 3대 음악 시상식 무대에서 공연하는 기록을 세웠다. <br>
+방탄소년단은 스타디움 투어를 개최하며 전 세계 콘서트 시장에서도 글로벌 아티스트로서의 입지를 다져 왔으며, UN 연설과 LOVE MYSELF 캠페인 등을 통해 선한 영향력을 실천하고 있다.</p>
+			</div>
+		</div>
+		<div id="profile_img">
+			<ul>
+				<li><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-rm.jpg" alt="member-rm_img" id="rm"></li>
+				<li class="hidden_li"><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-jin.jpg" alt="member-jin_img" id="jin"></li>
+				<li class="show_li"><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-suga.jpg" alt="member-suga_img" id="suga"></li>
+				<li class="hidden_li"><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-jhope.jpg" alt="member-jhope_img" id="jhope"></li>
+				<li class="show_li"><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-jimin.jpg" alt="member-jimin_img" id="jimin"></li>
+				<li class="hidden_li"><img src="profile_new/transparent.png" alt="transparent_img"></li>
+				<li><img src="profile_new/member-v.jpg" alt="member-v_img" id="v"></li>
+				<li><img src="profile_new/member-jk.jpg" alt="member-jk_img" id="jk"></li>
+				<li><img src="profile_new/transparent.png" alt="transparent_img"></li>
+			</ul>
+		</div>
+	</div>
+
+	<footer>
+		<ul id="sns">
+			<li><img src="twitter-star.png" alt="twitter-star_img"></li>
+			<li><img src="twitter.png" alt="twitter_img"></li>
+			<li><img src="facebook2.png" alt="facebook2_img"></li>
+			<li><img src="insta2.png" alt="insta2_img"></li>
+			<li><img src="youtube.png" alt="youtube_img"></li>
+			<li><img src="weibo.png" alt="weibo_img"></li>
+			<li><img src="weibo-member.png" alt="weibo-member_img"></li>
+			<li><img src="youku.png" alt="youku_img"></li>
+			<li><img src="weverse.png" alt="weverse_img"></li>
+			<li><img src="cafe2.png" alt="cafe2_img"></li>
+			<li><img src="blog.png" alt="blog_img"></li>
+		</ul>
+		<div id="footer_menu">
+		<h5>family sites</h5>
+		<img src="footer_bt.png" alt="footer_img" id="footer_menu_arrow">
+			<ul id="footer_sub">
+				<li>HYBE CO., LTD.</li>
+				<li>BIG HIT AUDITION</li>
+				<li>WEVERSE SHOP</li>
+				<li>WEVERSE</li>
+				<li>TOMORROW X TOGETHER OFFICIAL WEBSITE</li>
+				<li>LEE HYUN OFFICIAL WEBSITE</li>
+			</ul>
+		</div>
+		<div id="copyright">
+				<h5>관련사이트</h5>
+				<h6>COPYRIGHT © 2021 BIG HIT MUSIC / HYBE. ALL RIGHTS RESERVED</h6>
+			</div>
+	</footer>
+	<div id="profile_popup_bg"></div>
+		<div id="profile_popup_box">
+			<img src="profile_new/member-rm.jpg" alt="profile_new/member-rm_img" id="profile_popup_box_img">
+			<div id="profile_popup_box_text"><img src="profile_new/transparent.png" alt="transparent_img"><h3>RM</h3><p>생일: 1994년 9월 12일</p></div>
+			<img src="popup-close-m.png" alt="colse_bt_img" id="profile_popup_close">
+		</div>
+	<h1 id="text">0</h1>	
+ </body>
+</html>

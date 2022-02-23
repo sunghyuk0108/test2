@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+  <!-- 제이쿼리 설치 코드   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- 스크립트 시작  -->
+  <script>
+	$(document).ready(function(){
+		
+
+
+		$('#section5_card1').click(function(){
+			$('#section5_card2').fadeIn().siblings('li').fadeOut();
+			$('#section5_bg2').animate({left:0},600);
+			$('#section5_text').html('DIVING<br>BLUE<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#fff'})
+			$('#section5_text div').css({'background-color':'#fff'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+		})
+		$('#section5_card2').click(function(){
+			$('#section5_card3').fadeIn().siblings('li').fadeOut();
+			$('#section5_bg3').animate({left:0},600);
+			$('#section5_text').html('DIVING<br>BLUE<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#fff'})
+			$('#section5_text div').css({'background-color':'#fff'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+		})
+		$('#section5_card3').click(function(){
+			$('#section5_card4').fadeIn().siblings('li').fadeOut();
+			$('#section5_bg4').animate({left:0},600);
+			$('#section5_text').html('DIVING<br>BLUE<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#fff'})
+			$('#section5_text div').css({'background-color':'#fff'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+		})
+		$('#section5_card4').click(function(){
+			$('#section5_card5').fadeIn().siblings('li').fadeOut();
+			$('#section5_bg5').animate({left:0},600);
+			$('#section5_text').html('DIVING<br>BLUE<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#fff'})
+			$('#section5_text div').css({'background-color':'#fff'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+		})
+		$('#section5_card5').click(function(){
+			$('#section5_img1').delay(300).animate({top:'40%'},800)
+			$('#section5_img2').delay(300).animate({top:'40%'},800)
+			$('#section5_img3').delay(300).animate({top:'40%'},800,function(){
+				$('#section5_img1').animate({left:'52%'},500)
+				$('#section5_img2').animate({left:'62%'},500)
+				$('#section5_img3').animate({left:'72%'},500)
+			})
+			$('#section5_card').animate({width:0},600,function(){
+				$('#section5_card5').hide();
+				$('#section5_card1').show();
+			})
+			$('#section5_bg>li').animate({left:'100%'},300,function(){
+				$('#section5_bg>li').css({'left':'-100%'})
+			});
+			$('#section5_text').html('KONA<br>CARD<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#000'})
+			$('#section5_text div').css({'background-color':'#000'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+			$('#section5 h2,#section5 p').css({'color':'#000'})
+		})
+
+		$('#section5_img1,#section5_img2,#section5_img3').click(function(){
+			$('#section5_card').delay(400).animate({width:278},600)
+			$('#section5_text').html('YOGA<br>PINK<div></div>')
+			$('#section5_text').css({'left':'-40%','opacity':'0','color':'#fff'})
+			$('#section5_text div').css({'background-color':'#fff'})
+			$('#section5_text').animate({left:'20%',opacity:1},600)
+			$('#section5_bg1').animate({left:0},300);
+			$('#section5 h2,#section5 p').css({'color':'#fff'})
+			$('#section5_img1').animate({left:'62%'},300)
+			$('#section5_img2').animate({left:'62%'},300)
+			$('#section5_img3').animate({left:'62%'},300,function(){
+				$('#section5_img1').animate({top:'-48%'},300)
+				$('#section5_img2').animate({top:'-48%'},300)
+				$('#section5_img3').animate({top:'-48%'},300)
+			})
+		})
+
+
+		
+
+		$(window).scroll(function(){ // 스크롤이 움직면
+			sc = $(window).scrollTop();
+			if( sc > 200 ){
+			//////////////section2 시작//////////////////
+				$('#section2 h2').stop().animate({top:100,opacity:1},800)
+				$('#section2 p').delay(100).stop().animate({top:250,opacity:1},900)
+				$('#section2_img1').stop().animate({left:0},800)
+				$('#section2_img2').stop().animate({bottom:-80},800,function(){
+				$('#section2_img2').stop().animate({left:-80,bottom:-120},400)
+				})
+				$('#section2_img3').stop().animate({bottom:-80},800,function(){
+				$('#section2_img3').stop().animate({right:-80},400)
+				})
+				$('#section2_img4').stop().animate({bottom:0},800)
+				$('#section2_img5').stop().animate({right:0},800)
+			////////////////////////////////////////////
+			}
+			if( sc >900 ){
+					$('#section5 h2').stop().animate({top:'15%',opacity:1},800)
+						$('#section5 p').delay(150).stop().animate({top:'30%',opacity:1},800)
+						$('#section5_text').stop().animate({left:'20%'},800)
+						$('#section5_img1').stop().animate({top:'40%'},800)
+						$('#section5_img2').stop().animate({top:'40%'},800)
+						$('#section5_img3').stop().animate({top:'40%'},800,function(){
+							$('#section5_img1').stop().animate({left:'52%'},500)
+							$('#section5_img2').stop().animate({left:'62%'},500)
+							$('#section5_img3').stop().animate({left:'72%'},500)
+						})			
+			} // if닫힘
+			if( sc > 2000){
+				$('#section6_img2').css({'box-shadow':'-20px 0 20px rgba(0,0,0,0.1)'})
+				$('#section6_img2').animate({left:330},800)
+			}
+		}) //scroll 닫힘
+		
+		
+	})  //최종 괄호. 항상 유지 
+  </script>
+  <!-- css 시작 -->
+  <style>
+		* { margin:0; padding:0; list-style:none; font-family: 'Nanum Gothic', sans-serif; }
+		a { color:inherit; text-decoration:none; }		
+		header { width:100%; height:70px; background-color:#FFF; line-height:70px; overflow:hidden; }
+		header h1 { margin-left:40px; margin-top:26px; float:left; }
+		header h1 img { vertical-align:top; }
+		header #main_menu { float:right; margin-right:40px;}
+		header #main_menu li { float:left; margin-left:30px; }
+		#slide_wrap { background-color:red;  }
+		#slide_wrap>img { width:100%; vertical-align:top; }
+		#section2 { width:100%; height:760px; position:relative; text-align:center; overflow:hidden; }
+		#section2 h2 { position:absolute; width:100%; top:200px; opacity:0; font-size:50px; font-weight:100; }
+		#section2 p { position:absolute; width:100%; top:350px; opacity:0; font-size:14px;   }
+		#section2 img { position:absolute; }
+		#section2_img1 { width:88px; height:202px; left:-100px; top:0; bottom:0; margin:auto; 	}
+		#section2_img2 { width:216px; left:0px; right:0; bottom:-480px; margin:auto; }
+		#section2_img3 {  width:216px; left:0; right:0px; bottom:-480px; margin:auto; }
+		#section2_img4 { width:178px; height:174px; left:0; right:-600px; bottom:-200px; margin:auto; }
+		#section2_img5 { width:93px; height:200px; right:-100px; top:0; bottom:0; margin:auto; }
+		body #section5 { width:100%; height:1000px; overflow:hidden;  background-color:#f2f2f2; position:relative; }
+		#section5 h2 { font-size:35px; font-weight:100; position:absolute; 
+		left:20%; top:20%; opacity:0; color:#000; transition:color 0.5s;}
+		#section5 p { font-size:16px; position:absolute; left:20%; top:35%; opacity:0; color:#000; transition:color 0.5s;}
+		#section5_text { font-size:90px; font-weight:900; line-height:80px; position:absolute; left:-20%; top:55%; }
+		#section5_text div { width:150px; height:10px; background-color:#000; display:inline-block; vertical-align:middle; margin:-20px 0 0 20px;}
+		#section5_img1 { position:absolute; left:62%; top:-40%; }
+		#section5_img2 { position:absolute; left:62%; top:-40%; }	
+		#section5_img3 { position:absolute; left:62%; top:-40%;}
+		#section5 h6 { position:absolute; left:66%; bottom:5%; }
+		#section5_bg { width:100%; height:100%; }
+		#section5_bg>li { width:100%; height:100%; position:absolute; left:-100%; top:0; }
+		#section5_bg1 { background-color:#ff2c68; }
+		#section5_bg2 { background-color:#005cb9; }
+		#section5_bg3 { background-color:#ffe809; }
+		#section5_bg4 { background-color:#707272; }
+		#section5_bg5 { background-color:#000; }
+		#section5_card { width:0px; height:446px; position:absolute;  bottom:15%; box-shadow:8px 8px 25px rgba(0,0,0,0.3); border-radius:5px; overflow:hidden; margin:auto; left:0; right:-30%;} 
+		#section5_card li { width:100%; height:100%; position:absolute; left:0; top:0; display:none; }
+		#section5_card li:nth-child(1) { display:block; }
+		#section6 { width:100%; height:760px; position:relative; overflow:hidden; }
+		#section6_img2 { position:absolute; height:564px; top:0;  bottom:0; margin:auto; left:300px; border-radius:50px;
+		transition:box-shadow 0.8s;} /*box-shadow:-20px 0 20px rgba(0,0,0,0.3);*/
+		#section7 { width:100%; height:760px; margin-bottom:2000px;
+		background:green url(section07_bg.png) center 0 no-repeat; background-attachment:fixed; background-size:cover; }
+  </style></head><body>
+		<header>
+			<h1><img src="t_logo.gif" alt=""></h1>
+			<ul id="main_menu">
+				<li>코나카드 소개</li>
+				<li>파트너</li>
+				<li>이벤트</li>
+				<li>미디어</li>
+				<li>고객지원</li>
+			</ul>
+		</header>
+		<div id="slide_wrap">
+			<img src="slide1.png" alt="">		
+		</div>
+		<div id="section2">
+			<h2>매달 혜택이 업데이트<br>코나카드</h2>
+			<p>365일 내내 즐기는 혜택부터 트렌드에 맞춘 이달의 혜택까지!<br>나에게 맞춘 예산과 디자인으로 즐겨보세요.</p>
+			<img src="section02_bg01.png" alt="" id="section2_img1">
+			<img src="awesome_black01.png" alt="" id="section2_img2">
+			<img src="yoga_pink01.png" alt="" id="section2_img3">
+			<img src="section02_bg02.png" alt="" id="section2_img4">
+			<img src="section02_bg03.png" alt="" id="section2_img5">
+		</div>
+		<div id="section5">
+			<ul id="section5_bg">
+				<li id="section5_bg1"></li>
+				<li id="section5_bg2"></li>
+				<li id="section5_bg3"></li>
+				<li id="section5_bg4"></li>
+				<li id="section5_bg5"></li>
+			</ul>	
+			<h2>셋, 나의 스타일대로<br>카드를 선택해보세요</h2>
+			<p>카드사에서 정해주는 하나의 디자인은 그만! <br>이젠 직접 카드 디자인을 선택하고 사용해보세요.</p>
+			<div id="section5_text">
+				KONA <br>
+				CARD<div></div>		
+			</div>			
+			<img src="section05_1_3.png" alt="" id="section5_img3">
+			<img src="section05_1_2.png" alt="" id="section5_img2">
+			<img src="section05_1_1.png" alt="" id="section5_img1">
+			<h6>▲</h6>
+			<ul id="section5_card">
+				<li id="section5_card1"><img src="card_pink.png" alt=""></li>
+				<li id="section5_card2"><img src="card_blue.png" alt=""></li>
+				<li id="section5_card3"><img src="card_yellow.png"  alt=""></li>
+				<li id="section5_card4"><img src="card_gray.png" alt=""></li>
+				<li id="section5_card5"><img src="card_black.png" alt=""></li>
+			</ul>
+
+		</div>
+		<div id="section6">
+			<img src="section06_card_01.png" alt="" id="section6_img2">
+		</div>
+		<div id="section7">
+			
+		</div>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+

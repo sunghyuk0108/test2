@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <!-- 모바일은 화면크기를 자동으로 줄여서 표현하는 방식. 1:1 사이즈의 대응하기 위하여 viewport코드를 추가한다 -->
+  <title>ADER</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style/swiper_style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script src="script/jquery-animate-css-rotate-scale.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.ico">
+  <script>
+	$(document).ready(function(){
+		$('#menu_right_box li:nth-child(1)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(1)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(1)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(2)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(2)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(3)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(3)').stop().hide()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseenter(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().fadeIn()
+		});
+		$('#menu_right_box li:nth-child(4)').mouseleave(function(){
+			$('#menu_li_img_box li:nth-child(4)').stop().hide()
+		});
+				toggle = 0; // - 상태
+		$('#menu').click(function(){
+			if(toggle==0){ //- 상태에서 x로 변환
+				toggle=1
+				$('#menu li:nth-child(1)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(1)').animate({'rotate':'45deg'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'9px'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'-45deg'},100)
+				$('#menu_popup').css({'display':'block'})
+				$('#menu_popup').stop().animate({'right':'0'},500)
+				$('#logo img').attr({'src':'images/ader_logo_w.png'})
+				$('header').css({'border-color':'#fff'})
+				$('#menu li').css({'background-color':'#fff'})
+				$('#shop_menu li').css({'color':'#fff'})
+				$('#shop_line').css({'background-color':'#fff'})
+				}
+			else if(toggle==1){ //x 상태에서 -로 변환
+				toggle=0
+				$('#menu li:nth-child(1)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(1)').animate({'top':'3px'},100)
+				$('#menu li:nth-child(2)').animate({'opacity':'1'},100)
+				$('#menu li:nth-child(3)').animate({'rotate':'0'},100)
+				$('#menu li:nth-child(3)').animate({'top':'15px'},100)
+				$('#logo img').attr({'src':'images/ader_logo_w.png'})
+				$('header').css({'border-color':'#fff'})
+				$('#menu li').css({'background-color':'#fff'})
+				$('#shop_menu li').css({'color':'#fff'})
+				$('#shop_line').css({'background-color':'#fff'})
+				$('#menu_popup').stop().animate({'right':'-2000px'},500,function(){
+				$('#menu_popup').css({'display':'none'})
+				})
+				}
+		});
+		$('#shop_menu li').mouseenter(function(){
+			$('#shop_line').stop().animate({'width':'100%'},200)
+		});
+		$('#shop_menu li').mouseleave(function(){
+			$('#shop_line').stop().animate({'width':'0px'},200)
+		});
+        //브랜드 아더 클릭 시 시작
+		$('#brand_ader').animate({'left':'-1px'},500)
+        $('#brand_ader').click(function(){
+			$('#brand_ader_popup_wrap').fadeIn()
+		});
+		//popup 시작
+		$('#brand_ader_popup>button').click(function(){
+			$('#brand_ader_popup_wrap').fadeOut()
+		});
+        //popup 끝
+        //브랜드 아더 클릭 시 끝
+		//정품 코드 인증 창 시작
+		code1 = "a";
+        num =0;
+        code_num = code1+num;
+        $('#check button').click(function(){
+            if(document.querySelector('#genuine_code').value===code_num){
+                alert("정품입니다.");
+            }
+            if(document.querySelector('#genuine_code').value!=code_num){
+                alert("가품입니다.");
+            }
+        });
+        //정품 코드 인증 창 끝
+		//#product_img에 마우스 엔터 시 bg효과 시작
+		$('#product_img, #product_img1, #product_img2, #product_img3, #product_img4').mouseenter(function(){
+			$('#main_wrap2_bg').stop().animate({'opacity':'1'},3000)
+		});
+		$('#product_img, #product_img1, #product_img2, #product_img3, #product_img4').mouseleave(function(){
+			$('#main_wrap2_bg').stop().animate({'opacity':'0'},1500)
+		});
+		//#product_img에 마우스 엔터 시 bg효과 끝
+		//#product_img에 마우스 엔터 시 효과 
+		text1 = -1000; text2 = -1000; text3 = -1000; text4 = -1100; text5 = -1200;
+		$('#product_img').mouseenter(function(){
+			$('#product_img_mouseenter').fadeIn()
+			auto1 = setInterval(function(){
+			text1=text1+30
+			//text1이  1620보다 크면
+			if(text1>=1920){
+				text1=-1000;
+				$('#product_box h2').stop().css({'right':'-1000px'}); }
+			$('#product_box h2').stop().animate({'right':text1},98,"linear")
+		},100);
+		});
+		$('#product_img').mouseleave(function(){
+			$('#product_img_mouseenter').fadeOut()
+			$('#main_wrap2_bg').animate({'opacity':'0'},1000)
+			clearInterval(auto1)
+		});
+		$('#product_img1').mouseenter(function(){
+			$('#product_img1_mouseenter').fadeIn()
+			auto2 = setInterval(function(){
+			text2=text2+30
+			//text2이  1620보다 크면
+			if(text2>=1920){
+				text2=-1000;
+				$('#product_box1 h2').stop().css({'left':'-1000px'}); }
+			$('#product_box1 h2').stop().animate({'left':text2},98,"linear")
+		},100);
+		});
+		$('#product_img1').mouseleave(function(){
+			$('#product_img1_mouseenter').fadeOut()
+			clearInterval(auto2)
+		});
+		$('#product_img2').mouseenter(function(){
+			$('#product_img2_mouseenter').fadeIn()
+			auto3 = setInterval(function(){
+			text3=text3+30
+			//text3이  1620보다 크면
+			if(text3>=1920){
+				text3=-1100;
+				$('#product_box2 h2').stop().css({'right':'-1100px'}); }
+			$('#product_box2 h2').stop().animate({'right':text3},98,"linear")
+		},100);
+		});
+		$('#product_img2').mouseleave(function(){
+			$('#product_img2_mouseenter').fadeOut()
+			clearInterval(auto3)
+		});
+		$('#product_img3').mouseenter(function(){
+			$('#product_img3_mouseenter').fadeIn()
+			auto4 = setInterval(function(){
+			text4=text4+30
+			//text4이  1620보다 크면
+			if(text4>=1920){
+				text4=-1100;
+				$('#product_box3 h2').stop().css({'left':'-1100px'}); }
+			$('#product_box3 h2').stop().animate({'left':text4},98,"linear")
+		},100);
+		});
+		$('#product_img3').mouseleave(function(){
+			$('#product_img3_mouseenter').fadeOut()
+			clearInterval(auto4)
+		});
+		$('#product_img4').mouseenter(function(){
+			$('#product_img4_mouseenter').fadeIn()
+			auto5 = setInterval(function(){
+			text5=text5+30
+			//text5이  1620보다 크면
+			if(text5>=1920){
+				text5=-1100;
+				$('#product_box4 h2').stop().css({'right':'-1100px'}); }
+			$('#product_box4 h2').stop().animate({'right':text5},98,"linear")
+		},100);
+		});
+		$('#product_img4').mouseleave(function(){
+			$('#product_img4_mouseenter').fadeOut()
+			clearInterval(auto5)
+		}); //#product_img에 마우스 엔터 시 효과 끝
+	});
+  </script>
+   <style> 
+	* {margin: 0; padding: 0; list-style: none;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%; background-color: #000; font-family: 'Noto Sans KR', sans-serif;}
+	header {width: 100%; height: 80px; border-bottom: 1px dotted #fff; position: fixed; left: 0; top: 0; z-index: 999; background-color: transparent;}
+	#main_page {height: 100%;}
+	#logo {width: 100px; height: 23px; float: left; margin-left: 50px; margin-top: 32px; position: relative; z-index: 3;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {width: 20px; height: 20px; float: right; margin-right: 50px; margin-top: 30px; position: relative;}
+	#menu:hover {cursor: pointer;}
+	#menu li {width: 100%; height: 2px; background-color: #fff; position: absolute; left: 0;}
+	#menu li:nth-child(1) {top: 3px; }
+	#menu li:nth-child(2) {top: 9px;}
+	#menu li:nth-child(3) {top: 15px;}
+
+	#menu_popup_box {width: 100%; height: 100%; margin: auto; margin-top: 80px; overflow: hidden; position: relative;}
+	#menu_left_box {width: 50%; height: 100%; float: left; overflow: hidden; position: relative;}
+
+	#menu_popup {width: 100%; height: 100vh; background-color: #666; position: absolute; right: -2000px; top: 0; display: none;}
+	#menu_popup_box_line {width: 100%; height: 1px; background-color: #fff;}
+
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; text-transform: uppercase; color: #fff; font-family: 'Lexend Peta', sans-serif; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; float: right; padding-top: 150px; box-sizing: border-box; position: relative; z-index: 20;}
+	#menu_right_box li {width: 100%; margin-bottom: 25px; font-size: 38px; font-weight: 400; text-transform: uppercase; color: #fff; padding-left: 0; font-family: 'Lexend Peta', sans-serif; margin-bottom: 50px; margin-left: 100px;}
+	#menu_right_box li:hover {color: #000; transition:0.3s;}
+	#menu_li_img_box {width: 50%; height: 100%; position: absolute; right: 0; top: 0;}
+	#menu_li_img_box li {width: 500px; height: auto; margin-left: 50px; position: absolute; display: none; opacity: 0.5; left: 100px;}
+	#menu_li_img_box li:nth-child(1) {top: 100px;}
+	#menu_li_img_box li:nth-child(2) {top: 200px;}
+	#menu_li_img_box li:nth-child(3) {top: 300px;}
+	#menu_li_img_box li:nth-child(4) {top: 400px;}
+	#menu_li_img_box li img {width: 100%;}
+	
+	#shop_menu {height: 40px; float: right; text-transform: uppercase; margin-right: 25px; line-height: 40px; margin-top: 20px; overflow: hidden;}
+	#shop_menu li { font-size: 14px; font-weight: 500; color: #fff; position: relative;}
+	#shop_line {width: 0%; height: 2px; background-color: #fff; position: absolute; bottom: 8px;}
+
+	#brand_ader {width: 200px; height: 100px; border: 1px solid #000; position: fixed; 	left: -201px; bottom: 50px; z-index: 22; color: #fff; background-color: #fff; border: 1px solid blue; text-align: center;}
+	#brand_ader h2 {color: #000; font-weight: 500; font-size: 20px; margin-top: 30px; line-height: 20px;}
+	#brand_ader h2 span {color: blue; font-weight: 400; font-size: 12px; line-height: 12px;}
+	#brand_ader:hover {background-color: blue; border: 1px solid #000; cursor: pointer;}
+	#brand_ader:hover h2{color: #fff;}
+	#brand_ader:hover h2 span{color: #fff;}
+
+	#sns_icons {width: 115px; height: 25px; position: fixed; right: 50px; bottom: 50px; z-index: 23;}
+	#sns_icons li {width: 25px; height: 25px; float: left; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+	#sns_icons li:hover {transform:scale(1.2);}
+	#sns_icons li:nth-child(4) {margin-right: 0px;}
+
+	#main_wrap1 {width: 100%; height: 100%; background-color: blue; overflow: hidden; position: relative;}
+	#bg_video {width: 1920px; position: absolute; left: 50%; right: 0; top: 0; bottom: 0; margin: auto; margin-left: -960px;}
+	#main_wrap_text_box {width: 1620px; height: 250px; position: absolute; left: 50%; right: 0; top: 0; bottom: 100px; margin: auto; margin-left: -810px;}
+	#main_wrap_text_box h2 {width: 100%; line-height: 250px; font-size: 250px; text-transform: uppercase; text-align: center; color: #fff;} 
+
+	#main_wrap2 {width: 100%; height: 4350px; position: relative; overflow: hidden;}
+	#main_wrap2_bg {width: 100%; height: 100%; background: #000 url(images/bg_img/space_bg.png) center no-repeat; position: absolute; left: 0; top: 0; opacity: 0;} 
+
+	#main_wrap2_inbox {width: 100%; height: 100%;}
+
+	#product_img0 {width: 300px; height: 500px; position: absolute; left: 0; right: -500px; bottom: -300px; margin: auto; border: 1px solid #fff; overflow: hidden; z-index: 99;}
+	#product_img0 video {height: 100%;}
+	#product_img0:hover {cursor: pointer;}
+
+	#product_box {width: 100%; height: 750px; margin-top: 100px; overflow: hidden; position: relative;}
+
+	#product_img {width: 500px; height: 748px; float: left; background-color: #eee; overflow: hidden; position: relative; border: 1px solid #fff; z-index: 15; margin-left: 150px;}
+	#product_img:hover {cursor: pointer;}
+	#product_img_mouseenter {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000 url(images/collaboration/collaboration13.jpg); background-size: cover; display: none;}
+	#product_img:hover .product_img_bg {opacity: 1;}
+	.product_img_bg {width: 100%; height: 100%; background: linear-gradient(0deg,blue,transparent,transparent); position: absolute; left: 0; top: 0; opacity: 0; transition:0.3s;}
+	#product_img video{width: 100%;}
+	#product_box h2 {width: 1000px; height: 80px; color: #fff; font-size: 80px; line-height: 80px; margin-top: 315px; position: absolute; right: -1000px;}
+
+	#product_box1 {width: 100%; height: 750px; margin-top: 100px; overflow: hidden; position: relative;}
+
+	#product_img1 {width: 500px; height: 748px; float: right; background-color: #eee; overflow: hidden; position: relative; border: 1px solid #fff; z-index: 18; margin-right: 150px;}
+	#product_img1:hover {cursor: pointer;}
+	#product_img1_mouseenter {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000 url(images/collaboration/collaboration30.jpg); background-size: cover; display: none;}
+	#product_img1:hover .product_img_bg {opacity: 1;}
+	
+	#product_img1 video{width: 100%;}
+	#product_box1 h2 {width: 1000px; height: 80px; color: #fff; font-size: 80px; line-height: 80px; margin-top: 315px; position: absolute; left: -1000px;}
+
+	#product_box2 {width: 100%; height: 750px; margin-top: 100px; overflow: hidden; position: relative;}
+
+	#product_img2 {width: 500px; height: 748px; float: left; background-color: #eee; overflow: hidden; position: relative; border: 1px solid #fff; z-index: 16; margin-left: 150px;}
+	#product_img2{cursor: pointer;}
+	#product_img2_mouseenter {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000 url(images/collaboration/collaboration44.jpg); background-size: cover; display: none;}
+	#product_img2:hover .product_img_bg {opacity: 1;}
+	
+
+	#product_img2 video{width: 100%;}
+	#product_box2 h2 {width: 1000px; height: 80px; color: #fff; font-size: 80px; line-height: 80px; margin-top: 315px; position: absolute; right: -1100px;}
+
+	#product_box3 {width: 100%; height: 750px; margin-top: 100px; overflow: hidden; position: relative;}
+
+	#product_img3 {width: 500px; height: 748px; float: right; background-color: #eee; overflow: hidden; position: relative; border: 1px solid #fff; z-index: 19; margin-right: 150px;}
+	#product_img3:hover{cursor: pointer;}
+	#product_img3_mouseenter {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000 url(images/collaboration/collaboration15.jpg); background-size: cover; display: none;}
+	#product_img3:hover .product_img_bg {opacity: 1;}
+
+	#product_img3 video{width: 100%;}
+	#product_box3 h2 {width: 1200px; height: 80px; color: #fff; font-size: 80px; line-height: 80px; margin-top: 315px; position: absolute; left: -1100px;}
+
+	#product_box4 {width: 100%; height: 750px; margin-top: 100px; overflow: hidden; position: relative;}
+	
+	#product_img4 {width: 500px; height: 748px; float: left; background-color: #eee; overflow: hidden; position: relative; border: 1px solid #fff; z-index: 17; margin-left: 150px;}
+	#product_img4:hover {cursor: pointer;}
+	#product_img4_mouseenter {width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000 url(images/collaboration/collaboration10.jpg); background-size: cover; display: none;}
+	#product_img4:hover .product_img_bg {opacity: 1;}
+
+	#product_img4 video{width: 100%;}
+	#product_box4 h2 {width: 1200px; height: 80px; color: #fff; font-size: 80px; line-height: 80px; margin-top: 315px; position: absolute; right: -1200px;}
+
+	#brand_ader_popup_wrap {width: 100%; height: 100vh; position: fixed; left: 0; top: 0; background-color: #000; z-index: 999; background-color: rgba(0,0,0,0.3); display: none;} 
+	#brand_ader_popup {width: 500px; height: 350px; background-color: #fff; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; text-align: center; border: 1px solid blue; overflow: hidden;}
+	#brand_ader_popup h2 {width: 100%; height: 30px; color: #000; font-weight: 500; font-size: 30px; line-height: 30px; margin-top: 50px; text-transform: uppercase;}
+	#brand_ader_popup p {width: 100%; line-height: 20px; margin-top: 30px; font-size: 14px; padding: 10px 50px; box-sizing: border-box;}
+	#brand_ader_popup>button {width: 30px; height: 30px; background-color: blue; color: #fff; position: absolute; right: 10px; top: 10px; text-align: center; text-transform: uppercase;line-height: 30px; border: none; border-radius: 30px;}
+	#brand_ader_popup>button:hover {cursor: pointer;}
+    #check {width: 100%; height: 30px; margin-top: 30px;}
+    #genuine_code{width: 50%; height: 20px; background-color: #fff; border: 1px solid blue;padding: 5px 10px;}
+    #check button{width: 50px; height: 32px; border: 1px solid blue; background-color: #fff; color: #000; vertical-align: bottom;}
+	#check button:hover {cursor: pointer;}
+ </style> 
+	<!-- 반응형 시작 -->
+   <style>
+  	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+	header{position: fixed;}
+	#logo {width: auto; height: 12px; margin-left: 25px; margin-top: 34px;}
+	#logo img {height: 100%; vertical-align: top;}
+	#menu {margin-right: 25px;}
+
+	#sns_icons {width: 95px; height: 20px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 20px; height: 20px; margin-right: 5px;}
+	#sns_icons img {width: 20px; height: 20px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 20px; font-size: 30px; margin-left: 20px; margin-top: 50px; line-height: 20px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 16px; margin-bottom: 30px; margin-left: 20px;}
+	#menu_li_img_box {display: none;}
+
+	}
+
+	@media all and (min-width:768px) { /*768~1023 태블릿*/
+	header{position: fixed;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 15px; bottom: 15px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 100%; height: 20%; float: none;}
+	#menu_popup_title_text {height: 40px; font-size: 60px; margin-left: 50px; margin-top: 100px; line-height: 40px;}
+	#menu_right_box {width: 100%; height: 80%; padding-top: 25px; float: none;}
+	#menu_right_box li {width: 100%; font-size: 28px; margin-bottom: 50px; margin-left: 50px;}
+	#menu_li_img_box {display: none;}
+
+	}
+
+	@media all and (min-width:1024px) { /*1024 태블릿*/
+	header{position: fixed;}
+	#logo {width: 100px; height: 23px; margin-left: 50px; margin-top: 32px;}
+	#menu {margin-right: 50px;}
+
+	#sns_icons {width: 115px; height: 25px; right: 50px; bottom: 50px;}
+	#sns_icons li {width: 25px; height: 25px; margin-right: 5px;}
+	#sns_icons img {width: 25px; height: 25px;}
+
+	#menu_left_box {width: 50%; height: 100%; float: left;}
+	#menu_popup_title_text {height: 100px; font-size: 100px; margin-left: 200px; margin-top: 150px; line-height: 100px;}
+	#menu_right_box {width: 50%; height: 100%; padding-top: 150px; float: right;}
+	#menu_right_box li {width: 100%; font-size: 38px; margin-bottom: 50px; margin-left: 100px;}
+	#menu_li_img_box {display: block;}
+
+	}
+  </style></head><body>
+	<!-- 	main_page 시작 -->
+	<div id="main_page">
+	<!--   header 시작	 -->
+  	<header>
+		<div id="menu_popup">
+		<div id="menu_popup_box">
+		<div id="menu_popup_box_line"></div>
+		<div id="menu_left_box">
+					<h2 id="menu_popup_title_text">menu</h2>
+		</div>
+				<ul id="menu_right_box">
+					<li><a href="collection.html">01 collection</a></li>
+					<li><a href="collaboration.html">02 collaboration</a></li>
+					<li><a href="editorial.html">03 editorial</a></li>
+					<li><a href="contents.html">04 contents</a></li>
+				</ul>
+				<ul id="menu_li_img_box">
+					<li><img src="images/menu_img/menu_img1.jpg" alt="menu_collection_img"></li>
+					<li><img src="images/menu_img/menu_img2.jpg" alt="menu_collaboration_img"></li>
+					<li><img src="images/menu_img/menu_img3.jpg" alt="menu_editorial_img"></li>
+					<li><img src="images/menu_img/menu_img4.jpg" alt="menu_contents_img"></li>
+				</ul>
+		</div>
+	</div>
+	<a href="index.html"><h1 id="logo"><img src="images/ader_logo_w.png" alt="logo"></h1></a>
+	<ul id="menu">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul id="shop_menu">
+		<li><div id="shop_line"></div><a href="shop.html">shop</a></li>
+	</ul>
+	</header>
+	<!--   header 끝	 -->
+	<div id="brand_ader">
+		<h2>ADER<br><span>Blue Mark</span></h2>
+	</div>
+	<ul id="sns_icons">
+		<li><a href="https://www.instagram.com/ader_error"><img src="images/icons/instargram_icon.png" alt="instargram_icon"></a></li>
+		<li><a href=""><img src="images/icons/facebook_icon.png" alt="facebook_icon"></a></li>
+		<li><a href=""><img src="images/icons/twitter_icon.png" alt="twitter_icon"></a></li>
+		<li><a href=""><img src="images/icons/youtube_icon.png" alt="youtube_icon"></a></li>
+	</ul>
+
+	<div id="product_img0"><video src="images/3d_video/video2.mp4" autoplay loop muted></video></div>
+
+	<div id="main_wrap1">
+		<video src="images/3d_video/3d_video.mp4" autoplay loop muted id="bg_video"></video>
+		<div id="main_wrap_text_box">
+			<h2>ader x zara</h2>
+		</div>
+	</div> <!-- main_wrap1끝 -->
+	<div id="main_wrap2">
+		<div id="main_wrap2_bg"></div>
+		<div id="main_wrap2_inbox">
+
+		<div id="product_box">
+			<div id="product_img">
+				<video src="images/3d_video/video10.mp4" autoplay loop muted></video>
+				<div id="product_img_mouseenter"></div>
+				<div class="product_img_bg"></div>
+			</div>
+			<h2>ADER ERROR x ZARA <br> COLLABORATION</h2>
+		</div>
+		 
+		<div id="product_box1">
+			<div id="product_img1">
+				<video src="images/3d_video/video8.mp4" autoplay loop muted></video>
+				<div id="product_img1_mouseenter"></div>
+				<div class="product_img_bg"></div>
+			</div>
+			<h2>THE BEGINNING AND <br> THE END ARE ORGANIC</h2>
+		</div>	
+
+		<div id="product_box2">
+			<div id="product_img2">
+				<video src="images/3d_video/video9.mp4" autoplay loop muted></video>
+				<div id="product_img2_mouseenter"></div>
+				<div class="product_img_bg"></div>
+			</div>
+			<h2>PIONEERING YOUR <br> YOUR OWN PERSONA</h2>
+		</div>	
+
+		<div id="product_box3">
+			<div id="product_img3">
+				<video src="images/3d_video/video5.mp4" autoplay loop muted></video>
+				<div id="product_img3_mouseenter"></div>
+				<div class="product_img_bg"></div>
+			</div>
+			<h2>THE INFINITE JOURNEY OF <br> THE NEW GENERATION</h2>
+		</div>	
+
+		<div id="product_box4">
+			<div id="product_img4">
+				<video src="images/3d_video/video13.mp4" autoplay loop muted></video>
+				<div id="product_img4_mouseenter"></div>
+				<div class="product_img_bg"></div>
+			</div>
+			<h2>THE INFINITE JOURNEY OF <br> THE NEW GENERATION</h2>
+		</div>	
+
+		</div> <!--main_wrap2_inbox끝-->
+	</div> <!-- main_wrap2끝 -->
+    <div id="brand_ader_popup_wrap">
+		<div id="brand_ader_popup">
+			<h2>ader</h2>
+			<p>블루 마크는 아더 브랜드의 가품 근절을 통해	
+				가품으로부터 소비자를 보호하고 정품인증과 소비자
+				보호를 넘어 청렴한 문화 의식을 알리기 위한 문화 캠페인이다.
+				이를 위해 만들어진 ‘블루 마크 택’은 아더가
+				제조한 정식 제품임을 보증하는 역할을 한다.
+				이 캠페인은 블루 컬러에서부터 시작되는데,
+				여기서 블루라는 컬러는 ‘청렴함, 순수함, 오리지널리티’의
+				의미를 함축하고 있다.</p>
+				<button>x</button>
+                <div id="check">
+                    <input type="text" placeholder ="ader정품 코드를 입력하세요" id="genuine_code">
+                    <button>확인</button>
+                </div>
+		</div>
+	</div>
+</div> <!-- 	main_page 끝 -->
+ </body>
+</html>

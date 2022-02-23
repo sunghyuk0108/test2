@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script/jquery-animate-css-rotate-scale.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>PORTFOLIO</title>
+    <script>
+        $(document).ready(function(){
+            let last_sc = 0;
+            $(window).scroll(function(){
+                sc=$(window).scrollTop();
+                //스크롤 아래로 내릴때, 올릴때 이벤트 last_sc = sc 마지막 변수 선언으로 아래 스크롤 이벤트와 분리
+                if(sc<last_sc){
+                    $('header').stop().fadeIn(300)
+                }
+                else if(sc>last_sc){
+                    $('header').stop().fadeOut(300)
+                }
+                last_sc = sc
+                if(sc>400 && sc<=599){
+                    $('#portfolio_about_me_main_inbox_top p').stop().animate({'margin-top':'0px','opacity':'1'},500)
+                    $('#portfolio_about_me_main_inbox_top h3,#portfolio_about_me_main_inbox_top h2').stop().animate({'margin-top':'10px','opacity':'1'},500)
+                    $('#portfolio_about_me_main_inbox_bottom, #portfolio_about_me_main_right_box').stop().animate({'opacity':'1'},500)
+                }
+                if(sc>600 && sc<=999){
+                    $('#about_box li:nth-child(1) .about_value_inbox').stop().animate({'width':'80%'},1000)
+                    $('#about_box li:nth-child(2) .about_value_inbox').stop().animate({'width':'80%'},1000)
+                    $('#about_box li:nth-child(3) .about_value_inbox').stop().animate({'width':'85%'},1000)
+                    $('#about_box li:nth-child(4) .about_value_inbox').stop().animate({'width':'65%'},1000)
+                }
+                if(sc>1000 && sc<=1699){
+                    $('#portfolio_work h2').stop().animate({'margin-top':'0','opacity':'1'},500)
+                    $('#main_work').stop().animate({'opacity':'1','margin-top':'50px'},500)
+                }
+                if(sc<400){
+                    $('#portfolio_about_me_main_inbox_top p').stop().animate({'margin-top':'50px','opacity':'0'},500)
+                    $('#portfolio_about_me_main_inbox_top h3,#portfolio_about_me_main_inbox_top h2').stop().animate({'margin-top':'50px','opacity':'0'},500)
+                    $('#portfolio_about_me_main_inbox_bottom, #portfolio_about_me_main_right_box').stop().animate({'opacity':'0'},500)
+                }
+                if(sc<600){
+                    $('#about_box li:nth-child(1) .about_value_inbox').stop().animate({'width':'0%'},1000)
+                    $('#about_box li:nth-child(2) .about_value_inbox').stop().animate({'width':'0%'},1000)
+                    $('#about_box li:nth-child(3) .about_value_inbox').stop().animate({'width':'0%'},1000)
+                    $('#about_box li:nth-child(4) .about_value_inbox').stop().animate({'width':'0%'},1000)
+                }
+                if(sc<1000){
+                    $('#portfolio_work h2').stop().animate({'margin-top':'100px','opacity':'0'},500)
+                    $('#main_work').stop().animate({'opacity':'0','margin-top':'50px'},500)
+                }
+            });
+            //클릭 시 스크롤탑 이동
+            $('#menu li:nth-child(1)').click(function(){
+				$('body,html').animate({'scrollTop':$('#portfolio_main').offset().top},300);
+			});
+            $('#menu li:nth-child(2)').click(function(){
+				$('body,html').animate({'scrollTop':$('#portfolio_wrap').offset().top},300);
+			});
+            $('#menu li:nth-child(3)').click(function(){
+				$('body,html').animate({'scrollTop':$('#portfolio_work').offset().top},300);
+			});
+            $('#menu li:nth-child(4)').click(function(){
+				$('body,html').animate({'scrollTop':$('footer').offset().top},300);
+			});
+            //mouse pointer 모바일에서 반응안함 확인해야함
+            /*mouse_pointer_x = 0; mouse_pointer_y = 0; speed=0.1;
+            setInterval(function(){
+            mouse_pointer_x = mouse_pointer_x+speed*(x-mouse_pointer_x)
+		    mouse_pointer_y = mouse_pointer_y+speed*(y-mouse_pointer_y)
+            $('#mouse_pointer').css({'left':mouse_pointer_x,"top":mouse_pointer_y})	  
+            },15);
+
+            $(window).mousemove(function(e){
+		    x = e.pageX-($('#mouse_pointer').width()/2);
+		    y = e.pageY-($('#mouse_pointer').height()/2);
+		    });*/
+            $('#samo').animate({'margin-top':'12px'},500,function samo(){
+                $('#samo').animate({'margin-top':'0'},300)
+                $('#samo').animate({'margin-top':'12px'},500,samo)
+            });
+            //마우스 포인트 시작
+            speed=0.1;
+            $(window).mousemove(function(e){
+		    x = e.pageX
+		    y = e.pageY
+            $('#mouse_pointer').css({'left':x+20,'top':y+10})
+		    });
+            //마우스 포인트 끝
+            //인트로 로딩 표시 시작
+            let count = 0;
+            setInterval(function(){
+                count = count +1;
+                if(count<=100){
+                    $('#intro>h2').html(count+'%')
+                }
+                if(count===100){
+                $('#intro>h2').html('sung hyuk')
+                $('#intro_in_portfolio_box').fadeIn();
+                }
+            },20);
+            //인트로 로딩 표시 끝
+            //1~100까지 count 이후 sung hyuk이름이 보여지고  
+            $('#intro_in_portfolio_box').click(function(){
+                $('#intro>h2').fadeOut()
+                $('#intro_title').fadeOut()
+                $('#intro_title h2').fadeOut()
+                $('#intro_in_portfolio').stop().fadeOut()
+                $('#intro_in_portfolio_box').fadeOut()
+                $('#intro_text').fadeOut()
+                $('#horizontal').delay(500).animate({'left':'-50%'},700)
+                $('#horizontal').delay(500).animate({'width':'0%'},300,function(){
+                $('#intro').fadeOut(300);
+                $('#portfolio_main,#portfolio_wrap').fadeIn(300,function(){
+                    $('#portfolio_main_text_box h2:nth-child(2)').animate({'padding-right':'20%'},300)
+                    $('#portfolio_main_text_box h2:nth-child(3)').animate({'padding-left':'15%'},300)
+                    $('#portfolio_main_text_box p').animate({'padding-left':'60%'},500)
+                });
+                });
+            });
+            $('#intro_in_portfolio').animate({'rotate':'90deg'},10000,function rotate(){
+                $('#intro_in_portfolio').animate({'rotate':'0deg'},10000,function(){
+                    $('#intro_in_portfolio').animate({'rotate':'90deg'},10000,rotate)
+                });
+            });
+            $('.intro_in_portfolio_inbox').mouseenter(function(){
+                $('.intro_in_portfolio_inbox:nth-child(1)').css({'border-color':'rgb(38,70,80,1)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(2)').css({'border-color':'rgb(38,70,80,0.75)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(3)').css({'border-color':'rgb(38,70,80,0.5)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(1)').stop().animate({'width':'80%','height':'80%'},600)
+                $('.intro_in_portfolio_inbox:nth-child(2)').stop().animate({'width':'75%','height':'75%'},550)
+                $('.intro_in_portfolio_inbox:nth-child(3)').stop().animate({'width':'70%','height':'70%'},500)
+            });
+            $('.intro_in_portfolio_inbox').mouseleave(function(){
+                $('.intro_in_portfolio_inbox:nth-child(1)').css({'border-color':'rgb(255,255,255,1)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(2)').css({'border-color':'rgb(255,255,255,0.75)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(3)').css({'border-color':'rgb(255,255,255,0.5)'},500)
+                $('.intro_in_portfolio_inbox:nth-child(1)').stop().animate({'width':'85%','height':'85%'},600)
+                $('.intro_in_portfolio_inbox:nth-child(2)').stop().animate({'width':'80%','height':'80%'},550)
+                $('.intro_in_portfolio_inbox:nth-child(3)').stop().animate({'width':'75%','height':'75%'},500)
+            });
+            $('#works_menu li:nth-child(1)').click(function(){
+                $('#responsive_work').show()
+                $('#pc_work').hide()
+                $(this).css({'background-color':'#00ff96','color':'#000'})
+                $('#works_menu li:nth-child(2)').css({'background-color':'transparent','color':'#fff'})
+            });
+            $('#works_menu li:nth-child(2)').click(function(){
+                $('#pc_work').show()
+                $('#responsive_work').hide()
+                $(this).css({'background-color':'#00ff96','color':'#000'})
+                $('#works_menu li:nth-child(1)').css({'background-color':'transparent','color':'#fff'})
+            });
+        });
+    </script>
+    <style>
+        /* 포인트 컬러 #00ff96 background : #000 color : #fff */
+        *{margin: 0; padding: 0; list-style: none;}
+        a{text-decoration: none; color: inherit;}
+        body,html{height: 100%; font-family: 'Noto Sans KR', sans-serif;}
+        body{background-color: #000;}
+        #mouse_pointer {width: 10px; height: 10px; background-color: #00ff96; border-radius: 10px; position: absolute; z-index: 9999;}
+        #intro {width: 100%; height: 100%; background-color: #000; overflow: hidden; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; z-index: 9999;}
+        #intro>h2 {width: 300px; height: 14px; line-height: 14px; color: #fff; text-transform: uppercase; font-size: 14px; font-weight: 500; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; text-align: center; z-index: 1; opacity: 0.6;}
+        #intro_title {width: 100%; height: 20px; position: absolute; left: 0; right: 0; top: 100px; margin: auto; opacity: 0.6;}
+        #intro_title h2 {font-size: 20px; line-height: 20px; color: #fff; text-transform: uppercase; font-weight: 500; text-align: center; letter-spacing: 3px;}
+
+        #intro_in_portfolio {width: 300px; height: 300px; border: 2px dotted rgba(255,255,255,0.4); border-radius: 300px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
+        #intro_in_portfolio_box {width: 300px; height: 300px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; border-radius: 300px; border: 1px solid #000; z-index: 2; opacity: 0.6; display: none;}
+        #intro_in_portfolio_box:hover {cursor: pointer;}
+        .intro_in_portfolio_inbox {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; border-radius: 100%;}
+        .intro_in_portfolio_inbox:nth-child(1) {width: 85%; height: 85%; border: 1px solid rgba(255,255,255,1);}
+        .intro_in_portfolio_inbox:nth-child(2) {width: 80%; height: 80%; border: 1px solid rgba(255,255,255,0.75);}
+        .intro_in_portfolio_inbox:nth-child(3) {width: 75%; height: 75%; border: 1px solid rgba(255,255,255,0.5);}
+
+        #intro_text {width: 100%; height: 20px; position: absolute; left: 0; right: 0; bottom: 100px; margin: auto; opacity: 0.6;}
+        #intro_text p{font-size: 16px; line-height: 20px; color: #fff; text-transform: uppercase; font-weight: 500; text-align: center;}
+
+        #horizontal{width: 50%; height: 100%; position: absolute; left: 100%; top: 0; background-color: #00ff96;}
+
+        header{height: 100px; position: fixed; left: 0; right: 0; top: 100px; margin: auto; z-index: 999;}
+        #logo {height: 18px; font-size: 18px; line-height: 18px; text-transform: uppercase; float: left; color: #fff; font-weight: 400;}
+        #logo:hover {cursor: pointer; color: #00ff96;}
+        #menu {float: right; text-align: right;}
+        #menu li {height: 25px; font-size: 18px; line-height: 18px; color: #fff; font-weight: 400; text-transform: uppercase; transition:0.3s;}
+        #menu li:hover {cursor: pointer; color: #00ff96;}
+
+        #sns {width: 200px; height: 18px; font-size: 18px; line-height: 18px; position: absolute; left: 250px; bottom: 100px; z-index: 998; border: none; background: transparent; color: #fff; font-weight: 400; text-transform: uppercase;}
+
+        #scroll_down_text {width: 200px; height: 30px; position: absolute; right: 250px; bottom: 100px; z-index: 997; overflow: hidden;}
+        #scroll_down_text h3 {color: #fff; font-size: 18px; font-weight: 400; line-height: 18px; float: right; margin-top: 12px;} 
+        #samo {width: 0; height: 0; float: left; border-top: 18px solid #00ff96; border-bottom: 18px solid transparent; border-right: 10px solid transparent; border-left: 10px solid transparent;}
+
+        #portfolio_main {height: 100%; position: relative; margin: auto; display: none;}
+
+        #portfolio_main_text_box {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;overflow: hidden;}
+        #bg {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; border-radius: 500px; border: 1px solid #fff; overflow: hidden;}
+        #bg_video {height: 100%; overflow: hidden;}
+
+        #portfolio_main_text_box h2 {font-weight: 500; color: #fff; text-align: center;} 
+        #portfolio_main_text_box h2:nth-child(1) {padding-left: 20%;}
+        #portfolio_main_text_box p {height: 18px; line-height: 18px; font-weight: 500; color: #fff; text-align: center; padding-left: 30%;}
+
+        #portfolio_wrap {width: 75%; overflow: hidden; margin: auto; display: none;}
+        #portfolio_about_me_main_box {width: 1420px; height: 640px; margin: auto; margin-top: 100px; overflow: hidden;}
+
+        #portfolio_about_me_main_left_box {width: 1000px; height: 100%; float: left;}
+        #portfolio_about_me_main_inbox_top {width: 100%; height: 270px; overflow: hidden;}
+        #portfolio_about_me_main_inbox_top p {width: 100%; height: 50px; font-size: 50px; line-height: 50px; font-weight: 400; color: #fff; text-transform: uppercase; margin-top: 50px; opacity: 0;}
+        #portfolio_about_me_main_inbox_top h3 {width: 100%; height: 50px; font-size: 50px; line-height: 50px; font-weight: 400; color: #fff; margin-top: 50px; text-transform: uppercase; opacity: 0;}
+        #portfolio_about_me_main_inbox_top h2 {width: 100%; height: 30px; font-size: 30px; line-height: 30px; font-weight: 500; padding-left: 550px; color: #fff; font-family: 'Caveat', cursive; margin-top: 50px; opacity: 0;}
+
+        #portfolio_about_me_main_inbox_bottom {width: 100%; height: 270px; margin-top: 100px; overflow: hidden; opacity: 0;}
+        #image_wrap {width: 30%; height: 100%; float: left; overflow: hidden;}
+        #portfolio_about_me_main_inbox_bottom_img {width: 10vw; height: 10vw; position: relative; margin-top: 68px; margin-left: 1px; border-radius: 200px; border: 1px solid #fff; overflow: hidden;}
+        #bg_video2 {width: 100%; height: auto; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
+        #about_wrap {width: 70%; height: 100%; float: right;}
+        #about_box {width: 100%; margin-top: 60px;}
+        #about_box li{width: 90%; height: 45px; overflow: hidden; margin: auto; margin-top: 5px;}
+        #about_box li h5 {float: left; font-size: 16px; line-height: 16px; color: #fff; font-weight: 300; text-transform: capitalize;}
+        #about_box li h6 {float: right; font-size: 16px; line-height: 16px; color: #fff; font-weight: 300;}
+        .about_value_box {width: 100%; height: 10px; background-color: #fff; clear: both; margin-top: 35px;}
+        .about_value_inbox {width: 0%; height: 100%; background-color: #00ff96;}
+
+        #portfolio_about_me_main_right_box {width: 420px; height: 100%; float: right; background: url(images/bg1.jpg) center no-repeat; background-size: cover; background-color: #999; opacity: 0;}
+
+        #portfolio_work {width: 100%; margin-top: 200px; overflow: hidden; text-align: center;}
+        #portfolio_work h2 {color: #fff; font-weight: 400; text-transform: uppercase; opacity: 0; margin-top: 100px;}
+
+        #main_work {width: 500px; height: 440px; margin: auto; margin-top: 100px; overflow: hidden; opacity: 0;}
+        #main_work:hover #ader {border: 1px solid #00ff96; transition: 0.3s;}
+        #main_work:hover h3 {color: #00ff96; transition: 0.3s;}
+        #main_work:hover h4 {color: #00ff96; transition: 0.3s;}
+        #main_work h3 {height: 18px; font-size: 18px; line-height: 18px; text-transform: uppercase; color: #fff; font-weight: 300; margin-top: 10px;}
+        #ader {width: 100%; height: 350px; margin-top: 20px; background: url(images/ader_thumbnail.png) center no-repeat; background-size: cover; border: 1px solid #fff; box-sizing: border-box;}
+        #main_work h4 {width: 100%; height: 18px; font-size: 18px; line-height: 18px; text-transform: uppercase; color: #fff; font-weight: 300; margin-top: 20px;}
+
+        #works_wrap {width: 100%; overflow: hidden; margin-top: 100px;}
+        #works_menu {width: 100%; height: 30px; text-align: center;}
+        #works_menu li {width: 200px; height: 28px; font-size: 18px; display: inline-block; line-height: 28px; vertical-align: top; color: #fff; font-weight: 400; margin-right: 10px; border: 1px solid #fff;}
+        #works_menu li:hover {cursor: pointer;}
+        #works_menu li:nth-child(1) {background-color: #00ff96; color: #000;}
+
+        #responsive_work {display: block;}
+        #pc_work {display: none;}
+        .works {width: 45%; overflow: hidden;}
+        .works:first-child {float: left;}
+        .works:last-child {float: right; margin-top: 200px;}
+        .works li {width: 100%; float: left; margin-top: 100px; border: 1px solid #fff;box-sizing: border-box; padding: 25px;}
+        .works li:hover {border: 1px solid #00ff96; cursor: pointer; transition: 0.3s;}
+        .works li:hover h4 {color: #00ff96; transition: 0.3s;}
+        .works li:hover p {color: #00ff96; transition: 0.3s;}
+        .works li h4 {color: #fff; font-weight: 400; margin-top: 10px;}
+        .works li p {color: #fff; font-weight: 300; margin: 10px 0px;}
+        .works li img {width: 100%; vertical-align: top;}
+
+        footer {width: 100%; height: 450px; color: #fff; overflow: hidden; position: relative;}
+        #contect {width: 100px; height: 20px; overflow: hidden; position: relative;}
+        #contect div{width: 0; height: 0; float: left; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 18px solid transparent; border-left: 18px solid #00ff96; position: absolute; left: 0; top: 0; }
+        #contect h2 {font-size: 18px; color: #fff; line-height: 20px; float: right; font-weight: 400;}
+        footer h3 {font-size: 50px; font-weight: 400; line-height: 50px; margin-top: 10px;}
+        #contect_list {width: 500px; height: 180px; overflow: hidden; margin-top: 30px;}
+        #it_me {width: 400px; height: 100%; float: left; padding-top: 10px;}
+        #it_me li {margin-top: 5px; font-weight: 300; font-size: 16px; line-height: 20px;}
+        #it_me li:first-child {margin-top: 25px; margin-bottom: 10px; color: #00ff96;}
+        #it_me li:last-child {line-height: 22px;}
+        #sns_list {width: 100px; height: 100%; float: right; padding-top: 10px; font-size: 18px; line-height: 18px;}
+        #sns_list li {margin-top: 5px; font-weight: 300; font-size: 16px; line-height: 20px;}
+        #sns_list li:first-child {margin-top: 20px; margin-bottom: 10px; color: #00ff96;}
+        footer h4 {font-size: 18px; line-height: 18px; margin-top: 20px; font-weight: 400; color: #00ff96;}
+        footer h5 {font-size: 16px; line-height: 16px; margin-top: 10px; font-weight: 300;}
+        footer p {font-size: 16px; line-height: 20px; font-weight: 300; margin-top: 20px;}
+        footer h6{font-size: 16px; line-height: 16px; font-weight: 300; position: absolute; right: 0; bottom: 30px;}
+        #arrow {width: 116px; height: 126px; position: absolute; right: 0; top: 0;}
+
+    </style>
+    <style>
+    /*미디어쿼리 규칙
+    규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+    규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+    */
+    /*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+    @media all and (min-width:0px) { /* 320~767 모바일 */
+    header{width: 100%;}
+    header h1 {margin-left: 5%;}
+    header #menu {margin-right: 5%;}
+    #sns {left: 5%;}
+    #scroll_down_text {right: 5%;}
+
+    #portfolio_main {width: 100%; }
+    #portfolio_main_text_box {width: 100%; height: 126px;}
+    #bg {width: 250px; height: 250px; border: none;}
+    
+    #portfolio_main_text_box h2 {font-size: 36px; line-height: 36px;}
+    #portfolio_main_text_box p {font-size: 18px;}
+
+    #portfolio_wrap {width: 100%;}
+    #portfolio_about_me_main_box {width: 100%; height: auto; margin-top: 0px;}
+    #portfolio_about_me_main_left_box {width: 100%; float: none;}
+    #portfolio_about_me_main_inbox_top {height: 92px;}
+    #portfolio_about_me_main_inbox_top p {height: 26px; font-size: 26px; line-height: 26px; text-align: center;}
+
+    #portfolio_about_me_main_inbox_top h3 {height: 26px; font-size: 26px; line-height: 26px; padding-left: 0; text-align: center;}
+    #portfolio_about_me_main_inbox_top h2 {height: 20px; font-size: 20px; line-height: 20px; padding-left: 0; text-align: center;}
+
+    #portfolio_about_me_main_inbox_bottom {height: 100%; margin-top: 0px;}
+
+    #image_wrap {width: 100%; float: none; padding: 10px 0px;}
+    #portfolio_about_me_main_inbox_bottom_img {margin: auto; border: none;}
+    #about_wrap {width: 100%; float: none;}
+    #about_box {margin-top: 0;}
+    #portfolio_about_me_main_right_box {display: none;}
+    
+    #portfolio_work {margin-top: 100px;}
+    #portfolio_work h2 {font-size: 26px; line-height: 26px;}
+    #main_work {width: 90%; }
+
+    #works_wrap {width: 90%; margin: auto; margin-top: 50px;}
+
+    #works_menu li {width: 40%; margin-right: 0px;}
+    .works {width: 100%;}
+    .works:nth-child(2) {float: none;}
+    .works:last-child {float: none; margin-top: 0px;}
+
+    footer {width: 90%; height: 100%; margin: auto; padding: 50px 0px;}
+    #contect_list {width: 100%; height: 360px; margin-top: 20px;}
+    #it_me {width: 100%; height: 50%; float: none;}
+    #sns_list {width: 100%; height: 50%; float: none;}
+    footer h6 {display: none; bottom: 0;}
+    #arrow {display: none; top: 0;}
+    }
+    @media all and (min-width:768px) { /*768~1023 태블릿*/
+    header{width: 100%;}
+    header h1 {margin-left: 5%;}
+    header #menu {margin-right: 5%;}
+    #sns {left: 5%;}
+    #scroll_down_text {right: 5%;}
+
+    #portfolio_main {width: 100%;}
+    #portfolio_main_text_box {width: 100%; height: 228px;}
+    #bg {width: 400px; height: 400px; border: none;}
+
+    #portfolio_main_text_box h2 {font-size: 70px; line-height: 70px;}
+    #portfolio_main_text_box p {font-size: 18px;}
+
+    #portfolio_wrap {width: 100%;}
+    #portfolio_about_me_main_box {width: 100%; height: auto; margin-top: 0px;}
+    #portfolio_about_me_main_left_box {width: 100%; float: none;}
+    #portfolio_about_me_main_inbox_top {height: 122px;}
+    #portfolio_about_me_main_inbox_top p {height: 36px; font-size: 36px; line-height: 36px; text-align: center;}
+    #portfolio_about_me_main_inbox_top h3 {height: 36px; font-size: 36px; line-height: 36px; padding-left: 0; text-align: center;}
+    #portfolio_about_me_main_inbox_top h2 {height: 30px; font-size: 30px; line-height: 30px; padding-left: 0; text-align: center;}
+
+    #portfolio_about_me_main_inbox_bottom {height: 100%; margin-top: 0px;}
+    #image_wrap {width: 100%; float: none; padding: 20px 0px;}
+    #portfolio_about_me_main_inbox_bottom_img {margin: auto; border: none;}
+    #about_wrap {width: 100%; float: none;}
+    #about_box {margin-top: 0;}
+    #portfolio_about_me_main_right_box {display: none;}
+
+    #portfolio_work {margin-top: 100px;}
+    #portfolio_work h2 {font-size: 26px; line-height: 26px;}
+    #main_work {width: 90%; }
+
+    #works_wrap {width: 90%; margin: auto; margin-top: 50px;}
+
+    #works_menu li {width: 200px;; margin-right: 10px;}
+    .works {width: 45%;}
+    .works:nth-child(2) {float: left;}
+    .works:last-child {float: right; margin-top: 200px;}
+
+    footer {width: 90%; height: 100%; margin: auto; padding: 50px 0px;}
+    #contect_list {width: 100%; height: 360px; margin-top: 20px;}
+    #it_me {width: 100%; height: 50%; float: none;}
+    #sns_list {width: 100%; height: 50%; float: none;}
+    footer h6 {display: block; bottom: 50px;}
+    #arrow {display: block; top: 50px;}
+    }
+    @media all and (min-width:1024px) { /*1024 태블릿*/
+    header{width: 75%;}
+    header h1 {margin-left: 0;}
+    header #menu {margin-right: 0;}
+    #sns {left: 0%;}
+    #scroll_down_text {right: 0%;}
+
+    #portfolio_main {width: 75%;}
+    #portfolio_main_text_box {width: 100%; height: 17vw;}
+    #bg {width: 30vw; height: 30vw; border: 1px solid #fff;}
+
+    #portfolio_main_text_box h2 {font-size: 5vw; line-height: 5vw;}
+    #portfolio_main_text_box p {font-size: 1vw;}
+
+    #portfolio_wrap {width: 75%;}
+    #portfolio_about_me_main_box {width: 100%; height: 640px; margin-top: 150px;}
+    #portfolio_about_me_main_left_box {width: 70%; float: left;}
+    #portfolio_about_me_main_inbox_top {height: 270px;}
+    #portfolio_about_me_main_inbox_top p {height: 50px; font-size: 3vw; line-height: 50px; text-align: left;}
+    #portfolio_about_me_main_inbox_top h3 {height: 50px; font-size: 3vw; line-height: 50px; padding-left: 15%; text-align: left;}
+    #portfolio_about_me_main_inbox_top h2 {height: 30px; font-size: 2vw; line-height: 30px; padding-left: 60%; text-align: left;}
+
+    #portfolio_about_me_main_inbox_bottom {height: 100%; margin-top: 100px;}
+    #image_wrap {width: 30%; float: left; padding: 0px 0px;}
+    #portfolio_about_me_main_inbox_bottom_img {margin-top: 68px; margin-left: 1px; border: 1px solid #fff;}
+    #about_wrap {width: 70%; float: right;}
+    #about_box {margin-top: 60px;}
+    #portfolio_about_me_main_right_box {width: 30%; display: block;}
+
+    #portfolio_work {margin-top: 200px;}
+    #portfolio_work h2 {font-size: 3vw; line-height: 50px;}
+    #main_work {width: 600px;}
+    #works_wrap {width: 100%; margin: auto; margin-top: 100px;}
+
+    #works_menu li {width: 200px;; margin-right: 10px;}
+    .works {width: 45%;}
+    .works:nth-child(2) {float: left;}
+    .works:last-child {float: right; margin-top: 200px;}
+
+    footer {width: 100%; height: 450px; margin-top: 200px; padding: 0px 0px;}
+    #contect_list {width: 500px; height: 180px; margin-top: 30px;}
+    #it_me {width: 400px; height: 100%; float: left;}
+    #sns_list {width: 100px; height: 100%;float: right;}
+    footer h6 {display: block; bottom: 30px;}
+    #arrow {display: block; top: 0px;}
+    }
+    </style></head><body>
+        <div id="mouse_pointer"></div>
+    <section id="intro">
+        <div id="intro_title">
+            <h2>portfolio</h2>
+        </div>
+
+        <div id="intro_in_portfolio">
+        </div>
+
+        <div id="intro_in_portfolio_box">
+            <div class="intro_in_portfolio_inbox"></div>
+            <div class="intro_in_portfolio_inbox"></div>
+            <div class="intro_in_portfolio_inbox"></div>
+        </div>
+
+        <h2>0%</h2>
+
+        <div id="intro_text">
+            <p>If you go in, you can see it in detail.</p>
+        </div>
+        <div id="horizontal"></div>
+    </section>
+    <header><!-- heder 시작 -->
+        <a href="portfolio.html"><h1 id="logo">sunghyuk</h1></a>
+        <ul id="menu">
+            <li>home</li>
+            <li>about me</li>
+            <li>work</li>
+            <li>contact</li>
+        </ul>
+    </header><!-- heder 끝 -->
+        <section id="portfolio_main">
+            <h3 id="sns"> <!-- sns 시작 -->
+                HYUK OFFICIAL®
+            </h3> <!-- sns 끝 -->
+            <div id="scroll_down_text">
+                <div id="samo"></div>
+                <h3>MOVE YOUR SCROLL</h3>
+            </div>
+            <div id="bg"><video src="video/video.mp4" autoplay loop muted id="bg_video"></video></div>
+            <div id="portfolio_main_text_box">
+                <h2>CREATIVE</h2>
+                <h2>ADVENTUROUS</h2>
+                <h2>WEB-PUBLISHER</h2>
+                <p>2022 PORTFOLIO</p>
+            </div>
+        </section>
+        <section id="portfolio_wrap"> <!-- portfolio_wrap 시작 -->
+            <div id="portfolio_about_me_main_box">
+                <div id="portfolio_about_me_main_left_box">
+                    <div id="portfolio_about_me_main_inbox_top">
+                        <p>Welcome to my portfolio</p>
+                        <h3>I’m web-publisher</h3>
+                        <h2>SungHyuk</h2>
+                    </div>
+                    <div id="portfolio_about_me_main_inbox_bottom">
+                        <div id="image_wrap">
+                        <div id="portfolio_about_me_main_inbox_bottom_img">
+                            <video src="video/video3.mp4" autoplay loop muted id="bg_video2"></video>
+                        </div>
+                        </div>
+                        <div id="about_wrap">
+                        <ul id="about_box">
+                            <li>
+                                <h5>photoshop</h5>
+                                <h6>80%</h6>
+                                <div class="about_value_box">
+                                    <div class="about_value_inbox"></div>
+                                </div>      
+                            </li>
+                            <li>
+                                <h5>illustrotor</h5>
+                                <h6>80%</h6>
+                                <div class="about_value_box">
+                                    <div class="about_value_inbox"></div>
+                                </div>   
+                            </li>
+                            <li>
+                                <h5>html5 & css3</h5>
+                                <h6>85%</h6>
+                                <div class="about_value_box">
+                                    <div class="about_value_inbox"></div>
+                                </div>   
+                            </li>
+                            <li>
+                                <h5>jquery</h5>
+                                <h6>65%</h6>
+                                <div class="about_value_box">
+                                    <div class="about_value_inbox"></div>
+                                </div>   
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div id="portfolio_about_me_main_right_box"></div>
+            </div>
+            <div id="portfolio_work">
+                <h2>selected <br> works</h2>
+                <div id="main_work">
+                    <a href="ader/index.html" target="_blank"><div id="ader"></div></a>
+                    <h4>ader</h4>
+                    <h3>main brand portpolio | Completion</h3>
+                </div>
+                <div id="works_wrap">
+                    <ul id="works_menu">
+                        <li>RESPONSIVE</li>
+                        <li>PC</li>
+                    </ul>
+                <div id="responsive_work">
+                <ul class="works">
+                    <li><a href="samsung_pay/index.html" target="_blank"><img src="images/samsung_pay.png" alt="samsung_pay_img"><h4>Samsung-pay</h4><p>It's the same site| It's incomplete.</p></a></li>
+                </ul>
+                <ul class="works">
+                    <li><a href="bts/index.html" target="_blank"><img src="images/bts.png" alt="bts_img"><h4>BTS</h4><p>It's the same site | It's incomplete.</p></a></li>
+                </ul>
+                </div>
+                <div id="pc_work">
+                    <ul class="works">
+                        <li><a href="patagonia/index.html" target="_blank"><img src="images/patagonia.png" alt="patagonia_img"><h4>Patagonia</h4><p>Brand renewal site | It's incomplete.</p></a></li>
+                    </ul>
+                    <ul class="works">
+                        <li><a href="new_ford/index.html" target="_blank"><img src="images/new_ford.png" alt="new_ford_img"><h4>New-ford</h4><p>It's the same site | It's incomplete.</p></a></li>
+                    </ul>
+                    </div>
+            </div>
+            </div>
+            <footer>
+
+                <div id="contect">
+                    <div></div>
+                    <h2>Contect</h2>
+                </div>
+                <h3>Keep in touch</h3>
+                <div id="contect_list">
+                    <ul id="it_me">
+                        <li>Sung Hyuk</li>
+                        <li>010-2888-9847</li>
+                        <li>Gyeonggi-do, Republic of Korea <br>
+                            29 Citizen Road 158th Street 1st <br>
+                            Uijeongbu-si, Gyeonggi-do, Republic of Korea <br>
+                        </li>
+                    </ul>
+                    <ul id="sns_list">
+                        <li>Follow us</li>
+                        <li>Facebook</li>
+                        <li><a href="https://www.instagram.com/ppp___sh/?hl=ko" target="_blank">instagram</a></li>
+                        <li>twitter</li>
+                        <li>kakako talk</li>
+                    </ul>
+                </div>
+                <h4>Send me an e-mail</h4>
+                <h5>harlie0108@gmail.com</h5>
+                    <p>Thank you for visiting. <br>
+                    Please contact me if you need me.
+                    </p>
+                <h6>DESIGNED BY SUNGHYUK</h6>
+                <div id="arrow"><img src="images/arrow.png" alt="contect_arrow"></div>
+            </footer>
+        </section> <!-- portfolio_wrap 끝 -->
+</body>
+</html>

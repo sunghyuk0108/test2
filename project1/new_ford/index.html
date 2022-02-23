@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+   $(document).ready(function(){
+      $('.popup_li').click(function(){
+		$('#popup_gallery').show();
+		$('#popup_gallery_img').attr({'src':'gallery/gallery'+($(this).index()+1)+'.jpg'})
+		popup_gallery_num = ($(this).index()+1)
+      });
+	  $('#popup_gallery_closebt').click(function(){
+		$('#popup_gallery').hide();
+      });
+	  popup_gallery_num = 1;
+	  $('#pop_gallery_rightbt').click(function(){
+		  popup_gallery_num = popup_gallery_num + 1;
+		  if(popup_gallery_num>=8){popup_gallery_num=1}
+		$('#popup_gallery_img').attr({'src':'gallery/gallery'+popup_gallery_num+'.jpg'})
+	  });
+	  $('#pop_gallery_leftbt').click(function(){
+		  popup_gallery_num = popup_gallery_num - 1;
+		  if(popup_gallery_num<=0){popup_gallery_num=7}
+		$('#popup_gallery_img').attr({'src':'gallery/gallery'+popup_gallery_num+'.jpg'})
+	  });
+	  $('#show_bt').click(function(){
+		$('#hide_bt').show()
+		$('#show_bt').hide()
+		$('#section_popup_textbox_right img').css({"transform":"rotate(180deg)"})
+		$('#section_popup_hiddenbox').slideDown()
+	  });
+	  $('#hide_bt').click(function(){
+		$('#show_bt').show()
+		$('#hide_bt').hide()
+		$('#section_popup_textbox_right img').css({"transform":"rotate(0deg)"})
+		$('#section_popup_hiddenbox').slideUp()
+	  });
+	//section1
+	  $('#section1_bt1').click(function(){
+		$('#section_popup').show()
+		$('#section_popup_img').attr({'src':'images/popup-section-1-img1.jpg'})
+		$('#section_popup_textbox h3').text('1번 팝업 제목')
+		$('#section_popup_hiddenbox').html('<p>1번 내용 </p>')
+	  });
+	   $('#section1_bt2').click(function(){
+		$('#section_popup').show()
+		$('#section_popup_img').attr({'src':'images/popup-section-1-img2.jpg'})
+		$('#section_popup_textbox h3').text('2번 팝업 제목')
+		$('#section_popup_hiddenbox').html('<p>2번 내용 </p>')
+	  });
+	  $('#section1_bt3').click(function(){
+		$('#section_popup').show()
+		$('#section_popup_img').attr({'src':'images/popup-section-1-img3.jpg'})
+		$('#section_popup_textbox h3').text('3번 팝업 제목')
+		$('#section_popup_hiddenbox').html('<p>3번 내용 </p>')
+	  });
+	//section2
+		$('#section2_bt1').click(function(){
+			$('#section_popup').show()
+			$('#section_popup_img').attr({'src':'images/1489476045031.jpg'})
+			$('#section_popup_textbox h3').text(' 섹션2 1번 팝업 내용')
+			$('#section_popup_hiddenbox').html('<p> 섹션2 1번 팝업 내용</p>')
+		});
+		$('#section2_bt2').click(function(){
+			$('#section_popup').show()
+			$('#section_popup_img').attr({'src':'images/1538134264165.jpg'})
+			$('#section_popup_textbox h3').text(' 섹션2 2번 팝업 내용')
+			$('#section_popup_hiddenbox').html('<p> 섹션2 2번 팝업 내용</p>')
+		});
+		$('#section2_bt3').click(function(){
+			$('#section_popup').show()
+			$('#section_popup_img').attr({'src':'images/image.imgs.full.high(3).jpg'})
+			$('#section_popup_textbox h3').text(' 섹션2 3번 팝업 내용')
+			$('#section_popup_hiddenbox').html('<p> 섹션2 3번 팝업 내용</p>')
+		});
+	
+		$('#color_bt li').click(function(){
+			$(this).children('.color_bt_checkimg').show()// 클릭한 li에 있는 자식 color_bt_checkimg 가 보여라. 다른 li의 color_bt_checkimg는 숨겨라 //.parents('li').siblings('li').children('.color_bt_checkimg').hide() 관계구조 아래거 대신 써도됨
+			$(this).siblings('li').children('.color_bt_checkimg').hide()
+			// li를 클릭하면 해당 li의 순번에 따라 3번째 li면 그에 맞는 #car_img의 이미지가 변경되어야 한다. 순번을 생성.
+			// %(this).index() 는 li의 순번을 생성가능
+			$('#car_img').attr({'src':'color/color_car'+($(this).index()+1)+'.jpg'})
+			// li를 클릭하면 해당 li의 자식 color_bt_chieckimg의 alt정보를 #color h4의 text정보를 변경하시오.
+			$('#color h4').text($(this).children('.color_bt_checkimg').attr('alt'))
+			// html태그의 정보를 변경할때 attr({'속성명':'값'}) , html태그의 정보를 가져올때 attr('속성명')
+		});
+	  $('#section_popup_closebt').click(function(){
+		$('#section_popup').hide()
+	  });
+
+	 //slide
+	 $('#slide_wrap').mouseover(function(){
+		$('#slide_arrowbt').stop().animate({'right':'0px'})
+	 });
+	 $('#slide_wrap').mouseout(function(){
+		$('#slide_arrowbt').stop().animate({'right':'-50px'})
+	});
+	slide_num= 0; // 슬라이드의 left 값을 변경할 변수를 선언
+	 $('#slide_bt li').click(function(){
+		$(this).css({'transform':'scale(1)','background-color':'transparent'}).siblings().css({'transform':'scale(0.7)','background-color':'#fff'})
+		// li1번 #slide left 0, li2번 #slide left -1440, li3번 #slide left -1440*2
+		// li가 가지고 있는 순번을 이용하여 숫자를 만들자.
+		// li의 순번은 index() = 0, 1, 2 d이 값을 이용해서 0, -1440, -1440*2
+		slide_num = $(this).index()*-1440 // 0 1 2    0*-1440 1*-1440 2*-1440 
+		$('#slide').animate({left:slide_num},500)
+	 }); 
+	 $('#slide_arrowbt li:eq(0)').click(function(){
+		 slide_num=slide_num-1440
+		 if(slide_num <= -4320){slide_num=-2880}
+		$('#slide').animate({left:slide_num},500)
+		//위에서 생성된 slide_num값에 따라 (0,-1440, -2880) 생성되면 이 값으로 #slide_bt li의 css 모양을 변경해야한다. 0이면 #slide_bt li 1번의 css를 배경투명 scale을 1로, -1440이면 #slide_bt li 2번의 css를 배경 투명 scale을 1로, -2880이면 #slide_bt li 3번의 css를 배경투명 scale을 1로
+		$('#slide_bt li').eq(slide_num/-1440).css({'transform':'scale(1)','background-color':'transparent'}).siblings().css({'transform':'scale(0.7)','background-color':'#fff'}) // eq는 nth비슷한 호출 명령. 단, eq는 0이 1
+		//0/-1440=0, -1440/-1440=1 -2880/-1440 = 2
+		//.eq() 이 호출법은 변수를 삽입할 수 있다.
+	});
+	 $('#slide_arrowbt li:nth-child(2)').click(function(){
+		 slide_num=slide_num+1440
+		 if(slide_num >= 0){slide_num=0}
+		$('#slide').animate({left:slide_num},500)
+		$('#slide_bt li').eq(slide_num/-1440).css({'transform':'scale(1)','background-color':'transparent'}).siblings().css({'transform':'scale(0.7)','background-color':'#fff'})
+	});
+//	 $('#slide_bt li:nth-child(1)').click(function(){
+//		$('#slide').animate({left:0},300)
+//	 });
+//	 $('#slide_bt li:nth-child(2)').click(function(){
+//		$('#slide').animate({left:-1440},300)
+//	 });
+//	 $('#slide_bt li:nth-child(3)').click(function(){
+//		$('#slide').animate({left:-1440*2},300)
+//	 });
+	 togle_num=0;
+		$('#header2_left').click(function(){
+				if(togle_num==0){	 
+					togle_num=1
+					$('#togle').show()
+					$('#header2_left img').css({'transform':'rotate(180deg)'})
+					}
+				else if ( togle_num==1){ 
+					togle_num=0
+					$('#togle').hide()
+					$('#header2_left img').css({'transform':'rotate(0deg)'})
+					}
+		});
+		$(window).scroll(function(){
+			sc=$(window).scrollTop();
+			if(sc<=70){
+			$('#header2').css({'position':'relative'})
+			$('#slide_wrap').css({'margin-top':'0px'})
+			}
+			else if(sc>70){
+			$('#header2').css({'position':'fixed','top':'0','z-index':'999'})
+			$('#slide_wrap').css({'margin-top':'70px'})
+			}
+		});
+		video_slide_num = 0;
+		$('#video_bt li').click(function(){
+			$(this).css({'background-color':'transparent','transform':'scale(1.3)'}).siblings().css({'background-color':'#2d96cd','transform':'scale(1)'})
+			video_slide_num = $(this).index()*-1350
+			$('#video_slidebox').animate({'left':video_slide_num})
+		});
+		$('#videos_wrap').mouseenter(function(){
+			$('#video_slide_arrowbt').stop().animate({'right':'0px'})
+		});
+		$('#videos_wrap').mouseleave(function(){
+			$('#video_slide_arrowbt').stop().animate({'right':'-60px'})
+		});
+		$('#video_slide_arrowbt li:eq(0)').click(function(){
+		video_slide_num = video_slide_num-1350
+		if(video_slide_num<=-2700){video_slide_num=-1350}
+			$('#video_slidebox').animate({'left':video_slide_num})
+			$('#video_bt li').eq(video_slide_num/-1350).css({'background-color':'transparent','transform':'scale(1.3)'}).siblings().css({'background-color':'#2d96cd','transform':'scale(1)'})
+		});
+		$('#video_slide_arrowbt li:eq(1)').click(function(){
+		video_slide_num = video_slide_num+1350
+		if(video_slide_num>=0){video_slide_num=0}
+			$('#video_slidebox').animate({'left':video_slide_num})
+			$('#video_bt li').eq(video_slide_num/+1350).css({'background-color':'transparent','transform':'scale(1.3)'}).siblings().css({'background-color':'#2d96cd','transform':'scale(1)'})
+		});
+		togle_num2=0;
+		$('#disclosures_text_box1').click(function(){
+			if(togle_num2==1){
+				togle_num2=0
+				$('#disclosures_text_box2').show()
+				$('#disclosures_text_box1 h3 img').css({'transform':'rotate(0deg)'})
+			}
+			else if(togle_num2==0){
+				togle_num2=1
+				$('#disclosures_text_box2').hide()
+				$('#disclosures_text_box1 h3 img').css({'transform':'rotate(180deg)'})
+			}
+		});
+   });
+  </script>
+  <style>
+   * { margin: 0; padding: 0; list-style: none; }
+   a {text-decoration: none; color: inherit;}
+   #wrap {width: 1440px; border: 1px solid #ddd; margin: auto; margin-bottom: 100px; border-bottom: none;}
+	/* header */
+    header {}
+    #haeder1{width: 100%; height: 70px;}
+    #logo {width: 400px; height: 70px; float: left; text-align: center;}
+    #logo img{height: 40px; margin-top: 15px;}
+    #menu1 {width: 380px; height: 70px; float: right; line-height: 70px;}  
+    #menu1 li{display: inline-block; margin: 0px 10px; font-weight: 100; font-size: 14px; color: #2d96cd;}
+    #menu2 {width: 660px; height: 70px; float: right; line-height: 70px; text-transform: uppercase; text-align: right;}
+    #menu2 li {display: inline-block; margin: 0px 10px; font-weight: 900; font-size: 18px; color: #2d96cd;}  
+
+	/* header2시작	*/
+    #header2 {width: 1440px; height: 70px; position: relative;}
+    #header2_left {width: 400px; height: 70px; float: left; background-color: #1b394e; text-transform: uppercase; text-align: center; line-height: 70px;}
+	#header2_left img {display: inline-block; vertical-align: middle; transition:0.5s;}
+	#header2_left h2 {display: inline-block; vertical-align: middle; font-weight: 100; font-size: 22px; color: #fff; margin-left: 5px;}
+	#togle {width: 400px; background-color: #fff; position: absolute; left: 0; top: 70px; z-index: 9999; display: none;}
+	#togle ul {width: 300px; height: 100%; float: right;}
+	#togle ul li {line-height: 50px; font-size: 16px; font-weight: 100; border-bottom: 1px solid #ccc; color: #2d96cd;}
+	#togle ul li:nth-child(1) {font-weight: 900; color: #000; }
+	#togle ul li:last-child{border-bottom: none;}
+    #header2_right {width: 1040px; height: 70px; float: right; background-color: #2d96cd;}
+	#header2_right ul {float: right; margin-right: 100px;}
+	#header2_right li {float: left; line-height: 70px; margin: 0px 10px; color: #fff; font-weight: 600; font-size: 15px;}
+	#header2_right li img { padding-right: 8px; text-align: center; vertical-align: middle;}
+
+	/* slide */
+	#slide_wrap {width: 1440px; height: 550px; position: relative; overflow: hidden;}
+	#slide {width: 4320px; height: 550px; position: absolute; background-color: #000;}
+	#slide>li {width: 1440px; height: 550px; float: left; position: relative;}
+	#slide>li button {width: 250px; height: 48px; position: absolute; left: 40px; top: 180px; background-color: #fff; background-color: #2d96cd; border: none; color: #fff; font-weight: 300; font-size: 18px;}
+	#slide>li:nth-child(2) button {left: 100px; top: 200px;}
+	#slide>li:nth-child(3) button {left: 110px; top: 130px;}
+	#slide_bt {width: 100%; position: absolute; left: 0; bottom: 20px; text-align: center;}
+	#slide_bt li {width: 12px; height: 12px; display: inline-block; border-radius: 10px; background-color: #fff; border: 2px solid #fff; margin: 0px 5px; vertical-align: middle; transform:scale(0.7);}
+	#slide_bt li:nth-child(1){background-color: transparent; transform:scale(1);}
+	#slide_arrowbt {width: 50px; height: 100px; position: absolute; top: 0; bottom: 0; right: -50px; margin: auto; text-align: center;}
+	#slide_arrowbt li:nth-child(1) {width: 50px; height: 50px; background: #2d96cd url(icons/slide_right_bt_w.png) center no-repeat;}
+	#slide_arrowbt li:nth-child(1):hover {background: #fff url(icons/slide_right_bt_b.png) center no-repeat; transition:0.5s;}
+	#slide_arrowbt li:nth-child(2) {width: 50px; height: 50px; background: rgba(0,0,0,0.5) url(icons/slide_left_bt_w.png) center no-repeat;}
+	#slide_arrowbt li:nth-child(2):hover {background: #fff url(icons/slide_left_bt_b.png) center no-repeat; transition:0.5s;}
+	#slide_arrowbt img {}
+
+	/*car_option*/
+	#car_option {width: 100%; height: 200px; background-color: #fff;}
+	#price {width: 720px; height: 200px; padding-left: 30px; padding-top: 30px; float: left; border-right: 1px solid #eee; box-sizing: border-box;}
+	#price h2 {font-weight: 100; font-size: 14px;}
+	#price h4 {font-weight: 100; font-size: 36px;}
+	#price h4 span {font-weight: 400;}
+	#price h4 sup {color: #2d96cd; font-size: 16px; font-weight: 400;}
+	#price button {width: 250px; height: 50px; margin: 10px; background-color: #fff; border: 1px solid #000; font-size: 18px; box-shadow: 0px 0px 1px #000;}
+	#boost {width: 400px; height: 200px;  float: left; border-right: 1px solid #eee; box-sizing: border-box;}
+	#boost h2{float: left; margin: 30px; font-size: 15px; font-weight: 400;}
+	.textbox {background-color: #fff; float: left; margin-left: 50px; margin-top: 30px;}
+	.textbox h3 {font-size: 14px; font-weight: 300;}
+	.textbox h4 {font-size: 35px; font-weight: 300;}
+	#riding_garden {width: 320px; height: 200px; float: left; padding-left: 30px; padding-top: 30px; box-sizing: border-box;}
+	#riding_garden h2 {font-weight: 100; font-size: 15px;}
+	#riding_garden h4 {font-weight: 400; font-size: 35px;}
+
+	/* models시작	*/
+	#models {width: 1440px; height: 500px; background-color: #fff;}
+	#models_textbox {width: 100%; height: 150px;} 
+	#models_textbox h2 {font-size: 30px; line-height: 150px; color: #555; font-weight: 400; float: left; margin-left: 100px;}
+	#models_textbox button {width: 250px; height: 60px; border: 1px solid #2d96cd; float: right; margin-top: 45px; margin-right: 100px; background-color: #fff; font-size: 18px; color: #2d96cd; font-weight: 400; box-shadow: 0px 0px 1px #000;}
+	#models_textbox button:hover {color: #000; border-color: #000;	cursor: pointer;}
+	#models_imgbox {width: 100%; height: 350px; padding-top: 50px; padding-left: 120px; box-sizing: border-box;}
+	#models_imgbox li {width: 280px; height: 250px; display: inline-block; background-color: #fff; margin: 0px 10px; vertical-align: top; text-align: center;}
+	#models_imgbox li h3 {margin-top: 10px; font-weight: 400; color: #2d96cd; font-size: 20px;}
+	#models_imgbox li p {margin-top: 10px; font-weight: 100; font-size: 16px;}
+	#models_imgbox li p sup {color: #2d96cd;}
+	#models_imgbox li img {width: 280px;}
+
+	/* new_product 시작	*/
+	#new_product {width: 1440px; height: 600px; text-align: center;}
+	#new_product h3 {font-size: 45px; color: #555; font-weight: 400; margin-bottom: 40px;}
+	#new_product p{margin-top: 10px; color: #555; font-size: 18px;}
+	#new_product img {width: 1440px; margin-top: 50px;}
+
+	/*section1*/
+	#section1 {width: 1400px; margin: auto; margin-top: 100px;}
+	#section1_textbox {width: 1400px; height: 390px; background-color: #000; color: #fff; text-align: center; overflow: hidden;}
+	#section1_textbox h2 {margin-top: 50px; font-size: 45px; font-weight: 400;}
+	#section1_textbox p {width: 1000px; margin: auto; margin-top: 40px; font-size: 18px;}
+	#section1_textbox button {margin-top: 40px; width: 300px; height: 60px; color: #fff; font-size: 20px; font-weight: 400; background-color: #2d96cd; border: none;}
+	#section1_textbox button:hover{background-color: #fff; color: #000;}
+	#section1_textbox h5{ margin-top: 20px; font-size: 11px; font-weight: 400;}
+
+	#section1_imgbox {width: 1400px; height: 600px; position: relative;}
+	#section1_imgbox img {width: 100%;}
+	#section1_imgbox button{ width: 40px; height: 40px; border-radius: 50px; background-color: #fff; border: 2px solid #999; color: #999; font-size: 26px; font-weight: 400; position: absolute;}
+	#section1_bt1 {left: 300px; top: 150px;}
+	#section1_bt2 {left: 0; right: 0; top: 350px; margin: auto; }
+	#section1_bt3 {right: 100px; top: 0; bottom: 0; margin: auto;}
+   
+	/*section2*/
+	#section2 {width: 1400px; margin: auto; margin-top: 50px;}
+	#section2_textbox {width: 1400px; height: 350px;background-color: #000; color: #fff; text-align: center; overflow: hidden;}
+	#section2_textbox h2 {margin-top: 50px; font-size: 45px; font-weight: 400;}
+	#section2_textbox p {width: 1000px; margin: auto; margin-top: 40px; font-size: 18px; font-weight: 400; }
+	#section2_textbox button {width: 300px; height: 60px; font-size: 20px; font-weight: 400; background-color: #2d96cd; border: none; color: #fff; margin-top: 10px;}
+	#section2_textbox button:hover{background-color: #fff; color: #000; cursor: pointer;}
+	#section2_textbox h5 {margin-top: 20px; font-size: 11px; font-weight: 400;}
+	#section2_imgbox {width: 100%; position: relative;}
+	#section2_imgbox img {width: 100%;}
+	#section2_imgbox button{width: 40px; height: 40px; border-radius: 50px; background-color: #fff; border: 2px solid #999; color: #999; font-size: 26px; font-weight: 400; position: absolute;}
+	#section2_bt1 {left: 330px; top: 230px;}
+	#section2_bt2 {left: 0; right: 0; top: 130px; margin: auto;}
+	#section2_bt3 {right: 180px; top: 0; bottom: 0; margin: auto;}
+
+
+	/* the_sound시작	*/
+	#the_sound {width: 1440px; height: 550px; margin-top: 50px; background: url(images/image_imgs_full_hig1.jpg) 0 0 no-repeat; background-size: cover; overflow: hidden;} 
+	#the_sound h3 {color: #fff; font-size: 45px; font-weight: 400; margin-top: 100px; margin-left: 50px;}
+	#the_sound p {color: #fff; font-size: 18px; font-weight: 400; margin-left: 50px; margin-top: 10px;}
+	#the_sound button {width: 325px; height: 50px; background-color: #2d96cd; margin-left: 60px; margin-top: 50px; border: none; font-size: 18px; color: #fff; text-transform: uppercase; font-weight: 100;}
+	#the_sound button:hover{background-color: #fff; color: #000; cursor: pointer;}
+
+	/* the_look시작 */
+	#the_look {width: 1440px; background-color: #000; margin-top: 30px; text-align: center; overflow: hidden;}
+	#the_look h3 {color: #fff; font-size: 45px; font-weight: 400; margin-top: 50px; }
+	#the_look p {color: #fff; font-size: 18px; font-weight: 400; margin-top: 30px;}
+	#the_look button {width: 250px; height: 50px; background-color: #2d96cd; margin-top: 30px; font-weight: 100; color: #fff; border: none; font-size: 18px;}
+	#the_look button:hover{background-color: #fff; color: #000; cursor: pointer;}
+	#the_look img {margin-top: 50px; vertical-align: bottom;} 
+	/* color	*/
+	#color {margin-top: 100px; text-align: center;}
+	#color h2 {color: #555; font-size: 35px; font-weight: 400;}
+	#color h3 span{ display: inline-block; padding-bottom: 5px; border-bottom: 4px solid #333; margin-top: 50px; font-weight: 100; font-size: 16px;}
+	#color h3 sup {color: #008cba; font-weight: 400;}
+	#color h4 {margin-top: 15px; font-size: 25px; font-weight: 400; color: #555;}
+	#color_bt {overflow: hidden;}
+	#color_bt li {display: inline-block; position: relative;}
+	#color_bt li .color_bt_bgimg{vertical-align: top;}
+	#color_bt li .color_bt_checkimg {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; display: none;}
+	#color_bt li:nth-child(1) .color_bt_checkimg {display: inline;}
+
+	/* galley_video시작	*/
+    #gallery_video {width: 100%; text-align: center;}
+    #gallery_video h2 {font-size: 50px;line-height: 150px;}
+    #gallery {overflow: hidden;}
+    #gallery li {width: 25%; float: left;}
+	#gallery li img {width: 100%; vertical-align: top;}
+
+
+	/* videos slide시작 */
+	#video {width: 1440px; height: 650px; background-color: #000; overflow: hidden;}
+	#video h3 {color: #fff; font-size: 45px; font-weight: 400; text-align: center; margin-top: 25px;}
+	#video h3 sup {color: #2d96cd; font-size: 14px;}
+	#videos_wrap {width: 1350px; height: 450px; margin-left: 45px; margin-top: 30px; overflow: hidden; position: relative;}
+	#video_slidebox {width: 2720px; height: 450px; position: absolute;} 
+	#video_slidebox li {width: 670px; height: 450px; float: left; margin-right: 10px;}
+	#video_slidebox li h4 {text-align: center; font-size: 30px; color: #fff; font-weight: 400;}
+	#video_slidebox li img {width: 670px;}
+	#video_slidebox li:nth-child(2) {margin-right: 0px;}
+	#video_bt {width: 100%; height: 50px; margin-top: 10px; text-align: center;}
+	#video_bt li {display: inline-block; margin: 0px 5px;}
+	#video_bt li {width: 10px; height: 10px; background-color: #2d96cd; border: 1px solid #2d96cd; border-radius: 10px;}
+	#video_bt li:nth-child(1) {background-color: transparent; transform:scale(1.3);}
+
+	#video_slide_arrowbt {width: 60px; height: 120px; position: absolute; right: -60px; top: 0; bottom: 0; margin: auto;} 
+	#video_slide_arrowbt li:nth-child(1) {width: 60px; height: 60px; background: #2d96cd url(icons/slide_right_bt_w.png) center no-repeat;}
+	#video_slide_arrowbt li:nth-child(1):hover {background: #fff url(icons/slide_right_bt_b.png) center no-repeat;}
+	#video_slide_arrowbt li:nth-child(2) {width: 60px; height: 60px; background: rgba(0,0,0,0.5) url(icons/slide_left_bt_w.png) center no-repeat;}
+	#video_slide_arrowbt li:nth-child(2):hover {background: #fff url(icons/slide_left_bt_b.png) center no-repeat;} 
+
+	/* brochure시작	*/
+	#brochure {width: 1440px; height: 350px; background-color: #1b394e;}
+	#brochure ul {width: 1000px; height: 350px; background-color: #eee; margin: auto;}
+	/*	disclosures시작 */
+	#disclosures {width: 100%; background-color: #343434; color: #2d96cd;}
+	#disclosures_text_box1 {width: 100%; height: 70px; background-color: #fff; text-align: center; line-height: 70px; border: 1px solid #eee;}
+	#disclosures h3 {font-weight: 400; font-size: 16px;}
+	#disclosures_text_box1 h3 img {transition:0.5s;}
+	#disclosures_text_box2 {width: 100%; height: 240px; background-color: #eee; overflow: scroll;}
+	#disclosures_text_box2 table {font-size: 12px; color: #000; margin-top: 50px;}
+	#disclosures_text_box2 table tr {height: 50px; vertical-align: top;}
+	#disclosures_text_box2 table tr td:nth-child(1) {width: 50px; text-align: center; vertical-align: top;}
+	
+	footer{width: 1440px; height: 805px; background-color: red;}
+	#footer_box1 {width: 1440px; height: 75px; background-color: #343434;}
+	#footer_box2 {width: 1440px; height: 510px; background-color: #252525;}
+	#footer_menu {width: 100%; text-align: center;}
+	#footer_menu>li {width: 240px; height: 510px; color: #fff; display: inline-block; text-align: left; vertical-align: top; padding-top: 30px; box-sizing: border-box;}
+	#footer_menu>li h5 {font-size: 16px; font-weight: 500;}
+	#footer_menu>li h5 img {width: 10px; height: 10px; float: right; transform:rotate(-90deg); margin-top: 7px;}
+	.footer_sub_menu {padding-top: 10px;}
+	.footer_sub_menu li {color: #aaa; line-height: 30px; font-size: 14px;}
+	#footer_box3 {width: 1440px; height: 100px; background-color: #1b394e;}
+	#footer_box3 h5 {font-size: 16px; font-weight: 500; color: #fff; line-height: 100px; margin-left: 50px; float: left;}
+	#footer_box3 #footer_box3_sns_icon {float: left; margin-left: 30px;}
+	#footer_box3 #footer_box3_sns_icon li {float: left; margin-top: 30px; margin-right: 5px;}
+	#footer_box4 {width: 1440px; height: 120px; background-color: #fff;}
+	#footer_box4_top{width: 100%; height: 60px;}
+	#footer_box4_bottom{width: 100%; height: 60px;}
+	#footer_box4 h5 {font-weight: 500; float: left; margin-left: 50px; margin-top: 30px; color: #555; }
+	#footer_box4 ul {float: left; margin-top: 30px;}
+	#footer_box4 ul li {float: left; margin-left: 10px; font-size: 12px; color: #888;}
+	#footer_box4 h6 {margin-left: 50px; font-size: 14px; font-weight: 100; color: #888;}
+
+	/* popup_gallery시작	*/
+	#popup_gallery {width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); position: fixed; left: 0; top: 0; display: none;}
+	#popup_gallery_box {width: 1130px; height: 650px; position: absolute; left: 0; right: 0; top: 50px; margin: auto; }
+	#pop_gallery_imgbox {width: 1130px; height: 570px; position: relative;}
+	#popup_gallery_img {width: 100%;}
+	#popup_gallery_closebt {width: 60px; height: 60px; position: absolute; top: 0; right: 0; background-color: rgba(0,0,0,0.5); text-align: center;} 
+	#pop_gallery_leftbt {position: absolute; top: 0; bottom: 0; left: 50px; margin: auto; border: 1px solid #fff; padding: 10px;}
+	#pop_gallery_rightbt {position: absolute; top: 0; bottom: 0; right:50px; margin: auto; border: 1px solid #fff; padding: 10px;}
+	#popup_gallery_textbox {width: 1130px; height: 80px; background-color: #fff;}
+	#popup_gallery_textbox h3 {width: 900px; height: 80px; float: left; line-height: 80px; font-size: 26px; font-weight: 500; padding-left: 50px; color: #555;}
+	#popup_gallery_textbox h4 {width: 179px; height: 80px; float: right; text-align: center; line-height: 80px; border-left: 1px solid #ddd; color: #0080ff; font-weight: 100;}
+
+	/*section_pupup 시작*/
+	#section_popup {width: 100%; height: 100%; background:rgba(0, 0, 0, 0.7); position: fixed; left: 0; top: 0; z-index: 999; display: none;}
+	#section_popup_box {width: 900px; margin: auto; margin-top: 30px; position: relative;}
+	#section_popup_img {width: 100%; vertical-align: top;} 
+	#section_popup_closebt {width: 35px; padding: 15px; background-color: rgba(0, 0, 0, 0.5); position: absolute; right: 0; top: 0;}
+	#section_popup_textbox {width: 100%; height: 60px; background-color: #fff; line-height: 60px;}
+	#section_popup_textbox h3 {float: left; margin-left: 50px; font-weight: 400;}
+	#section_popup_textbox_right{background-color: #fff; float: right; text-align: center; border-left: 1px solid #999; padding: 0px 10px;}
+	#section_popup_textbox_right h4 {float: left; font-weight: 400; margin: 0px 20px;}
+	#section_popup_textbox_right img {float: left; margin:20px; transition:0.5s;}
+	#hide_bt {display: none;}
+	#section_popup_hiddenbox {width: 100%; padding: 50px; box-sizing: border-box; background-color: #fff; border-top: 1px solid #999; display: none;}
+  </style>
+ </head>
+ <body>
+ <div id="wrap">
+  <header>
+  	<div id="haeder1">
+	<h1 id="logo"><img src="logo.png" alt="logo_img"></h1>
+	<ul id="menu1">
+		<li>전시장 및 서비스센터</li>
+		<li>시승 신청</li>
+		<li>로그인</li>
+	</ul>
+	<ul id="menu2">
+		<li>vehicle</li>
+		<li>technology</li>
+		<li>shopping</li>
+		<li>owner</li>
+		<li>about ford</li>
+	</ul>
+	</div>
+  	<div id="header2">
+	<div id="header2_left">
+		<img src="icons/top_bt1.jpg" alt="top_bt1">
+		<h2>포드 머스탱(mustang)</h2>
+	</div>
+	<div id="header2_right">
+		<ul>
+			<li><img src="icons/top_bt2.jpg" alt="top_bt2">브로셔다운로드</li>
+			<li><img src="icons/top_bt2.jpg" alt="top_bt3">시승신청</li>
+		</ul>
+	</div>
+	<div id="togle">
+		<ul>
+			<li> 개요</li>
+			<li>특장점</li>
+			<li>갤러리</li>
+			<li>모델 및 사양</li>
+		</ul>
+	</div>
+	</div>
+  </header>
+   
+
+<!-- slide	 -->
+  	<div id="slide_wrap">
+  		<ul id="slide">
+  			<li>
+  				<button>시승 신청</button>
+				<img src="images/image.imgs.full.high (2)(2).jpg" alt="img" class="a">
+  			</li>
+  			<li>
+  				<button>시승 신청</button>
+				<img src="images/image.imgs.full.high(3).jpg" alt="img" class="a">
+  			</li>
+  			<li>
+  				<button>시승 신청</button>
+				<img src="images/image.imgs.full.high (1)(2).jpg" alt="img" class="a">
+  			</li>
+  		</ul>
+  		<ul id="slide_bt">
+  			<li></li>
+  			<li></li>
+  			<li></li>
+  		</ul>
+  		<ul id="slide_arrowbt">
+  			<li></li>
+  			<li></li>
+  		</ul>
+  	</div>
+<!-- car_option -->
+	<div id="car_option">
+		<div id="price">
+		<h2>소비자 가격</h2>
+		<h4><span>48,200,00</span> 원 부터<sup>1</sup></h4>
+		<button>시승 신청</button>
+		</div>
+		<div id="boost">
+			<h2>엔진</h2>
+			<div class="textbox">
+			<h3>EcoBoost<sup>&reg;</sup></h3>
+			<h4>2.3L</h4>
+			</div>
+			<div class="textbox">
+			<h3>Ti-VCT V8</h3>
+			<h4>5.0L</h4>
+			</div>
+		</div>
+		<div id="riding_garden">
+			<h2>승차정원(명)<br></h2>
+			<h4>4</h4>
+		</div>		
+	</div>
+
+	<div id="models">
+		<div id="models_textbox">
+		<h2>MUSTANG MODELS</h2>
+		<a href="a"><button>모델 비교</button></a>
+		</div>
+		<ul id="models_imgbox">
+			<li>
+			<img src="images/Ecoboost_Premium.jpg" alt="ecoboost_img1">
+			<h3>2.3L EcoBoost Premium (Coupe)</h3>
+			<p>소비자 가격: 48,200,000 원 <sup>1</sup></p>
+			</li>
+			<li>
+			<img src="images/Ecoboost_Convertible.jpg" alt="ecoboost_img2">
+			<h3>2.3L Ecoboost Premium (Convertible)</h3>
+			<p>소비자 가격: 53,900,000 원 <sup>1</sup></p>	
+			</li>
+			<li>
+			<img src="images/GT-Premium-Coupe-Thumbnail.jpg" alt="ecoboost_img3">
+			<h3>5.0L GT Premium (Coupe)</h3>
+			<p>소비자 가격: 64,500,000 원 <sup>1</sup></p>	
+			</li>
+			<li>
+			<img src="images/GT-Premium-Convertible-Thumbnail.jpg" alt="ecoboost_img4">
+			<h3>5.0L GT Premium (Convertible)</h3>
+			<p>소비자 가격: 69,400,000 원 <sup>1</sup></p>	
+			</li>
+		</ul>
+	</div>
+
+	<div id="new_product">
+		<h3>2020 MUSTANG</h3>
+		<p>어느 곳에서 바라보아도 손색이 없는 2020년형 머스탱을 만나보십시오. 2.3L 에코부스트 모델에는 퍼포먼스 패키지를 적용함으로써 포드 머스탱의 성 <br> 능 향상을 가능하게 하며, 5.0L GT 프리미엄 모델에는 V8 엔진 특유의 성능을 더해 줄 GT 퍼포먼스 패키지를 적용함으로써 머스탱 특유의 강렬함과 짜 <br> 릿함을 마음껏 느끼실 수 있습니다.</p>
+		<p>이제, 안전벨트를 매고 2020년형 머스탱과 함께 놀라운 속도로 달려나가보십시오.</p>
+		<img src="images/KakaoTalk_20210429_172307067.jpg" alt="car_img1">
+	</div>
+
+<!-- section1	 -->
+	<div id="section1">
+		<div id="section1_textbox">
+			<h2>Customize your view</h2>
+			<p>새롭고 다양한 첨단 기술로 이제까지 볼 수 없었던 수준 높은 개인 설정 기능을 적용하였습니다. <br> 머스탱에 최초로 적용된 풀-디지털 디스플레이는 운전석에 앉은 당신의 시야에 들어오는 모든 것을 제어하고 <br> 장악할 수 있도록 해줍니다.</p>
+			<button><a href="a">Technology 자세히 보기</a></button>
+			<h5>플러스버튼(+)을 클릭해 보세요</h5>
+		</div>
+		<div id="section1_imgbox">
+			<img src="images/image.imgs.full.high2.jpg" alt="car_img2">
+			<button id="section1_bt1">+</button>
+			<button id="section1_bt2">+</button>
+			<button id="section1_bt3">+</button>
+		</div>
+	</div>
+<!-- section2 -->
+<div id="section2">
+	<div id="section2_textbox">
+		<h2>The Feel</h2>
+		<p>언제든지 원하실 때, 가장 첨단의 머스탱과 함께 포효하십시오. <br> 머스탱에 새롭게 적용된 10단 자동변속기는 엔진과의 완벽한 조화를 이루어 뛰어난 응답성과 전천후 성능을 발휘합니다.</p>
+		<a href="a"><button>HANDLING 자세히 보기</button></a>
+		<h5>플러스버튼(+)을 클릭해 보세요</h5>
+	</div>
+	<div id="section2_imgbox">
+		<img src="images/image.imgs.full.high(1).jpg" alt="car_img3">
+		<button id="section2_bt1">+</button>
+		<button id="section2_bt2">+</button>
+		<button id="section2_bt3">+</button>
+	</div>		
+</div>
+
+	<!-- the sound시작 -->
+	<div id="the_sound">
+		<h3>The Sound</h3>
+		<p>깊이 있는 사운드를 느껴보십시오. 트렁크에 장착된<br>서브 우퍼와 더불어 B&O 사운드 시스템의<br>12개 스피커에서 내보내는 디지털 사운드를 한껏 즐겨보십시오.</p>
+		<a href="a"><button>performance 자세히 보기</button></a>
+	</div>
+
+	<!-- the look시작 -->
+	
+	<div id="the_look">
+		<h3>The Look</h3>
+		<p>머스탱만큼 멋진 것은 어디에도 없습니다.<br>오랜 역사를 지닌 머스탱이지만 더욱 모던해진 디자인은 그 가치를 더욱 돋보이게 합니다.<br>엔진룸 공간을 최적화하는 첨단 엔지니어링으로 머스탱의 후드와 그릴을 최대한 낮춤으로써 더욱 안정적이며 역동적인 스타일을 실현하였습니다.</p>
+		<a href="a"><button>Design 자세히 보기</button></a>
+		<img src="images/image_imgs_full_high(5).jpg" alt="car_img4">
+	</div>
+
+	<!-- color -->
+<div id="color">
+	<h2>COLOR</h2>
+	<h3><span>COLORIZER</span><sup>2</sup></h3>
+	<h4>Rapid Red Metallic Tinted Clearcoat</h4>
+	<img src="color/color_car1.jpg" alt="car_img5" id="car_img">
+	<ul id="color_bt">
+		<li><img src="color/color_circle1.png" alt="color_img1" class="color_bt_bgimg"><img src="color/click.png" alt="Rapid Red Metallic Tinted Clearcoat" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle2.png" alt="color_img2" class="color_bt_bgimg"><img src="color/click.png" alt="Twister Orange Metallic Tri-coat" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle3.png" alt="color_img3" class="color_bt_bgimg"><img src="color/click.png" alt="Velocity Blue" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle4.png" alt="color_img4" class="color_bt_bgimg"><img src="color/click.png" alt="Grabber Lime" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle5.png" alt="color_img5" class="color_bt_bgimg"><img src="color/click.png" alt="Shadow Black" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle6.png" alt="color_img6" class="color_bt_bgimg"><img src="color/click.png" alt="Magnetic" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle7.png" alt="color_img7" class="color_bt_bgimg"><img src="color/click.png" alt="Iconic Silver" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle8.png" alt="color_img8" class="color_bt_bgimg"><img src="color/click.png" alt="Kona Blue" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle9.png" alt="color_img9" class="color_bt_bgimg"><img src="color/click.png" alt="Race Red" class="color_bt_checkimg"></li>
+		<li><img src="color/color_circle10.png" alt="color_img10" class="color_bt_bgimg"><img src="color/click.png" alt="Oxford White" class="color_bt_checkimg"></li>
+	</ul>
+</div>
+
+	<!-- gallery_video -->
+  <div id="gallery_video">
+  <h2>GALLERY & VIDEO</h2>
+  	<ul id="gallery">
+  		<li class="popup_li"><img src="images/1522223329237.jpg" alt="popup_img1"></li>
+  		<li class="popup_li"><img src="images/1538133923131.jpg" alt="popup_img2"></li>
+  		<li class="popup_li"><img src="images/1538134040122.jpg" alt="popup_img3"></li>
+  		<li class="popup_li"><img src="images/1538134192455.jpg" alt="popup_img4"></li>
+  		<li class="popup_li"><img src="images/1538134264165.jpg" alt="popup_img5"></li>
+  		<li class="popup_li"><img src="images/1522223732272.jpg" alt="popup_img6"></li>
+  		<li class="popup_li"><img src="images/1522223799801.jpg" alt="popup_img7"></li>
+  		<li><img src="images/1522245832898.jpg" alt="popup_img8"></li>
+  	</ul>
+  </div>
+	<!-- video slide시작 -->
+	<div id="video">
+		<h3>Videos<sup>3</sup></h3>
+	<div id="videos_wrap">
+			<ul id="video_slidebox">
+				<li><img src="images/1562930157004.jpg" alt="video_img1"><h4>2019 Mustang Driving Experience</h4></li>
+				<li><img src="images/1586237649099.jpg" alt="video_img2"><h4>2019 Mustang Ad Video</h4></li>
+				<li><img src="images/1586237718912.jpg" alt="video_img3"><h4>2018 Announcement of Mustang</h4></li>
+				<li><img src="images/1586237775479.jpg" alt="video_img4"><h4>2019 Make It Personal</h4></li>
+			</ul>
+		<ul id="video_slide_arrowbt">
+  			<li></li>
+  			<li></li>
+  		</ul>
+		</div>
+		<ul id="video_bt">
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div id="brochure">
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- disclosures 시작	 -->
+  <div id="disclosures">
+	<div id="disclosures_text_box1"><h3>DISCLOSURES <img src="icons/arrow.png" alt="icon_arrow_img"></h3></div>
+	<div id="disclosures_text_box2">
+	<table>
+		<tr>
+			<td>[1]</td>
+			<td>사이트에 공지된 가격정보는 부가세(VAT) 포함 및 2021년 1월 1일~6월 30일 (개별소비세법 시행령) 개별소비세 인하분이 적용된 금액이며 예고 없이 변동될 수 있습니다. 또한 상기 가격정보는 고객님의 차량 구입에 도움을 드리고자 제작된 가격표로 법적 구속력은 없습니다. 자세한 내용은 가까운 전시장의 영업직원에게 문의 바랍니다.</td>
+		</tr>
+		<tr>
+			<td>[2]</td>
+			<td> 색상 및 트림에 관한 보다 자세한 내용은 가까운 전시장에 문의 바랍니다.</td>
+		</tr>
+		<tr>
+			<td>[3]</td>
+			<td>본 영상에 등장하는 모델은 국내 판매 모델과 다를 수 있습니다. 차량에 대한 이해를 돕기 위한 참고 자료로만 활용하시기 바랍니다.</td>
+		</tr>
+		<tr>
+			<td>※</td>
+			<td>사이트에서 제공하는 MUSTANG에 대한 모든 이미지 또는 사양은 실제 판매 모델과 다를 수 있습니다. 가장 정확한 정보는 가까운 전시장에 문의 바랍니다.</td>
+		</tr>
+		<tr>
+			<td>※</td>
+			<td>위 연비는 표준모드에 의한 연비로서 도로상태, 운전방법, 차량적재, 정비상태 및 외기온도에 따라 실주행연비와 차이가 있습니다.</td>
+		</tr>
+	</table>
+  </div>
+  </div>
+  		<footer>
+			<div id="footer_box1">
+				
+			</div>
+			<div id="footer_box2">
+				<ul id="footer_menu">
+					<li><h5>ALL VEHICLES</h5>
+					<ul class="footer_sub_menu">
+						<li><a href="a">CAR</a></li>
+						<li><a href="a">SUV</a></li>
+					</ul>	
+					</li>
+					<li><h5>TECHNOLOGY</h5>	
+					<ul class="footer_sub_menu">
+						<li><a href="a">에코부스트</a></li>
+						<li><a href="a">싱크 3</a></li>
+					</ul>	
+					</li>
+					<li><h5>SHOPPING<img src="icons/slide_left_bt_w.png" alt="left_bt_w_img"></h5>	
+					<ul class="footer_sub_menu">
+						<li><a href="a">전시장 및 서비스센터 찾기</a></li>
+						<li><a href="a">브로셔 다운로드</a></li>
+						<li><a href="a">마이포드 매거진</a></li>
+						<li><a href="a">시승 신청</a></li>
+						<li><a href="a">세일즈 프로모션</a></li>
+						<li><a href="a">이벤트</a></li>
+						<li><a href="a">견적 내기</a></li>
+					</ul>
+					</li>
+					<li><h5>FORD OWNERS<img src="icons/slide_left_bt_w.png" alt="left_bt_w_img"></h5>
+					<ul class="footer_sub_menu">
+						<li><a href="a">오너 포털 사이트</a></li>
+						<li><a href="a">공인 서비스</a></li>
+						<li><a href="a">소모성 부품 무상교환 서비스 </a></li>
+						<li><a href="a">24시간 긴급출동 서비스</a></li>
+						<li><a href="a">순정 부품</a></li>
+						<li><a href="a">리콜 안내</a></li>
+						<li><a href="a">보증 및 서비스</a></li>
+						<li><a href="a">차량 관리</a></li>
+						<li><a href="a">How to 비디오</a></li>
+						<li><a href="a">서비스 프로모션</a></li>
+						<li><a href="a">포드 고객센터</a></li>
+						<li><a href="a">전시장 및 서비스 센터 찾기</a></li>
+						<li><a href="a">SYNC™ 3</a></li>	
+					</ul>
+					</li>
+					<li><h5>ABOUT FORD<img src="icons/slide_left_bt_w.png" alt="left_bt_w_img"></h5>
+					<ul class="footer_sub_menu">
+						<li><a href="a">Company</a></li>
+						<li><a href="a">Corporate</a></li>
+						<li><a href="a">Heritage</a></li>
+						<li><a href="a">Sustainability</a></li>
+					</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="footer_box3">
+				<h5>Follow Ford</h5>
+				<ul id="footer_box3_sns_icon">
+					<li><a href="a"><img src="icons/1465997373893.png" alt="icon_img1"></a></li>
+					<li><a href="a"><img src="icons/1465997373893.png" alt="icon_img2"></a></li>
+				</ul>
+			</div>
+			<div id="footer_box4">
+				<div id="footer_box4_top">
+				<h5>Copyright © 2016 Ford Sales & Service Korea Inc.</h5>
+					<ul>
+						<li>Ford</li>
+						<li>사이트 맵</li>
+						<li>개인정보취급방침</li>
+						<li>글로벌 사이트</li>
+						<li>포드 고객센터</li>
+						<li>세일즈 프로모션</li>
+					</ul>		
+					</div>
+				<div id="footer_box4_bottom">
+				<h6>ABOUT FORD</h6>
+				</div>
+			</div>
+		</footer>		
+<!-- wrap /div -->
+  </div>
+
+<!-- popup_gallery -->
+  <div id="popup_gallery">
+  	<div id="popup_gallery_box">
+  		<div id="pop_gallery_imgbox">
+  			<img src="gallery/gallery1.jpg" alt="gallery_img1" id="popup_gallery_img">
+  			<img src="icons/close.png" alt="gallery_img2" id="popup_gallery_closebt">
+			<img src="icons/KakaoTalk_20210427_155742767.png" alt="gallery_left_bt_img" id="pop_gallery_leftbt">
+			<img src="icons/KakaoTalk_20210427_155742678.png" alt="gallery_right_bt_img" id="pop_gallery_rightbt">
+  		</div>
+  		<div id="popup_gallery_textbox">
+  			<h3>NEW MUSTANG</h3>
+  			<h4>상세보기</h4>
+  		</div>
+  	</div>
+  </div>
+<!-- section_popup -->
+	<div id="section_popup">
+		<div id="section_popup_box">
+			<img src="images/popup-section-1-img1.jpg" alt="section_popup_img" id="section_popup_img">
+			<img src="icons/close.png" alt="section_popup_closebt_img" id="section_popup_closebt">
+			<div id="section_popup_textbox">
+				<h3>엔진토크</h3>
+				<div id="section_popup_textbox_right">
+					<h4 id="show_bt">상세보기</h4><h4 id="hide_bt">닫기</h4>
+					<img src="icons/arrow.png" alt="icons_arrow_bt">
+				</div>
+			</div>
+			<div id="section_popup_hiddenbox">
+				<p>운전자의 기분과 운전 환경에 따라 컴포트(Comfort), 노멀(Normal), 스포트(Sport)의 세 가지 스티어링 휠의 모드를 자유롭게 선택할 수 있습니다. 여유로운 드라이브부터 급커브까지, 상황에 맞는 가장 적절한 조향 응답성으로 안정적 드라이브를 만끽할 수 있습니다.</p>
+			</div>
+	</div>
+ </body>
+</html>

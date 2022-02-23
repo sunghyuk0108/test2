@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		menu_toggle = 0;
+		$('#menu').click(function(){
+			if(menu_toggle==0){
+				menu_toggle=1
+				// 메뉴 li가 x로 바뀌고, #menu_popup이 show
+			$('#menu li:nth-child(1)').css({'transform':'rotate(45deg)','top':'8px'})
+			$('#menu li:nth-child(2)').hide()
+			$('#menu li:nth-child(3)').css({'transform':'rotate(-45deg)','top':'8px'})
+			$('#menu_popup').show()
+			}
+			else if(menu_toggle==1){
+				menu_toggle=0 
+				// 메뉴 li가 =로 바뀌고, #menu_popup이 hide
+			$('#menu li:nth-child(1)').css({'transform':'rotate(0deg)','top':'0px'})
+			$('#menu li:nth-child(2)').show()
+			$('#menu li:nth-child(3)').css({'transform':'rotate(0deg)','top':'16px'})
+			$('#menu_popup').hide()
+			}
+		});
+		//lang 시작
+		$('#lang').mouseenter(function(){
+			$('#lang_sub').stop().fadeIn()
+		});
+		$('#lang').mouseleave(function(){
+			$('#lang_sub').stop().fadeOut()
+		});
+		//footer menu시작
+		$('#footer_menu').mouseenter(function(){
+			$('#footer_sub').stop().fadeIn()
+		});
+		$('#footer_menu').mouseleave(function(){
+			$('#footer_sub').stop().fadeOut()
+		});
+	});
+  </script>
+	<!-- 기본 css 영역. 화면 크기에 대응하거나 반응하는 부분이 아닌 속성을 입력 -->
+   <style>
+	* {margin: 0; padding: 0; list-style: none; font-family: 'Oswald', sans-serif;}
+	a {color: inherit; text-decoration: none;}
+	html,body {height: 100%; background-color: #ffdc00;}
+	/*header시작*/
+	header {width: 100%; height: 65px; background-color: rgba(0,0,0,0.2); text-align: center; position: fixed; left: 0; top: 0; z-index: 999;}
+	#menu_popup{width: 100%; height: 100vh; text-transform: uppercase; position: absolute;	 left: 0; right: 0; display: none;}  
+	/* #menu_popup가 겹쳐있도록 하기위하여 position:absolute 할당, 짝대기 모양의 #menu에 위로 올라오도록 z999할당. z가 적용되려면 최소한의 position은 필요하고 pos:r 할당 */
+	/* 높이값은 부모의 높이보다 화면의 높이값에 따라가도록 viewport height의 vh를 사용한다. */ 
+	#menu_popup_left {width: 50%; height: 100%; float: left; background-color: rgba(0,0,0,0.5);}
+	#menu_popup_left_box {width: 400px; line-height: 60vh; margin-top: 20vh; float: right;} /*화면 높이에 따라 반응하는 비율설정 vh */
+	#menu_popup_left_box li {width: 100%; line-height: 10vh; text-align: center; color: #fff; border-bottom: 1px solid #fff; font-size: 20px;}
+	#menu_popup_right {width: 50%; height: 100%; float: right; background-color: rgba(0,0,0,0.6);}
+	#menu_popup_right_box {height: 35vh; margin-top: 32.5vh; margin-left: 15%; text-align: left;} /*높이값에 반응하는 비율 
+	margin-top */
+	#menu_popup_right_box li {line-height: 7vh; color: #999; font-size: 20px;}
+	#menu {width: 22px; height: 18px; float: left; position: relative; margin-top: 22px; margin-left: 40px; overflow: hidden;}
+	#menu li {width: 100%; height: 2px; background-color: #fff; border-radius: 1px; position: absolute;}
+	#menu li:nth-child(1) {top: 0;}
+	#menu li:nth-child(2) {top: 8px;}
+	#menu li:nth-child(3) {top: 16px;}
+	#lang {width: 100px; float: right; line-height: 65px;}
+	#lang h4 {color: #fff; font-size: 14px;}
+	#logo {width: 59px; height: 30px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
+
+	/* 쌤은 #logo{width: 59px; height: 30px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; 로 배열했음}*/
+	#logo img {width: 100%; vertical-align: top;}
+	#lang_sub {width: 100px; position: absolute; background-color: #eee; display: none;}
+	#lang_sub li{font-size: 14px; font-weight: 900;}
+	#lang_sub li:hover {background-color: #000; color: #fff;}
+	#lang_sub li:nth-child(1) {background-color: #000; color: #fff;}
+
+	/*discography시작*/
+	#discography {width: 1100px; margin: auto; background-color: #ffdc00; margin-top: 150px;} /*  고정크기인 대상만 px 나머지 자식은 가급적%로 */
+	#discography_title {color: #fff; font-size: 80px; text-align: center; position: relative; z-index: 9;}
+	#discography ul {overflow: hidden; margin-top: -50px;}
+	#discography ul li {width: 31.333%; margin: 1%; float: left; position: relative;}
+	.border_box {width: 100%; height: 100%; border: 1px solid #fff; position: absolute; left: -1px; top: -1px;}
+	#discography ul li img{width: 100%; vertical-align: top;}
+	#discography ul li div {width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); color: #fff; position: absolute; left: 0; top: 0; display: none;}
+	#discography ul li:hover div {display: block;}
+	#discography ul li div h4, #discography ul li div h5 {position: absolute; text-align: center; width: 100%; text-transform: uppercase;}
+	/* 가운데 정렬 할 때 위에처럼 통합으로 불러서 w값을 줘야 가운데 정렬이 가능함.	*/
+	#discography ul li .textbox1 h4 {font-size: 12px; line-height: 20px; position: absolute; left: 0; top: 50%; margin-top: -10px;}
+	#discography ul li .textbox2 h4 {font-size: 12px; line-height: 20px; position: absolute; left: 0; top: 50%; margin-top: -30px;}
+	#discography ul li .textbox2 h5 {font-size: 14px; line-height: 20px; position: absolute; left: 0; top: 50%; margin-top: -10px;}
+
+
+	#discography ul li img {width: 100%; vertical-align: top;}
+
+	/* footer시작	*/
+	footer {width: 100%; height: 65px; background-color: #272727; position: fixed; left: 0; bottom: 0; z-index: 999; text-align: center;}
+	#sns {width: 30%; height: 65px; float: left;}
+	#sns>li {width: 30px; height: 30px; border-radius: 30px; float: left; background-color:#1f1f1f; margin-top: 17px; margin-left: 10px; box-sizing: border-box;}
+	#sns>li:nth-child(1) {margin-left: 30px;}
+	#sns li img {width: 100%;}
+	#footer_menu {width: 300px; height: 65px; display: inline-block; position: relative;}
+	#footer_menu h5 {text-transform: uppercase; line-height: 60px; border-bottom: 1px solid #ccc; color: #ccc;}
+	#footer_sub{width: 100%; line-height: 50px; color: #ccc; position: absolute; bottom: 65px; z-index: 999; display: none; background-color: #272727;}
+	#footer_sub li {font-size: 12px; white-space: nowrap; text-overflow: ellipsis;}
+	#footer_sub li:hover {background-color: #000; color: #fff;}
+	#footer_menu_arrow {position: absolute; right: 0; top: 0; bottom: 0; margin: auto;}
+	#copyright {width: 30%; float: right; height: 65px; text-align: right; vertical-align: top;}
+	#copyright h5 {color: #ccc; line-height: 35px; font-size: 10px; font-weight: 100;}
+	#copyright h6 {color: #ccc; font-size: 10px; font-weight: 100;}
+	#text {position: fixed; left: 0; top: 200px; font-size: 100px; border: 1px solid #000;}
+
+	</style><style>
+	/*미디어쿼리 규칙
+	규칙1. 미디어쿼리에는 변화하는 값 만 기록한다.
+	규칙2. 하나의 속성이 기록되면 다른 조건에도 동일하게 할당한다.
+	*/
+
+	/*미디어쿼리 스타일 시트 아래에 해당 스타일 시트 추가해서쓰면됨.*/
+	@media all and (min-width:320px) { /* 320~767 모바일 */
+	header{height: 80px;}
+	#menu {width: 26px; margin-top: 25px; margin-left: 40px;}
+	#logo {width: 59px; height: 30px;}
+	#lang {line-height: 80px;}
+	#menu_popup_left_box {width: 100%;}
+	/* #slide_wrap 은 pos:r , footer은 pos:f 로 배열이 되어있다. 모바일에서는 스크롤이 발생하는 상태로 해당 영역을 기본 position인 pos:s를 할당한다.*/
+	footer{position: relative; height: 300px;}
+	#about {width: 90%;}
+	#about img {width: 100%; margin: 0;}
+	#about_textbox {width: 100%; margin: 0;}
+	/* 화면 너비의 변화에 따라 글자크기가 변화한다. vw로 단위 지정 */
+	#about_textbox h2 {font-size: 15vw;}
+	#about_textbox p {font-size: 3vw;}
+	#discography {width: 95%;}
+	#discography ul li {width: 46%; margin: 2%;}
+	#discography ul li:nth-child(1) {width: 96%; margin: 2%;}
+	footer{position: relative; height: 200px;}
+	#sns {width: 90%; margin-left: 5%; margin-right: 5%; float: none;}
+	#sns>li {width: 23px; height: 23px; display: inline-block; float: none;}
+	#footer_menu {width: 90%; margin-left: 5%; margin-right: 5%;}
+	#copyright {width: 90%; margin-left: 5%; margin-right: 5%; text-align: center;}
+	}
+	@media all and (min-width:768px) { /*768~태블릿, pc*/
+	header{height: 65px;}
+	#menu {width: 22px; margin-top: 22px; margin-left: 40px;}
+	#logo {width: 50px; height: 25px;}
+	#lang {line-height: 65px;}
+	#menu_popup_left_box {width: 400px;}
+	#about {width: 90%;}
+	#about img{width: 42%; margin: 0% 4%;}
+	#about_textbox{width: 42%; margin: 0% 4%;}
+	#about_textbox h2 {font-size: 40px;}
+	#about_textbox p {font-size: 14px;}
+	#discography {width: 80%;}
+	#discography ul li {width: 31.333%; margin: 1%;}
+	#discography ul li:nth-child(1) {width: 31.333%; margin: 1%;}
+	footer{position: relative; height: 200px;}
+	#sns {width: 90%; margin-left: 5%; margin-right: 5%; float: none;}
+	#sns>li {width: 30px; height: 30px; display: inline-block; float: none;}
+	#footer_menu {width: 90%; margin-left: 5%; margin-right: 5%;}
+	#copyright {width: 90%; margin-left: 5%; margin-right: 5%; text-align: center;}
+	}
+
+	@media all and (min-width:1200px) { /*1200~태블릿, pc*/
+	#about {width: 1200px;}
+	#about img{width: 42%; margin: 0% 4%;}
+	#about_textbox{width: 42%; margin: 0% 4%;}
+	#about_textbox h2 {font-size: 60px;}
+	#about_textbox p {font-size: 14px;}
+	#discography {width: 1100px;}
+	#discography ul li {width: 31.333%; margin: 1%;}
+	#discography ul li:nth-child(1) {width: 31.333%; margin: 1%;}
+	footer{position: fixed; height: 65px;}
+	#sns {width: 30%; margin-left: 0%; margin-right: 0%; float: left;}
+	#sns>li {width: 30px; height: 30px; display: block; float: left;}
+	#footer_menu {width: 300px; margin-left: 0%; margin-right: 0%;}
+	#copyright {width: 30%; margin-left: 0%; margin-right: 0%; text-align: right;}
+	}
+	@media all and (min-width:1440px) { /*1440~태블릿, pc*/
+	#discography {width: 1100px;}
+	#discography ul li {width: 31.333%; margin: 1%;}
+	#discography ul li:nth-child(1) {width: 31.333%; margin: 1%;}
+	footer{position: fixed; height: 65px;}
+	#sns {width: 30%; margin-left: 0%; margin-right: 0%; float: left;}
+	#sns>li {width: 30px; height: 30px; display: block; float: left;}
+	#footer_menu {width: 300px; margin-left: 0%; margin-right: 0%;}
+	#copyright {width: 30%; margin-left: 0%; margin-right: 0%; text-align: right;}
+	}
+  </style>
+ </head><body>
+	<!-- header시작 -->
+	<header>
+	<div id="menu_popup">
+		<div id="menu_popup_left">
+		<ul id="menu_popup_left_box">
+			<li>home</li>
+			<li>about</li>
+			<li>bts</li>
+			<li>tomorrow x together</li>
+			<li>lee hyun</li>
+		</ul>
+		</div>
+		<div id="menu_popup_right">
+		<ul id="menu_popup_right_box">
+			<li><a href="index.html">home</a></li>
+			<li><a href="profile.html">profile</a></li>
+			<li><a href="discography.html">discography</a></li>
+			<li><a href="schedule.html">schedule</a></li>
+			<li>tour</li>
+		</ul>
+		</div>
+	</div>
+		<ul id="menu">
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<h1 id="logo"><img src="logo-m.png" alt="logo_img"></h1>
+		<div id="lang">
+			<h4>KOR</h4>
+			<ul id="lang_sub">
+				<li>KOR</li>
+				<li>ENG</li>
+				<li>JPN</li>
+				<li>CHN</li>
+			</ul>
+		</div>
+	</header>
+	<div id="discography">
+		<h2 id="discography_title">DISCOGRAPHY</h2>
+		<ul>
+			<li>
+				<img src="discography/cover1.jpg" alt="cover_img1">
+				<div class="textbox1">
+					<h4>butter</h4>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover2.jpg" alt="cover_img2">
+				<span class="border_box"></span>
+				<div class="textbox2">
+					<h4>digital single</h4>
+					<h5>butter</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover3.jpg" alt="cover_img3">
+				<div class="textbox1">
+					<h4>be</h4>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover4.jpg" alt="cover_img4">
+				<div class="textbox2">
+					<h4>digital single</h4>
+					<h5>dynamite</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover5.jpg" alt="cover_img5">
+				<div class="textbox2">
+					<h4>4th full-length album</h4>
+					<h5>map of the soul : 7</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover6.jpg" alt="cover_img6">
+				<div class="textbox2">
+					<h4>the 6th mini album</h4>
+					<h5>map of the soul : <br> persona</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover7.jpg" alt="cover_img7">
+				<div class="textbox2">
+					<h4>repackage album</h4>
+					<h5>love yourself結 <br> ‘ANSWER’</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover8.jpg" alt="cover_img8">
+				<div class="textbox2">
+					<h4>3RD FULL-LENGTH ALBUM</h4>
+					<h5>LOVE YOURSELF轉 ‘TEAR’</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover9.jpg" alt="cover_img9">
+				<div class="textbox2">
+					<h4>THE 5TH MINI ALBUM</h4>
+					<h5>LOVE YOURSELF承 ‘HER’</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover10.jpg" alt="cover_img10">
+				<div class="textbox2">
+					<h4>2ND SPECIAL ALBUM</h4>
+					<h5>YOU NEVER WALK ALONE</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover11.jpg" alt="cover_img11">
+				<div class="textbox2">
+					<h4>2ND FULL-LENGTH ALBUM</h4>
+					<h5>WINGS</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover12.jpg" alt="cover_img12">
+				<div class="textbox2">
+					<h4>1ST SPECIAL ALBUM</h4>
+					<h5>화양연화 YOUNG FOREVER</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover13.jpg" alt="cover_img13">
+				<div class="textbox2">
+					<h4>THE 4TH MINI ALBUM</h4>
+					<h5>화양연화 pt.2</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover14.jpg" alt="cover_img14">
+				<div class="textbox2">
+					<h4>THE 3RD MINI ALBUM</h4>
+					<h5>화양연화 pt.1</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover15.jpg" alt="cover_img15">
+				<div class="textbox2">
+					<h4>1ST FULL-LENGHTH ALBUM</h4>
+					<h5>DARK & WILD</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover16.jpg" alt="cover_img16">
+				<div class="textbox2">
+					<h4>THE 2ND MINI ALBUM</h4>
+					<h5>SKOOL LUV AFFAIR</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover17.jpg" alt="cover_img17">
+				<div class="textbox2">
+					<h4>THE 1ST MINI ALBUM</h4>
+					<h5>O!RUL8,2?</h5>
+				</div>
+			</li>
+			<li>
+				<img src="discography/cover18.jpg" alt="cover_img18">
+				<div class="textbox2">
+					<h4>THE 1ST SINGLE ALBUM</h4>
+					<h5>2 COOL 4 SKOOL</h5>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<footer>
+		<ul id="sns">
+			<li><img src="twitter-star.png" alt="twitter-star_img"></li>
+			<li><img src="twitter.png" alt="twitter_img"></li>
+			<li><img src="facebook2.png" alt="facebook2_img"></li>
+			<li><img src="insta2.png" alt="insta2_img"></li>
+			<li><img src="youtube.png" alt="youtube_img"></li>
+			<li><img src="weibo.png" alt="weibo_img"></li>
+			<li><img src="weibo-member.png" alt="weibo-member_img"></li>
+			<li><img src="youku.png" alt="youku_img"></li>
+			<li><img src="weverse.png" alt="weverse_img"></li>
+			<li><img src="cafe2.png" alt="cafe2_img"></li>
+			<li><img src="blog.png" alt="blog_img"></li>
+		</ul>
+		<div id="footer_menu">
+		<h5>family sites</h5>
+		<img src="footer_bt.png" alt="footer_bt_img" id="footer_menu_arrow">
+			<ul id="footer_sub">
+				<li>HYBE CO., LTD.</li>
+				<li>BIG HIT AUDITION</li>
+				<li>WEVERSE SHOP</li>
+				<li>WEVERSE</li>
+				<li>TOMORROW X TOGETHER OFFICIAL WEBSITE</li>
+				<li>LEE HYUN OFFICIAL WEBSITE</li>
+			</ul>
+		</div>
+		<div id="copyright">
+				<h5>관련사이트</h5>
+				<h6>COPYRIGHT © 2021 BIG HIT MUSIC / HYBE. ALL RIGHTS RESERVED</h6>
+			</div>
+	</footer>
+	<h1 id="text">0</h1>	
+ </body>
+</html>

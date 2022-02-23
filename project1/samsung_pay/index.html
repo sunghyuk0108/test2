@@ -1,0 +1,907 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <title>Document</title>
+  <!-- 제이쿼리 설치 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+		//화면크기에 반응하여 조건식 설정
+		resize_num =0;
+		//1_여기서 부터
+			if($('body').width() > 1024){
+				resize_num =1; //pc
+				$('#footer1 ul').show()
+			}
+			else if($('body').width() <= 1024){
+				resize_num =0; //mobile
+				$('#footer1 ul').hide()
+				footer1_menu_box1 = 0; footer1_menu_box2 = 0; footer1_menu_box3 = 0;
+				footer1_menu_box4 = 0; footer1_menu_box5 = 0; footer1_menu_box6 = 0;
+			}
+		//1_여기까지 아래에서 복사해서 시작하자 마자 반응하게 복붙해줌.
+		//2_ 아래 resize 조건식 넣어서 사이즈에 반응하게끔 넣어줌
+		$(window).resize(function(){
+			if($('body').width() > 768){
+				resize_num =1; //px
+				$('#footer1 ul').show()
+			}
+			else if($('body').width() <= 768){
+				resize_num =0; //mobile
+				$('#footer1 ul').hide()
+				footer1_menu_box1 = 0; footer1_menu_box2 = 0; footer1_menu_box3 = 0;
+				footer1_menu_box4 = 0; footer1_menu_box5 = 0; footer1_menu_box6 = 0;
+			}
+		})
+		//2_ 아래 resize 조건식 넣어서 사이즈에 반응하게끔 넣어줌
+		footer1_menu_box1 = 0; footer1_menu_box2 = 0; footer1_menu_box3 = 0;
+		footer1_menu_box4 = 0; footer1_menu_box5 = 0; footer1_menu_box6 = 0;
+		$('#footer1_menu_box1 h3,#footer1_menu_box1 h6').click(function(){	
+		if(resize_num==0){ //if(resize_num==0){여기 안에 적용할 값을 넣음} 각 각 적용되야되서 6번까지 다 넣음
+		if(footer1_menu_box1==0){
+		footer1_menu_box1=1;
+		$('#footer1_menu_box1 ul').show()
+		$('#footer1_menu_box1 h6').html('-')
+		}
+		else if(footer1_menu_box1==1){
+		footer1_menu_box1=0;
+		$('#footer1_menu_box1 ul').hide()
+		$('#footer1_menu_box1 h6').html('+')
+		}			
+		}
+		})
+		$('#footer1_menu_box2 h3,#footer1_menu_box2 h6').click(function(){	
+		if(resize_num==0){
+		if(footer1_menu_box2==0){
+		footer1_menu_box2=1;
+		$('#footer1_menu_box2 ul').show()
+		$('#footer1_menu_box2 h6').html('-')
+		}
+		else if(footer1_menu_box2==1){
+		footer1_menu_box2=0;
+		$('#footer1_menu_box2 ul').hide()	
+		$('#footer1_menu_box2 h6').html('+')
+		}			
+		}
+		})
+		$('#footer1_menu_box3 h3,#footer1_menu_box3 h6').click(function(){	
+		if(resize_num==0){
+		if(footer1_menu_box3==0){
+		footer1_menu_box3=1;
+		$('#footer1_menu_box3 ul').show()
+		$('#footer1_menu_box3 h6').html('-')
+		}
+		else if(footer1_menu_box3==1){
+		footer1_menu_box3=0;
+		$('#footer1_menu_box3 ul').hide()
+		$('#footer1_menu_box3 h6').html('+')
+		}		
+		}
+		})
+		$('#footer1_menu_box4 h3,#footer1_menu_box4 h6').click(function(){	
+		if(resize_num==0){
+		if(footer1_menu_box4==0){
+		footer1_menu_box4=1;
+		$('#footer1_menu_box4 ul').show()
+		$('#footer1_menu_box4 h6').html('-')
+		}
+		else if(footer1_menu_box4==1){
+		footer1_menu_box4=0;
+		$('#footer1_menu_box4 ul').hide()
+		$('#footer1_menu_box4 h6').html('+')
+		}	
+		}
+		})
+		$('#footer1_menu_box5 h3,#footer1_menu_box5 h6').click(function(){	
+		if(resize_num==0){
+		if(footer1_menu_box5==0){
+		footer1_menu_box5=1;
+		$('#footer1_menu_box5 ul').show()
+		$('#footer1_menu_box5 h6').html('-')
+		}
+		else if(footer1_menu_box5==1){
+		footer1_menu_box5=0;
+		$('#footer1_menu_box5 ul').hide()
+		$('#footer1_menu_box5 h6').html('+')
+		}	
+		}
+		})
+		$('#footer1_menu_box6 h3,#footer1_menu_box6 h6').click(function(){	
+		if(resize_num==0){
+		if(footer1_menu_box6==0){
+		footer1_menu_box6=1;
+		$('#footer1_menu_box6 ul').show()
+		$('#footer1_menu_box6 h6').html('-')
+		}
+		else if(footer1_menu_box6==1){
+		footer1_menu_box6=0;
+		$('#footer1_menu_box6 ul').hide()
+		$('#footer1_menu_box6 h6').html('+')
+		}		
+		}
+		})
+		//처음 썼던거 하나하나 동작 줘야되서 이렇게하면 안됨		show_num=0
+//		$('#footer_box1>div').click(function(){
+//			if(show_num==1){
+//			show_num=0
+//			$(this).stop().animate({'height':'100%'},10)
+//			$(this).children('#footer_box1>div ul').show()
+//			$(this).children('#footer_box1>div h6').html('-')
+//			}
+//			else if(show_num==0){
+//			show_num=1
+//			$(this).stop().animate({'height':'50px'},10)
+//			$(this).children('#footer_box1>div ul').hide()
+//			$(this).children('#footer_box1>div h6').html('+')
+//			}
+//		});
+
+		// section2_slide_right_bt 클릭하면 값이 -100만큼 감소. 변화하는 변수가 필요
+		section2_slide_num = 0; // 처음에 번의 값은 0
+		$('#section2_slide_right_bt').click(function(){
+			$('#section2_slide_left_bt').show()
+			section2_slide_num = section2_slide_num -100  // 0 -100 -200 -300 -400      -500 여기까지 가면안됨
+			if(section2_slide_num<=-500){section2_slide_num = -400}
+			$('#section2_box_slide').animate({'left':section2_slide_num+'%'},500) //움직이는건 기차 pos:a 필요함
+			//#section2_slide_bt li값이 순번에 따라 변화해야한다.
+			//$('#section2_slide_bt li:nth-child(1)')=$('#section2_slide_bt').eq(0)
+			//section2_slide_num의 0 -100 -200 -300 -400 값을 0 1 2 3 4 로 만들자
+			$('#section2_slide_bt li').eq(section2_slide_num/-100).css({'background-color':'#fff'}).siblings().css({'background-color':'transparent'}) 
+		});
+		// right 쓰고 복사해서 아래 레프트값 추가함
+			$('#section2_slide_left_bt').click(function(){
+			section2_slide_num = section2_slide_num +100  // 0 100 200 300 400
+			if(section2_slide_num>=100){section2_slide_num = 0}
+			$('#section2_box_slide').animate({'left':section2_slide_num+'%'},500) //움직이는건 기차 pos:a 필요함
+			//#section2_slide_bt li값이 순번에 따라 변화해야한다.
+			//$('#section2_slide_bt li:nth-child(1)')=$('#section2_slide_bt').eq(0)
+			//section2_slide_num의 0 -100 -200 -300 -400 값을 0 1 2 3 4 로 만들자
+			$('#section2_slide_bt li').eq(section2_slide_num/-100).css({'background-color':'#fff'}).siblings().css({'background-color':'transparent'}) 
+		});
+	});
+  </script>
+	
+  <style>
+	* { margin:0; padding:0; list-style:none;}
+	a { text-decoration: none; color:inherit; }
+	header {width: 100%; height: 80px; background-color: #fff; border-bottom: 1px solid #eee;}
+	#header_box {width: 1440px; height: 80px; margin: auto;}
+	#logo {width: 116px; height: 18px; float: left; margin-left: 10px; background-color: #eee; margin-top: 31px;}
+	#logo img {width: 116px; vertical-align: top;}
+	#menu {height: 20px; float: left; margin-left: 20px; margin-top: 15px;}
+	#menu>li {float: left; font-size: 12px; font-weight: 900; line-height: 50px; margin-left: 40px;}
+	#icon_menu{height: 50px; float: right; margin-top: 26px; margin-right: 5px;}
+	#icon_menu li{width: 28px; height: 28px; float: left; margin-left: 20px;}
+	
+	#icon_hidden_menu {float: right; display: none; margin-right: 5px;}
+	#icon_hidden_menu li {width: 28px; height: 28px; float: left; margin-left: 30px; background-color: #eee;}
+
+	/*section1 시작*/
+	#section1 {width: 1440px; text-align: center; margin: auto;}
+	#section1_logo {width: 240px; margin-top: 100px;}
+	#section1 h2 {font-size: 36px; margin-top: 20px;}
+	#section1_text h3 {display: inline-block; vertical-align: middle; font-size: 50px; margin: 0px 5px;}
+	#section1_line {display: inline-block; height: 40px; width: 2px; background-color: #000; vertical-align: middle;}
+	#section1_text p {font-size: 16px; margin-top: 10px;}
+	#section1_img {width: 100%; margin-top: 100px;}
+	#section1_img_phone {display: none; margin: auto; margin-top: 30px; width: 300px;}
+
+
+	#section2{width: 1440px; margin: auto; margin-top: 50px;}
+	#section2_box {width: 100%; height: 900px; position: relative; overflow: hidden; position: relative;}
+	#section2_box_slide {width: 500%; height: 100%; position: absolute; left: 0; top: 0; }
+	#section2_box_slide li {width: 20%; height: 100%; text-align: center; overflow: hidden; float: left;}
+	#section2_box_slide li:nth-child(1) {background: #f7f7f7 url(images/bg_swipe1_1.webp) center bottom no-repeat; background-size: 1000px;}
+	#section2_box_slide li:nth-child(2) {background: #f7f7f7 url(images/bg_swipe2_1.webp) center bottom no-repeat; background-size: 1000px;}
+	#section2_box_slide li:nth-child(3) {background: #f7f7f7 url(images/bg_swipe3_3.webp) center bottom no-repeat; background-size: 1000px;}
+	#section2_box_slide li:nth-child(4) {background: #f7f7f7 url(images/bg_swipe5.webp) center bottom no-repeat; background-size: 1000px;}
+	#section2_box_slide li:nth-child(5) {background: #f7f7f7 url(images/bg_swipe4.webp) center bottom no-repeat; background-size: 1000px;}
+	#section2_box_slide li h2 {font-size: 36px; margin-top: 50px;}
+	.section2_title {margin-top: 50px;}
+	#section2_box_slide li:nth-child(1) .section2_title {width: 33.333%; float: left; margin-top: 50px;}
+	#section2_box_slide li:nth-child(2) .section2_title {width:25%; float: left;}
+	#section2_box_slide li:nth-child(3) .section2_title {width:50%; float: left;}
+	#section2_box_slide li:nth-child(4) .section2_title {width:50%; float: left;}
+	#section2_box_slide li:nth-child(5) .section2_title {width:100%; float: left;}
+	.section2_title h3 {font-size: 20px;}
+	#section2_slide_right_bt {width: 70px; height: 150px; background-color: #555; position: absolute; right: 0; top: 0; bottom: 0; margin: auto; border: none; border-radius: 10px 0px 0px 10px;}
+	#section2_slide_left_bt {width: 70px; height: 150px; background-color: #555; position: absolute; left: 0; top: 0; bottom: 0; margin: auto; border: none; border-radius: 0px 10px 10px 0px; display: none;}
+
+	#section2_slide_bt {width: 85px; height: 18px; background-color: #555; position: absolute; left: 0; right: 0; bottom: 35px; margin: auto; border-radius: 10px; text-align: center;}
+	#section2_slide_bt li {width: 5px; height: 5px; border: 1px solid #fff; display: inline-block; border-radius: 10px; vertical-align: top; margin-top: 6px;}
+	#section2_slide_bt li:nth-child(1) {background-color: #fff;}
+	#section2_menu {width: 1440px; margin: auto; margin-top: 30px; text-align: center;}
+	#section2_menu li {height: 45px; border: 1px solid #000; display: inline-block; border-radius: 5px; line-height: 45px; font-size: 14px; margin: 10px;}
+	#section2_menu li:nth-child(1) {width: 180px;}
+	#section2_menu li:nth-child(2) {width: 180px;}
+	#section2_menu li:nth-child(3) {width: 150px;}
+
+	 /*section3 시작*/
+	 #section3 {width: 1440px; margin: auto; margin-top: 100px; text-align: center;}
+	 #section3_title {width: 100%; font-size: 50px; margin-top: 50px;}
+	 #section3_text {font-size: 16px; margin-top: 20px;}
+	 #section3 div{width: 100%; height: 450px; background-color: green; margin-top: 50px;}
+	 #section3_imgbox1 {background: #fff url(images/bg_benefit1.jpg) center top no-repeat;}
+	 #section3_imgbox2 {background: #fff url(images/bg_benefit2.jpg) center top no-repeat;}
+	 #section3_imgbox3 {background: #fff url(images/bg_benefit4.jpg) center top no-repeat;}
+	 #section3_imgbox4 {background: #fff url(images/bg_benefit3.jpg) center top no-repeat;}
+	 #section3_imgbox3 {position: relative;}
+	 #section3_imgbox3 img {position: absolute; left: 10%; bottom: 0; width: 410px;}
+	 #section3_imgbox4 {position: relative;}
+	 #section3_imgbox4 img {position: absolute; right: 10%; bottom: 0; width: 410px;}
+	 #section3 h4 {margin-top: 10px; font-size: 20px; font-weight: 900;} 
+	 #section3 p {margin-top: 10px; font-size: 16px;}
+
+	/*section4 시작*/
+	#section4 {width: 1440px; text-align: center; margin: auto; margin-top: 100px;}
+	#section4_title {width: 100%; font-size: 50px; margin: auto;}
+	#section4_title_text {margin-top: 20px;}
+	#section4 ul {width: 1440px; margin: auto; background-color: #fff; margin-top: 50px; overflow: hidden;}
+	#section4 ul li {width: 23.5%; height: 260px; margin-right: 2%; float: left; background-color: #eee; margin-top: 2%;}
+	/*4n 하면 배수로 계산됨*/
+	#section4 ul li:nth-child(4n) {margin-right: 0;}
+	#section4 ul li img {margin-top: 70px;}
+	#section4 ul li h4 {display: inline-block; padding-right: 20px; background: url(icons/rbtblack1.png) center right no-repeat; margin-top: 20px;}
+	#section4 ul li:last-child {background-color: #000;}
+	#section4 ul li:last-child h4{color: #fff; background: url(icons/rbtwhite.png) center right no-repeat;}
+	/*모양이미지를 배경으로 넣기 위해서 h4의 공간을 d:ib으로 변경한다. 100%의 block가 아니게 하기 이하여 d:ib를 사용.*/
+	.section4_notice {width: 1440px; text-align: left; line-height: 30px; clear: both; margin: auto; font-size: 16px;}
+	/*section4 p*/
+	#section4 p:nth-child(4) {margin-top: 50px;}
+
+	/* footer 시작 */
+	footer{width: 100%; overflow: hidden; margin-top: 100px;}
+	footer>div {width: 100%; border-top: 1px solid #ccc;}
+	footer>div>div{width: 1440px; margin: auto;}
+	#footer_box1 {overflow: hidden;}
+	#footer_box1>div{width: 16.666%; height: 420px; border-left: 1px solid #ccc; float: left; box-sizing: border-box; background-color: #fff; padding-left: 2%;}
+	#footer_box1>div ul {margin-top: 10px; box-sizing: border-box;}
+	#footer_box1>#footer1_menu_box1 {width: 33.333%; border-left: none;}
+	#footer_box1>div li {float: left; width: 100%; margin-top: 15px; font-size: 14px;}
+	#footer_box1 h3{font-size: 16px; font-weight: 900;}
+	#footer1_menu_box1 ul li {width: 50%;}
+	#footer1_menu_box5 ul {height: 30%;}
+	
+	#footer_box2 {padding-top: 1%; padding-bottom: 1%; width: 1440px;}
+	#footer2_box ul {width: 66.666%;	 float: left; padding-left: 2%;}
+	#footer2_box ul li {float: left; font-size: 11px; line-height: 25px; border-right: 1px solid #ccc; padding: 0% 1%;}
+	#footer2_box ul li:nth-child(1) {padding-left: 0;}
+	#footer2_box ul li:nth-child(4) {clear: both; padding-left: 0;}
+	#footer2_box ul li:nth-child(8) {border: none;}
+	#footer2_box p{clear: both; font-size: 11px; line-height: 25px; padding-left: 2%;}
+
+	#footer3 {width: 100%; height: 100px;}
+	#footer_box3 {width: 1440px; height: 100px; margin: auto; padding-left: 2%;}
+	#footer3_box_left {width: 800px; height: 100px; float: left;}
+	#footer3_box_left_menu {float: left; width: 50%; margin-top: 40px;}
+	#footer3_box_left_menu li{float: left; line-height: 20px; font-size: 12px; border-right: 1px solid #ccc; padding: 0px 10px; font-weight: 900;}
+	#footer3_box_left_menu li:nth-child(4){border: none;}
+	#footer3_box_left_menu2 {width: 200px; height: 40px; float: left; border: 1px solid #ccc; margin-top: 30px; border-radius: 10px; margin-left: 10px; line-height: 40px; font-size: 12px; padding: 0px 10px; box-sizing: border-box;}
+	#footer3_box_left_menu2 h4 {float: left;}
+	#footer3_box_left_menu2 img {float: right; margin-top: 14px;}
+	#footer3_box_left_menu3 {width: 200px; height: 40px; float: left; border: 1px solid #ccc; margin-top: 30px; border-radius: 10px; margin-left: 10px; line-height: 40px; font-size: 12px; padding: 0px 10px; box-sizing: border-box;}
+	#footer3_box_left_menu3 h4 {float: left;}
+	#footer3_box_left_menu3 img {float: right; margin-top: 14px;}
+	#footer3_box_right {width: 20%; height: 100px; float: right;}
+	#footer3_box_right h6 {width: 50px; height: 100px; float: left; line-height: 100px; text-align: center; font-size: 14px;}
+	#footer3_box_right_logo_img1 {width: 68px; height: 48px;}
+	#footer3_box_right_logo_img2 {width: 41px; height: 41px;}
+	#footer3_box_right_logo_img2 img {margin-top: 5px;}
+	#footer3_box_right div{height: 50px; float: left; margin-top: 25px; margin-right: 10px; box-sizing: border-box;}
+	#footer3_box_right_sns {float: left; margin-top: 25px; background-color: #fff;}
+	#footer3_box_right_sns li {background-color: #fff; margin-left: 10px; float: left; text-align: center;}
+	#footer3_box_right_sns img {margin-top: 5px;}
+	</style>
+
+  <style>
+	/*미디어쿼리*/
+	@media all and (min-width:320px) { 
+	header {height: 56px;}
+	#menu {display: none;}
+	#header_box {width: 100%; height: 56px;}
+	#logo {margin-top: 19px;}
+	#icon_menu {display: none;}
+	#icon_hidden_menu {display: block; margin-top: 14px;}
+	#section1_logo {width: 200px;}
+	#section1 {width: 100%;}
+	#section1 h2 {font-size: 18px; margin-top: 10px;}
+	#section1_text h3 {font-size: 20px;}
+	#section1_line {height: 20px; width: 1px;}
+	#section1_text p {display: none;}
+	#section1_img {display: none;}
+	#section1_img_phone {display: block;}
+	#section2 {width: 100%;}
+	#section2_box {height: 400px;}
+	#section2_box_slide li h2 {font-size: 20px; width: 200px; margin: auto; margin-top: 20px;}
+	#section2_box_slide li:nth-child(1) {background-size: 300px;}
+	#section2_box_slide li:nth-child(2) {background-size: 300px;}
+	#section2_box_slide li:nth-child(3) {background-size: 300px;}
+	#section2_box_slide li:nth-child(4) {background-size: 300px;}
+	#section2_box_slide li:nth-child(5) {background-size: 300px;}
+	.section2_title h3 {font-size: 12px;}
+	.section2_title p {display: none;}
+	#section2_slide_right_bt {width: 25px; height: 60px; border-radius: 3px 0px 0px 3px;}
+	#section2_slide_left_bt {width: 25px; height: 60px; border-radius: 0px 3px 3px 0px;}
+	#section2_slide_left_bt img {width: 15px;}
+	#section2_slide_right_bt img {width: 15px;}
+	#section2_slide_bt {bottom: 10px;}
+	#section2_menu {width: 100%;}
+	#section2_menu li {height: 30px; line-height: 30px;}
+	#section2_menu li:nth-child(1) {width: 80%;}
+	#section2_menu li:nth-child(2) {width: 80%;}
+	#section2_menu li:nth-child(3) {width: 80%;}
+	#section3 {width: 100%;}
+	#section3_title {width: 330px; margin: auto; font-size: 20px;}
+	#section3_text {font-size: 2vw;}
+	#section3 div{height: 260px; margin-top: 20px;}
+	#section3_imgbox3 img {left: 50%; width: 250px; margin-left: -95px;}
+	#section3_imgbox4 img {right: 50%; width: 250px; margin-right: -155px;}
+	#section3 h4 {font-size: 14px;} 
+	#section3 p {font-size: 1.5vw;}
+	#section4 {width: 100%;}
+	#section4_title {width: 200px; font-size: 20px;}
+	#section4_title_text {font-size: 12px;}
+	#section4 ul {width: 80%;}
+	#section4 ul li {width: 49%; height: 100px; margin-right: 2%;}
+	#section4 ul li:nth-child(2n) {margin-right: 0;}
+	#section4 ul li:nth-child(4n) {margin-right: 0;}
+	#section4 ul li img {width: 25px; margin-top: 20px;}
+	#section4 ul li h4 {font-size: 10px;}
+	.section4_notice {width: 80%; font-size: 14px;}
+	footer>div>div{width: 100%;}
+	#footer_box1>div{width: 100%; height: auto; padding-left: 0%; border-bottom: 1px solid #aaa; border-left: none;}
+	#footer_box1>div ul {display: none; padding: 10px 5px; margin-top: 50px; background-color: #eee;}
+	#footer_box1>div ul li {float: none; font-size: 11px; line-height: 20px;}
+	#footer_box1>#footer1_menu_box1 {width: 100%; padding-left: 0%;}
+	#footer_box1 h3 {float: left; font-size: 12px; margin-left: 5px; line-height: 50px;}
+	#footer_box1 h6 {display: block; float: right; margin-right: 5px; margin-top: 15px;}
+	#footer_box2 {width: 100%;}
+	#footer2_box ul li {float: none; border-right: none;}
+	#footer_box3 {width: 100%; padding-left: 0%;}
+	#footer3_box_left {width: 100%; height: 200px;}
+	#footer3_box_left_menu {width: 100%; margin-top: 20px; margin-left: 5%;}
+	#footer3_box_left_menu2 {width: 90%; margin-left: 5%;}
+	#footer3_box_left_menu3 {width: 90%; margin-left: 5%;}
+	#footer3_box_right {width: 100%; height: 200px;}
+	#footer3_box_right h6 {display: none;}
+	#footer3_box_right_sns {width: 100%; text-align: center;}
+	#footer3_box_right_sns li{display: inline-block; float: none;}
+	#footer3_box_right_logo_img1 {text-align: right;}
+	#footer3_box_right div {width: 50%; margin-right: 0px; padding-left: 20px;}
+	#footer_box1>#footer1_menu_box6 {display: block; border-bottom: none;}
+	#footer1_menu_box5 h3:nth-child(4) {display: none;}
+	#footer1_menu_box5_2 {display: none;}
+	} 
+
+	@media all and (min-width:768px) { 
+	#section4 {width: 100%;}
+	#section4_title {width: 200px; font-size: 20px;}
+	#section4_title_text {font-size: 2vw;}
+	#section4 ul {width: 100%;}
+	#section4 ul li {width: 23.5%; height: 100px; margin-right: 2%;}
+	#section4 ul li:nth-child(2n) {margin-right: 2%;}
+	#section4 ul li:nth-child(4n) {margin-right: 0;}
+	#section4 ul li img {width: 25px; margin-top: 20px;}
+	#section4 ul li h4 {font-size: 10px;}
+	.section4_notice {width: 100%; font-size: 1.5vw;}
+	}
+
+	@media all and (min-width:1024px) { 
+	header {height: 80px;}
+	#menu {display: none;}
+	#header_box {width: 100%; height: 80px;}
+	#logo {margin-top: 31px;}
+	#icon_menu {display: block;}
+	#icon_hidden_menu {display: none; margin-top: 26px;}
+	#section1 {width: 100%;}
+	#section1_logo {width: 240px;}
+	#section1_text h3 {font-size: 50px;}
+	#section1_line {height: 40px; width: 2px;}
+	#section1_text p {font-size: 1vw; display: block;}
+	#section1_img {display: block;}
+	#section1_img_phone {display: none;}
+	#section2 {width: 100%;}
+	#section2_box {height: 900px;}
+	#section2_box_slide li h2 {width: 100%; font-size: 36px; margin: auto; margin-top: 50px;}
+	#section2_box_slide li:nth-child(1) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(2) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(3) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(4) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(5) {background-size: 1000px;}
+	.section2_title h3 {font-size: 22px;}
+	.section2_title p {display: block;}
+	#section2_slide_right_bt {width: 70px; height: 150px; border-radius: 10px 0px 0px 10px;}
+	#section2_slide_left_bt {width: 70px; height: 150px; border-radius: 0px 10px 10px 0px;}
+	#section2_slide_left_bt img {width: 40px;}
+	#section2_slide_right_bt img {width: 40px;}
+	#section2_slide_bt {bottom: 37px; left: 13px; right: 0;}
+	#section2_menu {width: 100%;}
+	#section2_menu li {height: 30px; line-height: 30px;}
+	#section2_menu li:nth-child(1) {width: 80%;}
+	#section2_menu li:nth-child(2) {width: 80%;}
+	#section2_menu li:nth-child(3) {width: 80%;}
+	#section3 {width: 100%;}
+	#section3_title {width: 100%; margin: auto; font-size: 30px;}
+	#section3_text {font-size: 1vw;}
+	#section3 div{height: 450px; margin-top: 50px;}
+	#section3_imgbox3 img {left: 10%; width: 410px; margin-left: 0px;}
+	#section3_imgbox4 img {right: 10%; width: 410px; margin-right: 0px;}
+	#section3 h4 {font-size: 20px;} 
+	#section3 p {font-size: 16px;}
+	#section4 {width: 100%;}
+	#section4_title {width: 100%; font-size: 50px;}
+	#section4_title_text {font-size: 14px;}
+	#section4 ul {width: 100%;}
+	#section4 ul li {width: 23.5%; height: 260px; margin-right: 2%;}
+	#section4 ul li:nth-child(2n) {margin-right: 2%;}
+	#section4 ul li:nth-child(4n) {margin-right: 0;}
+	#section4 ul li img {width: 58px; margin-top: 70px;}
+	#section4 ul li h4 {font-size: 20px;}
+	.section4_notice {width: 100%; font-size: 1.5vw;}
+	footer>div>div{width: 100%;}
+	#footer_box1>div{width: 16.666%; height: 420px; padding-left: 2%; border-bottom: none;	border-left: 1px solid #ccc;}
+	#footer_box1>div ul {border-left: none; padding: 0; margin-top:10px; background-color: #fff;}
+	#footer_box1>div ul li {float: left; font-size: 14px; line-height: 20px;}
+	#footer_box1>#footer1_menu_box1 {width: 33.333%; padding-left: 2%;}
+	#footer_box1 h3 {float: none; margin-top: 30px; font-size: 16px; margin-left: 0px; line-height: 20px;}
+	#footer_box1 h6 {display: none; float: none; margin-top: 0px; margin-right: 0px;}
+	#footer_box2 {width: 1440px;}
+	#footer2_box ul {width: 66.666%; padding-left: 2%;}
+	#footer2_box ul li {float: left; border-right: 1px solid #ccc;}
+	#footer_box3 {width: 100%;}
+	#footer3_box_left {width: 900px; height: 100px;}
+	#footer3_box_left_menu {width: 50%; margin-top: 40px; margin-left: 0;}
+	#footer3_box_left_menu2 {width: 200px; margin-left: 0;}
+	#footer3_box_left_menu3 {width: 200px; margin-left: 0;}
+	#footer3_box_right {width: 100%; height: 100px;}
+	#footer3_box_right h6 {display: block;}
+	#footer3_box_right_sns {width: auto; text-align: center;}
+	#footer3_box_right_sns li{display: block; float: left;}
+	#footer3_box_right_logo_img1 {text-align: left;}
+	#footer3_box_right div {width: auto; margin-right: 10px; padding-left: 0;}
+	#footer_box1>#footer1_menu_box6 {display: none; border-bottom: none;}
+	#footer1_menu_box5_2 {display: block;}
+	}
+	@media all and (min-width:1440px) { 
+	header {height: 80px;}
+	#menu {display: block;}
+	#header_box {width: 1440px; height: 80px;}
+	#logo {margin-top: 31px;}
+	#icon_menu {display: block;}
+	#icon_hidden_menu {display: none; margin-top: 26px;}
+	#section1 {width: 1440px;}
+	#section1_logo {width: 240px;}
+	#section1_text h3 {font-size: 50px;}
+	#section1_line {height: 40px; width: 2px;}
+	#section1_text p {font-size: 16px; display: block;}
+	#section1_img {display: block;}
+	#section1_img_phone {display: none;}
+	#section2 {width: 1440px;}
+	#section2_box {height: 900px;}
+	#section2_box_slide li h2 {width: 100%; font-size: 36px; margin: auto; margin-top: 50px;}
+	#section2_box_slide li:nth-child(1) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(2) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(3) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(4) {background-size: 1000px;}
+	#section2_box_slide li:nth-child(5) {background-size: 1000px;}
+	.section2_title h3 {font-size: 22px;}
+	.section2_title p {display: block;}
+	#section2_slide_right_bt {width: 70px; height: 150px; border-radius: 10px 0px 0px 10px;}
+	#section2_slide_left_bt {width: 70px; height: 150px; border-radius: 0px 10px 10px 0px;}
+	#section2_slide_left_bt img {width: 40px;}
+	#section2_slide_right_bt img {width: 40px;}
+	#section2_slide_bt {bottom: 37px; left: 13px; right: 0;}
+	#section2_menu {width: 1440px;}
+	#section2_menu li {height: 45px; line-height: 45px;}
+	#section2_menu li:nth-child(1) {width: 180px;}
+	#section2_menu li:nth-child(2) {width: 180px;}
+	#section2_menu li:nth-child(3) {width: 150px;}
+	#section3 {width: 1440px;}
+	#section3_title {width: 100%; font-size: 50px;}
+	#section3_text {font-size: 16px;}
+	#section3 div{height: 450px; margin-top: 50px;}
+	#section3_imgbox3 img {left: 10%; width: 410px; margin-left: 0px;}
+	#section3_imgbox4 img {right: 10%; width: 410px; margin-right: 0px;}
+	#section3 h4 {font-size: 20px;} 
+	#section3 p {font-size: 16px;}
+	#section4 {width: 1440px;}
+	#section4 ul {width: 1440px;}
+	#section4_title {width: 100%; font-size: 50px;}
+	#section4_title_text {font-size: 20px;}
+	#section4 ul li {width: 23.5%; height: 260px; margin-right: 2%;}
+	#section4 ul li:nth-child(2n) {margin-right: 2%;}
+	#section4 ul li:nth-child(4n) {margin-right: 0;}
+	#section4 ul li img {width: 58px; margin-top: 70px;}
+	#section4 ul li h4 {font-size: 20px;}
+	.section4_notice {width: 1440px; font-size: 16px;}
+	footer>div>div{width: 1440px;}
+	#footer_box1>div{width: 16.666%; height: 420px; padding-left: 2%; border-bottom: none; border-left: 1px solid #ccc;}
+	#footer_box1>div ul {display: block; padding: 0; margin-top:10px; background-color: #fff;}
+	#footer_box1>div ul li {float: left; font-size: 14px; line-height: 20px;}
+	#footer_box1>#footer1_menu_box1 {width: 33.333%; padding-left: 2%;}
+	#footer_box1 h3 {float: none; margin-top: 30px; font-size: 16px; margin-left: 0px; line-height: 20px;}
+	#footer_box1 h6 {display: none; float: none; margin-top: 0px; margin-right: 0px;}
+	#footer_box2 {width: 1440px;}
+	#footer2_box ul {width: 66.666%; padding-left: 2%;}
+	#footer2_box ul li {float: left; border-right: 1px solid #ccc;}
+	#footer_box3 {width: 1440px;}
+	#footer3_box_left {width: 900px; height: 100px;}
+	#footer3_box_left_menu {width: 50%; margin-top: 40px; margin-left: 0;}
+	#footer3_box_left_menu2 {width: 200px; margin-left: 0;}
+	#footer3_box_left_menu3 {width: 200px; margin-left: 0;}
+	#footer3_box_right {width: 380px; height: 100px;}
+	#footer3_box_right h6 {display: block;}
+	#footer3_box_right_sns {width: auto; margin-top: 25px; float: none;}
+	#footer3_box_right_sns {width: auto; text-align: center;}
+	#footer3_box_right_sns li{display: block; float: left;}
+	#footer3_box_right_logo_img1 {text-align: left;}
+	#footer3_box_right div {width: auto; margin-right: 10px; padding-left: 0;}
+	#footer_box1>#footer1_menu_box6 {display: none; border-bottom: none;}
+
+	}
+  </style></head><body>
+	<!-- header 시작 -->
+	<header>
+		<div id="header_box">
+			<h1 id="logo"><img src="logo/smasung-logo.png" alt="logo_img"></h1>
+			<ul id="menu">
+				<li>제품</li>
+				<li>기획전</li>
+				<li>스토리</li>
+				<li>고객 서비스</li>
+				<li>멤버십</li>
+				<li>디지털프라자 <img src="icons/footerbtn2.png" alt="footerbtn_img1"></li>
+				<li>사회공헌 <img src="icons/footerbtn2.png" alt="footerbtn_img2"></li>
+				<li>비즈니스 <img src="icons/footerbtn2.png" alt="footerbtn_img3"></li>
+			</ul>
+			<ul id="icon_menu">
+				<li><img src="icons/icons_menu2.jpg" alt="icon_img1"></li>
+				<li><img src="icons/icons_menu1.jpg" alt="icon_img2"></li>
+				<li><img src="icons/icons_menu3.jpg" alt="icon_img3"></li>
+			</ul>
+			<ul id="icon_hidden_menu">
+				<li><img src="icons/icons_menu_hidden1.jpg" alt="hidden_img1"></li>
+				<li><img src="icons/icons_menu_hidden2.jpg" alt="hidden_img2"></li>
+				<li><img src="icons/icons_menu_hidden3.png" alt="hidden_img3"></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- section1시작 -->
+	<div id="section1">
+	<img src="logo/con_logo.png" alt="con_logo_img" id="section1_logo">
+		<h2>삼성페이의 또 다른 시작</h2>
+		<div id="section1_text">
+			<h3>삼성페이카드</h3>
+			<div id="section1_line"></div>
+			<h3>해외결제서비스</h3>
+			<p>온/오프라인 결제, 해외 결제부터 쿠폰샵까지<br>결제할 때는 삼성페이카드로 최대 5% 할인 받으세요.</p>
+		</div>
+		<img src="images/img_visual.jpg" alt="visual_img1" id="section1_img">
+		<img src="images/img_visual_m.webp" alt="visual_img2" id="section1_img_phone">
+	</div>
+
+	<!-- section2시작 -->
+	<div id="section2">
+		<div id="section2_box">
+			<ul id="section2_box_slide">
+				<li>
+					<h2>지갑 속 신용카드가 모바일 폰 속으로</h2>
+					<div class="section2_title">
+						<h3>더 다양한 곳에서</h3>
+						<p>국내/해외 상관 없이 플라스틱 카드로 <br> 결제할 수 있는 곳이면 대부분 <br> 삼성페이 사용이 가능합니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>삼성페이카드로</h3>
+						<p>1년 365일 언제 어디서나 <br> 최대5% 할인으로 <br> 월 최대 40만원 혜택이 가능합니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>간편하고 안전하게</h3>
+						<p>간편하게 카드를 등록하고 <br> 지문 인증, 원타카드 장치로 <br> 보다 안전하게 결제할 수 있습니다.</p>
+					</div>
+				</li>
+				<li>
+					<h2>결제를 더욱 스마트 하게 삼성페이 부가 서비스</h2>
+					<div class="section2_title">
+						<h3>교통카드</h3>
+						<p>티머니, 캐시비 등록시 <br> 교통카드 사용이 가능합니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>멤버십</h3>
+						<p>다양한 멤버십 카드를 <br> 간편하게 사용할 수 있습니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>온라인 결제</h3>
+						<p>다양한 온라인 쇼핑몰에서도 <br> 손쉽게 결제가 가능합니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>페이 플래너</h3>
+						<p>삼성페이로 지출 내역을 <br> 기록하고, 확인할 수 있습니다.</p>
+					</div>
+				</li>
+				<li>
+					<h2>나에게 맞는 합리적인 상품을 금융 서비스</h2>
+					<div class="section2_title">
+						<h3>삼성페이 충전카드</h3>
+						<p>만 14세 이상이면 내국인 누구나 <br> 간편하게 사용 가능합니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>은행서비스</h3>
+						<p>ATM입출금 및 이체서비스를 <br> 편리하게 이용할 수 있습니다.</p>
+					</div>
+				</li>
+				<li>
+					<h2>외환도 간편하고 안전하게 금융 서비스</h2>
+					<div class="section2_title">
+						<h3>환전</h3>
+						<p>간편하게 신청하고, <br> 우리은행 전담 창구에서 빠르게 <br> 수령할 수 있습니다.</p>
+					</div>
+					<div class="section2_title">
+						<h3>해외 송금</h3>
+						<p>제휴사 별로 수수료를 비교하고 <br> 간편하고 안전하게 <br> 해외 송금을 할 수 있습니다. </p>
+					</div>
+				</li>
+				<li>
+					<h2>모바일 쿠폰 구매도, 선물도 간편한 삼성페이 쿠폰샵</h2>
+					<div class="section2_title">
+						<h3>쿠폰서비스</h3>
+						<p>카테고리별 약 140개 브랜드로 구성 된 다양한 쿠폰에 <br> 할인 혜택이 가득한 삼성페이 쿠폰샵을 이용해보세요.</p>
+					</div>
+				</li>
+			</ul>
+			<button id="section2_slide_left_bt"><img src="icons/lbt.png" alt="icon_left_bt"></button>
+			<button id="section2_slide_right_bt"><img src="icons/rbt.png" alt="icon_right_bt"></button>
+			<ul id="section2_slide_bt">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<ul id="section2_menu">
+		<li>이용시 참고</li>
+		<li>삼성페이 가능 단말</li>
+		<li>지원 카드 안내</li>
+	</ul>
+
+	<!-- section3 시작 -->
+	<div id="section3">
+		<h2 id="section3_title">다양한 혜택으로 국내/해외 편리하게 사용하는 삼성페이</h2>
+		<p id="section3_text">이제 해외에서도 내가 쓰던 삼성페이 그대로 결제가 가능하고 <br> 삼성페이 전용카드 삼성페이카드로 국내/해외 최대 5% 할인 혜택까지 가능합니다. <br> 안전하게 이용가능한 환전, 해외 송금 서비스는 덤!</p>
+		<div id="section3_imgbox1">
+		</div>
+		<h4>삼성페이카드</h4>
+		<p>삼성페이에서만 누릴 수 있는 혜택 삼성페이카드 <br> 온/오프라인 및 해외 결제 최대 5% 할인으로 월 최대 40만원까지 할인이 가능합니다. <br> (국내 30만원, 해외 10만원)</p>
+		<div id="section3_imgbox2">
+		</div>
+			<h4>해외 결제</h4>
+			<p>전 세계 실물카드 결제가 가능한 곳이라면 나라 제약 없이 내가 사용하던 디바이스 그대로 <br> 해외에서도 국내에서 사용하던 그대로 안전하고 간편하게 삼성페이를 이용하세요.</p>
+		<div id="section3_imgbox3">
+		<img src="images/img_benefit4.png" alt="benefit_img1">
+		</div>
+			<h4>환전</h4>
+			<p>최대 80% 환율 우대율로 간편하게 신청하고, <br> 전국 우리은행 영업점내 전담 창구에서 빠르게 수령할 수 있습니다.</p>
+		<div id="section3_imgbox4">
+		<img src="images/img_benefit3.png" alt="benefit_img2">
+		</div>
+			<h4>해외 송금</h4>
+			<p>다양한 국가에 제휴사 별 수수료, 환율 등을 비교하고, 간편하게 송금할 수 있습니다. <br> 정부에서 허가 받은 제휴사를 통해 안전하게 송금해보세요.</p>
+	</div>
+	<!-- section4 시작-->
+		<div id="section4">
+		<h2 id="section4_title">삼성페이가 제공하는 다양한 부가기능</h2>
+		<p id="section4_title_text">삼성페이가 제공하는 더 풍요로운 서비스를 만나보세요.</p>
+		<ul>
+			<li>
+				<img src="icons/ico_list1.png" alt="ico_list_img1" class="section3_icon">
+				<br>
+				<h4>삼성페이카드</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list2.png" alt="ico_list_img2" class="section3_icon">
+				<br>
+				<h4>해외 결제</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list3.png" alt="ico_list_img3" class="section3_icon">
+				<br>
+				<h4>은행서비스</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list4.png" alt="ico_list_img4" class="section3_icon">
+				<br>
+				<h4>교통카드</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list5.png" alt="ico_list_img5" class="section3_icon">
+				<br>
+				<h4>멤버십</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list6.png" alt="ico_list_img6" class="section3_icon">
+				<br>
+				<h4>쿠폰서비스</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list7.png" alt="ico_list_img7" class="section3_icon">
+				<br>
+				<h4>금융서비스</h4>
+			</li>
+			<li>
+				<img src="icons/ico_list8.png" alt="ico_list_img8" class="section3_icon">
+				<br>
+				<h4>FAQ</h4>
+			</li>
+		</ul>
+		<p class="section4_notice">* 일부 카드사별 제휴 서비스는 카드 상품에 따라 지원 여부가 상이하므로, 카드사 고객센터에 문의하시기 바랍니다.</p>
+		<p class="section4_notice">* 위 지원카드의 서비스 시점은 일부 차이가 있을 수 있습니다.</p>
+		<p class="section4_notice">* 실제 제품 UI는 수시 업데이트 되므로, 상기 이미지와 다를 수 있습니다.</p>
+		<p class="section4_notice">* 삼성페이는 결제 시, Push로 결제 알림을 보내고 있으며 일반 문자(SMS)로는 보내지 않습니다.</p>
+		<p class="section4_notice">* 문자를 통한 삼성페이 사칭 스미싱에 유의하시기 바랍니다. (FAQ 내 일반 문의 탭 참조)</p>
+		<p class="section4_notice">* 삼성페이 충전카드는 자체 상품권 발행 가맹점(백화점 등), 무 승인 가맹점, 국세, 취소 가능한 온라인 티켓, 기차표, 환금성 가맹점(상품권 등)은 이용이 제한될 수 있습니다.</p>	
+		</div>
+
+		<!-- footer 시작 -->
+		<footer>
+		<div id="footer1">
+			<div id="footer_box1">
+				<div id="footer1_menu_box1">
+					<h3>제품</h3>
+					<h6>+</h6>
+					<ul>
+						<li>갤럭시</li>
+						<li>김치냉장고</li>
+						<li>스마트폰</li>
+						<li>식기세척기</li>
+						<li>태블릿</li>
+						<li>전기레인지</li>
+						<li>갤럭시북</li>
+						<li>세탁기</li>
+						<li>워치</li>
+						<li>건조기</li>
+						<li>버즈</li>
+						<li>에어드레서</li>
+						<li>TV</li>
+						<li>에어컨</li>
+						<li>Lifestyle TV</li>
+						<li>공기청정기</li>
+						<li>BESPOKE</li>
+						<li>청소기</li>
+						<li>냉장고</li>
+						<li>프린터</li>
+					</ul>		
+				</div>
+				<div id="footer1_menu_box2">
+					<h3>고객서비스</h3>
+					<h6>+</h6>
+					<ul>
+						<li>삼성닷컴 FAQ</li>
+						<li>이메일상담</li>
+						<li>매장 찾기</li>
+						<li>서비스센터 찾기</li>
+						<li>디지털프라자</li>
+						<li>MD 비즈니스 협력제안</li>
+						<li>비즈니스 협력제안</li>
+						<li>삼성멤버스 커뮤니티</li>
+						<li>E-카탈로그</li>
+					</ul>	
+				</div>
+				<div id="footer1_menu_box3">
+					<h3>지속가능경영</h3>
+					<h6>+</h6>
+					<ul>
+						<li>개요</li>
+						<li>환경</li>
+						<li>사회공헌</li>
+						<li>디지털 책임</li>
+						<li>노동과 인권</li>
+						<li>다양성과 포용</li>
+						<li>지속가능한 공급망</li>
+						<li>제품 접근성</li>
+					</ul>	
+				</div>
+				<div id="footer1_menu_box4">
+					<h3>회사소개</h3>
+					<h6>+</h6>
+					<ul>
+						<li>기업정보</li>
+						<li>사업정보</li>
+						<li>브랜드 아이덴티티</li>
+						<li>채용</li>
+						<li>투자자 정보</li>
+						<li>뉴스룸</li>
+						<li>윤리</li>
+						<li>디자인 삼성</li>
+						<li>배당조회</li>
+						<li>공지사항</li>
+					</ul>	
+				</div>
+				<div id="footer1_menu_box5">
+					<h3>윤리&준법경영</h3>
+					<h6>+</h6>
+					<ul>
+						<li>경영원칙</li>
+						<li>부정제보</li>
+						<li>법위반제보</li>
+					</ul>
+						<div id="footer1_menu_box5_2">
+						<h3>부가정보</h3>
+							<ul>
+								<li>데이코</li>
+								<li>협력회사 사이버 신문고</li>
+								<li>폐카트리지 회수신청</li>
+							</ul>	</div>
+				</div>
+					<div id="footer1_menu_box6">
+						<h3>부가정보</h3>
+						<h6>+</h6>
+							<ul>
+								<li>데이코</li>
+								<li>협력회사 사이버 신문고</li>
+								<li>폐카트리지 회수신청</li>
+							</ul>	
+							</div>
+			</div>
+			</div>
+			
+			<div id="footer2">
+				<div id="footer_box2">
+					<div id="footer2_box">
+						<ul>
+							<li>삼성전자 주식회사 대표이사 : 김기남</li>
+							<li>사업자등록번호 : 124-81-00998</li>
+							<li>통신판매업 신고 : 2000-경기수원-0515</li>
+							<li>사업장주소 : 경기도 수원시 영통구 삼성로 129(매탄동) </li>
+							<li>호스팅서비스사업자 : 한국아이비엠(주)</li>
+							<li>대표번호 : 02-2255-0114 </li>
+							<li>제품/서비스/멤버십: 1588-3366 </li>
+							<li>구매문의 : 1588-6084</li>
+						</ul>
+						<p>본 사이트에서 판매되는 상품 중에는 등록된 개별 판매자가 판매하는 상품이 포함되어 있습니다.</p>
+						<p>개별 판매자 판매 상품의 경우 삼성전자(주)는 통신판매중개업자로서 통신판매의 당사자가 아니므로, 개별 판매자가 등록한 상품, 거래정보 및 거래 등에 대해 책임을 지지 않습니다.</p>
+						<p>본 사이트의 컨텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다.</p>
+						<p>Copyright © 1995-2021 Samsung. All Rights Reserved.</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="footer3">
+				<div id="footer_box3">
+					<div id="footer3_box">
+						<div id="footer3_box_left">
+							<ul id="footer3_box_left_menu">
+								<li>한국/한국어</li>
+								<li>이메일 무단 수집거부</li>
+								<li>아이디어 정책</li>
+								<li>사이트맵</li>
+							</ul>
+							<div id="footer3_box_left_menu2">
+								<h4>이용약관</h4>
+								<img src="icons/footerbtn3.png" alt="footer_bt_img1">
+							</div>
+							<div id="footer3_box_left_menu3">
+								<h4>개인정보처리방침</h4>
+								<img src="icons/footerbtn3.png" alt="footer_bt_img2">
+							</div>
+						</div>
+						<div id="footer3_box_right">
+							<div id="footer3_box_right_logo_img1"><img src="logo/icon_WA.png" alt="footer_right_logo_img1"></div>
+							<div id="footer3_box_right_logo_img2"><img src="logo/icon-epri.png" alt="footer_right_logo_img2"></div>
+							<h6>SNS</h6>
+							<ul id="footer3_box_right_sns">
+								<li><img src="icons/footer_sns_icon1.svg" alt="footer_sns_icon_img1"></li>
+								<li><img src="icons/footer_sns_icon2.svg" alt="footer_sns_icon_img2"></li>
+								<li><img src="icons/footer_sns_icon3.svg" alt="footer_sns_icon_img3"></li>
+								<li><img src="icons/footer_sns_icon4.svg" alt="footer_sns_icon_img4"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+ </body>
+</html>

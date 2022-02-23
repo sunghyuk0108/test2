@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			// #popup h6를 클릭하면 #popup 가 꺼져라
+			$('#popup h6').click(function(){
+				$('#popup').css({'display':'none'})
+			})
+			slide_x=0
+			$('#slide_right_bt').click(function(){
+				slide_x = slide_x -100
+				if(slide_x<=-900){slide_x=-800}
+				$('#slide_box').stop().animate({left:slide_x+'%'},500)
+			});
+			$('#slide_left_bt').click(function(){
+				slide_x =slide_x +100
+				if(slide_x>=0){slide_x=0}
+				$('#slide_box').stop().animate({left:slide_x+'%'},500)
+			})
+			$('#slide_bt li:nth-child(1)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':'0'})
+			})
+				$('#slide_bt li:nth-child(2)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-100+'%'})
+			})
+				$('#slide_bt li:nth-child(3)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-200+'%'})
+			})
+				$('#slide_bt li:nth-child(4)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-300+'%'})
+			})
+				$('#slide_bt li:nth-child(5)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-400+'%'})
+			})
+				$('#slide_bt li:nth-child(6)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-500+'%'})
+			})
+				$('#slide_bt li:nth-child(7)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-600+'%'})
+			})
+				$('#slide_bt li:nth-child(8)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-700+'%'})
+			})
+				$('#slide_bt li:nth-child(9)').click(function(){
+				$(this).css({'background-color':'#fff','width':'10px','height':'10px'}).siblings().css({'background-color':'#eee','width':'7px','height':'7px'})
+				$('#slide_box').animate({'left':0-800+'%'})
+			})
+			$('#popup_banner_bt').click(function(){
+				$('#popup_banner_box1').slideToggle()
+			})
+			$(window).mousemove(function(e){
+				sns_x = e.pageX*-1.1;
+				$('#sns_img').css({'left':sns_x})
+				if(sns_x <=-3900){sns_x = -3900;}
+			});
+		})
+	</script>
+  <style>
+  
+	*{margin: 0; padding: 0; list-style: none;}
+	header {width: 100%; position: fixed; left: 0; top: 0; z-index: 999; background-color: #fff;}
+	#header1 {width: 100%; height: 116px; background-color: #f8faf0; border-bottom: 1px solid #e5e2e0;}
+	#header_box1 {width: 1200px; height: 116px; margin: auto; overflow: hidden; position: relative;}
+	#header1_menu1 {width: 400px; height: 100px; float: left; margin-top: 8px;}
+	#header1_menu1 li {float: left; line-height: 100px; text-transform: uppercase; font-size: 12px; margin-right: 15px; color: #2c1810;}
+	#header1_menu2 {height: 100px; float: right; margin-top: 8px;}
+	#header1_menu2 li {float: left; line-height: 100px; text-transform: uppercase; font-size: 12px; color: #2c1810;	margin-left: 15px;}
+	#header1_menu2 li:first-child {color: orange;}
+	#header1_menu2 li:last-child {margin-top: 23px;}
+	#logo {width: 111px; height: 40px; margin: auto; margin-top: 38px;}
+
+	#header2 {width: 100%; height: 54px; border-bottom: 1px solid #483325;}
+	#header2_box2 {width: 1200px; height: 54px; margin: auto;}
+	#header2_menu1 {width: 150px; height: 50px; float: left; margin-top: 2px; line-height: 50px; color: #2c1810; font-weight: 900;}
+	#header2_menu1 li {float: left; margin-right: 30px; font-size: 12px; text-transform: uppercase;}
+	#header2_menu2 {height: 50px; float: right; margin-top: 2px; line-height: 50px;}
+	#header2_menu2 li {float: left; margin-left: 110px; text-transform: uppercase; color: #2c1810; font-weight: 900; font-size: 12px;}
+
+	#wrap_slide {width: 100%; height: 659px; position: relative; margin-top: 172px; overflow: hidden;}
+	#slide_box {width: 900%; height: 659px; position: absolute; left: 0; top: 0;}
+	#slide_box li {width: 11.111%; height: 659px; float: left; background-size: cover;}
+	#slide_box li:nth-child(1) {background: #fff url(slide_images/1.jpg) center no-repeat;}
+	#slide_box li:nth-child(2) {background: #fff url(slide_images/2.jpg) center no-repeat;}
+	#slide_box li:nth-child(3) {background: #fff url(slide_images/3.jpg) center no-repeat;}
+	#slide_box li:nth-child(4) {background: #fff url(slide_images/4.jpg) center no-repeat;}
+	#slide_box li:nth-child(5) {background: #fff url(slide_images/5.jpg) center no-repeat;}
+	#slide_box li:nth-child(6) {background: #fff url(slide_images/6.jpg) center no-repeat;}
+	#slide_box li:nth-child(7) {background: #fff url(slide_images/7.jpg) center no-repeat;}
+	#slide_box li:nth-child(8) {background: #fff url(slide_images/8.png) center no-repeat;}
+	#slide_box li:nth-child(9) {background: #fff url(slide_images/9.png) center no-repeat;}
+	#slide_bt {width: 100%; height: 20px; position: absolute; left: 0; bottom: 50px; text-align: center;}
+	#slide_bt li{width: 7px; height: 7px; display: inline-block; border-radius: 10px; background-color: #eee;}
+	#slide_bt li:nth-child(1) {width: 10px; height: 10px; background-color: #fff;}
+	#slide_left_bt {position: absolute; left: 15vw; top: 319px; bottom: 0; margin: auto;}
+	#slide_right_bt {position: absolute; right: 15vw; top: 319px; bottom: 0; margin: auto;}
+
+	#new_event {width: 1100px; height: 240px; background-color: #fff; margin: auto; margin-top: 50px;}
+	#new_event_box1 {width: 25%; height: 240px; float: left;}
+	#new_event_box1 button {width: 50%; height: 45px; background-color: #fff; border: 1px solid #000; border-radius: 5px; margin-top: 150px;}
+	#new_event_box2 {width: 25%; height: 240px; ; border-top: 3px solid #000; float: left;}
+	#new_event_box2 h5 {width: 100%; height: 50px;  margin-top: 23px; font-size: 16px;}
+	#new_event_box2 h6 {width: 100%; height: 10px;  margin-top: 10px;} 
+	#new_event_box3 {width: 50%; height: 240px; float: left; text-align: right;}
+
+	#new_event_list {width: 1100px; height: 446px; margin: auto; margin-top: 30px; overflow: hidden;}
+	#new_event_list li {width: 267px; height: 446px; float: left; margin-right: 10px; border: 1px solid #000; overflow: hidden; box-sizing: border-box;}
+	#new_event_list li:last-child {width: 269px; margin-right: 0;}
+	#new_event_list img {vertical-align: top;}
+	.new_list_box2 {width: 267px; height: 100px; overflow: hidden; vertical-align: top;}
+	.new_list_box2 h3 {width: 150px; border: 1px solid #000; margin-top: 10px; margin-left: 15px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; text-transform: uppercase; font-size: 20px;}
+	.new_list_box2 h6 {width: 100px; border: 1px solid #000; margin-top: 20px; margin-left: 15px; float: left;}
+	.new_event_icon { border: 1px solid #000; float: right; margin-right: 20px; margin-top: 10px;}
+	.new_list_box3 {width: 267px; height: 80px; margin-top: 10px; margin-left: 15px; }
+
+	#new_list_btn {width: 1100px; height: 15px; margin: auto; margin-top: 20px; text-align: center;}
+	#new_list_btn li {width: 8px; height: 8px; background-color: #2c1810; border-radius: 10px; display: inline-block;}
+	#new_list_btn li:nth-child(2) {transform:scale(1.2); background-color: #aaa;}	
+	
+
+	#bg1 {width: 100%; height: 400px; margin: auto; margin-top: 20px; margin-top: 50px; background: #fff url(images/img_banner_1_1.jpg) 0 0 no-repeat fixed; position: relative;}
+	#bg1_img1 {position: absolute; left: -250px; right: 0; top: -200px; bottom: 0; margin: auto;}
+	#bg1_img2 {position: absolute; left: -100px; right: 0; top: 0; bottom: 0; margin: auto;}
+
+	#menu_list {width: 1200px; margin: auto; margin-top: 100px; text-align: center;}
+	#menu_list_title_img {}
+	#menu_list h4 {margin-top: 20px; font-size: 16px; font-weight: 600;}
+	#menu_list p {margin-top: 20px; font-size: 10px; font-weight: 300;}
+
+	#menu_list ul {width: 1200px; height: 400px; margin: auto; margin-top: 20px; overflow: hidden;}
+	#menu_list ul li {width: 230px; height: 400px;  float: left; margin-right: 10px; text-align: center; }
+	#menu_list ul li:last-child {margin-right: 0;}
+	#menu_list ul li img {width: 100%; height: 222px; vertical-align: top;}
+	#menu_list ul li img:hover {}
+	#menu_list ul li h5 {width: 100%; margin-top: 10px; font-size: 20px; }
+	#menu_list ul li button {width: 100px; height: 30px; background-color: #888; border-radius: 10px; margin-top: 20px; font-size: 12px; background-color: #fff; border: 1px solid #804000;}
+	#menu_list ul li button:nth-child(3) {width: 130px;}
+
+	#bg2 {width: 100%; height: 400px; border: 1px solid #000; margin-top: 100px; background: #fff url(images/img_banner_1_2.jpg) center no-repeat fixed; position: relative;}
+	#bg2_leftbox {width: 380px; height: 380px; position: absolute; left: -500px; right: 0; top: -100px; bottom: 0; margin: auto; background: url(images/bg_map.png) 0 0 no-repeat;}
+	#bg2_leftbox h4{color: #fff; margin-top: 170px; margin-left: 100px;}
+	#bg2_leftbox p{color: #fff; margin-left: 100px; margin-top: 10px;}
+	#bg2_rightbox {width: 380px; height: 380px; position: absolute; left: 0; right: -300px; top: 0; bottom: -100px; margin: auto; background:  url(images/bg_catering.png) center no-repeat;}
+	#bg2_rightbox h4 {margin-left: 150px; margin-top: 170px;}
+	#bg2_rightbox p {margin-left: 150px; margin-top: 10px;}
+
+	#sns {margin: auto; margin-top: 100px; text-align: center;}
+	#sns h4 {margin-top: 20px; text-transform: uppercase; font-weight: 600; font-size: 16px;}
+	#sns_icon {width: 500px; height: 80px; margin: auto; margin-top: 50px;}
+	#sns_icon li{display: inline-block; margin-left: 10px; margin-top: 15px; border-radius: 50px;}
+	#sns_icon li img {width: 50px; height: 50px;}
+	#sns_icon li:nth-child(3) {}
+	/*#sns_icon li:nth_child(1) {background: url(icons/icon1.png) center no-repeat;}이거로 잘못씀 확인할 것*/
+	#sns_slide_wrap {width: 100%; height: 230px; border: 1px solid #000; position: relative; margin-top: 50px; overflow: hidden;}
+	#sns_img {width: 3900px; position: absolute;}
+	#sns_img li{width: 260px; height: 230px; float: left;}
+	#sns_img li img {width: 100%;}
+
+	footer {width: 1200px; height: 400px; margin: auto; margin-top: 60px;}
+	#footer_leftbox{width: 350px; height: 280px; float: left;}
+	#footer_logo1{}
+	#footer_text {font-size: 10px; margin-top: 10px;}
+	#footer_text li{float: left; margin-top: 10px;}
+	#footer_text li:nth-child(3) {float: right;}
+	#footer_text li:nth-child(5) {float: right; margin-right: 14px;}
+	#footer_logo2{margin-top: 30px;	}
+	#footer_logo3{}
+	#footer_logo4{}
+	footer select {width: 150px; height: 25px;	}
+
+	/* footer_right_box	*/
+	#footer_right_box {height: 280px; float: right;}
+	#footer_right_box1 {height: 230px; border-top: 2px solid #aaa;}
+	.footer_right_box1_menu1 {height: 230px; float: left; margin-right: 50px;}
+	.footer_right_box1_menu1 h2 {font-size: 14px; margin-top: 10px; text-transform: uppercase;}
+	.footer_right_box1_menu1 ul {margin-top: 10px;}
+	.footer_right_box1_menu1 ul li {font-size: 12px; margin-top: 5px; text-transform: uppercase;}
+	.footer_right_box1_menu2 {width: 200px; height: 230px; float: right;}
+	.footer_right_box1_menu2 .box1 {float: right; text-align: right;}
+	.footer_right_box1_menu2 .box1 li {font-size: 14px; margin-top: 15px;}
+	.footer_right_box1_menu2 .box2 {width: 200px; height: 50px; margin-top: 180px;}
+	.footer_right_box1_menu2 .box2 li {width: 36px; height: 50px; float: left; margin-right: 5px;}
+	.footer_right_box1_menu2 .box2 li:last-child {margin-right: 0;}
+	.footer_right_box1_menu2 .box2 img {width: 36px; margin-top: 10px;}
+	#footer_right_box2 {height:50px; border-top: 1px solid #aaa;}
+	#footer_right_box2 ul {height: 50px; float: right; margin-top: 10px;}
+	#footer_right_box2 ul li {float: left; font-size: 12px; margin-right: 10px;}
+
+	#popup {width: 400px;	height: 824px; position: absolute; left: 0; top: 0; border: 1px solid #000;}
+	#popup_img {vertical-align: top;}
+	#popup input {vertical-align: middle; position: absolute; margin-left: 10px; left: 0px; bottom: 7px; }
+	#popup h6 {position: absolute; width: 20px; height: 20px; right: 2px; bottom: 2px; cursor: pointer;}
+
+	#popup_banner {width: 100%; border-top: 4px solid #2c1810; position: fixed; left: 0; top: 0; z-index: 9999;}
+	#popup_banner_box1 {width: 100%; height: 210px; background-color: #2c1810; display: none; text-align: center;}
+	#popup_banner_box2 {width: 1200px; height: 20px; margin: auto; text-align: right;}
+	#popup_banner_bt {text-transform: uppercase; width: 150px; height: 20px; background-color: #2c1810; color: #d2952d; text-align: center; border-radius:0 0 5px 5px; vertical-align: top; border: none; outline: none;}
+  </style>
+ </head>
+ <body>
+  <header>
+  	<div id="header1">
+  		<div id="header_box1">
+			<ul id="header1_menu1">
+				<li>facebook</li>
+				<li>blog</li>
+				<li>instagram</li>
+				<li>twitter</li>
+				<li>youtube</li>
+			</ul>
+			<ul id="header1_menu2">		
+				<li>창업문의</li>
+				<li>고객센터</li>
+				<li>search</li>
+				<li><img src="icons/icon_search.png" alt=""></li>
+			</ul>
+				<h1 id="logo"><img src="logo.png" alt=""></h1>
+		</div>
+  	</div>
+
+  	<div id="header2">
+  		<div id="header2_box2">
+		<ul id="header2_menu1">
+			<li>login</li>
+			<li>join</li>
+		</ul>
+			<ul id="header2_menu2">
+				<li>online store</li>
+				<li>menu</li>
+				<li>영양정보 및 알레르기</li>
+				<li>event</li>
+				<li>store</li>
+				<li>brand</li>
+			</ul>
+		</div>
+  	</div>
+  </header>
+	
+	<div id="wrap_slide">
+		<ul id="slide_box">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul id="slide_bt">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div id="slide_left_bt"><img src="icons/btn_prev.png" alt=""></div>
+		<div id="slide_right_bt"><img src="icons/btn_next.png" alt=""></div>
+	</div>
+
+  <div id="new_event">
+  	<div id="new_event_box1">
+		<img src="images/tit_new_event (1).png" alt="">
+		<button>전체 이벤트 보기</button>
+	</div>
+  	<div id="new_event_box2">
+		<h5>던킨도너츠의 다양한 혜책과 <br> 이벤트 그리고 신제품</h5>
+		<h6>sweet break, dunkin' donuts</h6>
+	</div>
+	<div id="new_event_box3">
+	<iframe width="435" height="230" src="https://www.youtube.com/embed/zqULLpgAd2Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+	</div>
+
+  <ul id="new_event_list">
+	<li>
+		<div class="new_list_box1"><img src="images/1635929680(0)(1).jpg" alt=""></div>
+		<div class="new_list_box2">
+		<h3>제목</h3>
+		<h6>날짜</h6>
+		<img src=icons/icon_online.gif alt="" class="new_event_icon"></div>
+		<div class="new_list_box3">내용</div>
+	</li>	
+	<li>
+		<div class="new_list_box1"><img src="images/1630582318.jpg" alt=""></div>
+		<div class="new_list_box2">
+		<h3>제목</h3>
+		<h6>날짜</h6>
+		<img src="icons/icon_online.gif" alt="" class="new_event_icon"></div>
+		<div class="new_list_box3">내용</div>
+	</li>	
+		<li>
+		<div class="new_list_box1"><img src="images/1614661030.jpg" alt=""></div>
+		<div class="new_list_box2">
+		<h3>제목</h3>
+		<h6>날짜</h6>
+		<img src="icons/icon_store.gif" alt="" class="new_event_icon"></div>
+		<div class="new_list_box3">내용</div>
+	</li>	
+		<li>
+		<div class="new_list_box1"><img src="images/1612258028.jpg" alt=""></div>
+		<div class="new_list_box2">
+			<h3>dunkin' tonig</h3>
+			<h6>날짜</h6>
+			<img src="icons/icon_online.gif" alt="" class="new_event_icon">
+		</div>
+		<div class="new_list_box3">내용</div>
+	</li>	
+	</ul>
+  <ul id="new_list_btn">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+  </ul>
+<!--  #bg1 {w100% h400}  -->
+  <div id="bg1">
+  <img src="images/scroll_txt_1 (1).png" alt="" id="bg1_img1">
+  <img src="images/scroll_txt_2 (1).png" alt="" id="bg1_img2">
+  </div>
+
+  <div id="menu_list">
+  	<img src="images/tit_dunkin_menu (1).png" alt="" id="menu_list_title_img">
+  	<h4>던킨도너츠의 다양한 음료와 도넛들</h4>
+  	<p>Happiness, Fun, Refreshment, Energy and Break... If need be, just enjoy them! In busy daily lives,<br>
+	Dunkin' will be a sweet friend to you.</p>
+  	<ul>
+  		<li>
+  			<img src="images/img_product_1 (1).png" alt="">
+  			<h5>donuts</h5>
+  			<button>도넛 메뉴 보기</button>
+  		</li>
+  		<li>
+  			<img src="images/img_product_2 (1).png" alt="">
+  			<h5>coffee</h5>
+  			<button>커피 메뉴 보기</button>
+  		</li>
+  		<li>
+  			<img src="images/img_product_3 (1).png" alt="">
+  			<h5>hot sandwiches</h5>
+  			<button>샌드위치 메뉴 보기</button>
+  		</li>
+  		<li>
+  			<img src="images/img_product_4 (1).png" alt="">
+  			<h5>beverage</h5>
+  			<button>음료 메뉴 보기</button>
+  		</li>
+  		<li>
+  			<img src="images/img_product_5 (1).png" alt="">
+  			<h5>others</h5>
+  			<button>기타 메뉴 보기</button>
+  		</li>
+  	</ul>
+  </div>
+
+  <div id="bg2">
+  	<div id="bg2_leftbox">
+  		<h4>매장찾기</h4>
+  		<p>달콤한 휴식을 즐길 수 있는<br>던킨도너츠 매장을 찾아보세요.</p>
+  	</div>
+  	<div id="bg2_rightbox">
+  		<h4>단체주문 & 케이터링 서비스</h4>
+  		<p>특별한 날, 던킨과 함께<br>즐거움을 나누세요.</p>
+  	</div>
+  </div>
+
+  <div id="sns">
+  	<img src="images/tit_dunkin_sns (1).png" alt="" id="sns_list_title_img">
+  	<h4>던킨도너츠와 함께하는 sns</h4>
+  	<ul id="sns_icon">
+  		<li><img src="icons/icon1.png" alt=""></li>
+  		<li><img src="icons/icon2.png" alt=""></li>
+  		<li><img src="icons/icon3.png" alt=""></li>
+  		<li><img src="icons/icon4.png" alt=""></li>
+  		<li><img src="icons/icon5.png" alt=""></li>
+  	</ul>
+	<div id="sns_slide_wrap">
+  	<ul id="sns_img">
+  		<li><img src="images/mouse_slide1.jpg" alt=""></li>
+  		<li><img src="images/mouse_slide2.png" alt=""></li>
+  		<li><img src="images/mouse_slide3.png" alt=""></li>
+  		<li><img src="images/mouse_slide4.png" alt=""></li>
+  		<li><img src="images/mouse_slide5.png" alt=""></li>
+  		<li><img src="images/mouse_slide6.png" alt=""></li>
+  		<li><img src="images/mouse_slide7.png" alt=""></li>
+  		<li><img src="images/mouse_slide8.png" alt=""></li>
+  		<li><img src="images/mouse_slide9.png" alt=""></li>
+  		<li><img src="images/mouse_slide10.jpg" alt=""></li>
+  		<li><img src="images/mouse_slide11.png" alt=""></li>
+  		<li><img src="images/mouse_slide12.png" alt=""></li>
+  		<li><img src="images/mouse_slide13.png" alt=""></li>
+  		<li><img src="images/mouse_slide14.png" alt=""></li>
+  		<li><img src="images/mouse_slide15.png" alt=""></li>
+  	</ul>
+	</div>
+  </div>
+
+  <footer>
+	<div id="footer_leftbox">
+		<img src="icons/footer_logo.png" alt="" id="footer_logo1">
+		<ul id="footer_text">
+			<li>서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</li>
+			<li>사업자 등록번호 : 303-81-09535</li>
+			<li>비알코리아(주) 대표이사 김창대</li>
+			<li>TEL : 080-555-3131</li>
+			<li>개인정보관리책임자 : 김경우</li>
+			<li>COPYRIGHT Ⓒ 2016 BRKOREA COMPANY. ALL RIGHTS RESERVED.</li>
+		</ul>
+		<img src="icons/footer_img_btn1.png" alt="" id="footer_logo2">
+		<img src="icons/footer_img_btn2.png" alt="" id="footer_logo3">
+		<img src="icons/footer_img_btn3.png" alt="" id="footer_logo4">
+		<br>
+		<select name="family site" id="">
+			<option selected="selected">family site</option>		
+			<option value="">spc그룹</option>
+			<option value="">비알코리아</option>
+			<option value="">배스킨라빈스</option>
+			<option value="">파리바게뜨</option>
+			<option value="">샤니</option>
+			<option value="">파스쿠찌</option>
+			<option value="">해피포인트카드</option>
+			<option value="">던킨 온라인 스쿨</option>
+			<option value="">던킨 아르바이트</option>
+		</select>
+	</div>
+		<div id="footer_right_box">
+			<div id="footer_right_box1">
+				<div class="footer_right_box1_menu1">
+					<h2>menu</h2>
+					<ul>
+						<li>donut</li>
+						<li>meal</li>
+						<li>coffee</li>
+						<li>beverage</li>
+						<li>others</li>
+					</ul>
+				</div>
+				<div class="footer_right_box1_menu1">
+					<h2>event</h2>
+					<ul>
+						<li>매장 프로모션</li>
+						<li>온라인 이벤트</li>
+						<li>당첨자발표</li>
+				</div>
+				<div class="footer_right_box1_menu1">
+					<h2>store</h2>
+					<ul>
+						<li>오프라인 store</li>
+						<li>온라인store</li>
+						<li>가맹점 개설 안내</li>
+				</div>
+				<div class="footer_right_box1_menu1">
+					<h2>brand</h2>
+					<ul>
+						<li>브랜드 소개</li>
+						<li>뉴스 & 공지</li>
+						<li>cf</li>
+				</div>
+				<div class="footer_right_box1_menu2">
+					<ul class="box1">
+						<li>로그인</li>
+						<li>회원가입</li>
+						<li>고객센터</li>
+						<li>가맹점 개설 안내</li>
+						<li>영양정보</li>
+					</ul>
+					<ul class="box2">
+						<li><img src="icons/icon1.png" alt=""></li>
+						<li><img src="icons/icon2.png" alt=""></li>
+						<li><img src="icons/icon3.png" alt=""></li>
+						<li><img src="icons/icon4.png" alt=""></li>
+						<li><img src="icons/icon5.png" alt=""></li>
+					</ul>
+				</div>
+			</div>
+			<div id="footer_right_box2">
+				<ul>
+					<li>윤리신고센터</li>
+					<li>이용약관</li>
+					<li>개인정보처리방침</li>
+					<li>영상정보처리기기운영관리방침</li>
+					<li>이메일무단수집거부</li>
+					<li>거래희망회사사전등록</li>
+					<li>채용안내</li>
+				</ul>
+			</div>
+
+		</div>
+  </footer>
+  <div id="popup">
+  	<img src="images/popup_210318_pc.jpg" alt="" id="popup_img">
+  	<input type="checkbox">
+	<h6></h6>
+  	</div>
+  </div>
+
+  <div id="popup_banner">
+  	<div id="popup_banner_box1"><img src="images/1688386016.png" alt=""></div>
+  	<div id="popup_banner_box2">
+		<button id="popup_banner_bt">monthly dunkin</button>
+	</div>
+  </div>
+ </body>
+</html>
